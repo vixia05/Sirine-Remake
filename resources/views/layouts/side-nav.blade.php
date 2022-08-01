@@ -108,7 +108,7 @@
             </li>
             {{-- Input Data --}}
             <li class="relative" id="inputData">
-                <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out cursor-pointer"
+                <a class="flex items-center text-sm py-4 px-4 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out cursor-pointer"
                     data-mdb-ripple="true" data-mdb-ripple-color="info" data-bs-toggle="collapse"
                     data-bs-target="#collapseInputData" aria-expanded="true" aria-controls="collapseInputData">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -146,7 +146,7 @@
             </li>
             {{-- Rekap Data --}}
             <li class="relative" id="rekapData">
-                <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out cursor-pointer"
+                <a class="flex items-center text-sm py-4 px-4 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out cursor-pointer"
                     data-mdb-ripple="true" data-mdb-ripple-color="info" data-bs-toggle="collapse"
                     data-bs-target="#collapseRekapData" aria-expanded="true" aria-controls="collapseRekapData">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -190,7 +190,7 @@
             </h6>
             {{-- Performa Qty --}}
             <li class="relative" id="perQty">
-                <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out cursor-pointer"
+                <a class="flex items-center text-sm py-4 px-4 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out cursor-pointer"
                     data-mdb-ripple="true" data-mdb-ripple-color="info" data-bs-toggle="collapse"
                     data-bs-target="#collapsePerQty" aria-expanded="true" aria-controls="collapsePerQty">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -221,7 +221,7 @@
             </li>
             {{-- Performa Quality --}}
             <li class="relative" id="perQuality">
-                <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out cursor-pointer"
+                <a class="flex items-center text-sm py-4 px-4 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out cursor-pointer"
                     data-mdb-ripple="true" data-mdb-ripple-color="info" data-bs-toggle="collapse"
                     data-bs-target="#collapsePerQuality" aria-expanded="true" aria-controls="collapsePerQuality">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"

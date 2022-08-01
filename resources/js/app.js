@@ -1,5 +1,4 @@
 import 'tw-elements';
-import './bootstrap';
 
 import Alpine from 'alpinejs';
 
