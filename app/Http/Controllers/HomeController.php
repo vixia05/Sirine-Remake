@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\OrderPcht;
 use App\Models\OrderMmea;
-use Inertia\Inertia;
 use Carbon\Carbon;
+
+// 7 di ganti now()
 
 class HomeController extends Controller
 {
@@ -17,6 +18,7 @@ class HomeController extends Controller
             'order'     => $this->order(),
             'inschiet'  => $this->inschiet(),
             'chartPcht' => $this->dataChartPcht(),
+            'chartMmea' => $this->dataChartMmea(),
         ]);
     }
 
@@ -31,13 +33,13 @@ class HomeController extends Controller
     */
     public function order()
     {
-        $orderPcht = OrderPcht::whereMonth('tgl_obc',now())
+        $orderPcht = OrderPcht::whereMonth('tgl_obc',7)
                                 ->get()
                                 ->unique('no_obc')
                                 ->sum('jml_order');
 
 
-        $orderMmea = OrderMmea::whereMonth('tgl_obc',now())
+        $orderMmea = OrderMmea::whereMonth('tgl_obc',7)
                                 ->get()
                                 ->unique('no_obc')
                                 ->sum('jml_order');
@@ -58,10 +60,10 @@ class HomeController extends Controller
     */
     public function hcs()
     {
-        $hcsPcht = OrderPcht::whereMonth('tgl_obc',now())
+        $hcsPcht = OrderPcht::whereMonth('tgl_obc',7)
                               ->sum('hcs_qc');
 
-        $hcsMmea = OrderMmea::whereMonth('tgl_obc',now())
+        $hcsMmea = OrderMmea::whereMonth('tgl_obc',7)
                               ->sum('hcs_qc');
 
         return [
@@ -79,10 +81,10 @@ class HomeController extends Controller
         $hcsPcht  = $this->hcs()['hcsPcht'];
         $hcsMmea  = $this->hcs()['hcsMmea'];
 
-        $hctsPcht = OrderPcht::whereMonth('tgl_obc',now())
+        $hctsPcht = OrderPcht::whereMonth('tgl_obc',7)
                                 ->sum('hcts_qc');
 
-        $hctsMmea = OrderMmea::whereMonth('tgl_obc',now())
+        $hctsMmea = OrderMmea::whereMonth('tgl_obc',7)
                                 ->sum('hcts_qc');
 
         if($hcsPcht == !null && $hcsPcht == !null)
@@ -114,9 +116,10 @@ class HomeController extends Controller
 
     public function dataChartPcht()
     {
-        $sub2w   = carbon::today()->subdays(14);
+        // Prod Gnti ke 14
+        $sub2w   = carbon::today()->subdays(30);
 
-        $data = OrderPcht::whereBetween('tgl_qc',[$sub2w,carbon::today()])
+        $data = OrderPcht::whereBetween('tgl_qc',[$sub2w,carbon::now()])
                             ->get()
                             ->sortBy('tgl_qc')
                             ->groupby('tgl_qc')
@@ -130,6 +133,28 @@ class HomeController extends Controller
         return [
             'dataPcht' => $dataPcht,
             'datePcht' => $datePcht,
+        ];
+    }
+
+    public function dataChartMmea()
+    {
+        // Prod Gnti ke 14
+        $sub2w   = carbon::today()->subdays(30);
+
+        $data = OrderMmea::whereBetween('tgl_qc',[$sub2w,carbon::now()])
+                            ->get()
+                            ->sortBy('tgl_qc')
+                            ->groupby('tgl_qc')
+                            ->map(function($sum){
+                                return $sum->sum('hcs_qc');
+                            });
+
+        $dataMmea = $data->values();
+        $dateMmea = $data->flip()->values();
+
+        return [
+            'dataMmea' => $dataMmea,
+            'dateMmea' => $dateMmea,
         ];
     }
 }

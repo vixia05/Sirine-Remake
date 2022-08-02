@@ -1,4 +1,5 @@
 import 'tw-elements';
+import 'chart.js';
 
 import Alpine from 'alpinejs';
 
