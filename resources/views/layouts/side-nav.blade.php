@@ -1,13 +1,13 @@
 <nav class="fixed bg-white min-h-screen rounded-lg shadow-md drop-shadow-md w-60">
     {{-- Logo --}}
-    <div class="object-cover max-w-xs bg-slate-600 px-2 shadow-sm drop-shadow-md mb-2">
-        <img src="{{ asset('img/logo.png') }}" class="w-auto max-h-28 mx-auto p-2">
+    <div class="object-cover max-w-xs bg-slate-800 px-2 shadow-sm drop-shadow-md mb-2">
+        <img src="{{ asset('img/logo.png') }}" class="w-auto max-h-28 mx-auto py-4 px-2">
     </div>
     {{-- End logo --}}
     <div class="absolute w-full">
         <ul class="relative">
             <li class="relative">
-                <a class="flex items-center text-sm py-2 px-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
+                <a class="flex items-center text-sm py-2 px-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 hover:rounded-r-lg transition duration-300 ease-in-out"
                     href="{{ route('dashboard') }}" data-mdb-ripple="true" data-mdb-ripple-color="info">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="1.5">
