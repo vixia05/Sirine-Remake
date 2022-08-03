@@ -15,7 +15,7 @@ class PrivillageController extends Controller
      */
     public function index()
     {
-        return Inertia::render('SuperUser/Role&Privillage');
+        return view('SuperUser.Privillage');
     }
 
     /**

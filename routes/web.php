@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth','verified']], function() {
     //--- SuperUser ---//
         Route::group(['namespace' => 'App\Http\Controllers\SuperUser'], function() {
             Route::resources([
-                'createUser' => CreateUserController::class,
+                'users'      => UsersController::class,
                 'privillage' => PrivillageController::class,
                 'updateOrder'=> UpdateOrderController::class,
                 'jamEfektif' => JamEfektifController::class,

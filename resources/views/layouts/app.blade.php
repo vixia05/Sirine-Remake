@@ -37,7 +37,7 @@
         </main>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.2/chart.min.js"></script>
+    <script src="{{ asset('chart.js/chart.min.js') }}"></script>
 </body>
 
 @yield('chart')

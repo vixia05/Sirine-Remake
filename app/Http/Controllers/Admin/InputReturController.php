@@ -15,7 +15,7 @@ class InputReturController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/InputRetur');
+        return view('Admin.Input-Retur');
     }
 
     /**

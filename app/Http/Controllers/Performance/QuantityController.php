@@ -10,11 +10,11 @@ class QuantityController extends Controller
 {
     public function indexUnit()
     {
-        return Inertia::render('Performance/QuantityUnit');
+        return view('Performance.Quantity-Unit');
     }
 
     public function indexIndividu()
     {
-        return Inertia::render('Performance/QuantityIndividu');
+        return view('Performance.Quantity-Individu');
     }
 }

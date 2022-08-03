@@ -15,7 +15,7 @@ class RekapReturController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/RekapRetur');
+        return view('Admin.Rekap-Retur');
     }
 
     /**

@@ -15,7 +15,7 @@ class RekapVerifikasiController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/RekapVerifikasi');
+        return view('Admin.Rekap-Verifikasi');
     }
 
     /**

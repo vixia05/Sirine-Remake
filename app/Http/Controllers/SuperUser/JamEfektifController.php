@@ -15,7 +15,7 @@ class JamEfektifController extends Controller
      */
     public function index()
     {
-        return Inertia::render('SuperUser/JamEfektif');
+        return view('SuperUser.Jam-efektif');
     }
 
     /**

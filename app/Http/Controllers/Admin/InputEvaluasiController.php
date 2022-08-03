@@ -15,7 +15,7 @@ class InputEvaluasiController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/InputEvaluasi');
+        return view('Admin.Input-Evaluasi');
     }
 
     /**

@@ -1,7 +1,7 @@
 <nav class="fixed bg-white min-h-screen rounded-lg shadow-md drop-shadow-md w-60">
     {{-- Logo --}}
     <div class="object-cover max-w-xs bg-slate-600 px-2 shadow-sm drop-shadow-md mb-2">
-        <img src="img/logo.png" class="w-auto max-h-28 mx-auto">
+        <img src="{{ asset('img/logo.png') }}" class="w-auto max-h-28 mx-auto p-2">
     </div>
     {{-- End logo --}}
     <div class="absolute w-full">
@@ -35,7 +35,7 @@
             </h6>
             <li class="relative">
                 <a class="flex items-center text-sm py-2 px-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
-                    href="#!" data-mdb-ripple="true" data-mdb-ripple-color="info">
+                    href="{{ route('users.create') }}" data-mdb-ripple="true" data-mdb-ripple-color="info">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -46,7 +46,7 @@
             </li>
             <li class="relative">
                 <a class="flex items-center text-sm py-2 px-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
-                    href="#!" data-mdb-ripple="true" data-mdb-ripple-color="info">
+                    href="{{ route('users.index') }}" data-mdb-ripple="true" data-mdb-ripple-color="info">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -57,7 +57,7 @@
             </li>
             <li class="relative">
                 <a class="flex items-center text-sm py-2 px-4 h-auto overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
-                    href="#!" data-mdb-ripple="true" data-mdb-ripple-color="info">
+                    href="{{ route('privillage.index') }}" data-mdb-ripple="true" data-mdb-ripple-color="info">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -68,7 +68,7 @@
             </li>
             <li class="relative">
                 <a class="flex items-center text-sm py-2 px-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
-                    href="#!" data-mdb-ripple="true" data-mdb-ripple-color="info">
+                    href="{{ route('updateOrder.index') }}" data-mdb-ripple="true" data-mdb-ripple-color="info">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -79,7 +79,7 @@
             </li>
             <li class="relative">
                 <a class="flex items-center text-sm py-2 px-4 h-auto overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
-                    href="#!" data-mdb-ripple="true" data-mdb-ripple-color="info">
+                    href="{{ route('jamEfektif.index') }}" data-mdb-ripple="true" data-mdb-ripple-color="info">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -97,7 +97,7 @@
             {{-- Data Pegawai --}}
             <li class="relative">
                 <a class="flex items-center text-sm py-2 px-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
-                    href="#!" data-mdb-ripple="true" data-mdb-ripple-color="info">
+                    href="{{ route('dataPegawai.index') }}" data-mdb-ripple="true" data-mdb-ripple-color="info">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -125,19 +125,19 @@
                 <ul class="relative accordion-collapse collapse" id="collapseInputData" aria-labelledby="inputData"
                     data-bs-parent="#sidenavExample">
                     <li class="relative">
-                        <a href="#!"
+                        <a href="{{ route('inputVerifikasi.index') }}"
                             class="flex items-center text-xs py-3 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="info">
                             <span class="ml-3">Data Verifikasi</span></a>
                     </li>
                     <li class="relative">
-                        <a href="#!"
+                        <a href="{{ route('inputRetur.index') }}"
                             class="flex items-center text-xs py-3 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="info"><span class="ml-3">Data
                                 Retur</span></a>
                     </li>
                     <li class="relative">
-                        <a href="#!"
+                        <a href="{{ route('inputEvaluasi.index') }}"
                             class="flex items-center text-xs py-3 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="info"><span class="ml-3">Pesan
                                 Evaluasi</span></a>
@@ -163,19 +163,19 @@
                 <ul class="relative accordion-collapse collapse" id="collapseRekapData" aria-labelledby="rekapData"
                     data-bs-parent="#sidenavExample">
                     <li class="relative">
-                        <a href="#!"
+                        <a href="{{ route('rekapVerif.index') }}"
                             class="flex items-center text-xs py-3 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="info"><span class="ml-3">Data
                                 Verifikasi</span></a>
                     </li>
                     <li class="relative">
-                        <a href="#!"
+                        <a href="{{ route('rekapRetur.index') }}"
                             class="flex items-center text-xs py-3 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="info">
                             <span class="ml-3">Data Retur</span></a>
                     </li>
                     <li class="relative">
-                        <a href="#!"
+                        <a href="{{ route('rekapEvaluasi.index') }}"
                             class="flex items-center text-xs py-3 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="info"><span class="ml-3">Rekap
                                 Evaluasi</span></a>
@@ -207,12 +207,12 @@
                 <ul class="relative accordion-collapse collapse" id="collapsePerQty" aria-labelledby="perQty"
                     data-bs-parent="#sidenavExample">
                     <li class="relative">
-                        <a href="#!"
+                        <a href="{{ route('quantity.unit') }}"
                             class="flex items-center text-xs py-3 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="info"><span class="ml-3">Unit</span></a>
                     </li>
                     <li class="relative">
-                        <a href="#!"
+                        <a href="{{ route('quantity.individu') }}"
                             class="flex items-center text-xs py-3 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="info">
                             <span class="ml-3">Individu</span></a>
@@ -237,12 +237,12 @@
                 <ul class="relative accordion-collapse collapse" id="collapsePerQuality" aria-labelledby="perQuality"
                     data-bs-parent="#sidenavExample">
                     <li class="relative">
-                        <a href="#!"
+                        <a href="{{ route('quality.unit') }}"
                             class="flex items-center text-xs py-3 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="info"><span class="ml-3">Unit</span></a>
                     </li>
                     <li class="relative">
-                        <a href="#!"
+                        <a href="{{ route('quality.individu') }}"
                             class="flex items-center text-xs py-3 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="info">
                             <span class="ml-3">Individu</span></a>
@@ -252,7 +252,7 @@
             {{-- Report Pegawai --}}
             <li class="relative">
                 <a class="flex items-center text-sm py-2 px-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
-                    href="#!" data-mdb-ripple="true" data-mdb-ripple-color="info">
+                    href="{{ route('report') }}" data-mdb-ripple="true" data-mdb-ripple-color="info">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round"

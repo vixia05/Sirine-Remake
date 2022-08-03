@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class CreateUserController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class CreateUserController extends Controller
      */
     public function index()
     {
-        return Inertia::render('SuperUser/CreateUser');
+        return view('superUser.list-users');
     }
 
     /**
@@ -25,7 +25,7 @@ class CreateUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('superUser.create-user');
     }
 
     /**

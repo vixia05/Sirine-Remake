@@ -10,11 +10,11 @@ class QualityController extends Controller
 {
     public function indexUnit()
     {
-        return Inertia::render('Performance/QualityUnit');
+        return view('Performance.Quality-Unit');
     }
 
     public function indexIndividu()
     {
-        return Inertia::render('Performance/QualityIndividu');
+        return view('Performance.Quality-Individu');
     }
 }

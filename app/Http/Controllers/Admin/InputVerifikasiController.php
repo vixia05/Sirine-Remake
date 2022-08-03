@@ -15,7 +15,7 @@ class InputVerifikasiController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/InputVerifikasi');
+        return view('Admin.Input-Verifikasi');
     }
 
     /**

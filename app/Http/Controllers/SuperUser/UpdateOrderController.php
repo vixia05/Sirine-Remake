@@ -15,7 +15,7 @@ class UpdateOrderController extends Controller
      */
     public function index()
     {
-        return Inertia::render('SuperUser/UpdateOrder');
+        return view('SuperUser.Update-Order');
     }
 
     /**

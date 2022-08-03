@@ -15,7 +15,7 @@ class RekapEvaluasiController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/RekapEvaluasi');
+        return view('Admin.Rekap-Evaluasi');
     }
 
     /**
