@@ -33,13 +33,13 @@ class HomeController extends Controller
     */
     public function order()
     {
-        $orderPcht = OrderPcht::whereMonth('tgl_obc',7)
+        $orderPcht = OrderPcht::whereMonth('tgl_obc',now())
                                 ->get()
                                 ->unique('no_obc')
                                 ->sum('jml_order');
 
 
-        $orderMmea = OrderMmea::whereMonth('tgl_obc',7)
+        $orderMmea = OrderMmea::whereMonth('tgl_obc',now())
                                 ->get()
                                 ->unique('no_obc')
                                 ->sum('jml_order');
@@ -60,10 +60,10 @@ class HomeController extends Controller
     */
     public function hcs()
     {
-        $hcsPcht = OrderPcht::whereMonth('tgl_obc',7)
+        $hcsPcht = OrderPcht::whereMonth('tgl_obc',now())
                               ->sum('hcs_qc');
 
-        $hcsMmea = OrderMmea::whereMonth('tgl_obc',7)
+        $hcsMmea = OrderMmea::whereMonth('tgl_obc',now())
                               ->sum('hcs_qc');
 
         return [
@@ -81,10 +81,10 @@ class HomeController extends Controller
         $hcsPcht  = $this->hcs()['hcsPcht'];
         $hcsMmea  = $this->hcs()['hcsMmea'];
 
-        $hctsPcht = OrderPcht::whereMonth('tgl_obc',7)
+        $hctsPcht = OrderPcht::whereMonth('tgl_obc',now())
                                 ->sum('hcts_qc');
 
-        $hctsMmea = OrderMmea::whereMonth('tgl_obc',7)
+        $hctsMmea = OrderMmea::whereMonth('tgl_obc',now())
                                 ->sum('hcts_qc');
 
         if($hcsPcht == !null && $hcsPcht == !null)
@@ -117,7 +117,7 @@ class HomeController extends Controller
     public function dataChartPcht()
     {
         // Prod Gnti ke 14
-        $sub2w   = carbon::today()->subdays(30);
+        $sub2w   = carbon::today()->subdays(14);
 
         $data = OrderPcht::whereBetween('tgl_qc',[$sub2w,carbon::now()])
                             ->get()
@@ -139,7 +139,7 @@ class HomeController extends Controller
     public function dataChartMmea()
     {
         // Prod Gnti ke 14
-        $sub2w   = carbon::today()->subdays(30);
+        $sub2w   = carbon::today()->subdays(14);
 
         $data = OrderMmea::whereBetween('tgl_qc',[$sub2w,carbon::now()])
                             ->get()

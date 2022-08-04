@@ -1,11 +1,11 @@
-const ctxMmea = document.getElementById('mmeaDaily');
-const mmeaDaily = new Chart(ctxMmea, {
+const ctxQty = document.getElementById('qtyUnit');
+const qtyUnit = new Chart(ctxQty, {
     type: 'bar',
     data: {
-        labels: dataChart.dateMmea,
+        labels: dataChart.date,
         datasets: [{
-            label: 'Performance By Quantity',
-            data: dataChart.dataMmea,
+            label: 'Verifikasi MMEA',
+            data: dataChart.data,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -26,10 +26,23 @@ const mmeaDaily = new Chart(ctxMmea, {
         }]
     },
     options: {
+        plugins:{
+            legend :{
+                display : false,
+            }
+        },
         scales: {
             y: {
-                beginAtZero: true
-            }
+                beginAtZero: true,
+                grid:{
+                    display: false
+                }
+            },
+            x: {
+                grid:{
+                    display: false
+                }
+            },
         }
     }
 });
