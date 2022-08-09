@@ -4,8 +4,8 @@
         <img src="{{ asset('img/logo.png') }}" class="w-auto max-h-28 mx-auto py-4 px-2">
     </div> --}}
     {{-- End logo --}}
-    <div class="absolute w-full">
-        <ul class="relative pl-5 pr-2 pt-2">
+    <div class="absolute w-full" id="sideNav">
+        <ul class="relative px-5 pt-2">
             <li class="relative my-2">
                 <a class="{{ Route::is('dashboard') ? ' bg-blue-500 rounded-md shadow-md text-white' : 'text-gray-600  hover:bg-slate-300 hover:bg-opacity-50' }}
                 flex items-center text-sm py-[6px] px-2 overflow-hidden text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out"
@@ -130,7 +130,7 @@
                     </svg>
                 </a>
                 <ul class="relative accordion-collapse collapse" id="collapseInputData" aria-labelledby="inputData"
-                    data-bs-parent="#sidenavExample">
+                    data-bs-parent="#sideNav">
                     <li class="relative my-2">
                         <a href="{{ route('inputVerifikasi.index') }}"
                             class="{{ Route::is('inputVerifikasi.index') ? ' bg-blue-500 rounded-md shadow-md text-white' : 'text-gray-600  hover:bg-slate-300 hover:bg-opacity-50' }}
@@ -155,10 +155,9 @@
                 </ul>
             </li>
             {{-- Rekap Data --}}
-            <li class="{{ Route::is('rekapVerif.index') || Route::is('rekapRetur.index') || Route::is('rekapEvaluasi.index') ? ' bg-slate-700 rounded-md shadow-md text-white' : '' }}
-            relative w-full rounded-lg"
-                id="rekapData">
-                <a class="flex items-center text-sm  py-[6px] px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out cursor-pointer  hover:bg-slate-600 hover:bg-opacity-60"
+            <li class="relative w-full rounded-lg" id="rekapData">
+                <a class="{{ Route::is('rekapVerif.index') || Route::is('rekapRetur.index') || Route::is('rekapEvaluasi.index') ? ' bg-slate-500 rounded-md shadow-md text-white' : 'text-gray-600  hover:bg-slate-300 hover:bg-opacity-50' }}
+                flex items-center text-sm  py-[6px] px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out cursor-pointer"
                     data-mdb-ripple="true" data-mdb-ripple-color="primary" data-bs-toggle="collapse"
                     data-bs-target="#collapseRekapData" aria-expanded="true" aria-controls="collapseRekapData">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -173,10 +172,10 @@
                     </svg>
                 </a>
                 <ul class="relative accordion-collapse collapse pl-5 pr-2 py-2" id="collapseRekapData"
-                    aria-labelledby="rekapData" data-bs-parent="#sidenavExample">
+                    aria-labelledby="rekapData" data-bs-parent="#sideNav">
                     <li class="relative my-2">
                         <a href="{{ route('rekapVerif.index') }}"
-                            class="{{ Route::is('rekapVerif.index') ? ' bg-blue-500 rounded-md shadow-md text-white ' : 'text-white  hover:bg-slate-600 hover:bg-opacity-60' }}
+                            class="{{ Route::is('rekapVerif.index') ? ' bg-blue-500 rounded-md shadow-md text-white ' : 'text-gray-600  hover:bg-slate-300 hover:bg-opacity-50' }}
                             flex items-center text-xs py-1 px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="primary">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
@@ -222,7 +221,8 @@
             </h6>
             {{-- Performa Qty --}}
             <li class="relative my-2" id="perQty">
-                <a class="flex items-center text-sm  py-[6px] px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out cursor-pointer"
+                <a class="{{ Route::is('rekapVerif.index') ? ' bg-blue-500 rounded-md shadow-md text-white ' : 'text-gray-600  hover:bg-slate-300 hover:bg-opacity-50' }}
+                flex items-center text-sm  py-[6px] px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out cursor-pointer"
                     data-mdb-ripple="true" data-mdb-ripple-color="primary" data-bs-toggle="collapse"
                     data-bs-target="#collapsePerQty" aria-expanded="true" aria-controls="collapsePerQty">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -237,16 +237,18 @@
                     </svg>
                 </a>
                 <ul class="relative accordion-collapse collapse" id="collapsePerQty" aria-labelledby="perQty"
-                    data-bs-parent="#sidenavExample">
+                    data-bs-parent="#sideNav">
                     <li class="relative my-2">
                         <a href="{{ route('quantity.unit') }}"
-                            class="flex items-center text-xs py-1 px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out"
+                            class="{{ Route::is('quantity.unit') ? ' bg-blue-500 rounded-md shadow-md text-white ' : 'text-gray-600  hover:bg-slate-300 hover:bg-opacity-50' }}
+                            flex items-center text-xs py-1 px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="primary"><span
                                 class="ml-3">Unit</span></a>
                     </li>
                     <li class="relative my-2">
                         <a href="{{ route('quantity.individu') }}"
-                            class="flex items-center text-xs py-1 px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out"
+                            class="{{ Route::is('quantity.individu') ? ' bg-blue-500 rounded-md shadow-md text-white ' : 'text-gray-600  hover:bg-slate-300 hover:bg-opacity-50' }}
+                            flex items-center text-xs py-1 px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="primary">
                             <span class="ml-3">Individu</span></a>
                     </li>
@@ -254,7 +256,8 @@
             </li>
             {{-- Performa Quality --}}
             <li class="relative my-2" id="perQuality">
-                <a class="flex items-center text-sm  py-[6px] px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out cursor-pointer"
+                <a class="{{ Route::is('rekapVerif.index') ? ' bg-blue-500 rounded-md shadow-md text-white ' : 'text-gray-600  hover:bg-slate-300 hover:bg-opacity-50' }}
+                flex items-center text-sm  py-[6px] px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out cursor-pointer"
                     data-mdb-ripple="true" data-mdb-ripple-color="primary" data-bs-toggle="collapse"
                     data-bs-target="#collapsePerQuality" aria-expanded="true" aria-controls="collapsePerQuality">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -268,16 +271,18 @@
                     </svg>
                 </a>
                 <ul class="relative accordion-collapse collapse" id="collapsePerQuality" aria-labelledby="perQuality"
-                    data-bs-parent="#sidenavExample">
+                    data-bs-parent="#sideNav">
                     <li class="relative my-2">
                         <a href="{{ route('quality.unit') }}"
-                            class="flex items-center text-xs py-1 px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out"
+                            class="{{ Route::is('quality.unit') ? ' bg-blue-500 rounded-md shadow-md text-white ' : 'text-gray-600  hover:bg-slate-300 hover:bg-opacity-50' }}
+                            flex items-center text-xs py-1 px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="primary"><span
                                 class="ml-3">Unit</span></a>
                     </li>
                     <li class="relative my-2">
                         <a href="{{ route('quality.individu') }}"
-                            class="flex items-center text-xs py-1 px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out"
+                            class="{{ Route::is('quality.individu') ? ' bg-blue-500 rounded-md shadow-md text-white ' : 'text-gray-600  hover:bg-slate-300 hover:bg-opacity-50' }}
+                            flex items-center text-xs py-1 px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out"
                             data-mdb-ripple="true" data-mdb-ripple-color="primary">
                             <span class="ml-3">Individu</span></a>
                     </li>
@@ -285,7 +290,8 @@
             </li>
             {{-- Report Pegawai --}}
             <li class="relative my-2">
-                <a class="flex items-center text-sm py-[6px] px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out"
+                <a class="{{ Route::is('report') ? ' bg-blue-500 rounded-md shadow-md text-white' : 'text-gray-600  hover:bg-slate-300 hover:bg-opacity-50' }}
+                flex items-center text-sm py-[6px] px-2 overflow-hidden  text-ellipsis whitespace-nowrap rounded-lg hover:rounded-lg hover:shadow-md transition duration-300 ease-in-out"
                     href="{{ route('report') }}" data-mdb-ripple="true" data-mdb-ripple-color="primary">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="2">
