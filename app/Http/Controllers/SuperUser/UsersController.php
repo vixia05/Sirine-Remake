@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\SuperUser;
 
 use App\Models\Users;
+use App\Models\Unit;
+use App\Models\Seksi;
+use App\Models\Workstation;
 use App\Models\Privillage;
 use App\Models\UserDetails;
 use App\Http\Controllers\Controller;
@@ -28,7 +31,15 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('superUser.create-user');
+        $listUnit = Unit::get()->sortBy('unit')->pluck('unit','id');
+        $listSeksi = Seksi::get()->sortBy('seksi')->pluck('seksi','id');
+        $listWorkstation = Workstation::get()->sortBy('workstation')->pluck('workstation','id');
+
+        return view('superUser.create-user',[
+            'listUnit'  => $listUnit,
+            'listSeksi' => $listSeksi,
+            'listWorkstation' => $listWorkstation
+        ]);
     }
 
     /**
@@ -39,6 +50,23 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+        // Validator
+        $validator = $request->validate([
+            'np'    => 'required|max:4',
+            'name'  => 'required',
+            'seksi' => 'required',
+            'unit'  => 'required',
+            'workstation' => 'required',
+            'unit'  => 'required',
+            'password'  => 'required|min:8',
+            'konfirmasi_password' => 'required|same:password',
+            'privillage' => 'required',
+            'email' => 'required',
+            'seksi' => 'required',
+            'workstation' => 'required',
+            'birthDate' => 'required',
+        ]);
+
         // 1.0 Insert Account Untuk Login
 
         Users::updateOrCreate(
@@ -56,14 +84,22 @@ class UsersController extends Controller
             [
                 'foto'    => 'default.jpg',
                 'nama'    => $request->name,
-                'alamat'  => $request->alamat,
+                'alamat'  => $request->address,
                 'contact' => $request->contact,
-                'tgl_lahir' => $request->tgl_lahir,
+                'tgl_lahir' => $request->birthDate,
                 'id_unit'   => $request->unit,
                 'id_seksi'  => $request->seksi,
                 'id_workstation' => $request->workstation
             ]
-        )
+            );
+
+        // 3.0 Insert Privillage
+
+        Privillage::updateOrCreate(
+            ['np_user' => $request->np],
+            ['level'   => $request->level]
+        );
+        return redirect()->back()->withErrors($validator);
     }
 
     /**

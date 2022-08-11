@@ -6,7 +6,7 @@
                 {{-- 1.0 Form Data Pegawai --}}
                 <div class="rounded-2xl bg-white shadow-md drop-shadow-md overflow-hidden py-4 px-8">
                     <h5 class="text-gray-900 text-xl font-bold mb-6 border-b-2 pt-5 pb-3">Data Pegawai</h5>
-                    <form>
+                    <form action="{{ route('users.store') }}">
                         @csrf
                         {{-- 1.1 Input Nomor Pegawai --}}
                         <div class="grid grid-rows-2 mb-6">
@@ -14,7 +14,7 @@
                             <div
                                 class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
                                 <input type="text" maxlength="4" class="border-none w-full focus:ring-0 leading-tight"
-                                    id="np" name="np">
+                                    id="np" name="np" value="{{ old('np') }}">
                             </div>
                         </div>
                         {{-- 1.2 Input Nama Pegawai --}}
@@ -23,7 +23,7 @@
                             <div
                                 class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
                                 <input type="text" class="border-none w-full focus:ring-0 font-extralight leading-tight"
-                                    id="name" name="name">
+                                    id="name" name="name" value="{{ old('name') }}">
                             </div>
                         </div>
                         {{-- 1.3 Input E-mail Pegawai --}}
@@ -32,7 +32,7 @@
                             <div
                                 class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
                                 <input type="email" class="border-none w-full focus:ring-0 font-extralight leading-tight"
-                                    id="email" name="email">
+                                    id="email" name="email" value="{{ old('email') }}">
                             </div>
                         </div>
                         {{-- 1.5 Input Contact Pegawai --}}
@@ -41,7 +41,7 @@
                             <div
                                 class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
                                 <input type="text" class="border-none w-full focus:ring-0 font-extralight leading-tight"
-                                    id="contact" name="contact">
+                                    id="contact" name="contact" value="{{ old('contact') }}">
                             </div>
                         </div>
                         {{-- 1.6 Input Tanggal Lahir Pegawai --}}
@@ -50,7 +50,7 @@
                             <div
                                 class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
                                 <input type="date" class="border-none w-full focus:ring-0 font-extralight leading-tight"
-                                    id="birthDate" name="birthDate">
+                                    id="birthDate" name="birthDate" value="{{ old('birthDate') }}">
                             </div>
                         </div>
                         {{-- 1.6 Input Alamat Pegawai --}}
@@ -58,7 +58,8 @@
                             <label for="address" class="inline-block text-gray-600 font-medium">Alamat</label>
                             <div
                                 class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
-                                <textarea class="border-none w-full focus:ring-0 font-extralight leading-tight mt-1" id="address" name="address"></textarea>
+                                <textarea class="border-none w-full focus:ring-0 font-extralight leading-tight mt-1" id="address" name="address"
+                                    value="{{ old('address') }}"></textarea>
                             </div>
                         </div>
                         {{-- Submit --}}
