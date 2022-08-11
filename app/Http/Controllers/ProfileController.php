@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
+use App\Models\Users;
+use App\Models\Unit;
+use App\Models\Seksi;
 use App\Models\Privillage;
+use App\Models\Workstation;
 use App\Models\UserDetails;
 
 class ProfileController extends Controller
@@ -15,7 +20,18 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('Profile');
+        $userData   = UserDetails::where('np_user',Auth::user()->np)->first();
+
+        $unit   = Unit::where('id',$userData->value('id_unit'))->value('unit');
+        $seksi  = Seksi::where('id',$userData->value('id_seksi'))->value('seksi');
+        $workstation = Workstation::where('id',$userData->value('id_workstation'))->value('workstation');
+
+        return view('Profile',[
+            'userData' => $userData,
+            'unit'     => $unit,
+            'seksi'    => $seksi,
+            'workstation' => $workstation,
+        ]);
     }
 
     /**

@@ -7,6 +7,7 @@
                 <div class="rounded-2xl bg-white shadow-md drop-shadow-md overflow-hidden py-4 px-8">
                     <h5 class="text-gray-900 text-xl font-bold mb-6 border-b-2 pt-5 pb-3">Data Pegawai</h5>
                     <form>
+                        @csrf
                         {{-- 1.1 Input Nomor Pegawai --}}
                         <div class="grid grid-rows-2 mb-6">
                             <label for="np" class="inline-block text-gray-600 font-medium py-1">Nomor Pegawai</label>

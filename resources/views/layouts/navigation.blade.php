@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-slate-800 drop-shadow-md sticky-top">
+<nav x-data="{ open: false }" class="bg-gray-200 drop-shadow-md sticky-top">
     <!-- Primary Navigation Menu -->
     <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -22,7 +22,7 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <img src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                        <img src="{{ asset('img/Avatar/default.jpg') }}"
                             class="rounded-full w-10 h-10 hover:ring-2 focus:ring-2" alt="" loading="lazy" />
                     </x-slot>
 

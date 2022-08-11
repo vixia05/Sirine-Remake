@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\SuperUser;
 
+use App\Models\Users;
+use App\Models\Privillage;
+use App\Models\UserDetails;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -36,7 +39,31 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 1.0 Insert Account Untuk Login
+
+        Users::updateOrCreate(
+            ['np'    => $request->np],
+            [
+                'email'    => $request->email,
+                'password' => Hash::make($request->passowrd),
+            ]
+        );
+
+        // 2.0 Insert Profile
+
+        UserDetails::updateOrCreate(
+            ['np_user' => $request->np],
+            [
+                'foto'    => 'default.jpg',
+                'nama'    => $request->name,
+                'alamat'  => $request->alamat,
+                'contact' => $request->contact,
+                'tgl_lahir' => $request->tgl_lahir,
+                'id_unit'   => $request->unit,
+                'id_seksi'  => $request->seksi,
+                'id_workstation' => $request->workstation
+            ]
+        )
     }
 
     /**

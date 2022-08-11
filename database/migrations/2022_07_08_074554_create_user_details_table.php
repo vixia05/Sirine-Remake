@@ -22,7 +22,8 @@ class CreateUserDetailsTable extends Migration
             $table->string('nama');
             $table->string('contact');
             $table->date('tgl_lahir');
-            $table->text('alamat');
+            $table->text('alamat')->nullable();
+            $table->string('foto')->default("default.jpg");
             $table->timestamps();
 
 

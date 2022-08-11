@@ -1,0 +1,14 @@
+id,unit,id_seksi,created_at,updated_at
+1,SBU Produk Non Uang,1,10-03-2022 2:11,10-03-2022 2:11
+2,Khazanah Awal Pita Cukai,2,10-03-2022 2:11,10-03-2022 2:11
+3,Cetak Pita Cukai,3,10-03-2022 2:11,10-03-2022 2:11
+4,Verifikasi Pita Cukai,2,10-03-2022 2:11,10-03-2022 2:11
+5,Khazanah Akhir Pita Cuka,2,10-03-2022 2:11,10-03-2022 2:11
+6,Pengiriman Pita Cukai,4,10-03-2022 2:11,10-03-2022 2:11
+7,Khazanah Awal Materai,5,10-03-2022 2:11,10-03-2022 2:11
+8,Cetak Materai,6,10-03-2022 2:11,10-03-2022 2:11
+9,Khazanah Akhir Materai,5,10-03-2022 2:11,10-03-2022 2:11
+10,Khazanah Awal Paspor,7,10-03-2022 2:11,10-03-2022 2:11
+11,Cetak Paspor,8,10-03-2022 2:11,10-03-2022 2:11
+12,Verifikasi Paspor,7,10-03-2022 2:11,10-03-2022 2:11
+13,Khazanah Akhir Paspor,7,10-03-2022 2:11,10-03-2022 2:11
