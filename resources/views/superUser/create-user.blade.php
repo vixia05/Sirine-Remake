@@ -2,11 +2,11 @@
 @section('content')
     <div class="py-6">
         <div class="mx-auto sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 gap-4">
-                {{-- 1.0 Form Data Pegawai --}}
-                <div class="rounded-2xl bg-white shadow-md drop-shadow-md overflow-hidden py-4 px-8">
-                    <h5 class="text-gray-900 text-xl font-bold mb-6 border-b-2 pt-5 pb-3">Data Pegawai</h5>
-                    <form action="{{ route('users.store') }}">
+            <form method="post" action="{{ route('users.store') }}" autocomplete="off" enctype="multipart/form-data">
+                <div class="grid grid-cols-2 gap-4">
+                    {{-- 1.0 Form Data Pegawai --}}
+                    <div class="rounded-2xl bg-white shadow-md drop-shadow-md overflow-hidden py-4 px-8">
+                        <h5 class="text-gray-900 text-xl font-bold mb-6 border-b-2 pt-5 pb-3">Data Pegawai</h5>
                         @csrf
                         {{-- 1.1 Input Nomor Pegawai --}}
                         <div class="grid grid-rows-2 mb-6">
@@ -14,7 +14,7 @@
                             <div
                                 class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
                                 <input type="text" maxlength="4" class="border-none w-full focus:ring-0 leading-tight"
-                                    id="np" name="np" value="{{ old('np') }}">
+                                    id="np" name="np" value="{{ old('np') }}" required>
                             </div>
                         </div>
                         {{-- 1.2 Input Nama Pegawai --}}
@@ -23,7 +23,7 @@
                             <div
                                 class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
                                 <input type="text" class="border-none w-full focus:ring-0 font-extralight leading-tight"
-                                    id="name" name="name" value="{{ old('name') }}">
+                                    id="name" name="name" value="{{ old('name') }}" required>
                             </div>
                         </div>
                         {{-- 1.3 Input E-mail Pegawai --}}
@@ -32,7 +32,7 @@
                             <div
                                 class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
                                 <input type="email" class="border-none w-full focus:ring-0 font-extralight leading-tight"
-                                    id="email" name="email" value="{{ old('email') }}">
+                                    id="email" name="email" value="{{ old('email') }}" required>
                             </div>
                         </div>
                         {{-- 1.5 Input Contact Pegawai --}}
@@ -64,15 +64,13 @@
                         </div>
                         {{-- Submit --}}
                         <div class="flex space-x-2 justify-end pt-4">
-                            <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
+                            <button type="submit" data-mdb-ripple="true" data-mdb-ripple-color="light"
                                 class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Submit</button>
                         </div>
-                    </form>
-                </div>
-                <div class="grid grid-rows-2 gap-4">
-                    <div class="rounded-2xl bg-white shadow-md drop-shadow-md overflow-hidden py-2 px-8">
-                        {{-- 2.0 Form Unit Kerja --}}
-                        <form>
+                    </div>
+                    <div class="grid grid-rows-2 gap-4">
+                        <div class="rounded-2xl bg-white shadow-md drop-shadow-md overflow-hidden py-2 px-8">
+                            {{-- 2.0 Form Unit Kerja --}}
                             <h5 class="text-gray-900 text-xl font-bold mb-4 border-b-2 pt-5 pb-3">Unit Kerja</h5>
                             {{-- 2.1 Select Divisi --}}
                             <div class="form-control mb-5">
@@ -92,7 +90,9 @@
                                     class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
                                     <select class="border-none w-full focus:ring-0 font-extralight leading-tight text-sm"
                                         id="seksi" name="seksi">
-                                        <option>Khazanah & Verifikasi Pita Cukai</option>
+                                        @foreach ($listSeksi as $seksi)
+                                            <option value="{{ $seksi->id }}">{{ $seksi->seksi }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -103,7 +103,9 @@
                                     class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
                                     <select class="border-none w-full focus:ring-0 font-extralight leading-tight text-sm"
                                         id="unit" name="unit">
-                                        <option>Verifikasi Pita Cukai</option>
+                                        @foreach ($listUnit as $unit)
+                                            <option value="{{ $unit->id }}">{{ $unit->unit }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -114,15 +116,15 @@
                                     class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
                                     <select class="border-none w-full focus:ring-0 font-extralight leading-tight text-sm"
                                         id="workstation" name="workstation">
-                                        <option>Verifikator Team A</option>
+                                        @foreach ($listWorkstation as $station)
+                                            <option value="{{ $station->id }}">{{ $station->workstation }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                    <div class="rounded-2xl bg-white shadow-md drop-shadow-md overflow-hidden py-2 px-8">
-                        {{-- 3.0 Form Privillage --}}
-                        <form>
+                        </div>
+                        <div class="rounded-2xl bg-white shadow-md drop-shadow-md overflow-hidden py-2 px-8">
+                            {{-- 3.0 Form Privillage --}}
                             <h5 class="text-gray-900 text-xl font-bold mb-6 border-b-2 pt-6 pb-3">Privillage</h5>
                             {{-- 3.1 Select Privillige/Role --}}
                             <div class="grid grid-rows-2 mb-6">
@@ -131,7 +133,12 @@
                                     class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
                                     <select class="border-none w-full focus:ring-0 font-extralight leading-tight text-sm"
                                         id="privillage" name="privillage">
-                                        <option>Super User</option>
+                                        <option value="1">Super User</option>
+                                        <option value="2">Kepala Divisi</option>
+                                        <option value="3">Kepala Seksi</option>
+                                        <option value="4">Kepala Unit</option>
+                                        <option value="5">Admin</option>
+                                        <option value="6" selected>User</option>
                                     </select>
                                 </div>
                             </div>
@@ -142,7 +149,7 @@
                                     class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
                                     <input type="password"
                                         class="border-none w-full focus:ring-0 font-extralight leading-tight text-sm"
-                                        id="password" name="password">
+                                        id="password" name="password" required>
                                 </div>
                             </div>
                             <div class="grid grid-rows-2">
@@ -151,13 +158,13 @@
                                     class="border-b hover:border-blue-300 hover:shadow-md focus-within:border-blue-500 focus-within:shadow-md transition duration-150 rounded-md">
                                     <input type="password"
                                         class="border-none w-full focus:ring-0 font-extralight leading-tight text-sm"
-                                        id="passwordConfirmation" name="passwordConfirmation">
+                                        id="passwordConfirmation" name="passwordConfirmation" required>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 @endsection

@@ -3997,6 +3997,9 @@ textarea.form-control.is-invalid {
 .row-span-2 {
   grid-row: span 2 / span 2;
 }
+.row-span-5 {
+  grid-row: span 5 / span 5;
+}
 .float-left {
   float: left;
 }
@@ -4289,6 +4292,9 @@ textarea.form-control.is-invalid {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+.grid-flow-row {
+  grid-auto-flow: row;
 }
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));

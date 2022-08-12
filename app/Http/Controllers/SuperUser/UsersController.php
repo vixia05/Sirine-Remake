@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\SuperUser;
 
-use App\Models\Users;
+use App\Models\User;
 use App\Models\Unit;
 use App\Models\Seksi;
 use App\Models\Workstation;
 use App\Models\Privillage;
 use App\Models\UserDetails;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -21,7 +22,15 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('superUser.list-users');
+        $data   = UserDetails::paginate(15)->sortBy('np_user');
+        // $np    = $get->pluck('np_user');
+        // $nama  = $get->pluck('nama');
+
+        // dd($seksi);
+
+        return view('superUser.list-users',[
+            'data' => $data,
+        ]);
     }
 
     /**
@@ -31,9 +40,14 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $listUnit = Unit::get()->sortBy('unit')->pluck('unit','id');
-        $listSeksi = Seksi::get()->sortBy('seksi')->pluck('seksi','id');
-        $listWorkstation = Workstation::get()->sortBy('workstation')->pluck('workstation','id');
+        $listUnit = Unit::get()
+                        ->sortBy('unit');
+
+        $listSeksi = Seksi::get()
+                          ->sortBy('seksi');
+
+        $listWorkstation = Workstation::get()
+                                      ->sortBy('workstation');
 
         return view('superUser.create-user',[
             'listUnit'  => $listUnit,
@@ -57,23 +71,20 @@ class UsersController extends Controller
             'seksi' => 'required',
             'unit'  => 'required',
             'workstation' => 'required',
-            'unit'  => 'required',
             'password'  => 'required|min:8',
-            'konfirmasi_password' => 'required|same:password',
+            'passwordConfirmation' => 'required|same:password',
             'privillage' => 'required',
             'email' => 'required',
-            'seksi' => 'required',
-            'workstation' => 'required',
             'birthDate' => 'required',
         ]);
 
         // 1.0 Insert Account Untuk Login
 
-        Users::updateOrCreate(
+        User::updateOrCreate(
             ['np'    => $request->np],
             [
                 'email'    => $request->email,
-                'password' => Hash::make($request->passowrd),
+                'password' => hash::make($request->password),
             ]
         );
 
@@ -97,9 +108,10 @@ class UsersController extends Controller
 
         Privillage::updateOrCreate(
             ['np_user' => $request->np],
-            ['level'   => $request->level]
+            ['level'   => $request->privillage]
         );
-        return redirect()->back()->withErrors($validator);
+
+        return redirect()->back();
     }
 
     /**
