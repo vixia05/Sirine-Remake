@@ -11,7 +11,6 @@ use App\Models\UserDetails;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 
 class UsersController extends Controller
 {
@@ -22,11 +21,22 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $data   = UserDetails::paginate(15)->sortBy('np_user');
-        // $np    = $get->pluck('np_user');
-        // $nama  = $get->pluck('nama');
+        $data   = UserDetails::orderBy('np_user')->paginate(15);
 
-        // dd($seksi);
+        // $data  = $get->map(function($data){
+        //             return Unit::where('id',$data->id_unit)->value('unit');
+        //          });
+
+        // foreach($get as $datas)
+        // {
+        //     $np_user[]  = $datas->np_user;
+        //     $nama[]  = $datas->nama;
+        //     $unit[]  = Unit::where('id',$datas->id_unit)->value('unit');
+        //     $seksi[] = Seksi::where('id',$datas->id_seksi)->value('seksi');
+        //     $privillage[] = Privillage::where('level',User::where('np',$datas->np)->value('level'))->value('role');
+        // }
+
+        // dd($data);
 
         return view('superUser.list-users',[
             'data' => $data,

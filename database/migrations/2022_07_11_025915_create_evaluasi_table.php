@@ -15,9 +15,9 @@ class CreateEvaluasiTable extends Migration
     {
         Schema::create('evaluasi', function (Blueprint $table) {
             $table->id();
-            $table->string('np_kasek');
-            $table->string('np_kaun');
-            $table->string('np_user');
+            $table->string('np_kasek')->nullable();
+            $table->string('np_kaun')->nullable();
+            $table->string('np_user')->nullable();
             $table->text('eva_kasek')
                   ->nullable();
 

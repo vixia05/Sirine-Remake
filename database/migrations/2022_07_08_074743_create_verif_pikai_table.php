@@ -17,12 +17,12 @@ class CreateVerifPikaiTable extends Migration
             $table->id();
             $table->string('np_user');
             $table->date('tgl_verif');
-            $table->integer('jml_verif');
-            $table->integer('jml_obc');
-            $table->integer('target');
-            $table->integer('lembur');
-            $table->integer('izin');
-            $table->string('keterangan');
+            $table->integer('jml_verif')->default(0);
+            $table->integer('jml_obc')->default(0);
+            $table->integer('target')->default(30);
+            $table->integer('lembur')->nullable();
+            $table->integer('izin')->nullable();
+            $table->string('keterangan')->nullable();
             $table->integer('validation');
             $table->timestamps();
 

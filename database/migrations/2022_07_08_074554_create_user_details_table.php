@@ -20,7 +20,7 @@ class CreateUserDetailsTable extends Migration
             $table->foreignId('id_unit');
             $table->foreignId('id_workstation');
             $table->string('nama');
-            $table->string('contact');
+            $table->string('contact')->nullable();
             $table->date('tgl_lahir');
             $table->text('alamat')->nullable();
             $table->string('foto')->default("default.jpg");

@@ -1,3 +1,4 @@
+@section('title', 'List User')
 @extends('layouts.app')
 @section('content')
     <div class="py-6">
@@ -35,7 +36,7 @@
                                                     Unit
                                                 </th>
                                                 <th scope="col" class="px-6 py-4 text-center">
-                                                    Privillage
+                                                    Role
                                                 </th>
                                                 <th scope="col" class="px-6 py-4 text-center">
                                                     Action
@@ -72,7 +73,7 @@
                                                     </td>
                                                     <td
                                                         class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
-                                                        1
+                                                        {{ \App\Models\Privillage::where('level', \App\Models\User::where('np', $datas->np_user)->value('level'))->value('role') }}
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <div class="flex justify-center space-x-2">
@@ -112,27 +113,7 @@
                 </div>
                 {{-- Footer --}}
                 <div class="row-span-2 rounded-b-xl bg-white shadow-md drop-shadow-sm overflow-hidden px-10 py-4">
-                    <div class="flex justify-center">
-                        <nav aria-label="Page navigation example">
-                            <ul class="flex list-style-none">
-                                <li class="page-item disabled"><a
-                                        class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-gray-500 pointer-events-none focus:shadow-none"
-                                        href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                                <li class="page-item"><a
-                                        class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                        href="#">1</a></li>
-                                <li class="page-item active"><a
-                                        class="page-link relative block py-1.5 px-3 border-0 bg-blue-600 outline-none transition-all duration-300 rounded-full text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                                        href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                                <li class="page-item"><a
-                                        class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                        href="#">3</a></li>
-                                <li class="page-item"><a
-                                        class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                        href="#">Next</a></li>
-                            </ul>
-                        </nav>
-                    </div>
+                    {{ $data->links() }}
                 </div>
             </div>
         </div>

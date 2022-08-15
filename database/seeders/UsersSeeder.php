@@ -31,7 +31,9 @@ class UsersSeeder extends Seeder
                 User::create([
                     "np"   => $data['1'],
                     "email"   => $data['2'],
+                    "level"    => $data['4'],
                     "password"   => hash::make($data['3']),
+                    "remember_token" => Str::random(10),
                 ]);
             }
             $firstline = false;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\SuperUser;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Privillage;
 use Inertia\Inertia;
 
 class PrivillageController extends Controller
@@ -15,7 +16,8 @@ class PrivillageController extends Controller
      */
     public function index()
     {
-        return view('SuperUser.Privillage');
+        $data = Privillage::orderBy('level')->paginate(15);
+        return view('SuperUser.Privillage',['data' => $data]);
     }
 
     /**

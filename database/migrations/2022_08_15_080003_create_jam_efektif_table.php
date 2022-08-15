@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateJamEfektifTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('jam_efektif', function (Blueprint $table) {
             $table->id();
-            $table->string('np')->unique();
-            $table->string('email')->unique();
-            $table->integer('level');
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('unit');
+            $table->integer('gilir');
+            $table->integer('jam_efektif');
+            $table->integer('target_jam');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('jam_efektif');
     }
 }
