@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\UserDetails;
 use Illuminate\Http\Request;
 
 class DataPegawaiController extends Controller
@@ -14,7 +15,8 @@ class DataPegawaiController extends Controller
      */
     public function index()
     {
-        return view('Admin.Data-Pegawai');
+        $data = UserDetails::orderBy('np_user')->paginate('15');
+        return view('Admin.Data-Pegawai',compact('data'));
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\SuperUser;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\JamEfektif;
 use Inertia\Inertia;
 
 class JamEfektifController extends Controller
@@ -15,7 +16,8 @@ class JamEfektifController extends Controller
      */
     public function index()
     {
-        return view('SuperUser.Jam-efektif');
+        $data = JamEfektif::paginate(15);
+        return view('SuperUser.Jam-efektif',compact('data'));
     }
 
     /**

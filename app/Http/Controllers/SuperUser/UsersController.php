@@ -22,22 +22,6 @@ class UsersController extends Controller
     public function index()
     {
         $data   = UserDetails::orderBy('np_user')->paginate(15);
-
-        // $data  = $get->map(function($data){
-        //             return Unit::where('id',$data->id_unit)->value('unit');
-        //          });
-
-        // foreach($get as $datas)
-        // {
-        //     $np_user[]  = $datas->np_user;
-        //     $nama[]  = $datas->nama;
-        //     $unit[]  = Unit::where('id',$datas->id_unit)->value('unit');
-        //     $seksi[] = Seksi::where('id',$datas->id_seksi)->value('seksi');
-        //     $privillage[] = Privillage::where('level',User::where('np',$datas->np)->value('level'))->value('role');
-        // }
-
-        // dd($data);
-
         return view('superUser.list-users',[
             'data' => $data,
         ]);
