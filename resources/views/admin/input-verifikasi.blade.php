@@ -2,10 +2,31 @@
 @section('content')
     <div class="py-6">
         <div class="mx-auto sm:px-6 lg:px-8">
-            <div class="grid grid-rows-5">
+            <div class="grid grid-flow-row">
                 {{-- Header --}}
                 <div class="rounded-t-xl bg-slate-700 shadow-md drop-shadow-sm overflow-hidden px-10 py-4">
                     <h4 class="font-semibold leading-tight text-2xl my-auto text-white">Input Verifikasi</h4>
+                </div>
+                <div class="border-b py-6 px-4 bg-white shadow-md drop-shadow-sm">
+                    <div class="flex justify-end">
+                        <div class=" bg-green-400 text-white rounded-l-md px-2 py-2 text-sm font-bold">
+                            Tanggal
+                        </div>
+                        <input type="date"
+                            class="border rounded-r-md border-green-400 focus:ring-2 focus:border-green-500 focus:ring-green-300 font-medium text-xs">
+                        <div class=" bg-green-400 text-white rounded-l-md px-2 py-2 text-sm font-bold  ml-4">
+                            Team
+                        </div>
+                        <select
+                            class="border rounded-r-md border-green-400 focus:ring-2 focus:border-green-500 focus:ring-green-300 font-medium text-xs">
+                            <option>Verifikator Group A</option>
+                        </select>
+                        <div class=" bg-green-400 text-white rounded-l-md px-2 py-2 text-sm font-bold  ml-4">
+                            Search
+                        </div>
+                        <input type="text"
+                            class="border rounded-r-md border-green-400 focus:ring-2 focus:border-green-500 focus:ring-green-300 font-medium text-xs">
+                    </div>
                 </div>
                 {{-- Body / Table --}}
                 <div class="row-span-3 bg-white shadow-md drop-shadow-sm overflow-hidden">
