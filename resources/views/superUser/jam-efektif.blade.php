@@ -62,7 +62,7 @@
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <div class="flex justify-center space-x-2">
-                                                            <button type="button" type="button" data-mdb-ripple="true"
+                                                            <button type="button" data-mdb-ripple="true"
                                                                 data-mdb-ripple-color="light"
                                                                 class="inline-block px-3 py-2 bg-green-500 text-white font-semibold text-sm leading-tight rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"

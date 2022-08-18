@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(WorkstationSeeder::class);
         $this->call(JamEfektifSeeder::class);
         $this->call(UserDetailsSeeder::class);
+        $this->call(VerifSeeder::class);
         // \App\Models\User::factory(10)->create();
     }
 }

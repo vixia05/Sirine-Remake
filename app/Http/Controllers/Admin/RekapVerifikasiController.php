@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\QcPikai;
 use Inertia\Inertia;
 
 class RekapVerifikasiController extends Controller
@@ -15,7 +16,8 @@ class RekapVerifikasiController extends Controller
      */
     public function index()
     {
-        return view('Admin.Rekap-Verifikasi');
+        $data = QcPikai::orderBy('tgl_verif')->paginate(15);
+        return view('Admin.Rekap-Verifikasi',['data' => $data]);
     }
 
     /**

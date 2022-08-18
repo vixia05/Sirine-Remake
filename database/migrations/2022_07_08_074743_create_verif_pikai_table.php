@@ -17,22 +17,22 @@ class CreateVerifPikaiTable extends Migration
             $table->id();
             $table->string('np_user');
             $table->date('tgl_verif');
-            $table->integer('jml_verif')->default(0);
-            $table->integer('jml_obc')->default(0);
+            $table->integer('jml_verif')->nullable()->default(0);
+            $table->integer('jml_obc')->nullable()->default(0);
             $table->integer('target')->default(30);
-            $table->integer('lembur')->nullable();
-            $table->integer('izin')->nullable();
-            $table->string('keterangan')->nullable();
-            $table->integer('validation');
+            $table->integer('lembur')->nullable()->default(0);
+            $table->integer('izin')->nullable()->default(0);
+            $table->string('keterangan')->nullable()->default("-");
+            $table->integer('validation')->default(0);
             $table->timestamps();
 
-            // foreign key
-            $table->foreign('np_user')
-                  ->references('np')
-                  ->on('users')
-                  ->onUpdate('cascade')
-                  ->onDelete('no action')
-                  ->constrained();
+            // // foreign key
+            // $table->foreign('np_user')
+            //       ->references('np')
+            //       ->on('users')
+            //       ->onUpdate('cascade')
+            //       ->onDelete('no action')
+            //       ->constrained();
         });
     }
 

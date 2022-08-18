@@ -1,3 +1,4 @@
+@section('title', 'Input Verifikasi')
 @extends('layouts.app')
 @section('content')
     <div class="py-6">
@@ -8,25 +9,52 @@
                     <h4 class="font-semibold leading-tight text-2xl my-auto text-white">Input Verifikasi</h4>
                 </div>
                 <div class="border-b py-6 px-4 bg-white shadow-md drop-shadow-sm">
-                    <div class="flex justify-end">
+                    <div class="flex justify-center">
                         <div class=" bg-green-400 text-white rounded-l-md px-2 py-2 text-sm font-bold">
-                            Tanggal
-                        </div>
-                        <input type="date"
-                            class="border rounded-r-md border-green-400 focus:ring-2 focus:border-green-500 focus:ring-green-300 font-medium text-xs">
-                        <div class=" bg-green-400 text-white rounded-l-md px-2 py-2 text-sm font-bold  ml-4">
                             Team
                         </div>
                         <select
                             class="border rounded-r-md border-green-400 focus:ring-2 focus:border-green-500 focus:ring-green-300 font-medium text-xs">
                             <option>Verifikator Group A</option>
                         </select>
-                        <div class=" bg-green-400 text-white rounded-l-md px-2 py-2 text-sm font-bold  ml-4">
-                            Search
+                        <div class="flex mx-auto">
+                            <div class=" bg-green-400 text-white rounded-l-md px-2 py-2 text-sm font-bold">
+                                Tanggal
+                            </div>
+                            <input type="date"
+                                class="border rounded-r-md border-green-400 focus:ring-2 focus:border-green-500 focus:ring-green-300 font-medium text-xs">
                         </div>
-                        <input type="text"
-                            class="border rounded-r-md border-green-400 focus:ring-2 focus:border-green-500 focus:ring-green-300 font-medium text-xs">
+                        <div class="ml-auto relative self-end">
+                            <input type="search"
+                                class="pl-10 pr-4 py-2 rounded-lg text-xs shadow focus:outline-none text-gray-600  font-medium border-2 focus:ring-0 focus:border-gray-400"
+                                placeholder="Search...">
+                            <div class="absolute top-0 left-0 inline-flex items-center pt-2 pl-2 text-gray-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
                     </div>
+                    {{-- <div class="flex justify-between mt-7">
+                        <div
+                            class="flex justify-center bg-gray-400 focus-within:bg-gray-500 border border-gray-400 rounded-lg focus-within:border-gray-300 h-9">
+                            <div class="my-auto rounded-l-md px-2">
+                                <span class="font-bold text-sm text-white">Tampilkan</span>
+                            </div>
+                            <select class="border-none focus:ring-0 text-sm text-gray-700 text-center">
+                                <option value="15">15</option>
+                                <option value="30">30</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                            <div class="my-auto px-2 rounded-r-md">
+                                <span class="font-bold text-sm text-white">Data</span>
+                            </div>
+                        </div>
+                    </div> --}}
                 </div>
                 {{-- Body / Table --}}
                 <div class="row-span-3 bg-white shadow-md drop-shadow-sm overflow-hidden">
@@ -145,26 +173,18 @@
                 </div>
                 {{-- Footer --}}
                 <div class="row-span-2 rounded-b-xl bg-white shadow-md drop-shadow-sm overflow-hidden px-10 py-4">
-                    <div class="flex justify-center">
-                        <nav aria-label="Page navigation example">
-                            <ul class="flex list-style-none">
-                                <li class="page-item disabled"><a
-                                        class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-gray-500 pointer-events-none focus:shadow-none"
-                                        href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                                <li class="page-item"><a
-                                        class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                        href="#">1</a></li>
-                                <li class="page-item active"><a
-                                        class="page-link relative block py-1.5 px-3 border-0 bg-blue-600 outline-none transition-all duration-300 rounded-full text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                                        href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                                <li class="page-item"><a
-                                        class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                        href="#">3</a></li>
-                                <li class="page-item"><a
-                                        class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                        href="#">Next</a></li>
-                            </ul>
-                        </nav>
+                    <div class="flex justify-end">
+                        <button type="submit" data-mdb-ripple="true" data-mdb-ripple-color="light"
+                            class="
+                        rounded-md
+                        bg-blue-400
+                        px-2
+                        py-1
+                        text-white
+                        hover:bg-blue-500
+                        transition
+                        duration-150
+                        ">Simpan</button>
                     </div>
                 </div>
             </div>
