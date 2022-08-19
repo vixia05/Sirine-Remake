@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Evaluasi;
 use Inertia\Inertia;
 
 class RekapEvaluasiController extends Controller
@@ -15,7 +16,8 @@ class RekapEvaluasiController extends Controller
      */
     public function index()
     {
-        return view('Admin.Rekap-Evaluasi');
+        $data = Evaluasi::orderBy('updated_at')->paginate(15);
+        return view('Admin.Rekap-Evaluasi',compact('data'));
     }
 
     /**

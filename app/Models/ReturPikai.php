@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DefectQcPikai extends Model
+class ReturPikai extends Model
 {
     use HasFactory;
-    protected $table = 'def_qc_pc';
+    protected $table = 'retur_pikai';
     protected $guarded = [
         'id',
         'created_at',

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDefectVerifPikaiTable extends Migration
+class CreateRekapReturPikaiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateDefectVerifPikaiTable extends Migration
      */
     public function up()
     {
-        Schema::create('def_Qc_Pc', function (Blueprint $table) {
+        Schema::create('rekap_retur_pikai', function (Blueprint $table) {
+
             $table->id();
             $table->string('np_user');
             $table->date('tgl_cek');
-            $table->integer('total_defect');
+            $table->string('category');
+            $table->string('sub_category');
+            $table->integer('total_retur');
             $table->timestamps();
 
             // foreign key
@@ -37,6 +40,6 @@ class CreateDefectVerifPikaiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('def_Qc_Pc');
+        Schema::dropIfExists('rekap_retur_pikai');
     }
 }

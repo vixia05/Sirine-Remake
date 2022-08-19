@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\RekapReturPikai;
 use Inertia\Inertia;
 
 class RekapReturController extends Controller
@@ -15,7 +16,8 @@ class RekapReturController extends Controller
      */
     public function index()
     {
-        return view('Admin.Rekap-Retur');
+        $data = RekapReturPikai::orderBy('tgl_cek')->paginate(15);
+        return view('Admin.Rekap-Retur',compact('data'));
     }
 
     /**
