@@ -1,9 +1,4 @@
 <nav class="fixed overflow-y-auto bg-gray-100 min-h-screen shadow-md drop-shadow-md w-64">
-    {{-- Logo --}}
-    {{-- <div class="object-cover max-w-xs bg-slate-800 px-2 shadow-sm drop-shadow-md mb-2">
-        <img src="{{ asset('img/logo.png') }}" class="w-auto max-h-28 mx-auto py-4 px-2">
-    </div> --}}
-    {{-- End logo --}}
     <div class="absolute w-full" id="sideNav">
         <ul class="relative px-5 pt-2">
             <li class="relative my-2">

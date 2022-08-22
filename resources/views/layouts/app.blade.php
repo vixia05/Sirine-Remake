@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- Styles -->
+    @livewireStyles
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!-- Scripts -->
@@ -36,7 +37,7 @@
             {{-- {{ $slot }} --}}
         </main>
     </div>
-
+    @livewireScripts
     <script src="{{ asset('chart.js/chart.min.js') }}"></script>
 </body>
 
