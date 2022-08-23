@@ -9,6 +9,7 @@
                     <h4 class="font-semibold leading-tight text-2xl my-auto text-white">List User Sirine</h4>
                 </div>
                 {{-- Body / Table --}}
+                @include('livewire.modal.update-user')
                 @livewire('super-user.list-users')
             </div>
         </div>

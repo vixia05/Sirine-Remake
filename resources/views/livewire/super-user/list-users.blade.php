@@ -1,5 +1,10 @@
 <div class="bg-white shadow-md drop-shadow-sm overflow-hidden">
     <div class="flex flex-col">
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="overflow-hidden">
@@ -15,15 +20,6 @@
                                 <th scope="col" class="px-6 py-4 text-left">
                                     Nama
                                 </th>
-                                {{-- <th scope="col" class="px-6 py-4 text-left">
-                                    Divisi
-                                </th>
-                                <th scope="col" class="px-6 py-4 text-left">
-                                    Seksi
-                                </th>
-                                <th scope="col" class="px-6 py-4 text-left">
-                                    Unit
-                                </th> --}}
                                 <th scope="col" class="px-6 py-4 text-center">
                                     Role
                                 </th>
@@ -46,23 +42,15 @@
                                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                         {{ \App\Models\UserDetails::where('np_user', $datas->np)->value('nama') }}
                                     </td>
-                                    {{-- <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                        SBU Produk Non Uang
-                                    </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                        {{ \App\Models\Seksi::where('id', $datas->id_seksi)->value('seksi') }}
-                                    </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                        {{ \App\Models\Unit::where('id', $datas->id_unit)->value('unit') }}
-                                    </td> --}}
                                     <td
                                         class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
-                                        {{ $datas->level }}
+                                        {{ \App\Models\Privillage::where('level', $datas->level)->value('role') }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex justify-center space-x-2">
-                                            <button type="button" type="button" data-mdb-ripple="true"
-                                                data-mdb-ripple-color="light"
+                                            <button type="button" wire:click="edit({{ $datas->id }})"
+                                                data-bs-toggle="modal" data-bs-target="#exampleModalCenter"
+                                                data-mdb-ripple="true" data-mdb-ripple-color="light"
                                                 class="inline-block px-3 py-2 bg-green-500 text-white font-semibold text-sm leading-tight rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
                                                     viewBox="0 0 20 20" fill="currentColor">
@@ -73,8 +61,8 @@
                                                         clip-rule="evenodd" />
                                                 </svg>
                                             </button>
-                                            <button type="button" type="button" data-mdb-ripple="true"
-                                                data-mdb-ripple-color="light"
+                                            <button type="button" wire:click="delete({{ $datas->id }})"
+                                                data-mdb-ripple="true" data-mdb-ripple-color="light"
                                                 class="inline-block px-3 py-2 bg-red-500 text-white font-semibold text-sm leading-tight rounded shadow-md hover:bg-red-600 hover:shadow-lg focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-lg transition duration-150 ease-in-out">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
                                                     viewBox="0 0 20 20" fill="currentColor">
@@ -89,12 +77,12 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="row-span-2 rounded-b-xl bg-white shadow-md drop-shadow-sm overflow-hidden px-10 py-4">
+                        {{ $data->links() }}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 {{-- Footer --}}
-<div class="row-span-2 rounded-b-xl bg-white shadow-md drop-shadow-sm overflow-hidden px-10 py-4">
-    {{ $data->links() }}
-</div>
