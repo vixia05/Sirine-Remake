@@ -21,10 +21,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $data   = UserDetails::orderBy('np_user')->paginate(15);
-        return view('superUser.list-users',[
-            'data' => $data,
-        ]);
+        return view('superUser.list-users');
     }
 
     /**

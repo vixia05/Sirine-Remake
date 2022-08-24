@@ -10,7 +10,7 @@ use App\Models\UserDetails;
 class ListUsers extends Component
 {
     use WithPagination;
-    public $np, $role, $data_id;
+    public $np, $role, $data_id, $name;
     public $updateMode = false;
 
     public function render()
@@ -28,7 +28,7 @@ class ListUsers extends Component
         $user = User::findOrFail($id);
         $this->data_id = $id;
         $this->np   = $user->np;
-        $this->nama = UserDetails::where('np_user',$user->np)->value('nama');
+        $this->name = UserDetails::where('np_user',$user->np)->value('nama');
         $this->role = $user->level;
 
         $this->updateMode = true;
@@ -50,12 +50,13 @@ class ListUsers extends Component
 
         $user = User::find($this->data_id);
         $user->update([
-            'role' => $this->role,
+            'np' => $this->np,
+            'level' => $this->role,
         ]);
 
         $this->updateMode = false;
 
-        session()->flash('message', 'Role Update Succesfully.');
+        session()->flash('message', 'Data Update Successfully');
         $this->resetInputFields();
     }
 
