@@ -22,8 +22,9 @@ class JamEfektifSeeder extends Seeder
                 JamEfektif::create([
                     "gilir"  => $data['1'],
                     "unit"   => $data['2'],
-                    "jam_efektif"   => $data['3'],
-                    "target_jam"   => $data['4'],
+                    "group"  => $data['3'],
+                    "jam_efektif"   => $data['4'],
+                    "target_jam"   => $data['5'],
                 ]);
             }
             $firstline = false;

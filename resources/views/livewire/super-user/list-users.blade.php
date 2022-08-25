@@ -4,12 +4,17 @@
         <h4 class="my-auto text-2xl font-semibold leading-tight text-white">List User Sirine</h4>
     </div>
     @include('components.modal.update-user')
+    @include('components.modal.delete-user')
     {{-- Body / Table --}}
     <div class="overflow-hidden bg-white shadow-md drop-shadow-sm">
         <div class="flex flex-col">
-            @if (session()->has('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
+            @if (session()->has('messageUpdate'))
+                <div class="p-4 bg-green-500 bg-opacity-80 text-white font-bold leading-tight text-center">
+                    {{ session('messageUpdate') }}
+                </div>
+            @elseif (session()->has('messageDelete'))
+                <div class="p-4 bg-green-500 bg-opacity-80 text-white font-bold leading-tight text-center">
+                    {{ session('messageDelete') }}
                 </div>
             @endif
             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -71,7 +76,8 @@
                                                 </button>
                                                 <button
                                                     class="inline-block px-3 py-2 text-sm font-semibold leading-tight text-white transition duration-150 ease-in-out bg-red-500 rounded shadow-md hover:bg-red-600 hover:shadow-lg focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-lg"
-                                                    data-mdb-ripple="true" data-mdb-ripple-color="light" type="button"
+                                                    data-mdb-ripple="true" data-mdb-ripple-color="light"
+                                                    data-bs-toggle="modal" data-bs-target="#modalDelete" type="button"
                                                     wire:click="delete({{ $datas->id }})">
                                                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                                                         viewBox="0 0 20 20" fill="currentColor">

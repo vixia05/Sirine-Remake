@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJamEfektifTable extends Migration
+class CreateDivisiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateJamEfektifTable extends Migration
      */
     public function up()
     {
-        Schema::create('jam_efektif', function (Blueprint $table) {
+        Schema::create('divisi', function (Blueprint $table) {
             $table->id();
-            $table->string('unit');
-            $table->string('group');
-            $table->integer('gilir');
-            $table->integer('jam_efektif');
-            $table->integer('target_jam');
+            $table->string('Divisi');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateJamEfektifTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jam_efektif');
+        Schema::dropIfExists('divisi');
     }
 }

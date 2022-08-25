@@ -56,14 +56,23 @@ class ListUsers extends Component
 
         $this->updateMode = false;
 
-        session()->flash('message', 'Data Update Successfully');
+        session()->flash('messageUpdate', 'Data '.$this->name.' Berhasil Di Perbaharui');
         $this->resetInputFields();
     }
 
     public function delete($id)
     {
+        $user = User::findOrFail($id);
+        $this->data_id = $id;
+        $this->np   = $user->np;
+        $this->name = UserDetails::where('np_user',$user->np)->value('nama');
+        $this->role = $user->level;
+    }
+
+    public function destroy($id)
+    {
         User::find($id)->delete();
-        session()->flash('message', 'User Deleted Successfully');
+        session()->flash('messageDelete', 'User Berhasil Di Hapus');
     }
 
 }
