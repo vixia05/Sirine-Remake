@@ -18,19 +18,19 @@
                                     <th scope="col" class="px-6 py-4 text-center">
                                         NP
                                     </th>
-                                    <th scope="col" class="px-6 py-4 text-left">
+                                    <th scope="col" class="px-6 py-4 text-center">
                                         Nama
                                     </th>
-                                    <th scope="col" class="px-6 py-4 text-left">
+                                    <th scope="col" class="px-6 py-4 text-center">
                                         Email
                                     </th>
-                                    <th scope="col" class="px-6 py-4 text-left">
+                                    <th scope="col" class="px-6 py-4 text-center">
                                         Contact
                                     </th>
-                                    <th scope="col" class="px-6 py-4 text-left whitespace-nowrap">
+                                    <th scope="col" class="px-6 py-4 text-center whitespace-nowrap">
                                         Tanggal Lahir
                                     </th>
-                                    <th scope="col" class="px-6 py-4 text-left">
+                                    <th scope="col" class="px-6 py-4 text-center">
                                         Alamat
                                     </th>
                                     <th scope="col" class="px-6 py-4 text-center">
@@ -52,18 +52,19 @@
                                             class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
                                             {{ $datas->np_user }}
                                         </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4">
+                                        <td
+                                            class="text-sm max-w-[11rem] text-ellipsis text-gray-900 font-light px-6 py-4">
                                             {{ $datas->nama }}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             {{ \App\Models\User::where('np', $datas->np_user)->value('email') }}
                                         </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            {{ Str::limit($datas->contact, 4, '-') }}{{ Str::limit(substr($datas->contact, 4), 4, '-') }}{{ Str::limit(substr($datas->contact, 8), 4, '') }}
-                                        </td>
                                         <td
                                             class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
-                                            {{ $datas->tgl_lahir }}
+                                            {{ Str::limit($datas->contact, 4, '-') }}{{ Str::limit(substr($datas->contact, 4), 4, '-') }}{{ Str::limit(substr($datas->contact, 8), 4, '') }}
+                                        </td>
+                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                            {{ date('d - F - Y', strtotime($datas->tgl_lahir)) }}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 text-left max-w-sm">
                                             <span class="line-clamp-2">
@@ -72,7 +73,7 @@
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 text-center max-w-sm">
                                             <span class="line-clamp-2">
-                                                {{ \App\Models\Privillage::where('level', \App\Models\User::where('np', $datas->np_user)->value('level'))->value('role') }}
+                                                {{ \App\Models\Unit::where('id', $datas->id_unit)->value('unit') }}
                                             </span>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
