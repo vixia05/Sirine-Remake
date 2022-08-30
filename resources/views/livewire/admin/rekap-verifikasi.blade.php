@@ -3,6 +3,29 @@
     <div class="overflow-hidden rounded-t-xl bg-slate-700 px-10 py-4 shadow-md drop-shadow-sm">
         <h4 class="my-auto text-2xl font-semibold leading-tight text-white">Data Verifikasi</h4>
     </div>
+    <div class="border-b bg-white py-6 px-4 shadow-md drop-shadow-sm">
+        <div class="flex justify-between">
+            <div class="flex">
+                <div class="rounded-l-md bg-green-400 px-2 py-2 text-sm font-bold text-white">
+                    Tanggal
+                </div>
+                <input type="date"
+                    class="rounded-r-md border border-green-400 text-xs font-medium focus:border-green-500 focus:ring-2 focus:ring-green-300">
+            </div>
+            <div class="relative">
+                <input type="text" wire:model="search"
+                    class="rounded-lg border-2 py-2 pl-10 pr-4 text-xs font-medium text-gray-600 shadow focus:border-gray-400 focus:outline-none focus:ring-0"
+                    placeholder="Search...">
+                <div class="absolute top-0 left-0 inline-flex items-center pt-2 pl-2 text-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
     {{-- Body / Table --}}
     <div class="row-span-3 overflow-hidden bg-white shadow-md drop-shadow-sm">
         <div class="flex flex-col">

@@ -15,7 +15,7 @@ class ListUsers extends Component
 
     public function render()
     {
-        $data   = User::paginate(15);
+        $data   = User::paginate(10);
         return view('livewire.super-user.list-users',['data' => $data]);
     }
 
