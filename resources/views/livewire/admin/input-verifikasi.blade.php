@@ -18,7 +18,7 @@
                 <div class="px-2 py-2 text-sm font-bold text-white bg-green-400 rounded-l-md">
                     Tanggal
                 </div>
-                <input type="date"
+                <input type="date" wire:model="tglVerif"
                     class="text-xs font-medium border border-green-400 rounded-r-md focus:border-green-500 focus:ring-2 focus:ring-green-300">
             </div>
             <div class="relative self-end ml-auto">
@@ -81,8 +81,6 @@
                                             <span class="text-sm font-medium text-gray-900">{{ $datas->np_user }}</span>
                                             <span
                                                 class="block px-2 py-1 text-xs font-extrabold text-white rounded-full bg-sky-400">{{ $datas->nama }}</span>
-                                            <input type="hidden" id="npUser[]" name="npUser[]"
-                                                value="{{ $datas->np_user }}" wire:model="npUser" />
                                         </td>
                                         <td class="px-6 py-4 text-sm font-light text-left text-gray-900">
                                             <p class="line-clamp-2">
@@ -93,6 +91,7 @@
                                             <div
                                                 class="transition duration-200 border-b-2 rounded-md focus-within:border-blue-500 focus-within:shadow-md hover:border-blue-500 hover:shadow-md">
                                                 <input type="number" placeholder="Lembar" id="verifikasi[]"
+                                                    wire:model="verifikasi.{{ $datas->np_user }}"
                                                     class="w-full text-xs font-medium border-none focus:ring-0"
                                                     min="0">
                                             </div>
@@ -101,6 +100,7 @@
                                             <div
                                                 class="transition duration-150 border-b-2 rounded-md focus-within:border-blue-500 focus-within:shadow-md hover:border-blue-500 hover:shadow-md">
                                                 <input type="number" placeholder="Jumlah OBC" id="obc[]"
+                                                    wire:model="obc.{{ $datas->np_user }}"
                                                     class="w-full text-xs font-medium border-none focus:ring-0"
                                                     min="0">
                                             </div>
@@ -109,6 +109,7 @@
                                             <div
                                                 class="transition duration-150 border-b-2 rounded-md focus-within:border-blue-500 focus-within:shadow-md hover:border-blue-500 hover:shadow-md">
                                                 <input type="text" placeholder="-" id="keterangan[]"
+                                                    wire:model="keterangan.{{ $datas->np_user }}"
                                                     class="w-full text-xs font-medium border-none focus:ring-0">
                                             </div>
                                         </td>
