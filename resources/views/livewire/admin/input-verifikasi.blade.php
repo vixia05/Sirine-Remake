@@ -18,7 +18,7 @@
                 <div class="px-2 py-2 text-sm font-bold text-white bg-green-400 rounded-l-md">
                     Tanggal
                 </div>
-                <input type="date" wire:model="tglVerif"
+                <input type="date" value="{{ today()->format('Y-m-d') }}" wire:model="tglVerif"
                     class="text-xs font-medium border border-green-400 rounded-r-md focus:border-green-500 focus:ring-2 focus:ring-green-300">
             </div>
             <div class="relative self-end ml-auto">
@@ -120,14 +120,16 @@
                                                         for="inlineCheckbox1">Awal</label>
                                                     <input
                                                         class="float-left w-4 h-4 mx-auto mt-1 mr-3 align-top transition duration-200 bg-white bg-center bg-no-repeat bg-contain border border-gray-300 rounded-sm appearance-none cursor-pointer form-check-input checked:border-blue-600 checked:bg-blue-600 focus:outline-none"
-                                                        type="checkbox" id="lemburAwal" value="0">
+                                                        type="checkbox" id="lemburAwal" value="1"
+                                                        wire:model="lemburAw.{{ $datas->np_user }}">
                                                 </div>
                                                 <div class="ml-2 form-check form-check-inline">
                                                     <label class="inline-block text-xs text-gray-800 form-check-label"
                                                         for="inlineCheckbox2">Akhir</label>
                                                     <input
                                                         class="block w-4 h-4 mt-1 mr-3 align-top transition duration-200 bg-white bg-center bg-no-repeat bg-contain border border-gray-300 rounded-sm appearance-none cursor-pointer form-check-input checked:border-blue-600 checked:bg-blue-600 focus:outline-none"
-                                                        type="checkbox" id="lemburAkhir" value="0">
+                                                        type="checkbox" id="lemburAkhir" value="2"
+                                                        wire:model="lemburAk.{{ $datas->np_user }}">
                                                 </div>
                                             </div>
                                         </td>

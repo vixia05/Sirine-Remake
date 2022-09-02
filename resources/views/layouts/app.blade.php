@@ -20,9 +20,13 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
+    <div class="sticky-top">
         @include('layouts.navigation')
-        @include('layouts.side-nav')
+    </div>
+    <div class="relative flex min-h-screen justify-start bg-gray-100">
+        <div class="relative">
+            @include('layouts.side-nav')
+        </div>
 
         <!-- Page Heading -->
         {{-- <header class="bg-white shadow">
@@ -32,10 +36,12 @@
         </header> --}}
 
         <!-- Page Content -->
-        <main class="ml-60">
-            @yield('content')
-            {{-- {{ $slot }} --}}
-        </main>
+        <div class="relative w-full">
+            <main>
+                @yield('content')
+                {{-- {{ $slot }} --}}
+            </main>
+        </div>
     </div>
     @livewireScripts
     <script src="{{ asset('chart.js/chart.min.js') }}"></script>

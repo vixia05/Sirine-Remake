@@ -1,18 +1,24 @@
+@section('title', 'Qty Unit')
 @extends('layouts.app')
 @section('content')
-    <div class="py-6">
-        <div class="mx-auto sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1">
-                <div class="rounded-xl bg-white shadow-md drop-shadow-md overflow-hidden px-8 py-2 max-h-screen">
-                    <div class="p-3 mb-6">
-                        <h5 class="text-gray-900 text-xl font-bold py-2">Hasil Produksi Unit
-                            Verifikasi Pita Cukai</h5>
-                    </div>
-                    <canvas id="qtyUnit" name="qtyUnit" class="min-w-full"></canvas>
+    <div class="relative">
+        <div class="absolute w-full bg-white">
+
+        </div>
+    </div>
+    {{-- <div class="relative flex flex-auto justify-center px-8 py-6">
+        <div class="h-screen w-screen overflow-hidden rounded-xl bg-white px-8 py-2 shadow-md drop-shadow-md">
+            <div class="mb-6 p-3">
+                <h5 class="py-2 text-xl font-bold text-gray-900">Hasil Produksi Unit
+                    Verifikasi Pita Cukai</h5>
+            </div>
+            <div class="relative">
+                <div class="mt-auto h-full w-full bg-blue-200">
+                    border
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
 @section('script-js')
     <script>

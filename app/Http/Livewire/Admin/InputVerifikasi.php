@@ -14,7 +14,8 @@ use App\Models\Seksi;
 
 class InputVerifikasi extends Component
 {
-    public $data,$workstation,$unit,$verifikasi,$obc,$keterangan,$lembur,$izin,$tglVerif,$npUser;
+    public $data, $workstation, $unit, $npUser;
+    public $verifikasi, $obc, $keterangan, $lemburAw, $lemburAk, $tglVerif, $izin;
 
     // public Collection $npUser;
 
@@ -30,6 +31,8 @@ class InputVerifikasi extends Component
 
         $this->workstation = UserDetails::where('np_user',Auth::user()->np)
                                         ->value('id_workstation');
+        $this->lemburAw = '0';
+        $this->lemburAk = '0';
 
     }
 
@@ -63,22 +66,134 @@ class InputVerifikasi extends Component
      */
     public function store()
     {
-        $this->npUser = array_keys($this->verifikasi);
+        dd($this->saveLembur());
+        $this->saveJmlVerif();
+        $this->saveJmlObc();
+        $this->saveKeterangan();
+        $this->saveLembur();
+        $this->saveIzin();
 
-            for($i=0;$i<count($this->npUser);$i++)
-            {
-
-                QcPikai::updateOrCreate(
-                        [
-                            'np_user'   => $this->npUser[$i],
-                            'tgl_verif' => $this->tglVerif,
-                        ],
-                        [
-                            'jml_verif' => collect($this->verifikasi)->values()[$i],
-                            'jml_obc'   => collect($this->obc)->values()[$i],
-                        ]
-                        );
-
-            }
+        session()->flash('saveModal', 'Data Berhasil Di Simpan');
     }
+
+
+    /**
+     * Private function untuk
+     * Store data pada database
+     */
+
+    // 1. Save Jumlah Verifikasi
+        private function saveJmlVerif()
+        {
+            if($this->verifikasi == !null)
+                {
+                    $this->npUser = array_keys($this->verifikasi);
+                    for($i=0;$i<count($this->npUser);$i++)
+                        {
+                            QcPikai::updateOrCreate(
+                                    [
+                                        'np_user'   => $this->npUser[$i],
+                                        'tgl_verif' => $this->tglVerif,
+                                    ],
+                                    [
+                                        'jml_verif' => collect($this->verifikasi)->values()[$i],
+                                    ]);
+                        }
+
+                }
+            else
+                {
+                    //
+                }
+        }
+
+    // 2. Save Jumlah OBC
+        private function saveJmlObc()
+        {
+            if($this->obc == !null)
+                {
+                    $this->npUser = array_keys($this->obc);
+                    for($i=0;$i<count($this->obc);$i++)
+                        {
+                            QcPikai::updateOrCreate(
+                                    [
+                                        'np_user'   => $this->npUser[$i],
+                                        'tgl_verif' => $this->tglVerif,
+                                    ],
+                                    [
+                                        'jml_obc' => collect($this->obc)->values()[$i],
+                                    ]);
+                        }
+
+                }
+            else
+                {
+                    //
+                }
+        }
+
+    // 3. Save Keterangan
+        private function saveKeterangan()
+        {
+            if($this->keterangan == !null)
+                {
+                    $this->npUser = array_keys($this->keterangan);
+                    for($i=0;$i<count($this->keterangan);$i++)
+                        {
+                            QcPikai::updateOrCreate(
+                                    [
+                                        'np_user'   => $this->npUser[$i],
+                                        'tgl_verif' => $this->tglVerif,
+                                    ],
+                                    [
+                                        'keterangan' => collect($this->keterangan)->values()[$i],
+                                    ]);
+                        }
+
+                }
+            else
+                {
+                    //
+                }
+        }
+
+    // 4. Save Lembur
+        private function saveLembur()
+        {
+           // Check Jika Lembur awal & akhir ada recordnya
+           $array = [];
+           $lembur = [];
+           $result = [];
+            if($this->lemburAw == !null && $this->lemburAk == !null)
+            {
+                $array = array_merge(['lemburAk' => $this->lemburAk, 'lemburAw' => $this->lemburAw]);
+            }
+            elseif($this->lemburAw == !null)
+            {
+                $array = $this->lemburAw;
+            }
+            elseif($this->lemburAk == !null)
+            {
+                $array = $this->lemburAk;
+            }
+
+            foreach ($array as $value)
+            {
+                $lembur = $value;
+            }
+
+            foreach ($lembur as $key => $sum)
+            {
+                $result[$key] = array_sum(array_column($array,$key));
+            }
+            dd($result);
+            return $result;
+        }
+
+    // 2. Save Perizinan
+        private function saveIzin()
+        {
+
+        }
+
 }
