@@ -1,4 +1,4 @@
-<nav class="relative min-h-full w-64 overflow-y-auto bg-gray-100 shadow-md drop-shadow-md">
+<nav class="relative hidden min-h-full w-64 overflow-y-auto bg-gray-100 shadow-md drop-shadow-md lg:block">
     <div class="absolute w-full" id="sideNav">
         <ul class="relative px-5 pt-2">
             <li class="relative my-2">

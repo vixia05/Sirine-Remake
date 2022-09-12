@@ -1,3 +1,5 @@
+load_chart()
+{
 const ctxQty = document.getElementById('qtyUnit');
 const qtyUnit = new Chart(ctxQty, {
     type: 'bar',
@@ -46,3 +48,4 @@ const qtyUnit = new Chart(ctxQty, {
         }
     }
 });
+};
