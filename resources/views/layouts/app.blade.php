@@ -17,12 +17,13 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('plugins/jquery-3.6.1.min.js') }}"></script>
 </head>
 
 <body class="font-sans antialiased">
-    <div class="sticky-top">
+    {{-- <div class="sticky-top">
         @include('layouts.navigation')
-    </div>
+    </div> --}}
     <div class="relative flex min-h-screen justify-start bg-gray-100">
         <div class="relative">
             @include('layouts.side-nav')

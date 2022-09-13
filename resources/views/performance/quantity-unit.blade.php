@@ -10,18 +10,20 @@
                     <span class="text-sm font-light text-gray-500">Periode September 2022</span>
                 </div>
                 <div class="my-auto flex justify-end">
-                    <select class="min-w-fit rounded-l border-blue-400 py-2 pl-2 text-sm font-bold text-gray-700">
+                    <select class="min-w-fit rounded-l border-blue-400 py-2 pl-2 text-sm font-bold text-gray-700"
+                        id="team" name="team">
                         <option selected>Team</option>
                         <option>Verifikasi Pita Cukai Team A</option>
                     </select>
-                    <select class="min-w-fit border-blue-400 py-2 pl-2 text-sm font-bold text-gray-700">
+                    <select class="min-w-fit border-blue-400 py-2 pl-2 text-sm font-bold text-gray-700" id="mode"
+                        name="mode">
                         <option selected>Tipe</option>
                         <option value="1">Pencapaian Target</option>
                         <option value="2">Jumlah Verifikasi</option>
                         <option value="3">Rata-Rata</option>
                     </select>
                     <input type="text" class="min-w-fit border-blue-400 py-2 pl-2 text-sm font-bold text-gray-700"
-                        placeholder="Periode" />
+                        id="dateRange" name="dateRange" placeholder="Periode" />
                     <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
                         class="inline-block rounded-r bg-blue-500 px-3 py-2 text-sm font-semibold leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-lg">Reset</button>
                 </div>
@@ -33,12 +35,6 @@
     </div>
 @endsection
 @section('script-js')
-    {{-- <script>
-        var dataChart = {
-            date: [1, 2, 3, 4, 5, 6],
-            data: [3, 4, 2, 8, 9, 6],
-        }
-    </script> --}}
     @push('js')
         <script src="{{ asset('js/performance/qty-unit.js') }}"></script>
         <script src="{{ asset('component/chart/qty-unit.js') }}"></script>
