@@ -17,21 +17,22 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('plugins/jquery-3.6.1.min.js') }}"></script>
+    @yield('plugin-js')
+
 </head>
 
 <body class="font-sans antialiased">
     {{-- <div class="sticky-top">
         @include('layouts.navigation')
     </div> --}}
-    <div class="relative flex min-h-screen justify-start bg-gray-100">
+    <div class="relative flex justify-start min-h-screen bg-gray-100">
         <div class="relative">
             @include('layouts.side-nav')
         </div>
 
         <!-- Page Heading -->
         {{-- <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 {{ $header }}
             </div>
         </header> --}}
@@ -45,10 +46,8 @@
         </div>
     </div>
     @livewireScripts
-    <script src="{{ asset('chart.js/chart.min.js') }}"></script>
 </body>
 
-@yield('chart')
 @yield('script-js')
 @stack('js')
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
+use App\Models\Unit;
 use App\Models\QcPikai;
 
 class QuantityController extends Controller
@@ -15,7 +16,9 @@ class QuantityController extends Controller
      */
     public function indexUnit()
     {
-        return view('Performance.Quantity-Unit');
+        return view('Performance.Quantity-Unit',[
+
+        ]);
     }
 
     /**
@@ -52,19 +55,19 @@ class QuantityController extends Controller
         // Chart Jika Urutan Berdasarkan Pencapaian Target
         elseif($mode == 1)
          {
-            $this->qtyPencapaian($startDate,$endDate,$team);
+            $data = $this->qtyPencapaian($startDate,$endDate,$team);
          }
 
         // Chart Jika Urutan Berdasarkan Hasil Verifikasi
         elseif($mode == 2)
          {
-            $this->qtyVerifikasi($startDate,$endDate,$team);
+            $data = $this->qtyVerifikasi($startDate,$endDate,$team);
          }
 
         // Chart Jika Urutan Berdasarkan Rata Rata Harian
         elseif($mode == 3)
          {
-            $this->qtyAverage($startDate,$endDate,$team);
+            $data = $this->qtyAverage($startDate,$endDate,$team);
          }
 
         return [
@@ -80,7 +83,13 @@ class QuantityController extends Controller
      */
     private function qtyPencapaian($startDate,$endDate,$team)
     {
-
+        $data = QcPikai::whereBetween('tgl_verif',[$startDate,$endDate])
+                        ->get()
+                        ->sortBy('tgl_verif')
+                        ->groupBy('tgl_verif')
+                        ->map(function($sum){
+                            return $sum->sum('jml_verif');
+                        });
     }
 
     /**
