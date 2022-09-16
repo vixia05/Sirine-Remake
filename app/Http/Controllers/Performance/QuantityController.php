@@ -8,6 +8,7 @@ use Carbon\Carbon;
 
 use App\Models\Unit;
 use App\Models\QcPikai;
+use App\Models\workstation;
 
 class QuantityController extends Controller
 {
@@ -16,8 +17,10 @@ class QuantityController extends Controller
      */
     public function indexUnit()
     {
-        return view('Performance.Quantity-Unit',[
+        $team = Workstation::all()->sortBy('workstation');
 
+        return view('Performance.Quantity-Unit',[
+            'team' => $team,
         ]);
     }
 
@@ -41,9 +44,9 @@ class QuantityController extends Controller
         $mode = $request->mode;
 
         // Chart Saat Start
-        if($startDate == '' || $endDate == '' || $team == '' || $mode == '')
+        if($team == '' || $mode == '')
          {
-            $data = QcPikai::whereBetween('tgl_verif',[Carbon::now()->startOfMonth(),now()])
+            $data = QcPikai::whereBetween('tgl_verif',[$startDate,$endDate])
                             ->get()
                             ->sortBy('tgl_verif')
                             ->groupBy('tgl_verif')
@@ -69,6 +72,7 @@ class QuantityController extends Controller
          {
             $data = $this->qtyAverage($startDate,$endDate,$team);
          }
+        //  dd($data);
 
         return [
             'data' => $data->values(),
@@ -83,13 +87,16 @@ class QuantityController extends Controller
      */
     private function qtyPencapaian($startDate,$endDate,$team)
     {
-        $data = QcPikai::whereBetween('tgl_verif',[$startDate,$endDate])
+
+        $hasil = QcPikai::whereBetween('tgl_verif',[$startDate,$endDate])
                         ->get()
                         ->sortBy('tgl_verif')
                         ->groupBy('tgl_verif')
                         ->map(function($sum){
                             return $sum->sum('jml_verif');
                         });
+
+        return $data;
     }
 
     /**
@@ -99,7 +106,15 @@ class QuantityController extends Controller
      */
     private function qtyVerifikasi($startDate,$endDate,$team)
     {
+        $data = QcPikai::where('id_station',$team)
+                        ->whereBetween('tgl_verif',[$startDate,$endDate])
+                        ->get()
+                        ->groupBy('np_user')
+                        ->map(function($sum){
+                            return $sum->sum('jml_verif');
+                        })->sortDesc();
 
+        return $data;
     }
 
     /**

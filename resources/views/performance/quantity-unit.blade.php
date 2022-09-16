@@ -12,20 +12,17 @@
                 <div class="flex justify-end my-auto">
                     <select class="py-2 pl-2 text-sm font-bold text-gray-700 border-blue-400 rounded-l min-w-fit"
                         id="team" name="team">
-                        <option selected>Team</option>
-                        <option>Verifikasi Pita Cukai Team A</option>
+                        <option value="" selected>Team</option>
+                        @foreach ($team as $group)
+                            <option value="{{ $group->id }}">{{ $group->workstation }}</option>
+                        @endforeach
                     </select>
                     <select class="py-2 pl-2 text-sm font-bold text-gray-700 border-blue-400 min-w-fit" id="mode"
                         name="mode">
-                        <option selected>Tipe</option>
                         <option value="1">Pencapaian Target</option>
                         <option value="2">Jumlah Verifikasi</option>
                         <option value="3">Rata-Rata</option>
                     </select>
-                    {{-- <div id="dateRange" class="py-2 pl-2 text-sm font-bold text-gray-700 border-blue-400 min-w-fit">
-                        <i class="fa fa-calendar"></i>&nbsp;
-                        <span></span> <i class="fa fa-caret-down"></i>
-                    </div> --}}
                     <input type="text" class="px-4 py-2 text-xs font-medium text-gray-700 border-blue-400 min-w-fit"
                         id="dateRange" name="dateRange" placeholder="Periode" />
                     <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"

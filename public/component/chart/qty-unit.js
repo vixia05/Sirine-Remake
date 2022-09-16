@@ -6,7 +6,7 @@ const qtyUnit = new Chart(ctxQty, {
     data: {
         labels: dataChart.date,
         datasets: [{
-            label: 'Verifikasi MMEA',
+            label: 'Jumlah Verifikasi',
             data: dataChart.data,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

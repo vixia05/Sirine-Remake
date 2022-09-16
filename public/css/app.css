@@ -4492,26 +4492,14 @@ textarea.form-control.is-invalid {
 .flex-auto {
   flex: 1 1 auto;
 }
-.flex-none {
-  flex: none;
-}
-.flex-initial {
-  flex: 0 1 auto;
-}
 .flex-shrink-0 {
   flex-shrink: 0;
-}
-.flex-shrink {
-  flex-shrink: 1;
 }
 .shrink-0 {
   flex-shrink: 0;
 }
 .flex-grow {
   flex-grow: 1;
-}
-.flex-grow-0 {
-  flex-grow: 0;
 }
 .origin-top-left {
   transform-origin: top left;
@@ -5820,10 +5808,6 @@ textarea.form-control.is-invalid {
     grid-column: span 2 / span 2;
   }
 
-  .md\:mt-auto {
-    margin-top: auto;
-  }
-
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -5838,14 +5822,6 @@ textarea.form-control.is-invalid {
 
   .md\:border-l {
     border-left-width: 1px;
-  }
-
-  .md\:pt-10 {
-    padding-top: 2.5rem;
-  }
-
-  .md\:pt-20 {
-    padding-top: 5rem;
   }
 }
 @media (min-width: 1024px) {
