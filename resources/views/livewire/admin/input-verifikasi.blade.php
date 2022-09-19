@@ -21,7 +21,7 @@
                 <div class="rounded-l-md bg-green-400 px-2 py-2 text-sm font-bold text-white">
                     Tanggal
                 </div>
-                <input type="date" value="{{ today()->format('Y-m-d') }}" wire:model="tglVerif"
+                <input type="date" value="{{ today()->format('Y-m-d') }}" wire:model="tglVerif" required
                     class="rounded-r-md border border-green-400 text-xs font-medium focus:border-green-500 focus:ring-2 focus:ring-green-300">
             </div>
             {{-- 1.3 Search Section --}}
@@ -119,23 +119,15 @@
                                             </div>
                                         </td>
                                         <td class="whitespace-nowrap px-6 py-2 text-sm font-light text-gray-900">
-                                            <div class="flex justify-center">
-                                                <div class="form-check form-check-inline">
-                                                    <label class="form-check-label text-xs text-gray-800"
-                                                        for="inlineCheckbox1">Awal</label>
-                                                    <input
-                                                        class="form-check-input float-left mx-auto mt-1 mr-3 h-4 w-4 cursor-pointer appearance-none rounded-sm border border-gray-300 bg-white bg-contain bg-center bg-no-repeat align-top transition duration-200 checked:border-blue-600 checked:bg-blue-600 focus:outline-none"
-                                                        type="checkbox" id="lemburAwal" value="1"
-                                                        wire:model="lemburAw.{{ $datas->np_user }}">
-                                                </div>
-                                                <div class="form-check form-check-inline ml-2">
-                                                    <label class="form-check-label inline-block text-xs text-gray-800"
-                                                        for="inlineCheckbox2">Akhir</label>
-                                                    <input
-                                                        class="form-check-input mt-1 mr-3 block h-4 w-4 cursor-pointer appearance-none rounded-sm border border-gray-300 bg-white bg-contain bg-center bg-no-repeat align-top transition duration-200 checked:border-blue-600 checked:bg-blue-600 focus:outline-none"
-                                                        type="checkbox" id="lemburAkhir" value="2"
-                                                        wire:model="lemburAk.{{ $datas->np_user }}">
-                                                </div>
+                                            <div
+                                                class="rounded-md border-b-2 transition duration-150 focus-within:border-blue-500 focus-within:shadow-md hover:border-blue-500 hover:shadow-md">
+                                                <select class="w-full border-none text-xs font-medium focus:ring-0"
+                                                    wire:model="lembur.{{ $datas->np_user }}">
+                                                    <option value="0" selected>-</option>
+                                                    <option value="1">Awal</option>
+                                                    <option value="2">Akhir</option>
+                                                    <option value="3">Awal Akhir</option>
+                                                </select>
                                             </div>
                                         </td>
                                         <td class="flex-nowrap whitespace-nowrap px-6 py-4 text-sm">

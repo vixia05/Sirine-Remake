@@ -15,7 +15,7 @@ use App\Models\Seksi;
 class InputVerifikasi extends Component
 {
     public $data, $workstation, $unit, $npUser;
-    public $verifikasi, $obc, $keterangan, $lemburAw, $lemburAk, $tglVerif, $izin;
+    public $verifikasi, $obc, $keterangan, $lembur, $tglVerif, $izin;
 
     // public Collection $npUser;
 
@@ -31,8 +31,7 @@ class InputVerifikasi extends Component
 
         $this->workstation = UserDetails::where('np_user',Auth::user()->np)
                                         ->value('id_workstation');
-        $this->lemburAw = '0';
-        $this->lemburAk = '0';
+        $this->lembur = '0';
 
     }
 
@@ -51,6 +50,12 @@ class InputVerifikasi extends Component
     }
 
     /**
+     * Fungsi Reset Field
+     */
+
+
+
+    /**
      * Fungsi untuk manampilkan dropdown by team
      * Berdasarkan unit yang sama dengan user
      */
@@ -66,7 +71,7 @@ class InputVerifikasi extends Component
      */
     public function store()
     {
-        dd($this->saveLembur());
+        // dd($this->saveLembur());
         $this->saveJmlVerif();
         $this->saveJmlObc();
         $this->saveKeterangan();
@@ -163,31 +168,25 @@ class InputVerifikasi extends Component
            // Check Jika Lembur awal & akhir ada recordnya
            $array = [];
            $lembur = [];
-           $result = [];
-            if($this->lemburAw == !null && $this->lemburAk == !null)
+           if($this->lembur == !null)
             {
-                $array = array_merge(['lemburAk' => $this->lemburAk, 'lemburAw' => $this->lemburAw]);
+                 $this->npUser = array_keys($this->lembur);
+                 for($i = 0; $i < count($this->lembur); $i++)
+                     {
+                         QcPikai::updateOrCreate(
+                            [
+                                'np_user'   => $this->npUser[$i],
+                                'tgl_verif' => $this->tglVerif,
+                            ],
+                            [
+                                'lembur'    => collect($this->lembur)->values()[$i],
+                            ]);
+                     }
             }
-            elseif($this->lemburAw == !null)
-            {
-                $array = $this->lemburAw;
-            }
-            elseif($this->lemburAk == !null)
-            {
-                $array = $this->lemburAk;
-            }
-
-            foreach ($array as $value)
-            {
-                $lembur = $value;
-            }
-
-            foreach ($lembur as $key => $sum)
-            {
-                $result[$key] = array_sum(array_column($array,$key));
-            }
-            dd($result);
-            return $result;
+           else
+           {
+            //
+           }
         }
 
     // 2. Save Perizinan

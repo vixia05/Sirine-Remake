@@ -8,6 +8,7 @@ use Carbon\Carbon;
 
 use App\Models\Unit;
 use App\Models\QcPikai;
+use App\Models\OrderPcht;
 use App\Models\workstation;
 
 class QuantityController extends Controller
@@ -72,11 +73,10 @@ class QuantityController extends Controller
          {
             $data = $this->qtyAverage($startDate,$endDate,$team);
          }
-        //  dd($data);
 
         return [
             'data' => $data->values(),
-            'date' => $data->flip()->values(),
+            'date' => array_keys($data->toArray()),
         ];
     }
 
@@ -87,15 +87,32 @@ class QuantityController extends Controller
      */
     private function qtyPencapaian($startDate,$endDate,$team)
     {
-
-        $hasil = QcPikai::whereBetween('tgl_verif',[$startDate,$endDate])
+        $cetak  = OrderPcht::whereBetween('tgl_qc',[$startDate,$endDate])
                         ->get()
-                        ->sortBy('tgl_verif')
-                        ->groupBy('tgl_verif')
+                        ->sortBy('tgl_qc')
+                        ->groupBy('tgl_qc')
                         ->map(function($sum){
-                            return $sum->sum('jml_verif');
-                        });
+                            $verif  = $sum->sum('rencet');
+                            $target = ((($verif / 750000))*30) * 500;
+                            $result = $target < 15000 ? $target : 15000;
+                            return $result;
+                        })->toArray();
 
+        $data  = QcPikai::where('id_station',$team)
+                        ->whereBetween('tgl_verif',[$startDate,$endDate])
+                        ->get()
+                        ->groupBy('np_user')
+                        ->map(function($sum) use ($cetak){
+                            $getObc = $sum->where('jml_obc','>',18);
+                            $sumObc = $getObc->sum('jml_obc');
+                            $count  = count($getObc);
+                            $verif  = $sum->sum('jml_verif');
+                            $target = array_sum($cetak);
+                            $check  = $sumObc == 0 ? 0 : (($sumObc / ($count * 20)) * 50);
+                            $percent= (($verif / $target) * 100) + $check;
+                            return round($percent,2);
+                        })->sortDesc();
+        // dd($data);
         return $data;
     }
 
