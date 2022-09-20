@@ -14,6 +14,7 @@ use App\Models\Seksi;
 
 class InputVerifikasi extends Component
 {
+
     public $data, $workstation, $unit, $npUser;
     public $verifikasi, $obc, $keterangan, $lembur, $tglVerif, $izin;
 
@@ -52,8 +53,14 @@ class InputVerifikasi extends Component
     /**
      * Fungsi Reset Field
      */
-
-
+    public function resetField()
+    {
+        $this->verifikasi = '';
+        $this->obc = '';
+        $this->keterangan = '';
+        $this->lembur = '';
+        $this->izin = '';
+    }
 
     /**
      * Fungsi untuk manampilkan dropdown by team
@@ -77,6 +84,7 @@ class InputVerifikasi extends Component
         $this->saveKeterangan();
         $this->saveLembur();
         $this->saveIzin();
+        $this->resetField();
 
         session()->flash('saveModal', 'Data Berhasil Di Simpan');
     }

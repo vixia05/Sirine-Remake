@@ -23,6 +23,7 @@ class CreateVerifPikaiTable extends Migration
             $table->integer('lembur')->nullable()->default(0);
             $table->integer('izin')->nullable()->default(0);
             $table->string('keterangan')->nullable()->default("-");
+            $table->integer('id_station');
             $table->integer('validation')->default(0);
             $table->timestamps();
 
