@@ -22,13 +22,16 @@ class VerifSeeder extends Seeder
             if (!$firstline) {
                 QcPikai::create([
                     "np_user"   => $data['1'],
-                    "tgl_verif"  => $data['2'],
-                    "jml_verif"  => $data['3'],
-                    "jml_obc"    => $data['4'],
-                    "target"     => $data['5'],
-                    "lembur"     => $data['6'],
-                    "keterangan" => $data['7'],
-                    "validation" => $data['8'],
+                    "nama_user"   => $data['2'],
+                    "tgl_verif"  => $data['3'],
+                    "jml_verif"  => $data['5'],
+                    "jml_obc"    => $data['6'],
+                    "target"     => $data['7'],
+                    "lembur"     => $data['8'],
+                    "keterangan" => $data['9'],
+                    "id_station" => $data['10'],
+                    "jenis"      => $data['11'],
+                    "validation" => $data['12'],
                 ]);
             }
             $firstline = false;

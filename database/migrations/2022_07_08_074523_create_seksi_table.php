@@ -16,16 +16,16 @@ class CreateSeksiTable extends Migration
         Schema::create('seksi', function (Blueprint $table) {
             $table->id();
             $table->string('seksi');
-            $table->foreignId('id_divisi');
+            // $table->foreignId('id_divisi');
             $table->timestamps();
 
-            // foreign key
-            $table->foreign('id_divisi')
-                  ->references('id')
-                  ->on('divisi')
-                  ->onUpdate('cascade')
-                  ->onDelete('no action')
-                  ->constrained();
+            // // foreign key
+            // $table->foreign('id_divisi')
+            //       ->references('id')
+            //       ->on('divisi')
+            //       ->onUpdate('cascade')
+            //       ->onDelete('no action')
+            //       ->constrained();
         });
     }
 

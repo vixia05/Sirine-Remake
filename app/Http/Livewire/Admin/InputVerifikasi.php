@@ -83,6 +83,7 @@ class InputVerifikasi extends Component
         $this->saveJmlObc();
         $this->saveKeterangan();
         $this->saveLembur();
+        // $this->saveStation();
         $this->saveIzin();
         $this->resetField();
 
@@ -107,6 +108,7 @@ class InputVerifikasi extends Component
                                     [
                                         'np_user'   => $this->npUser[$i],
                                         'tgl_verif' => $this->tglVerif,
+                                        'id_station'=> $this->workstation,
                                     ],
                                     [
                                         'jml_verif' => collect($this->verifikasi)->values()[$i],
@@ -132,6 +134,7 @@ class InputVerifikasi extends Component
                                     [
                                         'np_user'   => $this->npUser[$i],
                                         'tgl_verif' => $this->tglVerif,
+                                        'id_station'=> $this->workstation,
                                     ],
                                     [
                                         'jml_obc' => collect($this->obc)->values()[$i],
@@ -157,6 +160,7 @@ class InputVerifikasi extends Component
                                     [
                                         'np_user'   => $this->npUser[$i],
                                         'tgl_verif' => $this->tglVerif,
+                                        'id_station'=> $this->workstation,
                                     ],
                                     [
                                         'keterangan' => collect($this->keterangan)->values()[$i],
@@ -185,6 +189,7 @@ class InputVerifikasi extends Component
                             [
                                 'np_user'   => $this->npUser[$i],
                                 'tgl_verif' => $this->tglVerif,
+                                'id_station'=> $this->workstation,
                             ],
                             [
                                 'lembur'    => collect($this->lembur)->values()[$i],
@@ -197,7 +202,28 @@ class InputVerifikasi extends Component
            }
         }
 
-    // 2. Save Perizinan
+    // 5. Save Station
+        private function saveStation()
+        {
+            if($this->station == !null)
+             {
+                $this->npUser = array_keys($this->station);
+                for($i = 0; $i < count($this->station); $i++)
+                    {
+                        QcPikai::updateOrCreate(
+                        [
+                            'np_user'   => $this->npUser[$i],
+                            'tgl_verif' => $this->tglVerif,
+                            'id_station'=> $this->workstation,
+                        ],
+                        [
+                            'id_station'=> collect($this->station)->values()[$i]
+                        ]);
+                    }
+             }
+        }
+
+    // 6. Save Perizinan
         private function saveIzin()
         {
 

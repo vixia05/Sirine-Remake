@@ -103,13 +103,36 @@ class QuantityController extends Controller
                         ->get()
                         ->groupBy('np_user')
                         ->map(function($sum) use ($cetak){
-                            $getObc = $sum->where('jml_obc','>',18);
-                            $sumObc = $getObc->sum('jml_obc');
-                            $count  = count($getObc);
-                            $verif  = $sum->sum('jml_verif');
-                            $target = array_sum($cetak);
-                            $check  = $sumObc == 0 ? 0 : (($sumObc / ($count * 20)) * 50);
-                            $percent= (($verif / $target) * 100) + $check;
+                            // Hitung Point Jumlah Lembur
+                                $couAwal  = count($sum->where('lembur',1)) * 5000;
+                                $couAkhir = count($sum->where('lembur',2)) * 7500;
+                                $couAwAk  = count($sum->where('lembur',3)) * 12500;
+                                $lembur   = $couAwal + $couAkhir + $couAwAk;
+
+                            // Hitung Point OBC
+                              // 1. PCHT
+                                $getObcPcht = $sum->where('jenis',"PCHT")
+                                                  ->where('jml_obc','>',18);
+                                $sumObcPcht = $getObc->sum('jml_obc');
+                                $couObcPcht = count($getObcPcht);
+                                $resObcPcht = $sumObcPcht == 0 ? 0 : (($sumObcPcht / ($couObcPcht * 20)) * 50);
+
+                              // 2. MMEA
+
+                            // Hitung Point Verifikasi
+                              // 1. PCHT
+                                $verifPcht  = $sum->where('jenis',"PCHT")
+                                                  ->sum('jml_verif');
+                                $targetPcht = array_sum($cetak) == 0 ? ($sum->sum('target')*500) : array_sum($cetak);
+
+                              // 2. MMEA
+                                $verifMmea  = $sum->where('jenis',"MMEA")
+                                                  ->sum('jml_verif');
+                                $targetMmea = array_sum($cetak) == 0 ? ($sum->sum('target')*500) : array_sum($cetak);
+
+                            // Hasil Akhir
+                                $endResPcht = (($verifPcht / $targetPcht) * 100) + $resObcPCHT;
+                                $percent= $endResPcht;
                             return round($percent,2);
                         })->sortDesc();
         // dd($data);

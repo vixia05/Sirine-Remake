@@ -16,6 +16,7 @@ class CreateVerifPikaiTable extends Migration
         Schema::create('Qc_Pc', function (Blueprint $table) {
             $table->id();
             $table->string('np_user');
+            $table->string('nama_user');
             $table->date('tgl_verif');
             $table->integer('jml_verif')->nullable()->default(0);
             $table->integer('jml_obc')->nullable()->default(0);
@@ -24,6 +25,7 @@ class CreateVerifPikaiTable extends Migration
             $table->integer('izin')->nullable()->default(0);
             $table->string('keterangan')->nullable()->default("-");
             $table->integer('id_station');
+            $table->string('jenis')->nullable()->default("PCHT");
             $table->integer('validation')->default(0);
             $table->timestamps();
 

@@ -63,10 +63,10 @@
                                         Jumlah OBC
                                     </th>
                                     <th scope="col" class="px-6 py-4 text-center">
-                                        Keterangan
+                                        Lembur
                                     </th>
                                     <th scope="col" class="px-6 py-4 text-center">
-                                        Lembur
+                                        Keterangan
                                     </th>
                                     <th scope="col" class="px-6 py-4 text-center">
                                         Izin
@@ -107,14 +107,6 @@
                                                     min="0">
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4 text-sm whitespace-nowrap">
-                                            <div
-                                                class="transition duration-150 border-b-2 rounded-md focus-within:border-blue-500 focus-within:shadow-md hover:border-blue-500 hover:shadow-md">
-                                                <input type="text" placeholder="-" id="keterangan[]"
-                                                    wire:model="keterangan.{{ $datas->np_user }}"
-                                                    class="w-full text-xs font-medium border-none focus:ring-0">
-                                            </div>
-                                        </td>
                                         <td class="px-6 py-2 text-sm font-light text-gray-900 whitespace-nowrap">
                                             <div
                                                 class="transition duration-150 border-b-2 rounded-md focus-within:border-blue-500 focus-within:shadow-md hover:border-blue-500 hover:shadow-md">
@@ -125,6 +117,14 @@
                                                     <option value="2">Akhir</option>
                                                     <option value="3">Awal Akhir</option>
                                                 </select>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm whitespace-nowrap">
+                                            <div
+                                                class="transition duration-150 border-b-2 rounded-md focus-within:border-blue-500 focus-within:shadow-md hover:border-blue-500 hover:shadow-md">
+                                                <input type="text" placeholder="-" id="keterangan[]"
+                                                    wire:model="keterangan.{{ $datas->np_user }}"
+                                                    class="w-full text-xs font-medium border-none focus:ring-0">
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 text-sm flex-nowrap whitespace-nowrap">
