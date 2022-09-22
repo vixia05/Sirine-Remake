@@ -15,6 +15,9 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            backgroundImage: {
+                'prism-svg' : "url('/svg/subtle-prism.svg')",
+            },
             animation: {
                 //
             },

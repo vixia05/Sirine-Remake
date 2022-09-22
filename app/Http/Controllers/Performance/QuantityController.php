@@ -113,7 +113,7 @@ class QuantityController extends Controller
                               // 1. PCHT
                                 $getObcPcht = $sum->where('jenis',"PCHT")
                                                   ->where('jml_obc','>',18);
-                                $sumObcPcht = $getObc->sum('jml_obc');
+                                $sumObcPcht = $getObcPcht->sum('jml_obc');
                                 $couObcPcht = count($getObcPcht);
                                 $resObcPcht = $sumObcPcht == 0 ? 0 : (($sumObcPcht / ($couObcPcht * 20)) * 50);
 
@@ -131,7 +131,7 @@ class QuantityController extends Controller
                                 $targetMmea = array_sum($cetak) == 0 ? ($sum->sum('target')*500) : array_sum($cetak);
 
                             // Hasil Akhir
-                                $endResPcht = (($verifPcht / $targetPcht) * 100) + $resObcPCHT;
+                                $endResPcht = (($verifPcht / $targetPcht) * 100) + $resObcPcht;
                                 $percent= $endResPcht;
                             return round($percent,2);
                         })->sortDesc();
