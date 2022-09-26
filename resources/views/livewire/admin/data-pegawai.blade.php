@@ -5,7 +5,7 @@
         <div class="px-10 py-4">
             <h4 class="my-auto font-sans text-2xl font-semibold leading-tight text-white">Data Pegawai</h4>
         </div>
-        <div class="p-4">
+        <div class="px-4 pb-4">
             {{-- 1.0 Filter & Search Section --}}
             <div class="border border-slate-500 bg-slate-700 bg-opacity-50 px-4 py-6 shadow-md drop-shadow-sm">
                 <div class="flex justify-start">
@@ -136,7 +136,7 @@
             </div>
             {{-- Footer --}}
             <div
-                class="row-span-2 overflow-hidden rounded-b border border-slate-500 bg-slate-700 bg-opacity-50 px-10 py-3 text-white shadow-md drop-shadow-sm">
+                class="overflow-hidden rounded-b border border-slate-500 bg-slate-700 bg-opacity-50 px-10 py-3 text-white shadow-md drop-shadow-sm">
                 {{ $data->links() }}
             </div>
         </div>

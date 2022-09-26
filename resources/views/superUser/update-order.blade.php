@@ -4,7 +4,7 @@
     <div class="py-6">
         <div class="mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-1">
-                <div class="rounded-2xl bg-white shadow-md drop-shadow-md overflow-hidden p-8">
+                <div class="rounded-2xl bg-slate-800 bg-opacity-60 shadow-md drop-shadow-md overflow-hidden p-8 backdrop-blur-sm backdrop-filter">
                     <button type="button" type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
                         data-mdb-ripple-duration="2000ms"
                         class="mb-2 w-full inline-block px-6 py-2.5 bg-blue-400 text-white font-bold text-2xl leading-normal uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out">
