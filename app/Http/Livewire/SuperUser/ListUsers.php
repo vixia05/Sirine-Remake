@@ -12,11 +12,19 @@ class ListUsers extends Component
     use WithPagination;
     public $np, $role, $data_id, $name;
     public $updateMode = false;
+    public $search;
+    protected $queryString = ['search'];
 
     public function render()
     {
-        $data   = User::paginate(10);
+        $data   = User::where('np', 'like', '%'.$this->search.'%')->paginate(10);
         return view('livewire.super-user.list-users',['data' => $data]);
+    }
+
+
+    public function updatingsearch()
+    {
+        $this->resetPage();
     }
 
     private function resetInputFields(){

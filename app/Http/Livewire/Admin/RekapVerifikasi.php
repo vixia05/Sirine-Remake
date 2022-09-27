@@ -31,4 +31,9 @@ class RekapVerifikasi extends Component
             'data' => $data,
         ]);
     }
+
+    public function updatingsearch()
+    {
+        $this->resetPage();
+    }
 }

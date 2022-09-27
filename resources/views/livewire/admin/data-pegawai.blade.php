@@ -7,7 +7,7 @@
         </div>
         <div class="px-4 pb-4">
             {{-- 1.0 Filter & Search Section --}}
-            <div class="border border-slate-500 bg-slate-700 bg-opacity-50 px-4 py-6 shadow-md drop-shadow-sm">
+            <div class="border rounded-t border-slate-500 bg-slate-700 bg-opacity-50 px-4 py-6 shadow-md drop-shadow-sm">
                 <div class="flex justify-start">
                     <div class="relative">
                         <input type="text" wire:model="search"
@@ -25,14 +25,14 @@
                 </div>
             </div>
             {{-- End Filter & Search --}}
-            {{-- Body / Table --}}
+            {{-- 2.0 Body / Table --}}
             <div
                 class="row-span-3 overflow-hidden border-x border-slate-500 bg-slate-700 bg-opacity-50 shadow-md drop-shadow-sm">
                 <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full sm:px-4 lg:px-8">
                             <table class="min-w-full">
-                                <thead class="border-b border-slate-500 text-base font-bold text-gray-400">
+                                <thead class="border-b border-slate-500 text-base font-bold text-slate-400">
                                     <tr>
                                         <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
                                             No
@@ -67,25 +67,25 @@
                                 <tbody>
                                     @foreach ($data as $datas)
                                         <tr
-                                            class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
+                                            class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10 text-slate-100">
                                             <td
-                                                class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-medium text-white">
+                                                class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-medium">
                                                 {{ $data->firstItem() + $loop->index }}
                                             </td>
                                             <td
-                                                class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light text-white">
+                                                class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light">
                                                 {{ $datas->np_user }}
                                             </td>
                                             <td
-                                                class="max-w-[11rem] text-ellipsis border border-slate-500 px-4 py-3 text-sm font-light text-white">
+                                                class="max-w-[11rem] text-ellipsis border border-slate-500 px-4 py-3 text-sm font-light">
                                                 {{ $datas->nama }}
                                             </td>
                                             <td
-                                                class="whitespace-nowrap border border-slate-500 px-4 py-3 text-sm font-light text-white">
+                                                class="whitespace-nowrap border border-slate-500 px-4 py-3 text-sm font-light">
                                                 {{ \App\Models\User::where('np', $datas->np_user)->value('email') }}
                                             </td>
                                             <td
-                                                class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light text-white">
+                                                class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light">
                                                 @if (substr($datas->contact, 0, 1) == '0')
                                                     {{ Str::limit($datas->contact, 4, '-') }}{{ Str::limit(substr($datas->contact, 4), 4, '-') }}{{ Str::limit(substr($datas->contact, 8), 4, '') }}
                                                 @else
@@ -93,17 +93,17 @@
                                                 @endif
                                             </td>
                                             <td
-                                                class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light text-white">
+                                                class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light">
                                                 {{ date('d-m-Y', strtotime($datas->tgl_lahir)) }}
                                             </td>
                                             <td
-                                                class="max-w-sm border border-slate-500 px-4 py-3 text-left text-sm font-light text-white">
+                                                class="max-w-sm border border-slate-500 px-4 py-3 text-left text-sm font-light">
                                                 <span class="line-clamp-2">
                                                     {{ $datas->alamat }}
                                                 </span>
                                             </td>
                                             <td
-                                                class="max-w-sm border border-slate-500 px-4 py-3 text-center text-sm font-light text-white">
+                                                class="max-w-sm border border-slate-500 px-4 py-3 text-center text-sm font-light">
                                                 <span class="line-clamp-2">
                                                     {{ \App\Models\Unit::where('id', $datas->id_unit)->value('unit') }}
                                                 </span>
@@ -114,7 +114,7 @@
                                                         data-mdb-ripple-color="light" data-bs-toggle="modal"
                                                         data-bs-target="#modalUpdate"
                                                         wire:click="edit({{ $datas->id }})"
-                                                        class="inline-block rounded bg-green-500 px-3 py-2 text-sm font-semibold leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg">
+                                                        class="inline-block rounded bg-green-500 px-3 py-2 text-sm font-semibold leading-tight shadow-md transition duration-150 ease-in-out hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg">
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
                                                             viewBox="0 0 20 20" fill="currentColor">
                                                             <path
@@ -136,8 +136,8 @@
             </div>
             {{-- Footer --}}
             <div
-                class="overflow-hidden rounded-b border border-slate-500 bg-slate-700 bg-opacity-50 px-10 py-3 text-white shadow-md drop-shadow-sm">
-                {{ $data->links() }}
+                class="overflow-hidden rounded-b border border-slate-500 bg-slate-700 bg-opacity-50 px-10 py-3 shadow-md drop-shadow-sm">
+                {{ $data->links('vendor.livewire.tailwind') }}
             </div>
         </div>
     </div>

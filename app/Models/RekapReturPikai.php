@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class RekapReturPikai extends Model
 {
     use HasFactory;
-    protected $table = 'rekap_retur_pikai';
+    protected $table = 'retur_pikai';
     protected $guarded = [
         'id',
         'created_at',

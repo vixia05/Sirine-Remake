@@ -25,10 +25,10 @@
     {{-- <div class="sticky-top">
         @include('layouts.navigation')
     </div> --}}
-    <div x-data="{ showSideBar: false }" class="bg-prism-svg">
+    <div x-data="{ showSideBar: false }" class="bg-prism-svg min-w-fit">
 
         {{-- Medium Nav Bar --}}
-        <div class="sticky-top bg-slate-800 lg:hidden">
+        <div class="sticky-top bg-slate-800 lg:hidden z-10">
             <div class="ml-4">
                 {{-- Show Side Bar Button --}}
                 <button @click.prevent="showSideBar = !showSideBar " class="flex justify-between px-2 py-4"
@@ -51,7 +51,7 @@
         {{-- End Medium Nav-bar --}}
 
         <div class="relative flex justify-start min-h-screen">
-            <div class="relative z-10">
+            <div class="relative z-30">
                 {{-- Hamburger --}}
                 <div class="hidden ml-4 lg:block">
                     <button @click.prevent="showSideBar = !showSideBar " class="flex justify-between px-2 py-4"

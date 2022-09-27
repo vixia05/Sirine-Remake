@@ -44,6 +44,12 @@ class DataPegawai extends Component
         ]);
     }
 
+
+    public function updatingsearch()
+    {
+        $this->resetPage();
+    }
+
     private function resetInputFields(){
         $this->data_id = '';
     }

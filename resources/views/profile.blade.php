@@ -8,16 +8,16 @@
                     <div class="grid grid-flow-row grid-cols-3 gap-4">
                         {{-- 1.0 Foto Profile --}}
                         <div class="col-span-3 flex justify-start md:col-span-1">
-                            <div class="mx-auto max-w-sm rounded-lg border bg-white shadow-lg">
+                            <div class="mx-auto max-w-sm rounded-lg border border-slate-600 bg-slate-700 shadow-lg">
                                 <a href="#!">
                                     <img class="rounded-t-lg" src="{{ asset('img/Avatar/default.jpg') }}" alt="" />
                                 </a>
                                 <div class="p-6">
-                                    <h5 class="mb-2 text-center text-xl font-medium text-gray-900">{{ $userData->nama }}
+                                    <h5 class="mb-2 text-center text-xl font-medium text-slate-100">{{ $userData->nama }}
                                     </h5>
                                     <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="success"
                                         data-mdb-ripple-duration="1000ms"
-                                        class="mt-4 mb-2 inline-block w-full rounded border-2 border-green-400 px-6 py-2 text-xs font-medium uppercase leading-normal text-green-600 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0">Ubah
+                                        class="mt-4 mb-2 inline-block w-full rounded border-2 border-green-400 px-6 py-2 text-xs font-bold uppercase leading-base text-green-400 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0">Ubah
                                         Foto</button>
                                 </div>
                             </div>

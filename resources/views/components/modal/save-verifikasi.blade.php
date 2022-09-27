@@ -2,7 +2,7 @@
     <div wire:ignore.self
         class="fixed top-0 left-0 hidden w-full h-full overflow-x-hidden overflow-y-auto outline-none modal fade"
         id="modalVerifikasi" tabindex="-1" aria-labelledby="modalVerifikasi" aria-modal="true" role="dialog">
-        <div class="relative w-auto pointer-events-none modal-dialog modal-dialog-centered">
+        <div class="relative w-auto pointer-events-none modal-dialog modal-dialog-centered z-50">
             <div
                 class="relative flex flex-col w-full text-current border-none rounded-md shadow-lg outline-none pointer-events-auto modal-content bg-clip-padding">
                 <div

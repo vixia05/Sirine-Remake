@@ -1,13 +1,13 @@
 <div class="flex justify-center">
+    @include('components.modal.save-verifikasi')
     <div class="w-full rounded-md bg-slate-800 bg-opacity-60 backdrop-blur-sm backdrop-filter">
         {{-- Header --}}
         <div class="px-10 py-3">
             <h4 class="my-auto font-sans text-2xl font-semibold leading-tight text-white">Input Verifikasi</h4>
         </div>
-        @include('components.modal.save-verifikasi')
         <div class="px-4 pb-4">
             {{-- 1.0 Filter Section --}}
-            <div class="border border-slate-500 bg-slate-700 bg-opacity-50 px-4 py-6 shadow-md drop-shadow-sm">
+            <div class="border rounded-t border-slate-500 bg-slate-700 bg-opacity-50 px-4 py-6 shadow-md drop-shadow-sm">
                 <div class="flex justify-between">
                     {{-- 1.1 Filter By Team --}}
                     <div class="flex justify-center rounded-md focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-400">
@@ -162,10 +162,10 @@
             </div>
             {{-- Footer --}}
             <div
-                class="ow-span-2 overflow-hidden rounded-b border border-slate-500 bg-slate-700 bg-opacity-50 px-10 py-3 text-white shadow-md drop-shadow-sm">
+                class="ow-span-2 overflow-hidden rounded-b border-b border-x border-slate-500 bg-slate-700 bg-opacity-50 px-10 py-3 text-white shadow-md drop-shadow-sm">
                 <div class="flex justify-end">
                     <button type="btn" wire:click="store" data-mdb-ripple="true" data-mdb-ripple-color="light"
-                        class="rounded-md bg-blue-400 px-2 py-1 text-white transition duration-150 hover:bg-blue-500"
+                        class="rounded-md bg-blue-600 px-2 py-1 text-white transition duration-150 hover:bg-blue-500"
                         data-bs-toggle="modal" data-bs-target="#modalVerifikasi">Simpan</button>
                 </div>
             </div>
