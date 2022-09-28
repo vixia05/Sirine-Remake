@@ -12,6 +12,11 @@
     {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"> --}}
 
     <!-- Styles -->
+    <style>
+        [x-cloak] {
+            display: none!important;
+        }
+    </style>
     @livewireStyles
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
@@ -25,10 +30,10 @@
     {{-- <div class="sticky-top">
         @include('layouts.navigation')
     </div> --}}
-    <div x-data="{ showSideBar: false }" class="bg-prism-svg min-w-fit">
+    <div x-data="{ showSideBar: false }" class="bg-prism-svg min-w-fit" x-cloak>
 
         {{-- Medium Nav Bar --}}
-        <div class="sticky-top bg-slate-800 lg:hidden z-10">
+        <div class="z-10 sticky-top bg-slate-800 lg:hidden">
             <div class="ml-4">
                 {{-- Show Side Bar Button --}}
                 <button @click.prevent="showSideBar = !showSideBar " class="flex justify-between px-2 py-4"

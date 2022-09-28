@@ -1,8 +1,8 @@
 @section('title', 'Qty Unit')
 @extends('layouts.app')
 @section('content')
-    <div class="relative flex flex-col p-6 justify-center">
-        <div class="bg-slate-800 backdrop-filter backdrop-blur-sm bg-opacity-80 rounded-xl">
+    <div class="relative flex flex-col justify-center p-6">
+        <div class="bg-slate-800 backdrop-filter backdrop-blur-lg bg-opacity-60 rounded-xl">
             <div class="w-full px-4 py-3">
                 <div class="flex justify-between pb-3 border-b-2">
                     <div class="flex flex-col">

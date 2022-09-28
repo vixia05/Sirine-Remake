@@ -9,17 +9,12 @@ const qtyUnit = new Chart(ctxQty, {
             label: 'Jumlah Verifikasi',
             data: dataChart.data,
             backgroundColor: [
-                '#bfdbfe',
-                '#93c5fd',
-                '#60a5fa',
-                '#3b82f6',
-                '#2563eb',
-                '#1d4ed8',
-                '#1e40af',
-                '#38bdf8',
-                '#06b6d4',
+                '#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa',
+                '#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa',
+                '#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa',
+                '#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa',
             ],
-            borderColor: '#60a5fa',
+            borderColor: '#1d4ed8',
             borderWidth: 1
         }]
     },
