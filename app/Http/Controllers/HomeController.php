@@ -63,8 +63,11 @@ class HomeController extends Controller
         $hcsPcht = OrderPcht::whereMonth('tgl_obc',now())
                               ->sum('hcs_qc');
 
+        $hcsSisaMmea = OrderMmea::whereMonth('tgl_obc',now())
+                              ->sum('hcs_sisa');
+
         $hcsMmea = OrderMmea::whereMonth('tgl_obc',now())
-                              ->sum('hcs_qc');
+                              ->sum('hcs_qc') - $hcsSisaMmea;
 
         return [
             'hcsPcht' => $hcsPcht,

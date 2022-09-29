@@ -1,16 +1,138 @@
-function chartOrderPcht()
-{
+Chart.overrides.doughnut.plugins.legend.display = false;
+
+// 1.0 Mini Chart Order PCHT
     const ctxOrderPcht = document.getElementById('orderPcht');
     const orderPcht = new Chart(ctxOrderPcht, {
+        type: 'bar',
+        data: {
+            labels: [1,2,3,4,5,6,7],
+            datasets: [{
+                data : [65,35,25,30,31,32,41],
+                backgroundColor: [
+                    '#38bdf8',
+                    '#38bdf8',
+                    '#38bdf8',
+                    '#38bdf8',
+                    '#38bdf8',
+                    '#38bdf8',
+                    '#2563eb'
+                ],
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                },
+            },
+            scales: {
+                x: {
+                    display:false,
+                    },
+                y: {
+                    display:false,
+                    }
+                },
+        },
+    });
+
+// 2.0 Mini Chart Sisa Order Pcht
+    const ctxSisaPcht = document.getElementById('sisaPcht');
+    const sisaPcht = new Chart(ctxSisaPcht, {
         type: 'doughnut',
         data: {
             labels: ['Terkirim','Sisa'],
             datasets: [{
                 data : [65,35],
+                backgroundColor: ['rgba(68, 239, 239, 0.4)','rgba(239, 68, 68, 0.4)'],
+                borderColor: ['rgba(68, 239, 239, 0.8)','rgba(239, 68, 68, 0.8)'],
+                borderWidth: 1,
             }]
         },
     });
-}
+
+// 3.0 Mini Chart Order MMEA
+    const ctxOrderMmea = document.getElementById('orderMmea');
+    const orderMmea = new Chart(ctxOrderMmea, {
+        type: 'bar',
+        data: {
+            labels: [1,2,3,4,5,6,7],
+            datasets: [{
+                data : [65,35,25,30,31,32,41],
+                backgroundColor: [
+                    '#fde047',
+                    '#fde047',
+                    '#fde047',
+                    '#fde047',
+                    '#fde047',
+                    '#fde047',
+                    '#ca8a04'
+                ],
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                },
+            },
+            scales: {
+                x: {
+                    display:false,
+                    },
+                y: {
+                    display:false,
+                    }
+                },
+        },
+    });
+
+// 4.0 Mini Chart Sisa MMEA
+    const ctxSisaMmea = document.getElementById('sisaMmea');
+    const sisaMmea = new Chart(ctxSisaMmea, {
+        type: 'doughnut',
+        data: {
+            labels: ['Terkirim','Sisa'],
+            datasets: [{
+                data : [65,35],
+                backgroundColor: ['rgba(68, 239, 239, 0.4)','rgba(239, 68, 68, 0.4)'],
+                borderColor: ['rgba(68, 239, 239, 0.8)','rgba(239, 68, 68, 0.8)'],
+                borderWidth: 1,
+            }]
+        },
+    });
+
+// 5.0 Mini Chart Sisa MMEA
+    const ctxInscPcht = document.getElementById('inscPcht');
+    const inscPcht = new Chart(ctxInscPcht, {
+        type: 'doughnut',
+        data: {
+            labels: ['Baik','Rusak'],
+            datasets: [{
+                data : [65,35],
+                backgroundColor: ['rgba(68, 239, 239, 0.4)','rgba(239, 68, 68, 0.4)'],
+                borderColor: ['rgba(68, 239, 239, 0.8)','rgba(239, 68, 68, 0.8)'],
+                borderWidth: 1,
+            }]
+        },
+    });
+
+// 6.0 Mini Chart Sisa MMEA
+    const ctxInscMmea = document.getElementById('inscMmea');
+    const InscMmea = new Chart(ctxInscMmea, {
+        type: 'doughnut',
+        data: {
+            labels: ['Baik','Rusak'],
+            datasets: [{
+                data : [65,35],
+                backgroundColor: ['rgba(68, 239, 239, 0.4)','rgba(239, 68, 68, 0.4)'],
+                borderColor: ['rgba(68, 239, 239, 0.8)','rgba(239, 68, 68, 0.8)'],
+                borderWidth: 1,
+            }]
+        },
+    });
 
 // Call Chart PCHT
 const ctxPcht = document.getElementById('pchtDaily');
