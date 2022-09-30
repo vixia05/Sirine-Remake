@@ -1,5 +1,5 @@
 <div x-show="!showSideBar"
-    class="fixed w-64 min-h-full top-0 bottom-0 overflow-y-auto shadow-md bg-slate-800 drop-shadow-md md:block px-6 pt-4"
+    class="fixed w-64 min-h-full top-0 bottom-0 overflow-y-auto shadow-md bg-slate-800 drop-shadow-md md:block px-6 pt-4   scrollbar-hide"
     x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-x-0 -translate-x-1/2"
     x-transition:enter-end="opacity-100 scale-x-100 translate-x-0" x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100 scale-x-100 translate-x-0"

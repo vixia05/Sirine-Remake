@@ -26,7 +26,7 @@
 
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased  scrollbar-hide">
     {{-- <div class="sticky-top">
         @include('layouts.navigation')
     </div> --}}
@@ -81,7 +81,9 @@
             <!-- Page Content -->
             <div class="relative w-full" :class="showSideBar ? '' : 'lg:ml-64'" x-transition>
                 <main>
-                    @yield('content')
+                    <div class="mx-auto">
+                        @yield('content')
+                    </div>
                     {{-- {{ $slot }} --}}
                 </main>
             </div>

@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -29,6 +30,23 @@ module.exports = {
         require('@tailwindcss/forms'),
         require('@tailwindcss/line-clamp'),
         require('@tailwindcss/aspect-ratio'),
-            require('tw-elements/dist/plugin')
+        require('tw-elements/dist/plugin'),
+        plugin(function ({ addUtilities }) {
+            addUtilities({
+              '.scrollbar-hide': {
+                /* IE and Edge */
+                '-ms-overflow-style': 'none',
+
+                /* Firefox */
+                'scrollbar-width': 'none',
+
+                /* Safari and Chrome */
+                '&::-webkit-scrollbar': {
+                  display: 'none'
+                }
+              }
+            }
+            )
+          })
         ],
 };
