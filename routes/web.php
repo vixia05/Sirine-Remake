@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Performance\QualityController;
@@ -24,6 +25,7 @@ Route::get('/', function () {
 });
 
 Route::view('/test', 'test');
+Route::get('test/con', [TestController::class, 'test'])->name('test/con');
 
 Route::group(['middleware' => ['auth','verified']], function() {
 
