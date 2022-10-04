@@ -14,86 +14,84 @@ class TestController extends Controller
 {
     public function test($startDate = new Carbon('first day of last month'), $endDate = new Carbon('last day of last month'), $team = 18)
     {
-
-        $cetak  = OrderPcht::whereBetween('tgl_qc',[$startDate,$endDate])
-                        ->get()
-                        ->sortBy('tgl_qc')
-                        ->groupBy('tgl_qc')
-                        ->map(function($sum){
-                            $verif  = $sum->sum('rencet');
-                            $target = ((($verif / 750000))*30) * 500;
-                            $result = $target < 15000 ? $target : 15000;
-                            return $result;
-                        })->toArray();
-
-        // $data  = QcPikai::where('id_station',$team)
-        //                 ->whereBetween('tgl_verif',[$startDate,$endDate])
-        //                 ->get()
-        //                 ->groupBy('np_user')
-        //                 ->map(function($sum) use ($cetak){
-        //                     // Hitung Point Jumlah Lembur
-        //                         $couAwal  = count($sum->where('lembur',1)) * 5000;
-        //                         $couAkhir = count($sum->where('lembur',2)) * 7500;
-        //                         $couAwAk  = count($sum->where('lembur',3)) * 12500;
-        //                         $lembur   = $couAwal + $couAkhir + $couAwAk;
-
-        //                     // Hitung Point OBC
-        //                       // 1. PCHT
-        //                         $getObcPcht = $sum->where('jenis',"PCHT")
-        //                                           ->where('jml_obc','>',18);
-        //                         $sumObcPcht = $getObcPcht->sum('jml_obc');
-        //                         $couObcPcht = count($getObcPcht);
-        //                         $resObcPcht = $sumObcPcht == 0 ? 0 : (($sumObcPcht / ($couObcPcht * 20)) * 50);
-
-        //                       // 2. MMEA
-
-        //                     // Hitung Point Verifikasi
-        //                       // 1. PCHT
-        //                         $verifPcht  = $sum->where('jenis',"PCHT")
-        //                                           ->sum('jml_verif');
-        //                         $targetPcht = array_sum($cetak) == 0 ? ($sum->sum('target')*500) : array_sum($cetak);
-
-        //                       // 2. MMEA
-        //                         $verifMmea  = $sum->where('jenis',"MMEA")
-        //                                           ->sum('jml_verif');
-        //                         $targetMmea = array_sum($cetak) == 0 ? ($sum->sum('target')*500) : array_sum($cetak);
-
-        //                     // Hasil Akhir
-        //                         $endResPcht = (($verifPcht / $targetPcht) * 100) + $resObcPcht;
-        //                         $percent= $endResPcht;
-        //                     return round($percent,2);
-        //                 })->sortDesc();
-
         $data  = QcPikai::where('id_station',$team)
                         ->whereBetween('tgl_verif',[$startDate,$endDate])
                         ->get()
                         ->groupBy('np_user')
-                        ->map(function($npGroup) use ($cetak){
-                            $groupBy = $npGroup->groupBy('tgl_verif')
-                                               ->map(function($sum){
-                                                //** Target Kasih Kondisi WIP  */
-                                                $targetPcht = $sum->sum('target')*500;
-                                                $hasilPcht  = $sum->sum('jml_verif');
-                                                //** Tambah Count Izin Disini <- */
-                                                $persenPcht = $hasilPcht / $targetPcht * 100;
-                                                if ($persenPcht < 100 && $persenPcht > 50 )
-                                                {
-                                                    $resultInd = $persenPcht + (($sum->sum('jml_obc') / 20) * 0.5);
-                                                }
+                        ->map(function($npGroup) use ($startDate){
+                            $groupBy = $npGroup->sortBy('tgl_verif')
+                                               ->groupBy('tgl_verif')
+                                               ->map(function($sum) use ($startDate){
+                                                /** Menentukan WIP */
+                                                    // Subtotal Jumlah Cetak Hingga Hari Tersebut * Tanpa Memasukan Mesin Komori 4
+                                                        $sumCetakPcht = OrderPcht::where('serial_mesin','!=','TGN-1032')
+                                                                                    ->whereBetween('tgl_cetak',[$startDate,$sum->pluck('tgl_verif')])
+                                                                                    ->sum('jml_cetak') ;
 
-                                                elseif ($persenPcht < 100 && $persenPcht < 50)
-                                                {
-                                                    $resultInd = $persenPcht + ($sum->sum('jml_obc')/20);
-                                                }
+                                                    // Subtotal Jumlah Baik Periksa Hingga Hari Tersebut * Tanpa Memasukan Mesin Komori 4
+                                                        $baikVerifPcht = OrderPcht::where('serial_mesin','!=','TGN-1032')
+                                                                                    ->whereBetween('tgl_qc',[$startDate,$sum->pluck('tgl_verif')])
+                                                                                    ->sum('hcs_qc');
 
-                                                else
-                                                {
-                                                    $resultInd = $persenPcht;
-                                                }
-                                                return $resultInd;
+                                                    // Subtotal Jumlah Rusak Periksa Hingga Hari Tersebut * Tanpa Memasukan Mesin Komori 4
+                                                        $rusakVerifPcht = OrderPcht::where('serial_mesin','!=','TGN-1032')
+                                                                                    ->whereBetween('tgl_qc',[$startDate,$sum->pluck('tgl_verif')])
+                                                                                    ->sum('hcts_qc');
+
+                                                    // Subtotal Jumlah Verifikasi Hari Itu Saja ** Kedepannya cari cara untuk subDays yang di atas untukMengganti ini
+                                                        $lastVerifPcht  = OrderPcht::where('serial_mesin','!=','TGN-1032')
+                                                                                    ->where('tgl_qc',$sum->pluck('tgl_verif'))
+                                                                                    ->sum('rencet');
+
+                                                    // Rumus WIP, WIP = Total Cetak - Baik Periksa + Rusak Periksa + Periksa Hari INI
+                                                        $wip = $sumCetakPcht - ($baikVerifPcht + $rusakVerifPcht) + $lastVerifPcht;
+
+                                                /** End Menentukan WIP */
+
+                                                /** Menentukan Target Harian PCHT Berdasarkan Jumlah Lembar */
+                                                    // Default Value Untuk Target Pcht
+                                                        $targetPcht = 0;
+
+                                                    // Menentukan Target Berdasarkan WIP Harian
+                                                        if ($wip < 780000 && $wip > 100000){
+                                                            $targetPcht = ($wip / 780000) * 15000;}
+
+                                                        else{
+                                                            $targetPcht = $sum->sum('target')*500;}
+
+                                                /** End Menentukan Target Harian PCHT Berdasarkan Jumlah Lembar */
+
+                                                    $hasilPcht  = $sum->sum('jml_verif');
+
+                                                    //** Tambah Count Izin Disini <- */
+                                                    $persenPcht = $targetPcht == 0 ? 0 : ($hasilPcht / $targetPcht) * 100;
+                                                    $resultInd = 100;
+
+                                                    if($wip > 250000){
+
+                                                        if ($persenPcht < 100 && $persenPcht > 50){
+                                                            $resultInd = $persenPcht + (($sum->sum('jml_obc') / 18) * 50);}
+
+                                                        elseif ($persenPcht < 100 && $persenPcht > 0){
+                                                            $resultInd = $persenPcht + (($sum->sum('jml_obc')/18) * 100);}
+
+                                                        elseif ($persenPcht >= 100){
+
+                                                            if($sum->sum('jml_obc') > 8){
+                                                                $resultInd = $persenPcht + ((($sum->sum('jml_obc') - 8) / 18) * 50);}
+
+                                                            else{
+                                                                $resultInd = $persenPcht;}
+                                                            }
+                                                    }
+
+                                                    else{
+                                                        $resultInd = 100;}
+
+                                                    return $resultInd;
                                                });
-                            $result = $groupBy;
-                            return $result;
+                            $result = $groupBy->avg();
+                            return $groupBy;
                         })->sortDesc();
         dd($data);
         return $data;

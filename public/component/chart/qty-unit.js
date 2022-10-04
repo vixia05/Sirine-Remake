@@ -27,6 +27,8 @@ const qtyUnit = new Chart(ctxQty, {
         scales: {
             y: {
                 beginAtZero: true,
+                min:0,
+                max:100,
                 grid:{
                     display: false
                 }
