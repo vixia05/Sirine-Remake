@@ -12,7 +12,7 @@ use App\Models\workstation;
 
 class TestController extends Controller
 {
-    public function test($startDate = new Carbon('first day of last month'), $endDate = new Carbon('last day of last month'), $team = 18)
+    public function test($startDate = new Carbon('first day of last month'), $endDate = new Carbon('last day of last month'), $team = 20)
     {
         $data  = QcPikai::where('id_station',$team)
                         ->whereBetween('tgl_verif',[$startDate,$endDate])
@@ -88,10 +88,10 @@ class TestController extends Controller
                                                     else{
                                                         $resultInd = 100;}
 
-                                                    return $resultInd;
+                                                    return $targetPcht  ;
                                                });
-                            $result = $groupBy->avg();
-                            return $groupBy;
+                            $result = $groupBy->sum();
+                            return $result;
                         })->sortDesc();
         dd($data);
         return $data;

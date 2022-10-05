@@ -19,26 +19,19 @@ const qtyUnit = new Chart(ctxQty, {
         }]
     },
     options: {
-        plugins:{
-            legend :{
-                display : false,
-            }
+        plugins: {
+            legend: {
+                display: false,
+            },
         },
         scales: {
-            y: {
-                beginAtZero: true,
-                min:0,
-                max:100,
-                grid:{
-                    display: false
-                }
-            },
             x: {
-                grid:{
-                    display: false
+                display:false,
+                },
+            y: {
+                display:false,
                 }
             },
-        }
-    }
+    },
 });
 };

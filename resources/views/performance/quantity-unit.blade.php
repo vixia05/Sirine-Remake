@@ -4,7 +4,9 @@
     <div class="relative flex flex-col justify-center p-6">
         <div class="bg-slate-800 backdrop-filter backdrop-blur-lg bg-opacity-60 rounded-xl">
             <div class="w-full px-4 py-3">
+                {{-- 1.0 Header Section --}}
                 <div class="flex justify-between pb-3 border-b-2">
+                    {{-- 1.1 Header Title --}}
                     <div class="flex flex-col">
                         <h5 class="w-full text-xl font-bold text-slate-300">Hasil Produksi Unit
                             Verifikasi Pita Cukai</h5>

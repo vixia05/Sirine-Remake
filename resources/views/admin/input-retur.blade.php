@@ -2,7 +2,6 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-
         <div class="px-6 py-6 mx-auto lg:px-8">
             <div class="flex justify-center">
                 <div class="p-4 rounded bg-slate-800 bg-opacity-70 text-slate-100 backdrop-blur-sm backdrop-filter">
