@@ -4,40 +4,54 @@
     <div class="py-6">
         <div class="mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
-                <div class="relative col-span-1 rounded-xl bg-slate-800 bg-opacity-60 backdrop-blur-lg md:col-span-2 p-4">
-                        <div class="flex justify-between border-b-2 pb-3">
-                            <div class="flex flex-col">
-                                <h6 class="w-full text-lg font-bold text-slate-100">Hasil
-                                    Verifikasi Pita Cukai</h6>
-                                <span class="text-xs font-light text-slate-300">Periode September 2022</span>
-                            </div>
-                            <div class="my-auto flex flex-row flex-wrap justify-end">
-                                <select
-                                    class="min-w-fit rounded-l border-blue-400 py-2 pl-2 text-xs font-bold text-gray-700">
-                                    <option selected>Team</option>
-                                    <option>Verifikasi Pita Cukai Team A</option>
-                                </select>
-                                <select class="min-w-fit border-blue-400 py-2 pl-2 text-xs font-bold text-gray-700">
-                                    <option selected>Nama/NP</option>
-                                </select>
-                                <input type="text"
-                                    class="min-w-fit border-blue-400 py-2 pl-2 text-xs font-bold text-gray-700"
-                                    placeholder="Periode" />
-                                <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
-                                    class="inline-block rounded-r bg-blue-500 px-3 py-2 text-sm font-semibold leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-lg">Reset</button>
-                            </div>
+                {{-- A. Card Hasil Verifikasi Individu --}}
+                <div class="relative col-span-1 rounded-xl bg-slate-800 bg-opacity-60 p-4 backdrop-blur-lg md:col-span-2">
+                    {{-- 1. Header --}}
+                    <div class="flex justify-between border-b-2 pb-3">
+                        {{-- 1.1 Header Title --}}
+                        <div class="flex flex-col">
+                            <h6 class="w-full text-lg font-bold text-slate-100">Hasil
+                                Verifikasi Pita Cukai</h6>
+                            <span class="text-xs font-light text-slate-300">Periode September 2022</span>
                         </div>
-                    <div class="relative h-full flex flex-col justify-center">
-                        <canvas id="qtyIndividu" name="qtyIndividu" class="mt-auto pb-16"></canvas>
+                        {{-- 1.2 Filter Chart --}}
+                        <div class="my-auto flex flex-row flex-wrap justify-end">
+                            {{-- Filter By Team --}}
+                            <select class="min-w-fit rounded-l border-blue-400 py-2 pl-2 text-xs font-bold text-gray-700">
+                                <option selected>Team</option>
+                                <option>Verifikasi Pita Cukai Team A</option>
+                            </select>
+                            {{-- Filter By NP / Nama --}}
+                            <select class="min-w-fit border-blue-400 py-2 pl-2 text-xs font-bold text-gray-700">
+                                <option selected>Nama/NP</option>
+                            </select>
+                            {{-- Filter Date Range --}}
+                            <input type="text"
+                                class="min-w-fit border-blue-400 py-2 pl-2 text-xs font-bold text-gray-700"
+                                placeholder="Periode" />
+                            {{-- Reset Filter --}}
+                            <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
+                                class="inline-block rounded-r bg-blue-500 px-3 py-2 text-sm font-semibold leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-lg">Reset</button>
+                        </div>
+                    </div>
+                    {{-- 2. Body Cancvas / Chart --}}
+                    <div class="relative flex h-full w-full flex-col justify-center">
+                        <canvas id="qtyIndividu" name="qtyIndividu"></canvas>
                     </div>
                 </div>
+                {{-- End A. Card Hasil Verifikasi Individu --}}
+
                 <div class="grid grid-rows-2 gap-3">
+                    {{-- B. Card Hasil Verifikasi Unit --}}
                     <div class="overflow-hidden rounded-xl bg-slate-800 bg-opacity-60 px-6 pt-4 backdrop-blur-lg">
                         <h6 class="text-md py-2 font-bold text-slate-100">Yearly Performance Overview</h6>
                         <div class="object-cover pt-6">
                             <canvas id="qtyIndividuYear" name="qtyIndividuYear" class="min-w-full"></canvas>
                         </div>
                     </div>
+                    {{-- End B. Card Hasil Verifikasi Unit --}}
+
+                    {{-- C. Card Standar Verifikasi Individu --}}
                     <div class="overflow-hidden rounded-xl bg-slate-800 bg-opacity-60 px-6 py-4 backdrop-blur-lg">
                         <h6 class="text-md mb-1 py-2 font-bold text-slate-100">Standar Verifikasi Pita Cukai (Dalam
                             Keadaan

@@ -47,6 +47,7 @@ const qtyIndividu = new Chart(ctxQty, {
         }
     }
 });
+
 const qtyIndividuYear = new Chart(ctxQtyYear, {
     type: 'bar',
     data: {
@@ -74,6 +75,7 @@ const qtyIndividuYear = new Chart(ctxQtyYear, {
         }]
     },
     options: {
+        maintainAspectRatio:false,
         plugins:{
             legend :{
                 display : false,
