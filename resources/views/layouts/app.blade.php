@@ -30,7 +30,7 @@
     {{-- <div class="sticky-top">
         @include('layouts.navigation')
     </div> --}}
-    <div x-data="{ showSideBar: false }" class="min-w-fit bg-prism-svg" x-cloak>
+    <div x-data="{ showSideBar: false }" class="min-w-fit bg-prism-svg dark:bg-prism-svg-dark" x-cloak>
 
         {{-- Medium Nav Bar --}}
         <div class="sticky-top z-10 bg-slate-800 lg:hidden">

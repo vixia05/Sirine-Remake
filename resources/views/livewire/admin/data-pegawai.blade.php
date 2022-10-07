@@ -1,13 +1,13 @@
 <div class="flex justify-center container mx-auto">
     @include('components.modal.update-pegawai')
-    <div class="w-full rounded-md bg-slate-800 bg-opacity-60 backdrop-blur-sm backdrop-filter">
+    <div class="w-full rounded-md bg-slate-100 bg-opacity-70 dark:bg-slate-800 dark:bg-opacity-60 backdrop-blur-sm backdrop-filter">
         {{-- Header --}}
         <div class="px-10 py-4">
-            <h4 class="my-auto font-sans text-2xl font-semibold leading-tight text-white">Data Pegawai</h4>
+            <h4 class="my-auto font-sans text-2xl font-semibold leading-tight dark:text-slate-100 text-slate-800">Data Pegawai</h4>
         </div>
         <div class="px-4 pb-4">
             {{-- 1.0 Filter & Search Section --}}
-            <div class="rounded-t border border-slate-500 bg-slate-700 bg-opacity-50 px-4 py-6 shadow-md drop-shadow-sm">
+            <div class="rounded-t border bg-inerhit border-slate-400 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 px-4 py-6">
                 <div class="flex justify-start">
                     <div class="relative">
                         <input type="text" wire:model="search"
@@ -27,37 +27,37 @@
             {{-- End Filter & Search --}}
             {{-- 2.0 Body / Table --}}
             <div
-                class="row-span-3 overflow-hidden border-x border-slate-500 bg-slate-700 bg-opacity-50 shadow-md drop-shadow-sm">
+                class="row-span-3 overflow-hidden border-x bg-inerhit border-slate-400 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
                 <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full sm:px-4 lg:px-8">
                             <div class="overflow-x-auto">
                                 <table class="min-w-full">
-                                    <thead class="border-b border-slate-500 text-base font-bold text-slate-400">
+                                    <thead class="border-b border-slate-400 dark:border-slate-500 text-base font-bold text-slate-600 dark:text-slate-400">
                                         <tr>
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-500 px-4 py-3 text-center">
                                                 No
                                             </th>
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-500 px-4 py-3 text-center">
                                                 NP
                                             </th>
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-500 px-4 py-3 text-center">
                                                 Nama
                                             </th>
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-500 px-4 py-3 text-center">
                                                 Email
                                             </th>
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-500 px-4 py-3 text-center">
                                                 Contact
                                             </th>
                                             <th scope="col"
-                                                class="whitespace-nowrap border-r border-slate-500 px-4 py-3 text-center">
+                                                class="whitespace-nowrap border-r border-slate-400 dark:border-slate-500 px-4 py-3 text-center">
                                                 Tanggal Lahir
                                             </th>
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-500 px-4 py-3 text-center">
                                                 Alamat
                                             </th>
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-500 px-4 py-3 text-center">
                                                 Unit
                                             </th>
                                             <th scope="col" class="border-slate-500 px-4 py-3 text-center">
@@ -68,25 +68,25 @@
                                     <tbody>
                                         @foreach ($data as $datas)
                                             <tr
-                                                class="text-slate-100 transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
+                                                class="text-slate-800 dark:text-slate-100 transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-medium">
+                                                    class="whitespace-nowrap border-r border-y border-slate-400 dark:border-slate-500 px-4 py-3 text-center text-sm font-medium">
                                                     {{ $data->firstItem() + $loop->index }}
                                                 </td>
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light">
+                                                    class="whitespace-nowrap border-y border-slate-400 dark:border-slate-500 px-4 py-3 text-center text-sm font-light">
                                                     {{ $datas->np_user }}
                                                 </td>
                                                 <td
-                                                    class="max-w-[11rem] text-ellipsis border border-slate-500 px-4 py-3 text-sm font-light">
+                                                    class="max-w-[11rem] text-ellipsis border border-slate-400 dark:border-slate-500 px-4 py-3 text-sm font-light">
                                                     {{ $datas->nama }}
                                                 </td>
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-500 px-4 py-3 text-sm font-light">
+                                                    class="whitespace-nowrap border border-slate-400 dark:border-slate-500 px-4 py-3 text-sm font-light">
                                                     {{ \App\Models\User::where('np', $datas->np_user)->value('email') }}
                                                 </td>
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light">
+                                                    class="whitespace-nowrap border border-slate-400 dark:border-slate-500 px-4 py-3 text-center text-sm font-light">
                                                     @if (substr($datas->contact, 0, 1) == '0')
                                                         {{ Str::limit($datas->contact, 4, '-') }}{{ Str::limit(substr($datas->contact, 4), 4, '-') }}{{ Str::limit(substr($datas->contact, 8), 4, '') }}
                                                     @else
@@ -94,22 +94,22 @@
                                                     @endif
                                                 </td>
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light">
+                                                    class="whitespace-nowrap border border-slate-400 dark:border-slate-500 px-4 py-3 text-center text-sm font-light">
                                                     {{ date('d-m-Y', strtotime($datas->tgl_lahir)) }}
                                                 </td>
                                                 <td
-                                                    class="max-w-sm border border-slate-500 px-4 py-3 text-left text-sm font-light">
+                                                    class="max-w-sm border border-slate-400 dark:border-slate-500 px-4 py-3 text-left text-sm font-light">
                                                     <span class="line-clamp-2">
                                                         {{ $datas->alamat }}
                                                     </span>
                                                 </td>
                                                 <td
-                                                    class="max-w-sm border border-slate-500 px-4 py-3 text-center text-sm font-light">
+                                                    class="max-w-sm border border-slate-400 dark:border-slate-500 px-4 py-3 text-center text-sm font-light">
                                                     <span class="line-clamp-2">
                                                         {{ \App\Models\Unit::where('id', $datas->id_unit)->value('unit') }}
                                                     </span>
                                                 </td>
-                                                <td class="whitespace-nowrap border border-slate-500 px-4 py-3">
+                                                <td class="whitespace-nowrap border border-slate-400 dark:border-slate-500 px-4 py-3 text-slate-100">
                                                     <div class="flex justify-center space-x-2">
                                                         <button type="button" type="button" data-mdb-ripple="true"
                                                             data-mdb-ripple-color="light" data-bs-toggle="modal"
@@ -138,7 +138,7 @@
             </div>
             {{-- Footer --}}
             <div
-                class="overflow-hidden rounded-b border border-slate-500 bg-slate-700 bg-opacity-50 px-10 py-3 shadow-md drop-shadow-sm">
+                class="overflow-hidden rounded-b border bg-inerhit border-slate-400 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 px-10 py-3">
                 {{ $data->links('vendor.livewire.tailwind') }}
             </div>
         </div>

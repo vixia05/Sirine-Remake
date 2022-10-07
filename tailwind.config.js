@@ -10,14 +10,20 @@ module.exports = {
         './src/**/*.{html,js}',
         './node_modules/tw-elements/dist/js/**/*.js',
     ],
-
+    variants: {
+      extend: {
+        backgroundImage: ["dark"],
+      },
+    },
     theme: {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                roboto : ['Roboto'],
             },
             backgroundImage: {
                 'prism-svg' : "url('/svg/subtle-prism.svg')",
+                'prism-svg-dark' : "url('/svg/subtle-prism-dark.svg')",
             },
             animation: {
                 //
