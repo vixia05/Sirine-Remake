@@ -6,9 +6,22 @@ const ctxTypeUnit     = document.getElementById('typeUnit').getContext('2d');
 const qualityIndividu = new Chart(ctxQuaIndividu, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: [
+            'Januari',
+            'Febuari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        ],
         datasets: [{
-            label: '# of Votes',
+            label: 'Barang Retur',
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -40,7 +53,7 @@ const qualityIndividu = new Chart(ctxQuaIndividu, {
 });
 // Jenis Kerusakan Individu
 const typeIndividu = new Chart(ctxTypeIndividu, {
-    type: 'radar',
+    type: 'polarArea',
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
@@ -67,8 +80,14 @@ const typeIndividu = new Chart(ctxTypeIndividu, {
     },
     options: {
         maintainAspectRatio: false,
+        plugins: {
+            legend : {
+                display : false,
+            }
+        },
         scales: {
             y: {
+                display : false,
                 beginAtZero: true
             }
         }
@@ -76,7 +95,7 @@ const typeIndividu = new Chart(ctxTypeIndividu, {
 });
 // Chart Jenis Kerusakan Unit
 const typeUnit = new Chart(ctxTypeUnit, {
-    type: 'radar',
+    type: 'polarArea',
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
@@ -103,6 +122,11 @@ const typeUnit = new Chart(ctxTypeUnit, {
     },
     options: {
         maintainAspectRatio: false,
+        plugins: {
+            legend : {
+                display : false,
+            }
+        },
         scales: {
             y: {
                 display:false,

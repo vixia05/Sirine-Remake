@@ -1,13 +1,12 @@
 <div class="flex justify-center">
     @include('components.modal.save-verifikasi')
     <div
-        class="w-full rounded-md bg-slate-100 bg-opacity-70 backdrop-blur-sm backdrop-filter dark:bg-slate-800 dark:bg-opacity-60">
+        class="w-full rounded-md bg-white/70 dark:backdrop-blur-sm dark:backdrop-filter dark:bg-slate-800 dark:bg-opacity-60">
         {{-- Header --}}
-        <div class="px-10 py-3">
+        <div class="px-10 py-2">
             <h4
                 class="my-auto font-sans text-2xl font-semibold leading-tight tracking-wider text-slate-600 dark:text-slate-100">
-                Input
-                Verifikasi</h4>
+                INPUT HASIL VERIFIKASI</h4>
         </div>
         <div class="px-4 pb-4">
             {{-- 1.0 Filter Section --}}
@@ -74,31 +73,38 @@
                             <div class="min-w-full">
                                 <table class="min-w-full">
                                     <thead
-                                        class="border-b border-slate-400 dark:border-slate-600 text-base font-bold text-slate-700 dark:text-slate-500">
+                                        class="border-b border-slate-400 text-base font-bold text-slate-700 dark:border-slate-600 dark:text-slate-500">
                                         <tr>
-                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-600 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-600">
                                                 No
                                             </th>
-                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-600 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-600">
                                                 NP / Nama
                                             </th>
-                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-600 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-600">
                                                 Verifikasi (Lembar)
                                             </th>
                                             <th scope="col"
-                                                class="whitespace-nowrap border-r border-slate-400 dark:border-slate-600 px-4 py-3 text-center">
+                                                class="whitespace-nowrap border-r border-slate-400 px-4 py-2 text-center dark:border-slate-600">
                                                 Jumlah OBC
                                             </th>
-                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-600 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-600">
                                                 Lembur
                                             </th>
-                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-600 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-600">
                                                 Keterangan
                                             </th>
-                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-600 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-600">
                                                 Izin
                                             </th>
-                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-600 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-600">
                                                 Workstation
                                             </th>
                                         </tr>
@@ -108,34 +114,34 @@
                                             <tr
                                                 class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
                                                 <td
-                                                    class="whitespace-nowrap border-r border-y border-slate-400 dark:border-slate-600 px-4 py-3 text-center text-sm font-medium tracking-wider text-slate-800 dark:text-slate-100">
+                                                    class="whitespace-nowrap border-y border-r border-slate-400 px-4 py-2 text-center text-sm font-medium tracking-wider text-slate-800 dark:border-slate-600 dark:text-slate-100">
                                                     {{ $loop->iteration }}
                                                 </td>
                                                 <td
-                                                    class="whitespace-nowrap border-r border-y border-slate-400 dark:border-slate-600 px-4 py-3 text-center text-sm font-light tracking-wider text-slate-800 dark:text-slate-100">
+                                                    class="whitespace-nowrap border-y border-r border-slate-400 px-4 py-2 text-center text-sm font-light tracking-wider text-slate-800 dark:border-slate-600 dark:text-slate-100">
                                                     {{ $datas->np_user }}
                                                     <h5
                                                         class="rounded-full bg-blue-600 px-2 py-1 text-xs font-semibold text-blue-50 brightness-125 contrast-150">
                                                         {{ $datas->nama }}</h5>
                                                 </td>
                                                 <td
-                                                    class="max-w-sm whitespace-nowrap border border-slate-400 dark:border-slate-600 px-4 py-3 text-left font-light tracking-wider text-slate-800 dark:text-slate-100">
+                                                    class="max-w-sm whitespace-nowrap border border-slate-400 px-4 py-2 text-left font-light tracking-wider text-slate-800 dark:border-slate-600 dark:text-slate-100">
                                                     <input type="number" placeholder="Lembar" id="verifikasi[]"
                                                         wire:model="verifikasi.{{ $datas->np_user }}"
-                                                        class="w-full appearance-none rounded-md border-slate-400 dark:border-slate-600 bg-slate-200 bg-opacity-10 text-sm leading-tight tracking-wider text-slate-800 dark:placeholder-white drop-shadow-md focus:outline-2 focus:ring-blue-400 dark:bg-slate-600 dark:bg-opacity-10 dark:text-slate-100"
+                                                        class="w-full appearance-none rounded-md border-slate-400 bg-slate-200 bg-opacity-10 text-sm leading-tight tracking-wider text-slate-800 drop-shadow-md focus:outline-2 focus:ring-blue-400 dark:border-slate-600 dark:bg-slate-600 dark:bg-opacity-10 dark:text-slate-100 dark:placeholder-white"
                                                         min="0">
                                                 </td>
                                                 <td
-                                                    class="max-w-sm whitespace-nowrap border border-slate-400 dark:border-slate-600 px-4 py-3 text-left text-sm font-light tracking-wider text-slate-800 dark:text-slate-100">
+                                                    class="max-w-sm whitespace-nowrap border border-slate-400 px-4 py-2 text-left text-sm font-light tracking-wider text-slate-800 dark:border-slate-600 dark:text-slate-100">
                                                     <input type="number" placeholder="Jumlah OBC" id="obc[]"
                                                         wire:model="obc.{{ $datas->np_user }}"
-                                                        class="w-full rounded-md border-slate-400 dark:border-slate-600 bg-slate-200 bg-opacity-10 text-sm leading-tight tracking-wider text-slate-800 dark:placeholder-white drop-shadow-md focus:outline-2 focus:ring-blue-400 dark:bg-slate-600 dark:bg-opacity-10 dark:text-slate-100"
+                                                        class="w-full rounded-md border-slate-400 bg-slate-200 bg-opacity-10 text-sm leading-tight tracking-wider text-slate-800 drop-shadow-md focus:outline-2 focus:ring-blue-400 dark:border-slate-600 dark:bg-slate-600 dark:bg-opacity-10 dark:text-slate-100 dark:placeholder-white"
                                                         min="0">
                                                 </td>
                                                 <td
-                                                    class="max-w-sm whitespace-nowrap border border-slate-400 dark:border-slate-600 px-4 py-3 text-left text-sm font-light tracking-wider text-slate-800 dark:text-slate-100">
+                                                    class="max-w-sm whitespace-nowrap border border-slate-400 px-4 py-2 text-left text-sm font-light tracking-wider text-slate-800 dark:border-slate-600 dark:text-slate-100">
                                                     <select
-                                                        class="w-full rounded-md border-slate-400 dark:border-slate-600 bg-slate-200 bg-opacity-10 text-sm leading-tight tracking-wider text-slate-800 dark:placeholder-white drop-shadow-md focus:bg-opacity-100 focus:outline-2 focus:ring-blue-400 dark:bg-slate-600 dark:bg-opacity-10 dark:text-slate-100"
+                                                        class="w-full rounded-md border-slate-400 bg-slate-200 bg-opacity-10 text-sm leading-tight tracking-wider text-slate-800 drop-shadow-md focus:bg-opacity-100 focus:outline-2 focus:ring-blue-400 dark:border-slate-600 dark:bg-slate-600 dark:bg-opacity-10 dark:text-slate-100 dark:placeholder-white"
                                                         wire:model="lembur.{{ $datas->np_user }}">
                                                         <option value="0" selected>-</option>
                                                         <option value="1">Awal</option>
@@ -144,15 +150,15 @@
                                                     </select>
                                                 </td>
                                                 <td
-                                                    class="max-w-sm whitespace-nowrap border-l border-y border-slate-400 dark:border-slate-600 px-4 py-3">
+                                                    class="max-w-sm whitespace-nowrap border-y border-l border-slate-400 px-4 py-2 dark:border-slate-600">
                                                     <input type="text" placeholder="-" id="keterangan[]"
                                                         wire:model="keterangan.{{ $datas->np_user }}"
-                                                        class="w-full appearance-none rounded-md border-slate-400 dark:border-slate-600 bg-slate-200 bg-opacity-10 text-sm leading-tight tracking-wider text-slate-800 dark:placeholder-white drop-shadow-md focus:outline-2 focus:ring-blue-400 dark:bg-slate-600 dark:bg-opacity-10 dark:text-slate-100">
+                                                        class="w-full appearance-none rounded-md border-slate-400 bg-slate-200 bg-opacity-10 text-sm leading-tight tracking-wider text-slate-800 drop-shadow-md focus:outline-2 focus:ring-blue-400 dark:border-slate-600 dark:bg-slate-600 dark:bg-opacity-10 dark:text-slate-100 dark:placeholder-white">
                                                 </td>
                                                 <td
-                                                    class="max-w-sm flex-nowrap whitespace-nowrap border border-slate-400 dark:border-slate-600 px-4 py-3">
+                                                    class="max-w-sm flex-nowrap whitespace-nowrap border border-slate-400 px-4 py-2 dark:border-slate-600">
                                                     <select
-                                                        class="w-full rounded-md border-slate-400 dark:border-slate-600 bg-slate-200 bg-opacity-10 text-sm leading-tight tracking-wider text-slate-800 dark:placeholder-white drop-shadow-md focus:bg-opacity-100 focus:outline-2 focus:ring-blue-400 dark:bg-slate-600 dark:bg-opacity-10 dark:text-slate-100">
+                                                        class="w-full rounded-md border-slate-400 bg-slate-200 bg-opacity-10 text-sm leading-tight tracking-wider text-slate-800 drop-shadow-md focus:bg-opacity-100 focus:outline-2 focus:ring-blue-400 dark:border-slate-600 dark:bg-slate-600 dark:bg-opacity-10 dark:text-slate-100 dark:placeholder-white">
                                                         <option value="" selected>-</option>
                                                         <option value="Cuti">Cuti</option>
                                                         <option value="CD">CD</option>
@@ -161,7 +167,7 @@
                                                     </select>
                                                 </td>
                                                 <td
-                                                    class="max-w-sm border-y border-l border-slate-400 dark:border-slate-600 px-4 py-3 text-center text-xs font-light tracking-wider text-slate-800 dark:text-slate-100">
+                                                    class="max-w-sm border-y border-l border-slate-400 px-4 py-2 text-center text-xs font-light tracking-wider text-slate-800 dark:border-slate-600 dark:text-slate-100">
                                                     <p class="line-clamp-2">
                                                         {{ App\Models\Workstation::where('id', $datas->id_workstation)->value('workstation') }}
                                                     </p>
@@ -177,7 +183,7 @@
             </div>
             {{-- Footer --}}
             <div
-                class="bg-inerhit overflow-hidden rounded-b border-x border-b border-slate-400 bg-opacity-50 px-10 py-3 tracking-wider text-slate-800 dark:border-slate-600 dark:bg-slate-700 dark:bg-opacity-20 dark:text-slate-100">
+                class="bg-inerhit overflow-hidden rounded-b border-x border-b border-slate-400 bg-opacity-50 px-10 py-2 tracking-wider text-slate-800 dark:border-slate-600 dark:bg-slate-700 dark:bg-opacity-20 dark:text-slate-100">
                 <div class="flex justify-end">
                     <button type="btn" wire:click="store" data-mdb-ripple="true" data-mdb-ripple-color="light"
                         class="rounded-md bg-blue-600 px-2 py-1 tracking-wider text-slate-100 transition duration-150 hover:bg-blue-500"

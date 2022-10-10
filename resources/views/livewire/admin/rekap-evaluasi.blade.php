@@ -1,13 +1,16 @@
 <div class="flex justify-center">
-    <div class="w-full rounded-md bg-slate-800 bg-opacity-60 backdrop-blur-sm backdrop-filter">
+    <div
+        class="w-full rounded-md bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
         {{-- Header --}}
         <div class="px-10 py-4">
-            <h4 class="my-auto font-sans text-2xl font-semibold leading-tight text-slate-200">Rekap Evaluasi</h4>
+            <h4 class="my-auto font-sans text-2xl font-semibold leading-tight text-slate-800 dark:text-slate-100">REKAP
+                EVALUASI</h4>
         </div>
         {{-- Body --}}
-        <div class="px-4 pb-4 overflow-x-auto">
+        <div class="overflow-x-auto px-4 pb-4">
             {{-- 1.0 Filter & Search Section --}}
-            <div class="rounded-t border border-slate-500 bg-slate-700 bg-opacity-50 px-4 py-6 shadow-md drop-shadow-sm">
+            <div
+                class="bg-inerhit rounded-t border border-slate-400 px-4 py-6 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
                 <div class="flex justify-start">
                     <div class="relative">
                         <input type="text" wire:model="search"
@@ -27,53 +30,64 @@
             {{-- End Filter & Search --}}
             {{-- 2.0 Table --}}
             <div
-                class="row-span-3 overflow-hidden border-x border-slate-500 bg-slate-700 bg-opacity-50 shadow-md drop-shadow-sm">
+                class="bg-inerhit row-span-3 overflow-hidden border-x border-slate-400 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
                 <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full sm:px-6 lg:px-8">
                             <div class="overflow-hidden">
                                 <table class="min-w-full">
                                     {{-- 2.1 Header Table --}}
-                                    <thead class="border-b border-slate-500 text-base font-bold text-slate-400">
+                                    <thead
+                                        class="border-b border-slate-400 text-base font-bold text-slate-600 dark:border-slate-500 dark:text-slate-400">
                                         <tr>
                                             {{-- 2.1.1 Index --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-500">
                                                 No
                                             </th>
                                             {{-- 2.1.2 Nomor Pokok --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-500">
                                                 Pegawai
                                             </th>
                                             {{-- 2.1.3 Nama --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-500">
                                                 Kasek
                                             </th>
                                             {{-- 2.1.4 Tanggal CK3 --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-500">
                                                 Kaun
                                             </th>
                                             {{-- 2.1.5 Jenis Barang --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-500">
                                                 Evaluasi Kasek
                                             </th>
                                             {{-- 2.1.6 Jenis Retur --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-500">
                                                 Evaluasi Kaun
                                             </th>
                                             {{-- 2.1.7 Total Retur --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-500">
                                                 Tanggapan Pegawai
                                             </th>
                                             {{-- 2.1.7 Total Retur --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-500">
                                                 Status
                                             </th>
                                             {{-- 2.1.7 Total Retur --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-500">
                                                 Tanggal Evaluasi
                                             </th>
                                             {{-- 2.1.8 Action --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col"
+                                                class="border-b border-slate-400 px-4 py-2 text-center dark:border-slate-500">
                                                 Action
                                             </th>
                                         </tr>
@@ -85,13 +99,13 @@
                                                 class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
                                                 {{-- 2.2.1 Index Coloumn --}}
                                                 <td
-                                                    class="whitespace-nowrap border-y border-slate-500 px-4 py-3 text-center text-sm font-medium text-slate-100">
+                                                    class="whitespace-nowrap border-y border-slate-400 px-4 py-2 text-center text-sm font-medium text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     {{ $data->firstItem() + $loop->index }}
                                                 </td>
                                                 {{-- 2.2.2 Np User Coloumn --}}
                                                 <td
-                                                    class="border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
-                                                    <div class="flex justify-center flex-col">
+                                                    class="border border-slate-400 px-4 py-2 text-center text-sm text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                    <div class="flex flex-col justify-center">
                                                         <div>{{ $datas->np_user }}</div>
                                                         <span
                                                             class="block rounded-full bg-blue-600 py-1 px-3.5 text-center align-baseline text-xs font-medium leading-none text-white">
@@ -101,18 +115,18 @@
                                                 </td>
                                                 {{-- 2.2.3 Nama User Coloumn --}}
                                                 <td
-                                                    class="border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
-                                                    <div class="flex flex-col justify-center">
-                                                        <span>{{ $datas->np_kasek }}</span>
-                                                        <span
-                                                            class="block rounded-full bg-blue-600 py-1 px-3.5 text-center align-baseline text-xs font-medium leading-none text-white">
+                                                    class="border border-slate-400 px-4 py-2 text-center text-sm text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                    <div class="flex flex-col justify-center space-y-1">
+                                                        {{ $datas->np_kasek }}
+                                                        <div
+                                                            class="mt-1 rounded-full bg-blue-600 py-1 px-3.5 text-center align-baseline text-xs font-medium leading-none text-white">
                                                             {{ $datas->nama_kasek }}
-                                                        </span>
+                                                        </div>
                                                     </div>
                                                 </td>
                                                 {{-- 2.2.3 Nama User Coloumn --}}
                                                 <td
-                                                    class="border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
+                                                    class="border border-slate-400 px-4 py-2 text-center text-sm text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     <div class="flex flex-col justify-center">
                                                         <span>{{ $datas->np_kaun }}</span>
                                                         <span
@@ -123,32 +137,32 @@
                                                 </td>
                                                 {{-- 2.2.3 Nama User Coloumn --}}
                                                 <td
-                                                    class="w-1/6 border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
+                                                    class="w-1/6 border border-slate-400 px-4 py-2 text-center text-sm text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     <span class="line-clamp-2">{{ $datas->eva_kasek }}</span>
                                                 </td>
                                                 {{-- 2.2.3 Nama User Coloumn --}}
                                                 <td
-                                                    class="w-1/6 border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
+                                                    class="w-1/6 border border-slate-400 px-4 py-2 text-center text-sm text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     <span class="line-clamp-2">{{ $datas->eva_kaun }}</span>
                                                 </td>
                                                 {{-- 2.2.3 Nama User Coloumn --}}
                                                 <td
-                                                    class="w-1/6 border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
+                                                    class="w-1/6 border border-slate-400 px-4 py-2 text-center text-sm text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     <span class="line-clamp-2">{{ $datas->response }}</span>
                                                 </td>
                                                 {{-- 2.2.3 Nama User Coloumn --}}
                                                 <td
-                                                    class="w-1/6 border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
+                                                    class="w-1/6 border border-slate-400 px-4 py-2 text-center text-sm text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     <span class="line-clamp-2">{{ $datas->status }}</span>
                                                 </td>
                                                 {{-- 2.2.4 Tanggal CK3 Coloumn --}}
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
+                                                    class="whitespace-nowrap border border-slate-400 px-4 py-2 text-center text-sm text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     {{ Carbon\Carbon::parse($datas->post_date)->format('d-F-Y') }}
                                                 </td>
                                                 {{-- 2.2.11 Action Coloumn --}}
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
+                                                    class="whitespace-nowrap border-y border-slate-400 px-4 py-2 text-center text-sm text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     <div class="flex justify-center space-x-2">
                                                         <button type="button" type="button" data-mdb-ripple="true"
                                                             data-mdb-ripple-color="light"
@@ -186,7 +200,7 @@
             </div>
             {{-- 3.0 Footer --}}
             <div
-                class="overflow-hidden rounded-b border-x border-b border-slate-500 bg-slate-700 bg-opacity-50 px-10 py-3 text-slate-100 shadow-md drop-shadow-sm">
+                class="bg-inerhit overflow-hidden rounded-b border-x border-b border-slate-400 px-10 py-2 text-slate-800 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 dark:text-slate-100">
                 {{ $data->links('vendor.livewire.tailwind') }}
             </div>
             {{-- End Footer --}}

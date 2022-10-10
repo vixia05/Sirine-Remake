@@ -1,5 +1,5 @@
 <div x-show="!showSideBar"
-    class="fixed top-0 bottom-0 min-h-full rounded-r-2xl w-64 overflow-y-auto bg-slate-100 dark:bg-slate-900 bg-opacity-80 dark:bg-opacity-80 px-6 pt-4 pb-6 shadow-md drop-shadow-md backdrop-blur backdrop-filter scrollbar-hide md:block"
+    class="fixed top-0 bottom-0 min-h-full rounded-r-2xl w-64 overflow-y-auto bg-slate-50 dark:bg-slate-900 bg-opacity-80 dark:bg-opacity-80 px-6 pt-4 pb-6 shadow-md drop-shadow-md backdrop-blur backdrop-filter scrollbar-hide md:block"
     x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-x-0 -translate-x-1/2"
     x-transition:enter-end="opacity-100 scale-x-100 translate-x-0" x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100 scale-x-100 translate-x-0"

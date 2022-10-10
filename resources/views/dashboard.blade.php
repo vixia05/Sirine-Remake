@@ -5,7 +5,7 @@
         <div class="mx-auto sm:px-6 lg:px-8">
             {{-- 1.0 Order Detail --}}
             <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
-                <div class="overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-900 dark:bg-opacity-50 bg-opacity-50 px-6 py-4 backdrop-blur-sm dark:backdrop-blur backdrop-filter">
+                <div class="overflow-hidden rounded-xl bg-white dark:bg-slate-900 dark:bg-opacity-40 bg-opacity-50 px-6 py-4 backdrop-blur-sm dark:backdrop-blur-sm backdrop-filter dark:backdrop-filter">
                     <div class="flex flex-wrap justify-between">
                         <div class="my-1">
                             <h6 class="font-sans text-sm text-slate-800 dark:text-slate-300 mb-2">
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div
-                    class="overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-900 dark:bg-opacity-50 bg-opacity-50 px-6 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur backdrop-filter">
+                    class="overflow-hidden rounded-xl bg-white dark:bg-slate-900 dark:bg-opacity-40 bg-opacity-50 px-6 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur-smbackdrop-filter">
                     <div class="flex justify-between">
                         <div class="my-1">
                             <h6 class="font-sans text-sm text-slate-800 dark:text-slate-300 mb-2">
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div
-                    class="overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-900 dark:bg-opacity-50 bg-opacity-50 px-6 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur backdrop-filter">
+                    class="overflow-hidden rounded-xl bg-white dark:bg-slate-900 dark:bg-opacity-40 bg-opacity-50 px-6 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur-smbackdrop-filter">
                     <div class="flex justify-between">
                         <div class="my-1">
                             <h6 class="font-sans text-sm text-slate-800 dark:text-slate-300 mb-2">
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div
-                    class="overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-900 dark:bg-opacity-50 bg-opacity-50 px-6 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur backdrop-filter">
+                    class="overflow-hidden rounded-xl bg-white dark:bg-slate-900 dark:bg-opacity-40 bg-opacity-50 px-6 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur-smbackdrop-filter">
                     <div class="flex justify-between">
                         <div class="my-1">
                             <h6 class="font-sans text-sm text-slate-800 dark:text-slate-300 mb-2">
@@ -74,7 +74,7 @@
                 <div class="col-span-4 grid grid-flow-col grid-rows-2 gap-3 lg:col-span-1">
                     {{-- 2.1 Inschiet Pcht --}}
                     <div
-                        class="row-span-2 overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-900 dark:bg-opacity-50 bg-opacity-50 px-8 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur backdrop-filter lg:row-span-1">
+                        class="row-span-2 overflow-hidden rounded-xl bg-white dark:bg-slate-900 dark:bg-opacity-40 bg-opacity-50 px-8 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur-smbackdrop-filter lg:row-span-1">
                         <h5 class="font-sans text-lg text-slate-800 dark:text-slate-300 text-center">
                             INSCHIET PCHT
                         </h5>
@@ -89,7 +89,7 @@
                     </div>
                     {{-- 2.2 Inschiet Mmea --}}
                     <div
-                        class="row-span-2 h-full overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-900 dark:bg-opacity-50 bg-opacity-50 px-8 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur backdrop-filter lg:row-span-1">
+                        class="row-span-2 h-full overflow-hidden rounded-xl bg-white dark:bg-slate-900 dark:bg-opacity-40 bg-opacity-50 px-8 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur-smbackdrop-filter lg:row-span-1">
                         <h5 class="font-sans text-lg text-slate-800 dark:text-slate-300 text-center">INSCHIET MMEA</h5>
                         <div class="flex justify-center">
                             <div class="my-auto h-auto w-1/2 mt-1">
@@ -103,7 +103,7 @@
                 </div>
                 <div class="col-span-4 lg:col-span-3">
                     <div
-                        class="h-full overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-900 dark:bg-opacity-50 bg-opacity-50 px-8 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur backdrop-filter">
+                        class="h-full overflow-hidden rounded-xl bg-white dark:bg-slate-900 dark:bg-opacity-40 bg-opacity-50 px-8 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur-smbackdrop-filter">
                         <h5 class="mt-0 mb-4 text-center text-xl font-medium leading-tight text-slate-800 dark:text-slate-300">Verifikasi PCHT
                         </h5>
                         <div>
@@ -116,7 +116,7 @@
             <div class="mt-5 grid grid-cols-4 gap-4">
                 <div class="col-span-3">
                     <div
-                        class="h-full overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-900 dark:bg-opacity-50 bg-opacity-50 px-8 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur backdrop-filter">
+                        class="h-full overflow-hidden rounded-xl bg-white dark:bg-slate-900 dark:bg-opacity-40 bg-opacity-50 px-8 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur-smbackdrop-filter">
                         <h5 class="mt-0 mb-4 text-center text-xl font-medium leading-tight text-slate-800 dark:text-slate-300">Verifikasi MMEA
                         </h5>
                         <div>
@@ -126,13 +126,13 @@
                 </div>
                 <div class="grid grid-rows-2 gap-3">
                     <div
-                        class="overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-900 dark:bg-opacity-50 bg-opacity-50 px-8 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur backdrop-filter">
+                        class="overflow-hidden rounded-xl bg-white dark:bg-slate-900 dark:bg-opacity-40 bg-opacity-50 px-8 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur-smbackdrop-filter">
                         <span class="my-2 text-xl font-medium leading-tight text-slate-800 dark:text-slate-300">Retur PCHT</span>
                         <h3 class="my-16 text-right text-3xl font-bold leading-tight">0
                         </h3>
                     </div>
                     <div
-                        class="overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-900 dark:bg-opacity-50 bg-opacity-50 px-8 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur backdrop-filter">
+                        class="overflow-hidden rounded-xl bg-white dark:bg-slate-900 dark:bg-opacity-40 bg-opacity-50 px-8 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur-smbackdrop-filter">
                         <span class="my-2 text-xl font-medium leading-tight text-slate-800 dark:text-slate-300">Retur MMEA</span>
                         <h3 class="my-16 text-right text-3xl font-bold leading-tight">0
                         </h3>

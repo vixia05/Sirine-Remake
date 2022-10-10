@@ -1,18 +1,21 @@
 <div class="flex justify-center">
     @include('components.modal.update-user')
     @include('components.modal.delete-user')
-    <div class="w-full rounded-md bg-slate-100 bg-opacity-70 dark:bg-slate-800 dark:bg-opacity-60 backdrop-blur-sm backdrop-filter">
+    <div
+        class="w-full rounded-md bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
         {{-- Header --}}
         <div class="px-10 py-4">
-            <h4 class="my-auto font-sans text-2xl font-semibold leading-tight text-slate-600 dark:text-slate-100">List User Sirine</h4>
+            <h4 class="my-auto font-sans text-2xl font-semibold leading-tight text-slate-600 dark:text-slate-100">LIST
+                USER SIRINE</h4>
         </div>
         <div class="px-4 pb-4">
             {{-- 1.0 Filter & Search Section --}}
-            <div class="border border-slate-300 bg-inerhit bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 px-4 py-2.5">
+            <div
+                class="bg-inerhit border rounded-t border-slate-400 bg-opacity-30 px-4 py-2 text-sm dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
                 <div class="flex justify-start">
                     <div class="relative">
                         <input type="text" wire:model="search"
-                            class="rounded-lg border-t py-2 pl-10 pr-4 text-xs font-medium text-gray-600 shadow focus:border-gray-400 focus:outline-none focus:ring-0"
+                            class="rounded-lg border-t py-2 pl-10 pr-4 text-sm font-medium text-gray-600 shadow focus:border-gray-400 focus:outline-none focus:ring-0"
                             placeholder="Search...">
                         <div class="absolute top-0 left-0 inline-flex items-center pt-2 pl-2 text-gray-500">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
@@ -40,27 +43,34 @@
             {{-- End Message CRUD --}}
             {{-- End Filter & Search --}}
             {{-- Body / Table --}}
-            <div class="overflow-hidden border-slate-300 bg-inerhit bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 shadow-md drop-shadow-sm">
+            <div
+                class="bg-inerhit overflow-hidden border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
                 <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full sm:px-4 lg:px-8">
                             <div class="overflow-hidden">
                                 <table class="min-w-full">
-                                    <thead class="border-b border-slate-300 dark:border-slate-500 text-base font-bold text-slate-500 dark:text-slate-400">
+                                    <thead
+                                        class="border-b border-slate-400 text-base font-bold text-slate-500 dark:border-slate-500 dark:text-slate-400">
                                         <tr>
-                                            <th class="border-x border-slate-300 dark:border-slate-500 px-4 py-2.5 text-center" scope="col">
+                                            <th class="border-x border-slate-400 px-4 py-2 text-center dark:border-slate-500"
+                                                scope="col">
                                                 No
                                             </th>
-                                            <th class="border-r border-slate-300 dark:border-slate-500 px-4 py-2.5 text-center" scope="col">
+                                            <th class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-500"
+                                                scope="col">
                                                 NP
                                             </th>
-                                            <th class="border-r border-slate-300 dark:border-slate-500 px-4 py-2.5 text-center" scope="col">
+                                            <th class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-500"
+                                                scope="col">
                                                 Nama
                                             </th>
-                                            <th class="border-r border-slate-300 dark:border-slate-500 px-4 py-2.5 text-center" scope="col">
+                                            <th class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-500"
+                                                scope="col">
                                                 Role
                                             </th>
-                                            <th class="border-r border-slate-300 dark:border-slate-500 px-4 py-2.5 text-center" scope="col">
+                                            <th class="border-r border-slate-400 px-4 py-2 text-center dark:border-slate-500"
+                                                scope="col">
                                                 Action
                                             </th>
                                         </tr>
@@ -70,26 +80,26 @@
                                             <tr
                                                 class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-300 dark:border-slate-500 px-4 py-2.5 text-center text-xs font-medium text-slate-800 dark:text-slate-100">
+                                                    class="whitespace-nowrap border border-slate-400 px-4 py-2 text-center text-sm font-medium text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     {{ $data->firstItem() + $loop->index }}
                                                 </td>
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-300 dark:border-slate-500 px-4 py-2.5 text-center text-slate-800 dark:text-slate-100">
+                                                    class="whitespace-nowrap border border-slate-400 px-4 py-2 text-center text-sm text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     {{ $datas->np }}
                                                 </td>
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-300 dark:border-slate-500 px-4 py-2.5 text-slate-800 dark:text-slate-100">
+                                                    class="whitespace-nowrap border border-slate-400 px-4 py-2 text-sm text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     {{ \App\Models\UserDetails::where('np_user', $datas->np)->value('nama') }}
                                                 </td>
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-300 dark:border-slate-500 px-4 py-2.5 text-center text-slate-800 dark:text-slate-100">
+                                                    class="whitespace-nowrap border border-slate-400 px-4 py-2 text-center text-sm text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     {{ \App\Models\Privillage::where('level', $datas->level)->value('role') }}
                                                 </td>
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-300 dark:border-slate-500 px-4 py-2.5 text-center text-xs font-light text-slate-800 dark:text-slate-100">
+                                                    class="whitespace-nowrap border border-slate-400 px-4 py-2 text-center text-sm font-light text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     <div class="flex justify-center space-x-2">
                                                         <button
-                                                            class="inline-block rounded bg-green-500 px-3 py-2 text-xs font-semibold leading-tight text-slate-100 shadow-md transition duration-150 ease-in-out hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg"
+                                                            class="inline-block rounded bg-green-500 px-3 py-2 text-sm font-semibold leading-tight text-slate-100 shadow-md transition duration-150 ease-in-out hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg"
                                                             data-bs-toggle="modal" data-bs-target="#modalUpdate"
                                                             data-mdb-ripple="true" data-mdb-ripple-color="light"
                                                             type="button" wire:click="edit({{ $datas->id }})">
@@ -103,7 +113,7 @@
                                                             </svg>
                                                         </button>
                                                         <button
-                                                            class="inline-block rounded bg-red-500 px-3 py-2 text-xs font-semibold leading-tight text-slate-100 shadow-md transition duration-150 ease-in-out hover:bg-red-600 hover:shadow-lg focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-lg"
+                                                            class="inline-block rounded bg-red-500 px-3 py-2 text-sm font-semibold leading-tight text-slate-100 shadow-md transition duration-150 ease-in-out hover:bg-red-600 hover:shadow-lg focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-lg"
                                                             data-mdb-ripple="true" data-mdb-ripple-color="light"
                                                             data-bs-toggle="modal" data-bs-target="#modalDelete"
                                                             type="button" wire:click="delete({{ $datas->id }})">
@@ -122,7 +132,7 @@
                                 </table>
                             </div>
                             <div
-                                class="overflow-hidden rounded-b border border-slate-300 bg-inerhit dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 px-10 py-2.5 text-slate-800 dark:text-slate-100  ">
+                                class="bg-inerhit overflow-hidden rounded-b border-b border-x border-slate-400 px-10 py-2 text-slate-800 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 dark:text-slate-100">
                                 {{ $data->links('vendor.livewire.tailwind') }}
                             </div>
                         </div>

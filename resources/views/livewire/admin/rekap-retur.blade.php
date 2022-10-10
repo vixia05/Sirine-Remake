@@ -1,13 +1,13 @@
 <div class="flex justify-center">
-    <div class="w-full rounded-md bg-slate-800 bg-opacity-60 backdrop-blur-sm backdrop-filter">
+    <div class="w-full rounded-md bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
         {{-- Header --}}
         <div class="px-10 py-4">
-            <h4 class="my-auto font-sans text-2xl font-semibold leading-tight text-slate-200">Data Kelolosan</h4>
+            <h4 class="my-auto font-sans text-2xl font-semibold leading-tight text-slate-800 dark:text-slate-100">DATA KELOLOSAN</h4>
         </div>
         {{-- Body --}}
         <div class="px-4 pb-4">
             {{-- 1.0 Filter & Search Section --}}
-            <div class="rounded-t border border-slate-500 bg-slate-700 bg-opacity-50 px-4 py-6 shadow-md drop-shadow-sm">
+            <div class="rounded-t border border-slate-400 bg-inerhit dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 px-4 py-6 ">
                 <div class="flex justify-start">
                     <div class="relative">
                         <input type="text" wire:model="search"
@@ -27,45 +27,45 @@
             {{-- End Filter & Search --}}
             {{-- 2.0 Table --}}
             <div
-                class="row-span-3 overflow-hidden border-x border-slate-500 bg-slate-700 bg-opacity-50 shadow-md drop-shadow-sm">
+                class="row-span-3 overflow-hidden border-x border-slate-400 bg-inerhit dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 ">
                 <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full sm:px-6 lg:px-8">
                             <div class="overflow-hidden">
                                 <table class="min-w-full">
                                     {{-- 2.1 Header Table --}}
-                                    <thead class="border-b border-slate-500 text-base font-bold text-slate-400">
+                                    <thead class="border-b border-slate-400 dark:border-slate-500 text-base font-bold text-slate-600 dark:text-slate-400">
                                         <tr>
                                             {{-- 2.1.1 Index --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-500 px-4 py-2 text-center">
                                                 No
                                             </th>
                                             {{-- 2.1.2 Nomor Pokok --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-500 px-4 py-2 text-center">
                                                 NP
                                             </th>
                                             {{-- 2.1.3 Nama --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-500 px-4 py-2 text-center">
                                                 Nama
                                             </th>
                                             {{-- 2.1.4 Tanggal CK3 --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-500 px-4 py-2 text-center">
                                                 Periode CK3
                                             </th>
                                             {{-- 2.1.5 Jenis Barang --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-500 px-4 py-2 text-center">
                                                 Produk
                                             </th>
                                             {{-- 2.1.6 Jenis Retur --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-500 px-4 py-2 text-center">
                                                 Jenis Retur
                                             </th>
                                             {{-- 2.1.7 Total Retur --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-r border-slate-400 dark:border-slate-500 px-4 py-2 text-center">
                                                 Total Retur
                                             </th>
                                             {{-- 2.1.8 Action --}}
-                                            <th scope="col" class="border-r border-slate-500 px-4 py-3 text-center">
+                                            <th scope="col" class="border-b border-slate-400 dark:border-slate-500 px-4 py-2 text-center">
                                                 Action
                                             </th>
                                         </tr>
@@ -77,32 +77,32 @@
                                                 class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
                                                 {{-- 2.2.1 Index Coloumn --}}
                                                 <td
-                                                    class="whitespace-nowrap border-y border-slate-500 px-4 py-3 text-center text-sm font-medium text-slate-100">
+                                                    class="whitespace-nowrap border-y border-slate-400 dark:border-slate-500 px-4 py-2 text-center text-sm text-slate-800 dark:text-slate-100">
                                                     {{ $data->firstItem() + $loop->index }}
                                                 </td>
                                                 {{-- 2.2.2 Np User Coloumn --}}
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
+                                                    class="whitespace-nowrap border border-slate-400 dark:border-slate-500 px-4 py-2 text-center text-sm text-slate-800 dark:text-slate-100">
                                                     {{ $datas->np_user }}
                                                 </td>
                                                 {{-- 2.2.3 Nama User Coloumn --}}
                                                 <td
-                                                    class="border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
+                                                    class="border border-slate-400 dark:border-slate-500 px-4 py-2 text-center text-sm text-slate-800 dark:text-slate-100">
                                                     {{ $datas->nama_user }}
                                                 </td>
                                                 {{-- 2.2.4 Tanggal CK3 Coloumn --}}
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
+                                                    class="whitespace-nowrap border border-slate-400 dark:border-slate-500 px-4 py-2 text-center text-sm text-slate-800 dark:text-slate-100">
                                                     {{ Carbon\Carbon::parse($datas->tgl_cek)->format('d-F-Y') }}
                                                 </td>
                                                 {{-- 2.2.5 Jenis Product Coloumn --}}
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
+                                                    class="whitespace-nowrap border border-slate-400 dark:border-slate-500 px-4 py-2 text-center text-sm text-slate-800 dark:text-slate-100">
                                                     {{ $datas->jenis }}
                                                 </td>
                                                 {{-- 2.2.6 Jenis Retur Coloumn --}}
                                                 <td
-                                                    class="border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
+                                                    class="border border-slate-400 dark:border-slate-500 px-4 py-2 text-center text-sm text-slate-800 dark:text-slate-100">
                                                     <div class="flex flex-wrap justify-center space-x-2">
                                                         @if ($datas->blobor == !null)
                                                             <span
@@ -192,16 +192,16 @@
                                                 </td>
                                                 {{-- 2.2.7 Total Retur Coloumn --}}
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
+                                                    class="whitespace-nowrap border border-slate-400 dark:border-slate-500 px-4 py-2 text-center text-sm text-slate-800 dark:text-slate-100">
                                                     {{ $datas->jml_retur }}
                                                 </td>
                                                 {{-- 2.2.11 Action Coloumn --}}
                                                 <td
-                                                    class="whitespace-nowrap border border-slate-500 px-4 py-3 text-center text-sm font-light text-slate-100">
+                                                    class="border-y border-slate-400 dark:border-slate-500 px-4 py-2 text-center text-sm text-slate-800 dark:text-slate-100">
                                                     <div class="flex justify-center space-x-2">
                                                         <button type="button" type="button" data-mdb-ripple="true"
                                                             data-mdb-ripple-color="light"
-                                                            class="inline-block rounded bg-green-500 px-3 py-2 text-sm font-semibold leading-tight text-slate-100 shadow-md transition duration-150 ease-in-out hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg">
+                                                            class="inline-block rounded bg-green-500 px-3 py-2 text-sm font-semibold leading-tight  text-slate-100 shadow-md transition duration-150 ease-in-out hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
                                                                 viewBox="0 0 20 20" fill="currentColor">
                                                                 <path
@@ -235,7 +235,7 @@
             </div>
             {{-- 3.0 Footer --}}
             <div
-                class="overflow-hidden rounded-b border-x border-b border-slate-500 bg-slate-700 bg-opacity-50 px-10 py-3 text-slate-100 shadow-md drop-shadow-sm">
+                class="overflow-hidden rounded-b border-x border-b border-slate-400 bg-inerhit dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 px-10 py-2 text-slate-800 dark:text-slate-100 ">
                 {{ $data->links('vendor.livewire.tailwind') }}
             </div>
             {{-- End Footer --}}

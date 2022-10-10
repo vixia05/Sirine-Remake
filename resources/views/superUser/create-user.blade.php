@@ -7,10 +7,10 @@
                 <div class="grid grid-cols-2 gap-4">
                     {{-- 1.0 Form Data Pegawai --}}
                     <div
-                        class="rounded-2xl bg-slate-200 bg-opacity-50 py-4 px-8 backdrop-blur-sm backdrop-filter dark:bg-slate-800 dark:bg-opacity-70">
+                        class="rounded-2xl bg-white/80 py-4 px-8 dark:backdrop-blur-sm dark:backdrop-filter dark:bg-slate-800 dark:bg-opacity-70">
                         <h5
                             class="mb-6 border-b-2 border-slate-600 pt-5 pb-3 text-xl font-bold text-slate-600 dark:border-slate-100 dark:text-slate-100">
-                            Data Pegawai</h5>
+                            DATA PEGAWAI</h5>
                         @csrf
                         {{-- 1.1 Input Nomor Pegawai --}}
                         <div class="mb-6 grid grid-rows-2">
@@ -18,7 +18,7 @@
                                 class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Nomor
                                 Pegawai</label>
                             <input type="text" maxlength="4"
-                                class="w-full rounded-md border-none bg-slate-200 bg-opacity-60 leading-tight text-slate-600 drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+                                class="w-full rounded-md border-none bg-zinc-100 leading-tight text-slate-600 drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 id="np" name="np" value="{{ old('np') }}" required>
                         </div>
                         {{-- 1.2 Input Nama Pegawai --}}
@@ -26,7 +26,7 @@
                             <label for="name"
                                 class="inline-block font-medium text-slate-700 dark:text-slate-200">Nama</label>
                             <input type="text"
-                                class="w-full rounded-md border-none bg-slate-200 bg-opacity-60 leading-tight text-slate-600 accent-inherit drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+                                class="w-full rounded-md border-none bg-zinc-100 leading-tight text-slate-600 accent-inherit drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 id="name" name="name" value="{{ old('name') }}" required>
                         </div>
                         {{-- 1.3 Input E-mail Pegawai --}}
@@ -34,7 +34,7 @@
                             <label for="email"
                                 class="inline-block font-medium text-slate-700 dark:text-slate-200">E-Mail</label>
                             <input type="email"
-                                class="w-full rounded-md border-none bg-slate-200 bg-opacity-60 leading-tight text-slate-600 drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+                                class="w-full rounded-md border-none bg-zinc-100 leading-tight text-slate-600 drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 id="email" name="email" value="{{ old('email') }}" required>
                         </div>
                         {{-- 1.5 Input Contact Pegawai --}}
@@ -42,7 +42,7 @@
                             <label for="contact"
                                 class="inline-block font-medium text-slate-700 dark:text-slate-200">Contact</label>
                             <input type="text"
-                                class="w-full rounded-md border-none bg-slate-200 bg-opacity-60 leading-tight text-slate-600 drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+                                class="w-full rounded-md border-none bg-zinc-100 leading-tight text-slate-600 drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 id="contact" name="contact" value="{{ old('contact') }}">
                         </div>
                         {{-- 1.6 Input Tanggal Lahir Pegawai --}}
@@ -50,7 +50,7 @@
                             <label for="birthDate"
                                 class="inline-block font-medium text-slate-700 dark:text-slate-200">Tanggal Lahir</label>
                             <input type="date"
-                                class="w-full rounded-md border-none bg-slate-200 bg-opacity-60 leading-tight text-slate-600 drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+                                class="w-full rounded-md border-none bg-zinc-100 leading-tight text-slate-600 drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 id="birthDate" name="birthDate" value="{{ old('birthDate') }}">
                         </div>
                         {{-- 1.6 Input Alamat Pegawai --}}
@@ -58,7 +58,7 @@
                             <label for="address"
                                 class="inline-block font-medium text-slate-700 dark:text-slate-200">Alamat</label>
                             <textarea
-                                class="mt-1 w-full rounded-md border-none bg-slate-200 bg-opacity-60 leading-tight text-slate-600 drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+                                class="mt-1 w-full rounded-md border-none bg-zinc-100 leading-tight text-slate-600 drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 id="address" name="address" value="{{ old('address') }}"></textarea>
                         </div>
                         {{-- Submit --}}
@@ -70,7 +70,7 @@
                     {{-- 2.0 Form Unit Kerja --}}
                     <div class="grid grid-rows-2 gap-4">
                         <div
-                            class="rounded-2xl bg-slate-200 bg-opacity-50 py-2 px-8 backdrop-blur-sm backdrop-filter dark:bg-slate-800 dark:bg-opacity-70">
+                            class="rounded-2xl bg-white/80 py-2 px-8 dark:backdrop-blur-sm dark:backdrop-filter dark:bg-slate-800 dark:bg-opacity-70">
                             <h5
                                 class="mb-4 border-b-2 border-slate-600 pt-5 pb-3 text-xl font-bold text-slate-600 dark:border-slate-100 dark:text-slate-100">
                                 Unit Kerja</h5>
@@ -79,7 +79,7 @@
                                 <label for="division"
                                     class="inline-block font-medium text-slate-700 dark:text-slate-200">Divisi</label>
                                 <select
-                                    class="w-full rounded-md border-none bg-slate-200 bg-opacity-60 text-sm leading-tight text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+                                    class="w-full rounded-md border-none bg-zinc-100 text-sm leading-tight text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                     id="divisi" name="divisi">
                                     <option>SBU Produk Non Uang</option>
                                 </select>
@@ -89,7 +89,7 @@
                                 <label for="division"
                                     class="inline-block font-medium text-slate-700 dark:text-slate-200">Seksi</label>
                                 <select
-                                    class="w-full rounded-md border-none bg-slate-200 bg-opacity-60 text-sm leading-tight text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+                                    class="w-full rounded-md border-none bg-zinc-100 text-sm leading-tight text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                     id="seksi" name="seksi">
                                     @foreach ($listSeksi as $seksi)
                                         <option value="{{ $seksi->id }}">{{ $seksi->seksi }}</option>
@@ -101,7 +101,7 @@
                                 <label for="division"
                                     class="inline-block font-medium text-slate-700 dark:text-slate-200">Unit</label>
                                 <select
-                                    class="w-full rounded-md border-none bg-slate-200 bg-opacity-60 text-sm leading-tight text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+                                    class="w-full rounded-md border-none bg-zinc-100 text-sm leading-tight text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                     id="unit" name="unit">
                                     @foreach ($listUnit as $unit)
                                         <option value="{{ $unit->id }}">{{ $unit->unit }}</option>
@@ -113,7 +113,7 @@
                                 <label for="division"
                                     class="inline-block font-medium text-slate-700 dark:text-slate-200">Workstation</label>
                                 <select
-                                    class="w-full rounded-md border-none bg-slate-200 bg-opacity-60 text-sm leading-tight text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+                                    class="w-full rounded-md border-none bg-zinc-100 text-sm leading-tight text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                     id="workstation" name="workstation">
                                     @foreach ($listWorkstation as $station)
                                         <option value="{{ $station->id }}">{{ $station->workstation }}</option>
@@ -123,7 +123,7 @@
                         </div>
                         {{-- 3.0 Form Privillage --}}
                         <div
-                            class="rounded-2xl bg-slate-200 bg-opacity-50 py-2 px-8 backdrop-blur-sm backdrop-filter dark:bg-slate-800 dark:bg-opacity-70">
+                            class="rounded-2xl bg-white/80 py-2 px-8 dark:backdrop-blur-sm dark:backdrop-filter dark:bg-slate-800 dark:bg-opacity-70">
                             <h5
                                 class="mb-6 border-b-2 border-slate-600 pt-6 pb-3 text-xl font-bold text-slate-600 dark:border-slate-100 dark:text-slate-100">
                                 Privillage</h5>
@@ -132,7 +132,7 @@
                                 <label for="division"
                                     class="inline-block font-medium text-slate-700 dark:text-slate-200">Privillage</label>
                                 <select
-                                    class="w-full rounded-md border-none bg-slate-200 bg-opacity-60 text-sm leading-tight text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+                                    class="w-full rounded-md border-none bg-zinc-100 text-sm leading-tight text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                     id="privillage" name="privillage">
                                     <option value="1">Super User</option>
                                     <option value="2">Kepala Divisi</option>
@@ -147,14 +147,14 @@
                                 <label for="division"
                                     class="inline-block font-medium text-slate-700 dark:text-slate-200">Password</label>
                                 <input type="password"
-                                    class="w-full rounded-md border-none bg-slate-200 bg-opacity-60 text-sm leading-tight text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+                                    class="w-full rounded-md border-none bg-zinc-100 text-sm leading-tight text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                     id="password" name="password" required>
                             </div>
                             <div class="grid grid-rows-2">
                                 <label for="division"
                                     class="inline-block font-medium text-slate-700 dark:text-slate-200">Password</label>
                                 <input type="password"
-                                    class="w-full rounded-md border-none bg-slate-200 bg-opacity-60 text-sm leading-tight text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+                                    class="w-full rounded-md border-none bg-zinc-100 text-sm leading-tight text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                     id="passwordConfirmation" name="passwordConfirmation" required>
                             </div>
                         </div>

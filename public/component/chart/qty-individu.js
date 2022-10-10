@@ -27,10 +27,8 @@ const qtyIndividu = new Chart(ctxQty, {
         }]
     },
     options: {
+        maintainAspectRatio: false,
         plugins:{
-            legend :{
-                display : false,
-            }
         },
         scales: {
             y: {
@@ -51,7 +49,20 @@ const qtyIndividu = new Chart(ctxQty, {
 const qtyIndividuYear = new Chart(ctxQtyYear, {
     type: 'bar',
     data: {
-        labels: dataChart.date,
+        labels: [
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'Mei',
+            'Jun',
+            'Jul',
+            'Agu',
+            'Sep',
+            'Okt',
+            'Nov',
+            'Des',
+        ],
         datasets: [{
             label: 'Verifikasi MMEA',
             data: dataChart.data,
@@ -77,9 +88,6 @@ const qtyIndividuYear = new Chart(ctxQtyYear, {
     options: {
         maintainAspectRatio:false,
         plugins:{
-            legend :{
-                display : false,
-            }
         },
         scales: {
             y: {
