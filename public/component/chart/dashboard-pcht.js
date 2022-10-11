@@ -104,14 +104,14 @@ Chart.overrides.doughnut.plugins.legend.display = false;
         },
     });
 
-// 5.0 Mini Chart Sisa MMEA
+// 5.0 inschiet Pcht
     const ctxInscPcht = document.getElementById('inscPcht');
     const inscPcht = new Chart(ctxInscPcht, {
         type: 'doughnut',
         data: {
             labels: ['Baik','Rusak'],
             datasets: [{
-                data : [65,35],
+                data : [100 - dataChart.inscPcht,dataChart.inscPcht],
                 backgroundColor: ['rgba(68, 239, 239, 0.4)','rgba(239, 68, 68, 0.4)'],
                 borderColor: ['rgba(68, 239, 239, 0.8)','rgba(239, 68, 68, 0.8)'],
                 borderWidth: 1,
@@ -119,14 +119,14 @@ Chart.overrides.doughnut.plugins.legend.display = false;
         },
     });
 
-// 6.0 Mini Chart Sisa MMEA
+// 6.0 Inschiet MMEA
     const ctxInscMmea = document.getElementById('inscMmea');
     const InscMmea = new Chart(ctxInscMmea, {
         type: 'doughnut',
         data: {
             labels: ['Baik','Rusak'],
             datasets: [{
-                data : [65,35],
+                data : [100 - dataChart.inscMmea,dataChart.inscMmea],
                 backgroundColor: ['rgba(68, 239, 239, 0.4)','rgba(239, 68, 68, 0.4)'],
                 borderColor: ['rgba(68, 239, 239, 0.8)','rgba(239, 68, 68, 0.8)'],
                 borderWidth: 1,
@@ -178,7 +178,7 @@ const mmeaDaily = new Chart(ctxMmea, {
     data: {
         labels: dataChart.dateMmea,
         datasets: [{
-            label: 'Performance By Quantity',
+            label: 'Verifikasi MMEA',
             data: dataChart.dataMmea,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

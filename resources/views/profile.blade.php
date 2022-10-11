@@ -1,6 +1,7 @@
 @section('title', 'Profile')
 @extends('layouts.app')
 @section('content')
+<div x-data="{editModal: false}" @keydown.escape="editModal = false" x-cloak>
     <div class="py-6">
         <div class="mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-1">
@@ -92,7 +93,7 @@
                                 </div>
                             </div>
                             {{-- 2. Button Ubah Data --}}
-                            <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="info"
+                            <button @click.prevent="editModal = true" type="button" data-mdb-ripple="true" data-mdb-ripple-color="info"
                                 data-mdb-ripple-duration="2000ms"
                                 class="mb-2 mt-4 inline-block w-full rounded bg-blue-500 px-6 py-2.5 text-base font-extrabold uppercase leading-normal  shadow-md transition duration-150 ease-in-out hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg text-blue-100">Ubah
                                 Biodata</button>
@@ -100,12 +101,14 @@
                                 data-mdb-ripple-duration="2000ms"
                                 class="my-2 inline-block w-full rounded bg-orange-400 px-6 py-2.5 text-base font-extrabold uppercase leading-normal shadow-md transition duration-150 ease-in-out hover:bg-orange-400 hover:shadow-lg focus:bg-orange-400 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-500 active:shadow-lg text-orange-100">Ubah
                                 Password</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        @include('components.modal.edit-profile')
+</div>
 @endsection
 
 {{-- <div class="py-6">

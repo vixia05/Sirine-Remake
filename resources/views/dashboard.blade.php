@@ -128,13 +128,13 @@
                     <div
                         class="overflow-hidden rounded-xl bg-white dark:bg-slate-900 dark:bg-opacity-40 bg-opacity-50 px-8 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur-smbackdrop-filter">
                         <span class="my-2 text-xl font-medium leading-tight text-slate-800 dark:text-slate-300">Retur PCHT</span>
-                        <h3 class="my-16 text-right text-3xl font-bold leading-tight">0
+                        <h3 class="my-16 text-right text-3xl font-bold leading-tight  text-slate-800 dark:text-slate-300">0
                         </h3>
                     </div>
                     <div
                         class="overflow-hidden rounded-xl bg-white dark:bg-slate-900 dark:bg-opacity-40 bg-opacity-50 px-8 py-4 shadow-sm backdrop-blur-sm dark:backdrop-blur-smbackdrop-filter">
                         <span class="my-2 text-xl font-medium leading-tight text-slate-800 dark:text-slate-300">Retur MMEA</span>
-                        <h3 class="my-16 text-right text-3xl font-bold leading-tight">0
+                        <h3 class="my-16 text-right text-3xl font-bold leading-tight  text-slate-800 dark:text-slate-300">0
                         </h3>
                     </div>
                 </div>
@@ -153,8 +153,10 @@
         var dataChart = {
             datePcht: @json($chartPcht['datePcht']),
             dataPcht: @json($chartPcht['dataPcht']),
+            inscPcht: @json($inschiet['insPcht']),
             dateMmea: @json($chartMmea['dateMmea']),
             dataMmea: @json($chartMmea['dataMmea']),
+            inscMmea: @json($inschiet['insMmea']),
         };
     </script>
     @push('js')

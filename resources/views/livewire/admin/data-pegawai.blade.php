@@ -27,7 +27,7 @@
             {{-- End Filter & Search --}}
             {{-- 2.0 Body / Table --}}
             <div
-                class="row-span-3 overflow-hidden border-x bg-inerhit border-slate-400 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
+                class="overflow-hidden border-x bg-inerhit border-slate-400 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
                 <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full sm:px-4 lg:px-8">
