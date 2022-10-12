@@ -15,7 +15,7 @@
                                     class="inline-block pb-2 font-medium text-slate-600 dark:text-slate-300">Nomor
                                     Pegawai</label>
                                 <input type="text" maxlength="4"
-                                    class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60"
+                                    class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
                                     id="np" name="np" value="{{ old('np') }}" required>
                             </div>
                             {{-- 1.2 Input Nama --}}
@@ -23,7 +23,7 @@
                                 <label for="nama"
                                     class="inline-block pb-2 font-medium text-slate-600 dark:text-slate-300">Nama</label>
                                 <input type="text"
-                                    class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60"
+                                    class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
                                     id="nama" name="np" value="{{ old('nama') }}" required>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                             <label for="subject"
                                 class="inline-block pb-2 font-medium text-slate-600 dark:text-slate-300">Prihal</label>
                             <select
-                                class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60"
+                                class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
                                 id="subject" name="subject">
                                 <option value="1" selected>Kinerja</option>
                                 <option value="2">Kehadiran</option>
@@ -44,7 +44,7 @@
                                 class="inline-block pb-2 font-medium text-slate-600 dark:text-slate-300">Pesan
                                 Evaluasi</label>
                             <textarea
-                                class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60"
+                                class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
                                 id="evaluasi" name="evaluasi" value="{{ old('evaluasi') }}" rows="4" required></textarea>
                         </div>
                         {{-- Submit --}}

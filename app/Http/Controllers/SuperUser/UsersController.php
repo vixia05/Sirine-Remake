@@ -57,8 +57,8 @@ class UsersController extends Controller
     {
         // Validator
         $validator = $request->validate([
-            'np'    => 'required|max:4',
-            'name'  => 'required',
+            'np'    => 'required|max:4|alpha_num',
+            'name'  => 'required|required|regex:/^[\pL\s\-]+$/u',
             'seksi' => 'required',
             'unit'  => 'required',
             'workstation' => 'required',
@@ -76,6 +76,7 @@ class UsersController extends Controller
             [
                 'email'    => $request->email,
                 'password' => hash::make($request->password),
+                'level'    => $request->privillage
             ]
         );
 
@@ -95,12 +96,6 @@ class UsersController extends Controller
             ]
             );
 
-        // 3.0 Insert Privillage
-
-        Privillage::updateOrCreate(
-            ['np_user' => $request->np],
-            ['level'   => $request->privillage]
-        );
 
         return redirect()->back();
     }

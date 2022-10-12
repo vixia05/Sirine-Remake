@@ -86,7 +86,19 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'namaUser'   => 'required|required|regex:/^[\pL\s\-]+$/u',
+            'contactUser'=> 'required|numeric',
+            'emailUser'  => 'required|email',
+        ]);
+
+        UserDetails::where('np_user',$id)->update([
+            'nama'   => $request->namaUser,
+            'contact'=> $request->contactUser,
+            'alamat' => $request->alamatUser == null ? "-" : $request->alamatUser,
+        ]);
+
+        return back();
     }
 
     /**

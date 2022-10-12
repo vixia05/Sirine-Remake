@@ -31,8 +31,10 @@
             {{-- Message CRUD --}}
             @if (session()->has('messageUpdate'))
                 <div
-                    class="border border-green-500 bg-slate-700 bg-opacity-80 p-4 text-center font-bold leading-tight text-green-400">
-                    {{ session('messageUpdate') }}
+                    class="border dark:border-slate-500 border-slate-400 bg-slate-700 bg-opacity-80 p-2 text-center font-bold leading-tight text-green-400">
+                    <div class="border-green-400 border p-4 rounded">
+                        {{ session('messageUpdate') }}
+                        </div>
                 </div>
             @elseif (session()->has('messageDelete'))
                 <div

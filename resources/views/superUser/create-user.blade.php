@@ -4,6 +4,7 @@
     <div class="py-6">
         <div class="mx-auto sm:px-6 lg:px-8">
             <form method="post" action="{{ route('users.store') }}" autocomplete="off" enctype="multipart/form-data">
+                @csrf
                 <div class="grid grid-cols-2 gap-4">
                     {{-- 1.0 Form Data Pegawai --}}
                     <div
