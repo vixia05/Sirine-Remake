@@ -7,7 +7,14 @@
                 <div
                     class="rounded bg-white/70 p-4 font-semibold text-slate-800 backdrop-blur-sm backdrop-filter dark:bg-slate-800 dark:bg-opacity-70 dark:text-slate-100">
                     <h6 class="border-b-2 border-slate-600 pb-2 text-xl dark:border-slate-100">INPUT DATA KELOLOSAN</h6>
-                    <form class="py-4">
+                    @if(session('success'))
+                        <div class="bg-green-500 brightness-110 text-green-100 shadow-lg shadow-green-500/50 my-3 p-2 rounded text-center">
+                            <h5 class="text-2xl">Data Berhasil Di Simpan</h5>
+                        </div>
+                    @endif
+                    <form class="py-4" action="{{ route('inputRetur.store') }}" method="post">
+                        @method('post')
+                        @csrf
                         <div class="grid grid-cols-3 gap-4">
                             {{-- 1.3 Input Tanggal --}}
                             <div class="mb-4 flex flex-col">
@@ -23,17 +30,13 @@
                                 <label for="np"
                                     class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Nomor
                                     Pegawai</label>
-                                <input type="text" maxlength="4"
+                                <select required
                                     class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="npUser" name="npUser" value="{{ old('np') }}" required>
-                            </div>
-                            {{-- 1.2 Input Nama --}}
-                            <div class="flex flex-col">
-                                <label for="nama"
-                                    class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Nama</label>
-                                <input type="text"
-                                    class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="namaUser" name="namaUser" value="{{ old('nama') }}" required>
+                                    id="npUser" name="npUser" >
+                                    @foreach ($npUser as $np)
+                                        <option value="{{ $np }}">{{ $np }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         {{-- 1.2 Input Nama --}}
@@ -43,7 +46,7 @@
                                 Evaluasi</label>
                             <textarea
                                 class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                id="evaluasi" name="evaluasi" value="{{ old('evaluasi') }}" rows="4" required></textarea>
+                                id="evaluasi" name="evaluasi" value="{{ old('evaluasi') }}" rows="4" ></textarea>
                         </div>
                         <div class="mt-6">
                             <h6 class="mb-6 border-b-2 border-slate-600 pb-2 text-xl dark:border-slate-100">Jenis Kelolosan
@@ -55,9 +58,9 @@
                                     Produk</label>
                                 <select
                                     class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="jProduk" name="jProduk" required>
-                                    <option value="1" selected>PCHT</option>
-                                    <option value="2">MMEA</option>
+                                    id="jProduk" name="jProduk" >
+                                    <option value="PCHT" selected>PCHT</option>
+                                    <option value="MMEA">MMEA</option>
                                 </select>
                             </div>
                             {{-- 2.2 Jenis Kelolosan Row 1 --}}
@@ -68,7 +71,7 @@
                                         class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Blobor</label>
                                     <input type="number" min="0"
                                         class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                        id="blobor" name="blobor" value="{{ old('blobor') }}" required>
+                                        id="blobor" name="blobor" value="{{ old('blobor') }}" >
                                 </div>
                                 {{-- 2.2. Kelolosan Plooi --}}
                                 <div>
@@ -76,7 +79,7 @@
                                         class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Plooi</label>
                                     <input type="number" min="0"
                                         class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                        id="plooi" name="plooi" value="{{ old('plooi') }}" required>
+                                        id="plooi" name="plooi" value="{{ old('plooi') }}" >
                                 </div>
                                 {{-- 2.2. Kelolosan Blur --}}
                                 <div>
@@ -84,7 +87,7 @@
                                         class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Blur</label>
                                     <input type="number" min="0"
                                         class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                        id="blur" name="blur" value="{{ old('blur') }}" required>
+                                        id="blur" name="blur" value="{{ old('blur') }}" >
                                 </div>
                                 {{-- 2.2. Kelolosan Hologram --}}
                                 <div>
@@ -92,7 +95,7 @@
                                         class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Hologram</label>
                                     <input type="number" min="0"
                                         class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                        id="hologram" name="hologram" value="{{ old('hologram') }}" required>
+                                        id="hologram" name="hologram" value="{{ old('hologram') }}" >
                                 </div>
                             </div>
                             {{-- 2.2 Jenis Kelolosan Row 1 --}}
@@ -103,7 +106,7 @@
                                         class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Noda</label>
                                     <input type="number" min="0"
                                         class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                        id="noda" name="blobor" value="{{ old('noda') }}" required>
+                                        id="noda" name="noda" value="{{ old('noda') }}" >
                                 </div>
                                 {{-- 2.2. Kelolosan Miss Reg --}}
                                 <div>
@@ -112,7 +115,7 @@
                                         Register</label>
                                     <input type="number" min="0"
                                         class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                        id="missReg" name="missReg" value="{{ old('missReg') }}" required>
+                                        id="missReg" name="missReg" value="{{ old('missReg') }}" >
                                 </div>
                                 {{-- 2.2. Kelolosan Tipis--}}
                                 <div>
@@ -120,7 +123,7 @@
                                         class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Tipis</label>
                                     <input type="number" min="0"
                                         class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                        id="tipis" name="tipis" value="{{ old('tipis') }}" required>
+                                        id="tipis" name="tipis" value="{{ old('tipis') }}" >
                                 </div>
                                 {{-- 2.2. Kelolosan Gradasi--}}
                                 <div>
@@ -128,7 +131,7 @@
                                         class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Gradasi</label>
                                     <input type="number" min="0"
                                         class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                        id="gradasi" name="gradasi" value="{{ old('gradasi') }}" required>
+                                        id="gradasi" name="gradasi" value="{{ old('gradasi') }}" >
                                 </div>
                             </div>
                             {{-- 2.2 Jenis Kelolosan Row 1 --}}
@@ -139,7 +142,7 @@
                                         class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Sobek</label>
                                     <input type="number" min="0"
                                         class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                        id="sobek" name="sobek" value="{{ old('sobek') }}" required>
+                                        id="sobek" name="sobek" value="{{ old('sobek') }}" >
                                 </div>
                                 {{-- 2.2. Kelolosan Terpotong --}}
                                 <div>
@@ -147,7 +150,7 @@
                                         class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Terpotong</label>
                                     <input type="number" min="0"
                                         class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                        id="terpotong" name="terpotong" value="{{ old('terpotong') }}" required>
+                                        id="terpotong" name="terpotong" value="{{ old('terpotong') }}" >
                                 </div>
                                 {{-- 2.2. Kelolosan Tercampur --}}
                                 <div>
@@ -155,7 +158,7 @@
                                         class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Tercampur</label>
                                     <input type="number" min="0"
                                         class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                        id="tercampur" name="tercampur" value="{{ old('tercampur') }}" required>
+                                        id="tercampur" name="tercampur" value="{{ old('tercampur') }}" >
                                 </div>
                                 {{-- 2.2. Kelolosan Botak \ Blanko--}}
                                 <div>
@@ -164,7 +167,7 @@
                                         Blanko</label>
                                     <input type="number" min="0"
                                         class="w-full rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                        id="botak" name="" value="{{ old('botak') }}" required>
+                                        id="botak" name="botak" value="{{ old('botak') }}" >
                                 </div>
                             </div>
                             {{-- Submit --}}
