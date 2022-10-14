@@ -58,31 +58,49 @@ $(document).ready(function(){
     });
 
     // Set Variable Kosong untuk Data
-    let startDate = $('#dateRange').data('daterangepicker').startDate.format('YYYY-MM-DD');
-    let endDate   = $('#dateRange').data('daterangepicker').endDate.format('YYYY-MM-DD');
-    let team = '';
-    let mode = '';
+    // let startDate = $('#dateRange').data('daterangepicker').startDate.format('YYYY-MM-DD');
+    // let endDate   = $('#dateRange').data('daterangepicker').endDate.format('YYYY-MM-DD');
+    // let team = '';
+    // let mode = '';
 
     // Render Chart Saat Halaman Di Buka
+    // $.ajax({
+    //     url:"chartUnit",
+    //     type:"Get",
+    //     datatype:"Json",
+    //     data : {
+    //              startDate:startDate,
+    //              endDate:endDate,
+    //              team:team,
+    //              mode:mode,
+    //            },
+    //     success:function(data)
+    //     {
+    //         dataChart = {
+    //             date : data.date,
+    //             data : data.data,
+    //             label: "Jumlah Verifikasi"
+    //         }
+
+    //         load_chart();
+    //     }
+    // });
+});
+
+$('#team').change(function(){
+
+    let team = $('#team').val();
+
     $.ajax({
-        url:"chartUnit",
-        type:"Get",
-        datatype:"Json",
+        url : "npTeam",
+        type :"Get",
+        datatype: "Json",
         data : {
-                 startDate:startDate,
-                 endDate:endDate,
-                 team:team,
-                 mode:mode,
-               },
+            team:team,
+        },
         success:function(data)
         {
-            dataChart = {
-                date : data.date,
-                data : data.data,
-                label: "Jumlah Verifikasi"
-            }
-
-            load_chart();
+            console.log(data)
         }
     });
 });

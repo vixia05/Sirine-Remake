@@ -18,10 +18,12 @@
                         {{-- 1.2 Filter Chart --}}
                         <div class="my-auto flex flex-row flex-wrap justify-end">
                             {{-- Filter By Team --}}
-                            <select
+                            <select id="team" name="team"
                                 class="min-w-fit rounded-l border-blue-400 py-2 pl-2 text-sm text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
                                 <option selected>Team</option>
-                                <option>Verifikasi Pita Cukai Team A</option>
+                                @foreach ($team as $tm)
+                                    <option value="{{ $tm->id }}">{{ $tm->workstation }}</option>
+                                @endforeach
                             </select>
                             {{-- Filter By NP / Nama --}}
                             <select

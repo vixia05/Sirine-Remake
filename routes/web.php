@@ -69,6 +69,7 @@ Route::group(['middleware' => ['auth','verified']], function() {
 
         // Quantity
             Route::get('quantity/unit',     [QuantityController::class,  'indexUnit'])->name('quantity.unit');
+            Route::get('quantity/npTeam', [QuantityController::class,  'npTeam'])->name('npTeam');
             Route::get('quantity/chartUnit',[QuantityController::class,  'getUnitChart'])->name('chartUnit');
             Route::get('quantity/individu', [QuantityController::class,  'indexIndividu'])->name('quantity.individu');
 
@@ -78,6 +79,11 @@ Route::group(['middleware' => ['auth','verified']], function() {
 
         // Raport Pegawai
             Route::get('report',[ReportController::class, 'index'])->name('report');
+
+    //--- Other Utilities ---//
+
+        // DropDown Quantity Indiviud
+            // Route::get('quantity/')
 
 });
 

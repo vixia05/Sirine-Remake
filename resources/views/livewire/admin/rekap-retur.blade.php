@@ -103,10 +103,10 @@
                                                 {{-- 2.2.6 Jenis Retur Coloumn --}}
                                                 <td
                                                     class="border border-slate-400 dark:border-slate-500 px-4 py-2 text-center text-sm text-slate-800 dark:text-slate-100">
-                                                    <div class="flex flex-wrap justify-center space-x-2">
+                                                    <div class="flex justifiy-start flex-wrap gap-2">
                                                         @if ($datas->blobor == !null)
                                                             <span
-                                                                class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
+                                                                class="inline-block whitespace-nowrap rounded-full bg-red-600  py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
                                                                 Blobor
                                                             </span>
                                                         @endif

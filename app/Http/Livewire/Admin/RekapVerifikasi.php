@@ -10,8 +10,14 @@ use Auth;
 use App\Models\QcPikai;
 use App\Models\UserDetails;
 
+use Mediconesystems\LivewireDatatables\Column;
+use Mediconesystems\LivewireDatatables\DateColumn;
+use Mediconesystems\LivewireDatatables\NumberColumn;
+use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
+
 class RekapVerifikasi extends Component
 {
+
     use WithPagination;
     public $search;
     protected $queryString = ['search'];
@@ -19,6 +25,7 @@ class RekapVerifikasi extends Component
     public function render()
     {
         $data = QcPikai::where('np_user', 'like', '%'.$this->search.'%')
+                        ->orWhere('nama_user', 'like', '%'.$this->search.'%')
                         ->orWhere('tgl_verif', 'like', '%'.$this->search.'%')
                         ->orWhere('jml_verif', 'like', '%'.$this->search.'%')
                         ->orWhere('jml_obc', 'like', '%'.$this->search.'%')
@@ -29,10 +36,11 @@ class RekapVerifikasi extends Component
 
         return view('livewire.admin.rekap-verifikasi',[
             'data' => $data,
+            'npUser' => UserDetails::pluck('np_user'),
         ]);
     }
 
-    public function updatingsearch()
+    public function updatingSearch()
     {
         $this->resetPage();
     }

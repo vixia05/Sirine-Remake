@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use App\Models\Unit;
 use App\Models\QcPikai;
 use App\Models\OrderPcht;
+use App\Models\UserDetails;
 use App\Models\workstation;
 
 class QuantityController extends Controller
@@ -30,7 +31,14 @@ class QuantityController extends Controller
      */
     public function indexIndividu()
     {
-        return view('Performance.Quantity-Individu');
+        return view('Performance.Quantity-Individu',[
+            'team' => $team = Workstation::all()->sortBy('workstation'),
+        ]);
+    }
+
+    public function npTeam(Request $request)
+    {
+        return UserDetails::where('id_workstation',$request->team)->pluck('np_user');
     }
 
     /**
