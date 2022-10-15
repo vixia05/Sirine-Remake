@@ -69,9 +69,10 @@ Route::group(['middleware' => ['auth','verified']], function() {
 
         // Quantity
             Route::get('quantity/unit',     [QuantityController::class,  'indexUnit'])->name('quantity.unit');
-            Route::get('quantity/npTeam', [QuantityController::class,  'npTeam'])->name('npTeam');
+            Route::get('quantity/npTeam',   [QuantityController::class,  'npTeam'])->name('npTeam');
             Route::get('quantity/chartUnit',[QuantityController::class,  'getUnitChart'])->name('chartUnit');
             Route::get('quantity/individu', [QuantityController::class,  'indexIndividu'])->name('quantity.individu');
+            Route::get('quantity/chartIndividu',[QuantityController::class,  'getIndividuChart'])->name('chartIndividu');
 
         // Quality
             Route::get('quality/unit',     [QualityController::class, 'indexUnit'])->name('quality.unit');

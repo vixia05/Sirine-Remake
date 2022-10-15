@@ -38,7 +38,9 @@ class QuantityController extends Controller
 
     public function npTeam(Request $request)
     {
-        return UserDetails::where('id_workstation',$request->team)->pluck('np_user');
+        return UserDetails::where('id_workstation',$request->team)
+                        ->orderBy('nama')
+                        ->pluck('nama','np_user');
     }
 
     /**
@@ -211,6 +213,27 @@ class QuantityController extends Controller
      */
     private function qtyAverage($startDate,$endDate,$team)
     {
+        //
+    }
 
+
+    /**
+     * Get Data Chart Individu
+     */
+    public function getIndividuChart(Request $request)
+    {
+        $npUser = $request->npUser;
+        $startDate = $request->startDate;
+        $endDate   = $request->endDate;
+
+        $data = QcPikai::where('np_user',$npUser)
+                    ->whereBetween('tgl_verif',[$startDate,$endDate])
+                    ->orderBy('tgl_verif')
+                    ->pluck('jml_verif','tgl_verif');
+
+        return [
+            'data' => $data->values(),
+            'date' => array_keys($data->toArray())
+        ];
     }
 }
