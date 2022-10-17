@@ -15,14 +15,18 @@ class TestController extends Controller
     public function test()
     {
         $npUser = "I431";
-        $startDate = "2022-09-01";
-        $endDate   = "2022-09-30";
+        $startDate = "2022-01-01";
 
         $data = QcPikai::where('np_user',$npUser)
-                    ->whereBetween('tgl_verif',[$startDate,$endDate])
-                    ->orderBy('tgl_verif')
-                    ->pluck('jml_verif','tgl_verif')
-                    ->toArray();
-        dd(array_keys($data));
+                    ->whereYear('tgl_verif',$startDate)
+                    ->get()
+                    ->sortBy('tgl_verif')
+                    ->groupBy(function($m){
+                        return Carbon::parse($m->tgl_verif)->format('m');
+                    })
+                    ->map(function($sum){
+                        return $sum->sum('jml_verif');
+                    });
+        dd($data);
     }
 }

@@ -8,12 +8,12 @@
                 <div
                     class="relative col-span-1 p-4 rounded-xl bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter md:col-span-2">
                     {{-- 1. Header --}}
-                    <div class="flex justify-between pb-3 mb-10 border-b-2 border-slate-600/70 dark:border-slate-300">
+                    <div class="grid grid-cols-2 pb-3 mb-10 border-b-2 border-slate-600/70 dark:border-slate-300">
                         {{-- 1.1 Header Title --}}
                         <div class="flex flex-col">
-                            <h6 class="w-full text-lg font-bold flex-nowrap text-slate-800 dark:text-slate-100">Hasil
+                            <h6  id="title" name="title" class="w-full text-lg font-bold flex-nowrap text-slate-800 dark:text-slate-100">Hasil
                                 Verifikasi Pita Cukai</h6>
-                            <span class="text-xs text-slate-500 dark:text-slate-400">September 2022</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400" id="titleDate">September 2022</span>
                         </div>
                         {{-- 1.2 Filter Chart --}}
                         <div class="flex flex-row flex-wrap justify-end my-auto">
@@ -58,7 +58,7 @@
                             </div>
                         </div>
                         <div class="object-cover w-full pt-6 h-5/6">
-                            <canvas id="qtyIndividuYear" name="qtyIndividuYear" class="min-w-full"></canvas>
+                            <canvas id="qtyIndividuYear" name="qtyIndividuYear"></canvas>
                         </div>
                     </div>
                     {{-- End B. Card Hasil Verifikasi Unit --}}

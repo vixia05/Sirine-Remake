@@ -231,9 +231,22 @@ class QuantityController extends Controller
                     ->orderBy('tgl_verif')
                     ->pluck('jml_verif','tgl_verif');
 
+        $dataYear = QcPikai::where('np_user',$npUser)
+                        ->whereYear('tgl_verif',$startDate)
+                        ->get()
+                        ->sortBy('tgl_verif')
+                        ->groupBy(function($m){
+                            return Carbon::parse($m->tgl_verif)->format('m');
+                        })
+                        ->map(function($sum){
+                            return $sum->sum('jml_verif');
+                        });
+
         return [
             'data' => $data->values(),
-            'date' => array_keys($data->toArray())
+            'date' => array_keys($data->toArray()),
+            'dataYear' => $dataYear->values(),
+            'dateYear' => array_keys($dataYear->toArray()),
         ];
     }
 }

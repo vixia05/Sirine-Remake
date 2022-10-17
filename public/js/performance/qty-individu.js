@@ -59,35 +59,6 @@ $(document).ready(function(){
     });
 
     load_chart();
-    // Set Variable Kosong untuk Data
-    // let startDate = $('#dateRange').data('daterangepicker').startDate.format('YYYY-MM-DD');
-    // let endDate   = $('#dateRange').data('daterangepicker').endDate.format('YYYY-MM-DD');
-    // let team = '';
-    // let mode = '';
-
-    // Render Chart Saat Halaman Di Buka
-    // $.ajax({
-    //     url:"chartUnit",
-    //     type:"Get",
-    //     datatype:"Json",
-    //     data : {
-    //              startDate:startDate,
-    //              endDate:endDate,
-    //              team:team,
-    //              mode:mode,
-    //            },
-    //     success:function(data)
-    //     {
-    //         dataChart = {
-    //             date : data.date,
-    //             data : data.data,
-    //             label: "Jumlah Verifikasi"
-    //         }
-
-    //         load_chart();
-    //     }
-    // });
-});
 
 $('#team').change(function(){
 
@@ -134,13 +105,17 @@ $('#selectNp').change(function(){
         },
         success:function(data)
         {
-            console.log(data.data),
+            console.log(npUser)
             dataChart = {
                 data : data.data,
                 date : data.date,
+                dataYear : data.dataYear,
+                dateYear : data.dateYear,
             }
-
-            $('#qtyIndividu').replaceWith('<canvas id="qtyIndividu" name="qtyIndividu"></canvas>')
+            $('#title').text('Hasil Verifikasi '+npUser);
+            $('#titleDate').text(startDate + ' Sampai '  + endDate);
+            $('#qtyIndividu').replaceWith('<canvas id="qtyIndividu" name="qtyIndividu"></canvas>');
+            $('#qtyIndividuYear').replaceWith(' <canvas id="qtyIndividuYear" name="qtyIndividuYear"></canvas>');
             load_chart();
         }
     });
@@ -150,7 +125,7 @@ $('#dateRange').on('apply.daterangepicker',function(ev, picker) {
 
     let startDate = picker.startDate.format('YYYY-MM-DD');
     let endDate   = picker.endDate.format('YYYY-MM-DD');
-    let npUser = $('#npUser').val();
+    let npUser = $('#selectNp').val();
 
     $.ajax({
         url : "chartIndividu",
@@ -163,14 +138,19 @@ $('#dateRange').on('apply.daterangepicker',function(ev, picker) {
         },
         success:function(data)
         {
-            console.log(data.data),
             dataChart = {
                 data : data.data,
                 date : data.date,
+                dataYear : data.dataYear,
+                dateYear : data.dateYear,
             }
-
-            $('#qtyIndividu').replaceWith('<canvas id="qtyIndividu" name="qtyIndividu"></canvas>')
+            $('#title').text('Hasil Verifikasi '+npUser);
+            $('#titleDate').text(startDate + ' Sampai '  + endDate);
+            $('#qtyIndividu').replaceWith('<canvas id="qtyIndividu" name="qtyIndividu"></canvas>');
+            $('#qtyIndividuYear').replaceWith('<canvas id="qtyIndividuYear" name="qtyIndividuYear"></canvas>');
             load_chart();
         }
     });
 });
+});
+

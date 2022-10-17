@@ -11,7 +11,7 @@
         <div class="px-4 pb-4">
             {{-- 1.0 Filter & Search Section --}}
             <div
-                class="bg-inerhit border rounded-t border-slate-400 bg-opacity-30 px-4 py-2 text-sm dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
+                class="bg-inerhit rounded-t border border-slate-400 bg-opacity-30 px-4 py-2 text-sm dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
                 <div class="flex justify-start">
                     <div class="relative">
                         <input type="text" wire:model="search"
@@ -31,10 +31,10 @@
             {{-- Message CRUD --}}
             @if (session()->has('messageUpdate'))
                 <div
-                    class="border dark:border-slate-500 border-slate-400 bg-slate-700 bg-opacity-80 p-2 text-center font-bold leading-tight text-green-400">
-                    <div class="border-green-400 border p-4 rounded">
+                    class="border border-slate-400 bg-slate-700 bg-opacity-80 p-2 text-center font-bold leading-tight text-green-400 dark:border-slate-500">
+                    <div class="rounded border border-green-400 p-4">
                         {{ session('messageUpdate') }}
-                        </div>
+                    </div>
                 </div>
             @elseif (session()->has('messageDelete'))
                 <div
@@ -134,7 +134,7 @@
                                 </table>
                             </div>
                             <div
-                                class="bg-inerhit overflow-hidden rounded-b border-b border-x border-slate-400 px-10 py-2 text-slate-800 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 dark:text-slate-100">
+                                class="bg-inerhit overflow-hidden rounded-b border-x border-b border-slate-400 px-10 py-2 text-slate-800 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 dark:text-slate-100">
                                 {{ $data->links('vendor.livewire.tailwind') }}
                             </div>
                         </div>

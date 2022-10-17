@@ -7,6 +7,7 @@ use Livewire\WithPagination;
 use App\Models\User;
 use App\Models\UserDetails;
 
+
 class ListUsers extends Component
 {
     use WithPagination;
