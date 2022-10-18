@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use Auth;
+use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Collection;
@@ -34,6 +35,8 @@ class InputVerifikasi extends Component
                                         ->value('id_workstation');
         $this->lembur = '0';
 
+        $this->tglVerif = Carbon::today();
+
     }
 
     /**
@@ -62,6 +65,7 @@ class InputVerifikasi extends Component
         $this->izin = '';
     }
 
+
     /**
      * Fungsi untuk manampilkan dropdown by team
      * Berdasarkan unit yang sama dengan user
@@ -78,12 +82,11 @@ class InputVerifikasi extends Component
      */
     public function store()
     {
-        // dd($this->saveLembur());
+
         $this->saveJmlVerif();
         $this->saveJmlObc();
         $this->saveKeterangan();
         $this->saveLembur();
-        // $this->saveStation();
         $this->saveIzin();
         $this->resetField();
 
@@ -107,6 +110,7 @@ class InputVerifikasi extends Component
                             QcPikai::updateOrCreate(
                                     [
                                         'np_user'   => $this->npUser[$i],
+                                        'nama_user' => UserDetails::where('np_user',$this->npUser)->pluck('nama')[$i],
                                         'tgl_verif' => $this->tglVerif,
                                         'id_station'=> $this->workstation,
                                     ],
@@ -133,6 +137,7 @@ class InputVerifikasi extends Component
                             QcPikai::updateOrCreate(
                                     [
                                         'np_user'   => $this->npUser[$i],
+                                        'nama_user' => UserDetails::where('np_user',$this->npUser)->pluck('nama')[$i],
                                         'tgl_verif' => $this->tglVerif,
                                         'id_station'=> $this->workstation,
                                     ],
@@ -159,6 +164,7 @@ class InputVerifikasi extends Component
                             QcPikai::updateOrCreate(
                                     [
                                         'np_user'   => $this->npUser[$i],
+                                        'nama_user' => UserDetails::where('np_user',$this->npUser)->pluck('nama')[$i],
                                         'tgl_verif' => $this->tglVerif,
                                         'id_station'=> $this->workstation,
                                     ],
@@ -188,6 +194,7 @@ class InputVerifikasi extends Component
                          QcPikai::updateOrCreate(
                             [
                                 'np_user'   => $this->npUser[$i],
+                                'nama_user' => UserDetails::where('np_user',$this->npUser)->pluck('nama')[$i],
                                 'tgl_verif' => $this->tglVerif,
                                 'id_station'=> $this->workstation,
                             ],
@@ -200,27 +207,6 @@ class InputVerifikasi extends Component
            {
             //
            }
-        }
-
-    // 5. Save Station
-        private function saveStation()
-        {
-            if($this->station == !null)
-             {
-                $this->npUser = array_keys($this->station);
-                for($i = 0; $i < count($this->station); $i++)
-                    {
-                        QcPikai::updateOrCreate(
-                        [
-                            'np_user'   => $this->npUser[$i],
-                            'tgl_verif' => $this->tglVerif,
-                            'id_station'=> $this->workstation,
-                        ],
-                        [
-                            'id_station'=> collect($this->station)->values()[$i]
-                        ]);
-                    }
-             }
         }
 
     // 6. Save Perizinan

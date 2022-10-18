@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\UserDetails;
 use Illuminate\Http\Request;
 
+use App\Exports\DataPegawaiExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class DataPegawaiController extends Controller
 {
     /**
@@ -82,5 +85,10 @@ class DataPegawaiController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function export()
+    {
+        return Excel::download(new DataPegawaiExport, 'Data_Pegawai.xlsx');
     }
 }

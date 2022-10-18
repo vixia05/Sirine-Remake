@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth','verified']], function() {
 
             // Data Pegawai
                 Route::resource('dataPegawai', DataPegawaiController::class);
+                Route::get('dataPegawai/export', 'DataPegawaiController@export')->name('dataPegawai.export');
 
             // Input Data
                 Route::resources([
