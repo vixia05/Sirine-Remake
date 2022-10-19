@@ -1,13 +1,13 @@
 @section('title', 'Quality Unit')
 @extends('layouts.app')
 @section('content')
-    <div class="grid-cols grid">
+    <div class="grid grid-cols">
         <div class="relative flex flex-col justify-center p-6">
             {{-- 1-A Grafik retur/kelolosan tahun ini --}}
             <div
-                class="w-full rounded-xl bg-white/70 p-6 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur dark:backdrop-filter">
+                class="w-full p-6 rounded-xl bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur dark:backdrop-filter">
                 {{-- 1-A.1 Header --}}
-                <div class="flex justify-between border-b-2 border-slate-600/70 pb-3 dark:border-slate-300/70">
+                <div class="flex justify-between pb-3 border-b-2 border-slate-600/70 dark:border-slate-300/70">
                     {{-- 1-A. 1.1 Header Title --}}
                     <div class="flex flex-col">
                         <h5 class="w-full text-xl font-bold text-slate-800 dark:text-slate-100">Data Retur Pita Cukai
@@ -15,22 +15,10 @@
                         <span class="text-sm font-light text-slate-600 dark:text-slate-400">Periode 2022</span>
                     </div>
                     {{-- 1-A. 1.2 Filter --}}
-                    <div class="my-auto flex text-slate-600 dark:text-slate-300">
-                        {{-- 1-A. 1.1 Filter Team  --}}
-                        <select
-                            class="inline-block rounded-l-md border-blue-500 bg-slate-100/80 text-sm focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-20">
-                            <option>Team</option>
-                            <option>Team</option>
-                            <option>Team</option>
-                        </select>
-                        {{-- 1-A. 1.2 Filter Nama / NP --}}
-                        <select
-                            class="inline-block border-blue-500 bg-slate-100/80 text-sm focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-20">
-                            <option>NP / Nama</option>
-                        </select>
+                    <div class="flex my-auto text-slate-600 dark:text-slate-300">
                         {{-- 1-A. 1.3 Filter Tahun --}}
                         <select
-                            class="inline-block border-blue-500 bg-slate-100/80 text-sm focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-20">
+                            class="inline-block text-sm border-blue-500 rounded-l-md bg-slate-100/80 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-20">
                             <option value="2022" selected>2022</option>
                         </select>
                         {{-- 1-A. 1.4 Reset --}}
@@ -61,14 +49,13 @@
 @endsection
 
 @section('script-js')
+    @push('js')
     <script>
         var dataChart = {
-            date: [1, 2, 3, 4, 5, 6],
-            data: [3, 4, 2, 8, 9, 6],
+            data: @json($data),
         }
     </script>
-    @push('js')
-        <script src="{{ asset('js/performance/qua-unit.js') }}"></script>
+        {{-- <script src="{{ asset('js/performance/qua-unit.js') }}"></script> --}}
         <script src="{{ asset('component/chart/qua-unit.js') }}"></script>
     @endpush
 @endsection

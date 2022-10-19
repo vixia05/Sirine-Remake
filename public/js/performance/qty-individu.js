@@ -105,7 +105,6 @@ $('#selectNp').change(function(){
         },
         success:function(data)
         {
-            console.log(npUser)
             dataChart = {
                 data : data.data,
                 date : data.date,
@@ -116,6 +115,8 @@ $('#selectNp').change(function(){
             $('#titleDate').text(startDate + ' Sampai '  + endDate);
             $('#qtyIndividu').replaceWith('<canvas id="qtyIndividu" name="qtyIndividu"></canvas>');
             $('#qtyIndividuYear').replaceWith(' <canvas id="qtyIndividuYear" name="qtyIndividuYear"></canvas>');
+
+            $('#tableU').replaceWith("<tbody id='tableU' name='tableU'> @livewire('performance.quantity-individu', ['npUser' => '"+npUser+"'])</tbody>");
             load_chart();
         }
     });

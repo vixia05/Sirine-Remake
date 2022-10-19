@@ -9,14 +9,17 @@ function load_chart()
             datasets: [{
                 label: 'Hasil Verifikasi',
                 data: dataChart.data,
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(59, 130, 246, 1)',
+                borderColor: 'rgba(54, 162, 235, 0.5)',
                 borderWidth: 1
             }]
         },
         options: {
             maintainAspectRatio: false,
             plugins:{
+                legend: {
+                    display:false,
+                },
             },
             scales: {
                 y: {
@@ -55,22 +58,8 @@ function load_chart()
             datasets: [{
                 label: 'Jumlah Verifikasi',
                 data: dataChart.dataYear,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
+                backgroundColor: 'rgba(59, 130, 246, 1)',
+                borderColor: 'rgba(59, 130, 246, 0.5)',
                 borderWidth: 1
             }]
         },

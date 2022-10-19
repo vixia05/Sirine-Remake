@@ -10,11 +10,6 @@ use Auth;
 use App\Models\QcPikai;
 use App\Models\UserDetails;
 
-use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\DateColumn;
-use Mediconesystems\LivewireDatatables\NumberColumn;
-use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
-
 class RekapVerifikasi extends Component
 {
 
