@@ -22,7 +22,7 @@ const qualityIndividu = new Chart(ctxQuaIndividu, {
         ],
         datasets: [{
             label: 'Barang Retur',
-            data: [12, 19, 3, 5, 2, 3],
+            data: dataChart.sumRetur,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -58,7 +58,7 @@ const typeIndividu = new Chart(ctxTypeIndividu, {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: dataChart.returUsr,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -100,7 +100,7 @@ const typeUnit = new Chart(ctxTypeUnit, {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: dataChart.returUnt,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

@@ -12,22 +12,31 @@ use App\Models\UserDetails;
 class RekapEvaluasi extends Component
 {
     use WithPagination;
-    public $search;
+    public $search,$npUser;
     protected $queryString = ['search'];
 
     public function render()
     {
-        $data = Evaluasi::where('np_user', 'like', '%'.$this->search.'%')
-                        ->orWhere('np_kasek', 'like', '%'.$this->search.'%')
-                        ->orWhere('np_kaun', 'like', '%'.$this->search.'%')
-                        ->orWhere('nama_user', 'like', '%'.$this->search.'%')
-                        ->orWhere('nama_kaun', 'like', '%'.$this->search.'%')
-                        ->orWhere('nama_kasek', 'like', '%'.$this->search.'%')
-                        ->orderBy('post_date')
+        $data = Evaluasi::whereLike([
+                            'np_user',
+                            'np_kasek',
+                            'np_kaun',
+                            'nama_user',
+                            'nama_kaun',
+                            'nama_kasek',
+                            'eva_kasek',
+                            'eva_kaun',
+                            'response'
+                        ], $this->search ?? '')
+                        ->when($this->npUser,function($query,$npUser){
+                            return $query->where('np_user',$npUser);
+                        })
+                        ->orderBy('updated_at')
                         ->paginate(10);
 
         return view('livewire.admin.rekap-evaluasi',[
-            'data' => $data,
+            'data'  => $data,
+            'listNp'=> UserDetails::all()->sortBy('nama'),
         ]);
     }
 

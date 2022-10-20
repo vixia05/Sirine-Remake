@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Performance;
 
+use Auth;
 use Carbon\Carbon;
 use App\Models\ReturPikai;
 use App\Http\Controllers\Controller;
@@ -19,7 +20,9 @@ class QualityController extends Controller
 
     public function indexIndividu()
     {
-        return view('Performance.Quality-Individu');
+        return view('Performance.Quality-Individu',[
+            'data' => $this->qualtyIndividu(Auth::user()->np,now()),
+        ]);
     }
 
     /**
@@ -77,6 +80,28 @@ class QualityController extends Controller
         $tercampurUsr = ReturPikai::where('np_user',$npUser)->whereYear('tgl_cek',$year)->sum('tercampur');
         $terpotongUsr = ReturPikai::where('np_user',$npUser)->whereYear('tgl_cek',$year)->sum('terpotong');
 
-        $jenisReturUsr = $nodaUsr + $blurUsr + $plooiUsr + $tipisUsr + $sobekUsr + $botakUsr + $bloborUsr + $diecutUsr + $missRegUsr + $gradasiUsr + $hologramUsr + $tercampurUsr + $terpotongUsr ;
+        $jenisReturUsr = [$nodaUsr,$blurUsr,$plooiUsr,$tipisUsr,$sobekUsr,$botakUsr,$bloborUsr,$diecutUsr,$missRegUsr,$gradasiUsr,$hologramUsr,$tercampurUsr,$terpotongUsr] ;
+
+        $nodaUnt      = ReturPikai::whereYear('tgl_cek',$year)->sum('noda');
+        $blurUnt      = ReturPikai::whereYear('tgl_cek',$year)->sum('blur');
+        $plooiUnt     = ReturPikai::whereYear('tgl_cek',$year)->sum('plooi');
+        $tipisUnt     = ReturPikai::whereYear('tgl_cek',$year)->sum('tipis');
+        $sobekUnt     = ReturPikai::whereYear('tgl_cek',$year)->sum('sobek');
+        $botakUnt     = ReturPikai::whereYear('tgl_cek',$year)->sum('botak');
+        $bloborUnt    = ReturPikai::whereYear('tgl_cek',$year)->sum('blobor');
+        $diecutUnt    = ReturPikai::whereYear('tgl_cek',$year)->sum('diecut');
+        $missRegUnt   = ReturPikai::whereYear('tgl_cek',$year)->sum('miss_reg');
+        $gradasiUnt   = ReturPikai::whereYear('tgl_cek',$year)->sum('gradasi');
+        $hologramUnt  = ReturPikai::whereYear('tgl_cek',$year)->sum('hologram');
+        $tercampurUnt = ReturPikai::whereYear('tgl_cek',$year)->sum('tercampur');
+        $terpotongUnt = ReturPikai::whereYear('tgl_cek',$year)->sum('terpotong');
+
+        $jenisReturUnt = [$nodaUnt,$blurUnt,$plooiUnt,$tipisUnt,$sobekUnt,$botakUnt,$bloborUnt,$diecutUnt,$missRegUnt,$gradasiUnt,$hologramUnt,$tercampurUnt,$terpotongUnt];
+
+        return [
+            'sumRetur' => $sumRetur,
+            'returUsr' => $jenisReturUsr,
+            'returUnt' => $jenisReturUnt,
+        ];
     }
 }

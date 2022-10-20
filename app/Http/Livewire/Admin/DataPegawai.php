@@ -24,11 +24,10 @@ class DataPegawai extends Component
 
     public function render()
     {
-        $data = UserDetails::where('np_user','like','%'.$this->search.'%')
-                            ->orWhere('nama','like','%'.$this->search.'%')
-                            ->orWhere('contact','like','%'.$this->search.'%')
-                            ->orWhere('tgl_lahir','like','%'.$this->search.'%')
-                            ->orWhere('alamat','like','%'.$this->search.'%')
+        $data = UserDetails::whereLike(['np_user','nama','contact','tgl_lahir','alamat'],$this->search ?? '')
+                            ->when($this->unit, function($query,$unit){
+                                return $query->where('id_unit',$unit);
+                            })
                             ->orderBy('np_user')
                             ->paginate(10);
 

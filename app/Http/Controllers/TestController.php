@@ -17,16 +17,9 @@ class TestController extends Controller
         $npUser = "I431";
         $startDate = "2022-01-01";
 
-        $data = QcPikai::where('np_user',$npUser)
-                    ->whereYear('tgl_verif',$startDate)
-                    ->get()
-                    ->sortBy('tgl_verif')
-                    ->groupBy(function($m){
-                        return Carbon::parse($m->tgl_verif)->format('m');
-                    })
-                    ->map(function($sum){
-                        return $sum->sum('jml_verif');
-                    });
+        $get = QcPikai::where('np_user',$npUser)->whereYear('tgl_verif',Carbon::now());
+
+        $data = $get->whereMonth('tgl_verif',8);
         dd($data);
     }
 }

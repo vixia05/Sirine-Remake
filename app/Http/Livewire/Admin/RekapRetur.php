@@ -13,18 +13,21 @@ use App\Models\UserDetails;
 class RekapRetur extends Component
 {
     use WithPagination;
-    public $search;
+    public $search, $npUser;
     protected $queryString = ['search'];
 
     public function render()
     {
-        $data = ReturPikai::where('np_user', 'like', '%'.$this->search.'%')
-                        ->orWhere('nama_user', 'like', '%'.$this->search.'%')
+        $data = ReturPikai::whereLike(['np_user','nama_user'],$this->search ?? '')
+                        ->when($this->npUser, function($query, $npUser){
+                            return $query->where('np_user',$npUser);
+                        })
                         ->orderBy('tgl_cek')
                         ->paginate(10);
 
         return view('livewire.admin.rekap-retur',[
-            'data' => $data
+            'data'  => $data,
+            'listNp'=> UserDetails::all()->sortBy('nama'),
         ]);
     }
 
