@@ -14,12 +14,15 @@ class TestController extends Controller
 {
     public function test()
     {
-        $npUser = "I431";
-        $startDate = "2022-01-01";
+        $getVerif   = OrderPcht::where('tgl_qc',today())->get();
+        $verifikasi = $getVerif->sum('rencet');
+        $baikVerif  = $getVerif->sum('hcs_qc');
+        $rusakVerif = $getVerif->sum('hcts_qc');
 
-        $get = QcPikai::where('np_user',$npUser)->whereYear('tgl_verif',Carbon::now());
-
-        $data = $get->whereMonth('tgl_verif',8);
+        $data = OrderPcht::whereMonth('tgl_obc',today())
+                        ->where('tgl_cetak','!=',null)
+                        ->where('tgl_qc','=',null)
+                        ->sum('rencet');
         dd($data);
     }
 }

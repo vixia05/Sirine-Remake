@@ -2,12 +2,21 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+
+// Namespace Performance
 use App\Http\Controllers\Performance\QualityController;
 use App\Http\Controllers\Performance\QuantityController;
 use App\Http\Controllers\Performance\ReportController;
+
+// Namespace Andon
+use App\Http\Controllers\Andon\PitaCukai\VerifikasiController;
+use App\Http\Controllers\Andon\PitaCukai\CetakController;
+use App\Http\Controllers\Andon\PitaCukai\KhazwalController;
+use App\Http\Controllers\Andon\PitaCukai\KhazkhirController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,5 +97,14 @@ Route::group(['middleware' => ['auth','verified']], function() {
             // Route::get('quantity/')
 
 });
+
+//--- Andon ---//
+//------------//
+
+    //--- Pita Cukai ---//
+        Route::get('andon/khazwalPikai', [KhazwalController::class, 'index'])->name('andon.khazwalPikai');
+        Route::get('andon/cetakPikai',   [CetakController::class,   'index'])->name('andon.cetakPikai');
+        Route::get('andon/verifPikai',   [VerifikasiController::class, 'index'])->name('andon.verifPikai');
+        Route::get('andon/kahzkhirPikai',[KhazkhirController::class,   'index'])->name('andon.kazkhirPikai');
 
 require __DIR__.'/auth.php';

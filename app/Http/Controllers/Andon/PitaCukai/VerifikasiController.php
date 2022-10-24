@@ -4,9 +4,130 @@ namespace App\Http\Controllers\Andon\PitaCukai;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
+
+use App\Models\OrderPcht;
+use App\Models\OrderMmea;
 
 class VerifikasiController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('andon.verifikasi-pikai',[
+            'orderPcht' => $this->orderPcht(),
+            'orderMmea' => $this->orderMmea(),
+            'verifPcht' => $this->verifikasiPcht(),
+            'verifMmea' => $this->verifikasiMmea(),
+        ]);
+    }
+
+    /**
+     * 1.0 Hasil Verifikasi Harian PCHT
+     */
+    public function verifikasiPcht()
+    {
+        $getVerif   = OrderPcht::where('tgl_qc',today())->get();
+        $harian     = $getVerif->sum('rencet');
+        $baik       = $getVerif->sum('hcs_qc');
+        $rusak      = $getVerif->sum('hcts_qc');
+
+        $inschiet   = $harian == 0 ? 0 : ($rusak / $harian) * 100;
+
+        return [
+            'harian'  => $harian,
+            'baik'    => $baik,
+            'rusak'   => $rusak,
+            'inschiet'=> $inschiet
+        ];
+    }
+
+    /**
+     * 3.0 Order Pcht
+     */
+    public function orderPcht()
+    {
+        $getOrder = OrderPcht::whereMonth('tgl_obc',today())->get();
+        $totalOrder = $getOrder->sum('rencet');
+
+        $orderP   = $getOrder->where('jenis','P')
+                             ->sum('rencet');
+
+        $sisaP    = $getOrder->where('jenis','P')
+                             ->where('tgl_qc',null)
+                             ->sum('rencet');
+
+        $orderNP  = $getOrder->where('jenis','NP')
+                               ->sum('rencet');
+
+        $sisaNP   = $getOrder->where('jenis','NP')
+                             ->where('tgl_qc',null)
+                             ->sum('rencet');
+
+        $wip    = $getOrder->where('tgl_cetak','!=',null)
+                           ->where('tgl_qc','=',null)
+                           ->sum('rencet');
+
+        return [
+            'total'  => $totalOrder,
+            'sisaP'  => $sisaP,
+            'sisaNP' => $sisaNP,
+            'sisaAll'=> $sisaNP + $sisaP,
+            'wip'    => $wip
+        ];
+    }
+
+
+    /**
+     * 3.0 Hasil Verifikasi Harian MMEA
+     */
+    public function verifikasiMmea()
+    {
+        $getVerif   = OrderMmea::where('tgl_qc',today())->get();
+        $harian     = $getVerif->sum('rencet');
+        $baik       = $getVerif->sum('hcs_qc');
+        $rusak      = $getVerif->sum('hcts_qc');
+
+        $inschiet   = $harian == 0 ? 0 : ($rusak / $harian) * 100;
+
+        return [
+            'harian'  => $harian,
+            'baik'    => $baik,
+            'rusak'   => $rusak,
+            'inschiet'=> $inschiet
+        ];
+    }
+
+    /**
+     * 4.0 Order MMEA
+     */
+    public function orderMmea()
+    {
+        $getOrder = OrderMmea::whereMonth('tgl_obc',today())->get();
+        $totalOrder = $getOrder->sum('rencet');
+
+        $orderMmea   = $getOrder->where('jenis','ZP16')
+                         ->sum('rencet');
+
+        $sisaMmea    = $getOrder->where('jenis','ZP16')
+                        ->where('tgl_qc',null)
+                        ->sum('rencet');
+
+        $orderHptl  = $getOrder->where('jenis','ZP03')
+                        ->sum('rencet');
+
+        $sisaHptl   = $getOrder->where('jenis','ZP03')
+                        ->where('tgl_qc',null)
+                        ->sum('rencet');
+
+        $wip    = $getOrder->where('tgl_cetak','!=',null)
+                    ->where('tgl_qc','=',null)
+                    ->sum('rencet');
+
+        return [
+            'total' => $totalOrder,
+            'sisaMmea' => $sisaMmea,
+            'sisaHptl' => $sisaHptl,
+            'sisaAll'=> $sisaMmea + $sisaHptl,
+            'wip'    => $wip
+        ];
+    }
 }
