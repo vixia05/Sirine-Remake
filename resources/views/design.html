@@ -17,189 +17,40 @@
 </head>
 
 <body>
-    <div x-data="{
-        active: 1,
-        loop() {
-            setInterval(() => { this.active = this.active === 4 ? 1 : this.active+1 }, 3000)
-        },
-    }" x-init="loop">
-        <!-- 1. Periksa Pcht -->
-        <div x-show="active == 1" class="flex flex-col justify-center min-h-screen gap-2 py-4 mx-4">
+
+</body class="">
+<div class="flex justify-center min-h-screen min-w-full">
+    <div class="flex flex-col justify-center my-auto bg-slate-900 bg-opacity-80 shadow-lg shadow-slate-800 py-6 px-10 rounded-lg">
+        <img src="/public/img/logo-only.png" class="w-24 mx-auto">
+        <h3 class="text-slate-100 text-3xl mx-auto ">Sirine</h3>
+        <span class="text-slate-100">-- Sistem Informasi Kinerja --</span>
+        <div class="flex flex-col my-4 gap-4">
             <div
-                class="relative w-full h-[40vh] px-6 py-4 overflow-hidden rounded-lg shadow-md bg-slate-800 drop-shadow-lg shadow-slate-500/40 bg-opacity-80 backdrop-filter backdrop-blur">
-                <h3 class="pb-1 text-4xl font-semibold text-center border-b-4 text-slate-300">Periksa <span
-                        class="text-emerald-300 brightness-125">PCHT</span> Hari Ini</h3>
-                <div class="relative flex flex-col justify-center h-full -mt-4">
-                    <h1 class="font-bold text-center text-emerald-500 text-9xl brightness-200">1.000.000</h1>
-                </div>
+                class="flex gap-2 justify-start border-b focus-within:border-b-blue-500 transition ease-in-out  duration-300 focus-within:brightness-125">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                    class="w-4 h-4 my-auto text-slate-100 mx-auto">
+                    <path
+                        d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z" />
+                </svg>
+                <input type="text" class="outline-none text-slate-100 bg-inherit placeholder-slate-100 pb-1 py-1"
+                    placeholder="Username">
             </div>
-            <div class="grid w-full h-[50vh] grid-cols-2 gap-2">
-                <div class="flex flex-col gap-2 h-fit">
-                    <div
-                        class="px-6 h-[25vh] overflow-hidden py-4 rounded-lg shadow-md drop-shadow-lg shadow-slate-500/40 bg-slate-800 bg-opacity-80 backdrop-filter backdrop-blur">
-                        <h6 class="pb-2 text-2xl font-semibold border-b-2 text-slate-300"><span
-                                class="text-green-300">Baik</span> Periksa </h6>
-                        <div class="flex flex-col justify-center">
-                            <div>
-                                <h4 class="text-6xl font-bold text-right text-green-500 brightness-150">600.000</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="px-6 py-4 h-[25vh] rounded-lg shadow-md drop-shadow-lg shadow-slate-500/40 bg-slate-800 bg-opacity-80 backdrop-filter backdrop-blur">
-                        <h6 class="pb-2 text-2xl font-semibold border-b-2 text-slate-300"><span
-                                class="text-red-300">Rusak</span> Periksa </h6>
-                        <div class="flex flex-col justify-center">
-                            <h4 class="text-6xl font-bold text-right text-red-500 brightness-150">400.000</h4>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="px-6 py-4 rounded-lg shadow-md bg-slate-800 drop-shadow-lg shadow-slate-500/40 bg-opacity-80 backdrop-filter backdrop-blur">
-                    <h3 class="pb-3 text-4xl font-semibold text-center border-b-4 text-slate-300"><span
-                            class="text-orange-500 brightness-125">Inschiet</span></h3>
-                    <div class="flex flex-col justify-center h-full gap-2">
-                        <h1 class="font-bold text-center text-orange-300 text-9xl brightness-125">7.5</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- 2. Total Order Pcht -->
-        <div x-show="active == 2" class="flex flex-col justify-center min-h-screen gap-2 py-4 mx-4">
             <div
-                class="relative w-full h-[40vh] px-6 py-4 overflow-hidden rounded-lg shadow-md bg-slate-800 drop-shadow-lg shadow-slate-500/40 bg-opacity-80 backdrop-filter backdrop-blur">
-                <h3 class="pb-1 text-4xl font-semibold text-center border-b-4 text-slate-300">Total Order <span
-                        class="text-blue-500 brightness-125">PCHT</span> November</h3>
-                <div class="relative flex flex-col justify-center h-full -mt-4">
-                    <h1 class="font-bold text-center text-blue-300 text-9xl brightness-125">77.777.777</h1>
-                </div>
+                class="flex gap-2 justify-start border-b focus-within:border-b-blue-500 transition ease-in-out  duration-300 focus-within:brightness-125">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 my-auto text-slate-100 mx-auto">
+                    <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" />
+                  </svg>
+                <input type="password" class="outline-none text-slate-100 bg-inherit placeholder-slate-100 pb-1 py-1"
+                    placeholder="Password">
             </div>
-            <div class="grid w-full h-[50vh] grid-cols-2 gap-2">
-                <div
-                    class="px-6 h-[25vh] overflow-hidden py-4 rounded-lg shadow-md drop-shadow-lg shadow-slate-500/40 bg-slate-800 bg-opacity-80 backdrop-filter backdrop-blur">
-                    <h6 class="pb-2 text-2xl font-semibold border-b-2 text-slate-300">Sisa Order <span
-                            class="text-green-500 brightness-200">Non-Personal</span></h6>
-                    <div class="flex flex-col justify-center">
-                        <div>
-                            <h4 class="text-6xl font-bold text-right text-green-300 brightness-125">600.000</h4>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="px-6 py-4 h-[25vh] rounded-lg shadow-md drop-shadow-lg shadow-slate-500/40 bg-slate-800 bg-opacity-80 backdrop-filter backdrop-blur">
-                    <h6 class="pb-2 text-2xl font-semibold border-b-2 text-slate-300">Sisa Order <span
-                            class="text-violet-500 brightness-125">Personal</span></h6>
-                    <div class="flex flex-col justify-center">
-                        <h4 class="text-6xl font-bold text-right text-violet-300 brightness-125">400.000</h4>
-                    </div>
-                </div>
-                <div
-                    class="px-6 h-[25vh] overflow-hidden py-4 rounded-lg shadow-md drop-shadow-lg shadow-slate-500/40 bg-slate-800 bg-opacity-80 backdrop-filter backdrop-blur">
-                    <h6 class="pb-2 text-2xl font-semibold text-left border-b-2 text-slate-300">Sisa Order <span
-                            class="text-cyan-500 brightness-200">PCHT</span> November </h6>
-                    <div class="flex flex-col justify-center">
-                        <h4 class="text-6xl font-bold text-right text-cyan-300 brightness-125">600.000</h4>
-                    </div>
-                </div>
-                <div
-                    class="px-6 h-[25vh] overflow-hidden py-4 rounded-lg shadow-md drop-shadow-lg shadow-slate-500/40 bg-slate-800 bg-opacity-80 backdrop-filter backdrop-blur">
-                    <h6 class="pb-2 text-2xl font-semibold text-left border-b-2 text-slate-300"> <span
-                            class="text-orange-600 brightness-200">WIP PCHT</span> November </h6>
-                    <div class="flex flex-col justify-center">
-                        <h4 class="text-6xl font-bold text-right text-orange-300 brightness-125">600.000</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- 3. Periksa Mmea -->
-        <div x-show="active == 3" class="flex flex-col justify-center min-h-screen gap-2 py-4 mx-4">
-            <div
-                class="relative w-full h-[40vh] px-6 py-4 overflow-hidden rounded-lg shadow-md bg-slate-800 drop-shadow-lg shadow-slate-500/40 bg-opacity-80 backdrop-filter backdrop-blur">
-                <h3 class="pb-1 text-4xl font-semibold text-center border-b-4 text-slate-300">Periksa <span
-                        class="text-yellow-500 brightness-125">MMEA</span> Hari Ini</h3>
-                <div class="relative flex flex-col justify-center h-full">
-                    <h1 class="font-bold text-center text-yellow-200 text-9xl brightness-125">1.000.000</h1>
-                </div>
-            </div>
-            <div class="grid w-full h-[50vh] grid-cols-2 gap-2">
-                <div class="flex flex-col gap-2 h-fit">
-                    <div
-                        class="px-6 h-[25vh] overflow-hidden py-4 rounded-lg shadow-md drop-shadow-lg shadow-slate-500/40 bg-slate-800 bg-opacity-80 backdrop-filter backdrop-blur">
-                        <h6 class="pb-2 text-2xl font-semibold border-b-2 text-slate-300"><span
-                                class="text-green-500 brightness-200">Baik</span> Periksa </h6>
-                        <div class="flex flex-col justify-center">
-                            <div>
-                                <h4 class="text-6xl font-bold text-right text-green-300 brightness-125">600.000</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="px-6 py-4 h-[25vh] rounded-lg shadow-md drop-shadow-lg shadow-slate-500/40 bg-slate-800 bg-opacity-80 backdrop-filter backdrop-blur">
-                        <h6 class="pb-2 text-2xl font-semibold border-b-2 text-slate-300"><span
-                                class="text-red-500 brightness-125">Rusak</span> Periksa </h6>
-                        <div class="flex flex-col justify-center">
-                            <h4 class="text-6xl font-bold text-right text-red-300 brightness-125">400.000</h4>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="px-6 py-4 rounded-lg shadow-md bg-slate-800 drop-shadow-lg shadow-slate-500/40 bg-opacity-80 backdrop-filter backdrop-blur">
-                    <h3 class="pb-3 text-4xl font-semibold text-center border-b-4 text-slate-300"><span
-                            class="text-orange-500 brightness-125">Inschiet</span></h3>
-                    <div class="flex flex-col justify-center h-full gap-2">
-                        <h1 class="font-bold text-center text-orange-100 text-9xl brightness-125">7.5</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- 4. Total Order MMEA -->
-        <div x-show="active == 4" class="flex flex-col justify-center min-h-screen gap-2 py-4 mx-4">
-            <div
-                class="relative w-full h-[40vh] px-6 py-4 overflow-hidden rounded-lg shadow-md bg-slate-800 drop-shadow-lg shadow-slate-500/40 bg-opacity-80 backdrop-filter backdrop-blur">
-                <h3 class="pb-1 text-4xl font-semibold text-center border-b-4 text-slate-300">Total Order <span
-                        class="text-yellow-500 brightness-125">MMEA</span> November</h3>
-                <div class="relative flex flex-col justify-center h-full -mt-4">
-                    <h1 class="font-bold text-center text-yellow-300 text-9xl brightness-125">77.777.777</h1>
-                </div>
-            </div>
-            <div class="grid w-full h-[50vh] grid-cols-2 gap-2">
-                <div
-                    class="px-6 h-[25vh] overflow-hidden py-4 rounded-lg shadow-md drop-shadow-lg shadow-slate-500/40 bg-slate-800 bg-opacity-80 backdrop-filter backdrop-blur">
-                    <h6 class="pb-2 text-2xl font-semibold border-b-2 text-slate-300">Sisa Order <span
-                            class="text-rose-500 brightness-200">MMEA</span></h6>
-                    <div class="flex flex-col justify-center">
-                        <div>
-                            <h4 class="text-6xl font-bold text-right text-rose-300 brightness-125">600.000</h4>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="px-6 py-4 h-[25vh] rounded-lg shadow-md drop-shadow-lg shadow-slate-500/40 bg-slate-800 bg-opacity-80 backdrop-filter backdrop-blur">
-                    <h6 class="pb-2 text-2xl font-semibold border-b-2 text-slate-300">Sisa Order <span
-                            class="text-emerald-500 brightness-125">HPTL \ REL</span></h6>
-                    <div class="flex flex-col justify-center">
-                        <h4 class="text-6xl font-bold text-right text-emerald-300 brightness-125">400.000</h4>
-                    </div>
-                </div>
-                <div
-                    class="px-6 h-[25vh] overflow-hidden py-4 rounded-lg shadow-md drop-shadow-lg shadow-slate-500/40 bg-slate-800 bg-opacity-80 backdrop-filter backdrop-blur">
-                    <h6 class="pb-2 text-2xl font-semibold text-left border-b-2 text-slate-300">Sisa Order <span
-                            class="text-yellow-400 brightness-200">MMEA + HPTL</span></h6>
-                    <div class="flex flex-col justify-center">
-                        <h4 class="text-6xl font-bold text-right text-yellow-200 brightness-125">600.000</h4>
-                    </div>
-                </div>
-                <div
-                    class="px-6 h-[25vh] overflow-hidden py-4 rounded-lg shadow-md drop-shadow-lg shadow-slate-500/40 bg-slate-800 bg-opacity-80 backdrop-filter backdrop-blur">
-                    <h6 class="pb-2 text-2xl font-semibold text-left border-b-2 text-slate-300"> <span
-                            class="text-orange-600 brightness-200">WIP MMEA + HPTL</span></h6>
-                    <div class="flex flex-col justify-center">
-                        <h4 class="text-6xl font-bold text-right text-orange-200 brightness-125">600.000</h4>
-                    </div>
-                </div>
-            </div>
+            <button class=" rounded py-1 mt-4 brightness-125 text-blue-100 bg-blue-600 shadow-lg shadow-blue-600/30 hover:bg-blue-600/90 transition ease-in-out duration-300">
+                Sign-in
+            </button>
+            <button class=" rounded py-1 brightness-125 text-blue-100 bg-blue-600 shadow-lg shadow-blue-600/30 hover:bg-blue-600/90 transition ease-in-out duration-300">
+                Andon
+            </button>
         </div>
     </div>
-</body>
+</div>
 
 </html>

@@ -15,6 +15,7 @@ class RekapVerifikasi extends Component
 
     use WithPagination;
     public $search,$npUser;
+    public $idUser;
     protected $queryString = ['search'];
 
     public function render()
@@ -35,5 +36,15 @@ class RekapVerifikasi extends Component
     public function updatingSearch()
     {
         $this->resetPage();
+    }
+
+    public function show($id)
+    {
+        $this->idUser = $id;
+    }
+
+    public function destroy()
+    {
+        QcPikai::where('id',$this->idUser)->delete();
     }
 }

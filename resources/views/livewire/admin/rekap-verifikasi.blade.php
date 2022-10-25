@@ -1,4 +1,8 @@
-<div class="flex justify-center">
+<div x-data="{deleteModal: false}"
+    @keydown.escape="deleteModal = false"
+    x-cloak
+    class="flex justify-center">
+    @include('components.modal.delete')
     <div
         class="w-full rounded-md bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
         {{-- Header --}}
@@ -211,28 +215,15 @@
                                                 {{-- 2.2.11 Action Coloumn --}}
                                                 <td
                                                     class="px-4 py-2 text-sm text-center whitespace-nowrap border-y border-slate-400 text-slate-200 dark:border-slate-400">
-                                                    <div class="flex justify-center space-x-2">
-                                                        <button type="button" type="button" data-mdb-ripple="true"
+                                                    <div class="flex justify-center">
+                                                        <button type="button" data-mdb-ripple="true"
+                                                            @click.prevent="deleteModal = true"
+                                                            wire:click='show({{ $datas->id }})'
                                                             data-mdb-ripple-color="light"
-                                                            class="inline-block px-3 py-2 text-sm font-semibold leading-tight transition duration-150 ease-in-out bg-green-500 rounded shadow-md text-slate-200 hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
-                                                                viewBox="0 0 20 20" fill="currentColor">
-                                                                <path
-                                                                    d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
-                                                                <path fill-rule="evenodd"
-                                                                    d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
-                                                                    clip-rule="evenodd" />
-                                                            </svg>
-                                                        </button>
-                                                        <button type="button" type="button" data-mdb-ripple="true"
-                                                            data-mdb-ripple-color="light"
-                                                            class="inline-block px-3 py-2 text-sm font-semibold transition duration-150 ease-in-out bg-red-500 rounded shadow-md leading-tighttext-slate-200 hover:bg-red-600 hover:shadow-lg focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-lg">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
-                                                                viewBox="0 0 20 20" fill="currentColor">
-                                                                <path fill-rule="evenodd"
-                                                                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                                    clip-rule="evenodd" />
-                                                            </svg>
+                                                            class="inline-block px-2 py-1.5 text-sm font-semibold transition duration-150 drop-shadow-md  brightness-150 shadow-red-500/50 ease-in-out bg-red-600 rounded shadow-md leading-tighttext-slate-200 hover:bg-red-600 hover:shadow-lg focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-lg">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                                                <path fill-rule="evenodd" d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z" clip-rule="evenodd" />
+                                                              </svg>
                                                         </button>
                                                     </div>
                                                 </td>

@@ -1,10 +1,10 @@
 <div x-show="!showSideBar"
-    class="fixed top-0 bottom-0 w-64 min-h-full px-6 pt-4 pb-6 overflow-y-auto shadow-md rounded-r-2xl bg-slate-50 bg-opacity-80 drop-shadow-md backdrop-blur backdrop-filter scrollbar-hide dark:bg-slate-900 dark:bg-opacity-80 md:block"
+    class="fixed top-0 bottom-0 w-64 min-h-full pb-6 overflow-y-auto shadow-md rounded-r-2xl bg-slate-50 bg-opacity-80 drop-shadow-md scrollbar backdrop-blur backdrop-filter dark:bg-slate-900 dark:bg-opacity-80 md:block"
     x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-x-0 -translate-x-1/2"
     x-transition:enter-end="opacity-100 scale-x-100 translate-x-0" x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100 scale-x-100 translate-x-0"
     x-transition:leave-end="opacity-0 scale-x-0 -translate-x-1/2">
-    <div class="top-0 flex justify-center space-x-3 sticky-top">
+    <div class="top-0 flex justify-center space-x-3 sticky-top bg-slate-900 pt-4">
         <div class="object-cover w-12 h-12">
             <img src="{{ asset('img/logo-only.png') }}">
         </div>
@@ -28,7 +28,7 @@
         <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
       </svg>
     </button> --}}
-    <div class="mt-4">
+    <div class="mt-4 px-6">
         <nav class="relative">
             <div id="sideNav">
                 <ul class="relative">
@@ -63,8 +63,11 @@
                     @include('layouts.side-menu.admin-pikai')
                     {{-- 4.0 Menu Verifikasi Pita Cukai --}}
                     @include('layouts.side-menu.verifikasi-pikai')
-                    {{-- ***************** --}}
+                    {{-- 5.0 Menu Cetak Pita Cukai --}}
                     @include('layouts.side-menu.cetak-pikai')
+                    {{-- 6.0 Andon --}}
+                    @include('layouts.side-menu.andon')
+                    {{-- ***************** --}}
                 </ul>
                 <button @click.prevent="showSideBar = !showSideBar " class="flex justify-between px-2 py-4">
                     <svg x-show="!showSideBar" class="w-6 h-6 mr-2" fill="none" stroke-linecap="round"
