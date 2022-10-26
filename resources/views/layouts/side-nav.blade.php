@@ -1,10 +1,10 @@
 <div x-show="!showSideBar"
-    class="fixed top-0 bottom-0 w-64 min-h-full pb-6 overflow-y-auto shadow-md rounded-r-2xl bg-slate-50 bg-opacity-80 drop-shadow-md scrollbar backdrop-blur backdrop-filter dark:bg-slate-900 dark:bg-opacity-80 md:block"
+    class="fixed top-0 bottom-0 hidden w-64 min-h-full pb-6 overflow-y-auto shadow-md rounded-r-2xl bg-slate-50 bg-opacity-80 drop-shadow-md scrollbar-hide backdrop-blur backdrop-filter dark:bg-slate-900 dark:bg-opacity-80 md:block"
     x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-x-0 -translate-x-1/2"
     x-transition:enter-end="opacity-100 scale-x-100 translate-x-0" x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100 scale-x-100 translate-x-0"
     x-transition:leave-end="opacity-0 scale-x-0 -translate-x-1/2">
-    <div class="top-0 flex justify-center space-x-3 sticky-top bg-slate-900 pt-4">
+    <div class="top-0 flex justify-center pt-4 space-x-3 sticky-top bg-slate-900">
         <div class="object-cover w-12 h-12">
             <img src="{{ asset('img/logo-only.png') }}">
         </div>
@@ -28,7 +28,7 @@
         <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
       </svg>
     </button> --}}
-    <div class="mt-4 px-6">
+    <div class="px-6 mt-4">
         <nav class="relative">
             <div id="sideNav">
                 <ul class="relative">
@@ -81,7 +81,7 @@
 </div>
 {{-- 3. Footer Side Bar --}}
 <div div x-show="!showSideBar"
-    class="fixed inset-x-0 bottom-0 w-64 px-6 py-6 text-3xl text-center backdrop-blur-2xl backdrop-filter dark:text-slate-200">
+    class="fixed inset-x-0 bottom-0 hidden w-64 px-6 py-4 text-3xl text-center md:block rounded-r-2xl dark:bg-slate-900 dark:text-slate-200">
     <a data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
         <div class="flex justify-start space-x-4 cursor-pointer">
             <div class="w-10 h-10rounded-full">
@@ -96,12 +96,12 @@
                 </svg>
             </div>
         </div>
-        <ul id="collapseUser" class="relative mt-6 collapse accordion-collapse">
+        <ul id="collapseUser" class="relative collapse accordion-collapse">
             {{-- 1. Logout --}}
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <li
-                    class="relative my-1.5 cursor-pointer rounded-md py-2 hover:bg-slate-800 hover:bg-opacity-80 hover:text-slate-50">
+                    class="relative mt-4 py-1.5 rounded-md cursor-pointer hover:bg-slate-800 hover:bg-opacity-80 hover:text-slate-50">
                     <a :href="route('logout')"
                         onclick="event.preventDefault();
                                     this.closest('form').submit();">
@@ -117,8 +117,8 @@
                 </li>
             </form>
             {{-- 2. Biodata --}}
-            <li class="relative my-1.5 rounded-md py-2 hover:bg-slate-800 hover:bg-opacity-80 hover:text-slate-50">
-                <a href="">
+            <li class="relative my-1.5 py-1.5 rounded-md hover:bg-slate-800 hover:bg-opacity-80 hover:text-slate-50">
+                <a href="{{ route('profile.index') }}">
                     <div class="flex justify-start pl-4 pr-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" class="h-[19px] w-[19px]">

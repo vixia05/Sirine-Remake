@@ -102,9 +102,13 @@ Route::group(['middleware' => ['auth','verified']], function() {
 //------------//
 
     //--- Pita Cukai ---//
-        Route::get('andon/khazwalPikai', [KhazwalController::class, 'index'])->name('andon.khazwalPikai');
-        Route::get('andon/cetakPikai',   [CetakController::class,   'index'])->name('andon.cetakPikai');
-        Route::get('andon/verifPikai',   [VerifikasiController::class, 'index'])->name('andon.verifPikai');
-        Route::get('andon/kahzkhirPikai',[KhazkhirController::class,   'index'])->name('andon.kazkhirPikai');
+    Route::name('andon.')
+        ->prefix('andon')
+        ->group(function () {
+              Route::get('khazwalPikai', [KhazwalController::class, 'index'])->name('khazwalPikai');
+              Route::get('cetakPikai',   [CetakController::class,   'index'])->name('cetakPikai');
+              Route::get('verifPikai',   [VerifikasiController::class, 'index'])->name('verifPikai');
+              Route::get('kahzkhirPikai',[KhazkhirController::class,   'index'])->name('khazkhirPikai');
+          });
 
 require __DIR__.'/auth.php';

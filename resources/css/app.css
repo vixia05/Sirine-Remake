@@ -8,14 +8,18 @@
 
   @layer utilities {
     .scrollbar::-webkit-scrollbar {
-      width: 20px;
-      height: 20px;
+      width: 10px;
+      height: 10px;
     }
 
     .scrollbar::-webkit-scrollbar-track {
       border-radius: 100vh;
-      background: #f7f4ed;
-    }
+      background: #0f172a;
+      -webkit-border-radius: 100vh;
+      -moz-border-radius: 100vh;
+      -ms-border-radius: 100vh;
+      -o-border-radius: 100vh;
+}
 
     .scrollbar::-webkit-scrollbar-thumb {
       background: #e0cbcb;
