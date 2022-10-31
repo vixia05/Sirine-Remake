@@ -30,7 +30,7 @@
     {{-- <div class="sticky-top">
         @include('layouts.navigation')
     </div> --}}
-    <div x-data="{ showSideBar: false }" class="min-w-fit bg-prism-svg dark:bg-prism-svg-dark" x-cloak>
+    <div x-data="{ showSideBar: true }" class="min-w-fit bg-prism-svg dark:bg-prism-svg-dark" x-cloak>
 
         {{-- Medium Nav Bar --}}
         <div class="sticky-top z-10 bg-slate-800 lg:hidden">
@@ -72,7 +72,7 @@
             </div>
 
             <!-- Page Content -->
-            <div class="relative w-full" :class="showSideBar ? '' : 'lg:ml-64'" x-transition>
+            <div class="relative w-full" :class="!showSideBar ? '' : 'lg:ml-64'">
                 {{-- Navbar --}}
                 {{-- <div class="sticky-top mx-auto mt-2 w-[96%] rounded-lg bg-slate-800 bg-opacity-70 backdrop-filter backdrop-blur py-2 px-4 text-slate-200">
                     <div class="flex justify-end space-x-3">
