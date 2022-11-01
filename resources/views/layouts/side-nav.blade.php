@@ -1,18 +1,15 @@
-<div x-show="showSideBar"
-    class="fixed top-0 bottom-0 w-64 hidden overflow-x-clip min-h-full pb-12 overflow-y-auto shadow-md rounded-r-2xl bg-slate-50 bg-opacity-80 drop-shadow-md scrollbar-hide backdrop-blur backdrop-filter dark:bg-slate-900 dark:bg-opacity-80 md:block"
+<div x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
+    :class="expandNavbar ? 'w-64 ' : 'w-0 md:w-20'"
+    class="fixed top-0 bottom-0 min-h-full pb-12 overflow-y-auto shadow-md rounded-r-2xl bg-slate-50 bg-opacity-80 drop-shadow-md scrollbar-hide backdrop-blur backdrop-filter dark:bg-slate-900 dark:bg-opacity-80 transition-all duration-300 ease-in-out"
     x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0 scale-x-70 -translate-x-1/2"
     x-transition:enter-end="opacity-100 scale-x-100 -translate-x-0"
     x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100 scale-x-100 -translate-x-0"
     x-transition:leave-end="opacity-0 scale-x-70 -translate-x-1/2">
-    <div class="top-0 flex justify-center pt-4 space-x-3 sticky-top bg-slate-900">
-        <div class="object-cover w-12 h-12">
-            <img src="{{ asset('img/logo-only.png') }}">
-        </div>
-        <div class="py-4">
-            <h1 class="font-mono text-3xl font-extrabold text-slate-800 dark:text-white">SIRINE</h1>
-        </div>
+    <div :class="expandNavbar ? 'justify-center' : '' " class="top-0 flex items-center p-4 gap-3 sticky-top bg-slate-900 delay-300 duration-300 ease-in-out">
+            <img src="{{ asset('img/logo-only.png') }}"  class="object-cover h-16 flex-shrink-0">
+            <span :class="expandNavbar ? 'opacity-100' : 'opacity-0'" class="font-mono text-3xl font-extrabold text-slate-800 dark:text-white duration-300 ease-in-out">SIRINE</h1>
     </div>
     {{-- <button type="button"
     x-data="{
@@ -30,33 +27,33 @@
         <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
       </svg>
     </button> --}}
-    <div class="px-6 mt-4">
+    <div class="px-4 mt-4">
         <nav class="relative">
             <div id="sideNav">
                 <ul class="relative">
                     {{-- 1. Global Menu --}}
                     {{-- 1.1 Dashboard --}}
                     <li class="relative my-1.5">
-                        <a class="{{ Route::is('dashboard') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex justify-start space-x-3 overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2 text-sm transition duration-300 ease-in-out"
+                        <a class="{{ Route::is('dashboard') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex gap-3 items-center overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-sm transition duration-300 ease-in-out"
                             href="{{ route('dashboard') }}" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px]" fill="none"
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                             </svg>
-                            <span class="tracking-wide">Dashboard</span>
+                            <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Dashboard</span>
                         </a>
                     </li>
                     {{-- 1.2 Profile --}}
                     <li class="relative my-1.5">
-                        <a class="{{ Route::is('profile.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex justify-start space-x-3 overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2 text-sm transition duration-300 ease-in-out"
+                        <a class="{{ Route::is('profile.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex gap-3 items-center overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-sm transition duration-300 ease-in-out"
                             href="{{ route('profile.index') }}" data-mdb-ripple="true" data-mdb-ripple-color="light">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px]" fill="none"
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
-                            <span class="tracking-wide">Biodata</span>
+                            <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Biodata</span>
                         </a>
                     </li>
                     {{-- 2.0 Menu Super User --}}
@@ -71,7 +68,7 @@
                     @include('layouts.side-menu.andon')
                     {{-- ***************** --}}
                 </ul>
-                <button @click.prevent="showSideBar = !showSideBar " class="flex justify-between px-2 pb-7">
+                <button @click.prevent=" expandNavbar = !expandNavbar " class="flex justify-between px-2.5 mx-1 pb-7">
                     <svg class="w-6 h-6 mr-2 text-white" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path d="M6 18L18 6M6 6l12 12"></path>
@@ -82,15 +79,19 @@
     </div>
 </div>
 {{-- 3. Footer Side Bar --}}
-<div div x-show="showSideBar"
-    class="fixed inset-x-0 bottom-0 hidden w-64 px-6 py-4 text-3xl text-center md:block rounded-r-2xl dark:bg-slate-900 dark:text-slate-200">
+<div
+    x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
+    :class="expandNavbar ? 'w-64' : 'w-20'"
+    class="fixed inset-x-0 bottom-0 hidden px-6 py-4 text-3xl text-center md:block rounded-r-2xl dark:bg-slate-900 dark:text-slate-200 transition-all duration-300 ease-in-out">
     <a data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
         <div class="flex justify-start space-x-4 cursor-pointer">
             <div class="w-10 h-10rounded-full">
                 <img class="transition duration-150 ease-in-out rounded-full hover:ring-2 hover:ring-slate-300"
                     src="{{ asset('img/Avatar/default.jpg') }}" alt="" />
             </div>
-            <div class="flex justify-between w-3/4 my-auto">
+            <div
+                x-show="expandNavbar"
+                class="flex justify-between w-3/4 my-auto">
                 <h6 class="text-sm font-medium">{{ Auth::user()->np }}</h6>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="h-[19px] w-[19px]">
@@ -113,7 +114,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
                             </svg>
-                            <span class="ml-3 text-sm font-medium text-ellipsis">Logout</span>
+                            <span class="ml-3 text-sm font-medium text-ellipsis" >Logout</span>
                         </div>
                     </a>
                 </li>

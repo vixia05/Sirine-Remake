@@ -4059,6 +4059,10 @@ textarea.form-control.is-invalid {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -4143,8 +4147,11 @@ textarea.form-control.is-invalid {
 .ml-7 {
   margin-left: 1.75rem;
 }
-.-mr-64 {
-  margin-right: -16rem;
+.ml-64 {
+  margin-left: 16rem;
+}
+.ml-20 {
+  margin-left: 5rem;
 }
 .box-content {
   box-sizing: content-box;
@@ -4229,6 +4236,9 @@ textarea.form-control.is-invalid {
 .h-10 {
   height: 2.5rem;
 }
+.h-14 {
+  height: 3.5rem;
+}
 .max-h-96 {
   max-height: 24rem;
 }
@@ -4294,17 +4304,17 @@ textarea.form-control.is-invalid {
 .w-1\/3 {
   width: 33.333333%;
 }
-.w-64 {
-  width: 16rem;
+.w-32 {
+  width: 8rem;
 }
 .w-12 {
   width: 3rem;
 }
+.w-64 {
+  width: 16rem;
+}
 .w-10 {
   width: 2.5rem;
-}
-.w-32 {
-  width: 8rem;
 }
 .w-16 {
   width: 4rem;
@@ -4318,19 +4328,14 @@ textarea.form-control.is-invalid {
 .w-\[96\%\] {
   width: 96%;
 }
-.w-14 {
-  width: 3.5rem;
+.w-2 {
+  width: 0.5rem;
 }
-.w-36 {
-  width: 9rem;
+.w-96 {
+  width: 24rem;
 }
-.w-3 {
-  width: 0.75rem;
-}
-.w-fit {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+.w-0 {
+  width: 0px;
 }
 .min-w-full {
   min-width: 100%;
@@ -4389,30 +4394,6 @@ textarea.form-control.is-invalid {
   --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.translate-x-0 {
-  --tw-translate-x: 0px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.-translate-x-1 {
-  --tw-translate-x: -0.25rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.-translate-x-2 {
-  --tw-translate-x: -0.5rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.translate-x-1 {
-  --tw-translate-x: 0.25rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.translate-x-2 {
-  --tw-translate-x: 0.5rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.translate-x-1\/2 {
-  --tw-translate-x: 50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
 .-translate-x-0 {
   --tw-translate-x: -0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -4432,25 +4413,8 @@ textarea.form-control.is-invalid {
   --tw-scale-y: .95;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.scale-0 {
-  --tw-scale-x: 0;
-  --tw-scale-y: 0;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.scale-x-0 {
-  --tw-scale-x: 0;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
 .scale-x-100 {
   --tw-scale-x: 1;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.scale-x-90 {
-  --tw-scale-x: .9;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.scale-x-50 {
-  --tw-scale-x: .5;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .transform {
@@ -4936,9 +4900,6 @@ textarea.form-control.is-invalid {
 .fill-current {
   fill: currentColor;
 }
-.fill-white {
-  fill: #fff;
-}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -5086,26 +5047,17 @@ textarea.form-control.is-invalid {
 .pr-2 {
   padding-right: 0.5rem;
 }
-.pb-6 {
-  padding-bottom: 1.5rem;
+.pb-12 {
+  padding-bottom: 3rem;
+}
+.pb-7 {
+  padding-bottom: 1.75rem;
 }
 .pt-1 {
   padding-top: 0.25rem;
 }
 .pl-3 {
   padding-left: 0.75rem;
-}
-.pb-8 {
-  padding-bottom: 2rem;
-}
-.pb-14 {
-  padding-bottom: 3.5rem;
-}
-.pb-12 {
-  padding-bottom: 3rem;
-}
-.pb-7 {
-  padding-bottom: 1.75rem;
 }
 .text-left {
   text-align: left;
@@ -5451,9 +5403,6 @@ textarea.form-control.is-invalid {
 .opacity-50 {
   opacity: 0.5;
 }
-.opacity-80 {
-  opacity: 0.8;
-}
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -5591,8 +5540,16 @@ textarea.form-control.is-invalid {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 .delay-300 {
   transition-delay: 300ms;
+}
+.delay-500 {
+  transition-delay: 500ms;
 }
 .duration-150 {
   transition-duration: 150ms;
@@ -5611,9 +5568,6 @@ textarea.form-control.is-invalid {
 }
 .duration-500 {
   transition-duration: 500ms;
-}
-.duration-700 {
-  transition-duration: 700ms;
 }
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -6620,8 +6574,16 @@ textarea.form-control.is-invalid {
     grid-column: span 1 / span 1;
   }
 
+  .md\:ml-20 {
+    margin-left: 5rem;
+  }
+
   .md\:block {
     display: block;
+  }
+
+  .md\:hidden {
+    display: none;
   }
 
   .md\:w-1\/4 {
@@ -6630,6 +6592,10 @@ textarea.form-control.is-invalid {
 
   .md\:w-1\/2 {
     width: 50%;
+  }
+
+  .md\:w-20 {
+    width: 5rem;
   }
 
   .md\:grid-cols-3 {

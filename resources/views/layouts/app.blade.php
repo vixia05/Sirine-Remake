@@ -30,25 +30,16 @@
     {{-- <div class="sticky-top">
         @include('layouts.navigation')
     </div> --}}
-    <div x-data="{ showSideBar: true }" class="min-w-fit bg-prism-svg dark:bg-prism-svg-dark" x-cloak>
+    <div x-data="{expandNavbar: false }" class="min-w-fit bg-prism-svg dark:bg-prism-svg-dark" x-cloak>
 
         {{-- Medium Nav Bar --}}
-        <div class="sticky-top z-10 bg-slate-800 lg:hidden">
+        <div class="sticky-top z-10 bg-slate-800 md:hidden">
             <div class="ml-4">
                 {{-- Show Side Bar Button --}}
-                <button @click.prevent="showSideBar = !showSideBar " class="flex justify-between px-2 py-4"
-                    x-show="showSideBar">
+                <button @click.prevent="expandNavbar = true" x-on:mouseleave="expandNavbar = false" class="flex justify-between px-2 py-4">
                     <svg class="mr-2 h-6 w-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-                {{-- Hide Side Bar Button --}}
-                <button @click.prevent="showSideBar = !showSideBar " class="flex justify-between px-2 py-4"
-                    x-show="!showSideBar">
-                    <svg class="mr-2 h-6 w-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                        <path d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
@@ -56,40 +47,17 @@
         {{-- End Medium Nav-bar --}}
 
         <div class="relative flex min-h-screen justify-start">
-            <div class="relative z-30">
-                {{-- Hamburger --}}
-                <div class="ml-4 hidden lg:block">
-                    <button @click.prevent="showSideBar = !showSideBar " class="flex justify-between px-2 py-4"
-                        :class="showSideBar ? '' : 'hidden'">
-                        <svg x-show="showSideBar" class="mr-2 h-6 w-6" fill="none" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-                {{-- End Hamburger --}}
+            <div class="absolute z-30">
                 @include('layouts.side-nav')
             </div>
 
             <!-- Page Content -->
-            <div class="relative w-full" :class="!showSideBar ? '' : 'lg:ml-64'">
-                {{-- Navbar --}}
-                {{-- <div class="sticky-top mx-auto mt-2 w-[96%] rounded-lg bg-slate-800 bg-opacity-70 backdrop-filter backdrop-blur py-2 px-4 text-slate-200">
-                    <div class="flex justify-end space-x-3">
-                        <div class="h-10rounded-full w-10">
-                            <img class="rounded-full transition duration-150 ease-in-out hover:ring-2 hover:ring-slate-300"
-                                src="{{ asset('img/Avatar/default.jpg') }}" alt="" />
-                        </div>
-                        <div class="flex flex-col my-auto">
-                            <h6 class="text-xs font-medium">{{ \App\Models\UserDetails::where('np_user',Auth::user()->np)->value('nama') }}</h6>
-                            <h6 class="text-xs font-medium text-center">{{ Auth::user()->np }}</h6>
-                        </div>
-                    </div>
-                </div> --}}
+            <div class="relative w-full md:ml-20">
+                <div class="px-6 lg:px-8 pt-4">
+                    <h5 class="text-slate-700 dark:text-slate-300 text-2xl tracking-wide">@yield('title')</h5>
+                </div>
                 <main>
-                    <div class="mx-auto">
                         @yield('content')
-                    </div>
                     {{-- {{ $slot }} --}}
                 </main>
             </div>
