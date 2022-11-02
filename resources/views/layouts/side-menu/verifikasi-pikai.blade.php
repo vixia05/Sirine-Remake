@@ -1,20 +1,21 @@
 <h6
-    x-show="expandNavbar"
-    class="px-3 py-2 text-base font-bold leading-tight text-ellipsis whitespace-nowrap drop-shadow-lg dark:text-gray-200 duration-500 ease-in-out">
+    :class="expandNavbar ? 'opacity-100' : 'opacity-0'"
+    class="absolute px-3 py-2 text-base font-bold leading-tight duration-300 ease-in-out text-ellipsis whitespace-nowrap drop-shadow-lg dark:text-gray-200">
     Verifikasi Pita Cukai
 </h6>
 <h6
-    x-show="!expandNavbar"
-    class="px-3 py-2 text-base font-bold leading-tight text-ellipsis whitespace-nowrap drop-shadow-lg dark:text-gray-200 duration-500 ease-in-out">
+    :class="!expandNavbar ? 'opacity-100' : 'opacity-0'"
+    class="absolute px-3 py-2 text-base font-bold leading-tight duration-300 ease-in-out text-ellipsis whitespace-nowrap drop-shadow-lg dark:text-gray-200">
     VPC
 </h6>
 {{-- 3.2 Input Data --}}
-<li class="{{ Route::is('inputVerifikasi.index') || Route::is('inputRetur.index') || Route::is('inputEvaluasi.index') ? ' bg-slate-300 bg-opacity-30 dark:bg-opacity-10 rounded-md dark:text-gray-300 p-1' : '' }} relative my-1.5"
+<li
+    class="{{ Route::is('inputVerifikasi.index') || Route::is('inputRetur.index') || Route::is('inputEvaluasi.index') ? ' bg-slate-300 bg-opacity-30 dark:bg-opacity-10 rounded-md dark:text-gray-300' : '' }} relative mt-12 mb-1.5"
     id="inputData">
-    <a class="flex cursor-pointer justify-between space-x-3 overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-sm text-slate-600 transition duration-300 ease-in-out hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-400/10 dark:hover:text-slate-50"
+    <a class="flex cursor-pointer justify-between gap-3 overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-sm text-slate-600 transition duration-300 ease-in-out hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-400/10 dark:hover:text-slate-50"
         data-mdb-ripple="true" data-mdb-ripple-color="light" data-bs-toggle="collapse" data-bs-target="#collapseInputData"
         aria-expanded="true" aria-controls="collapseInputData">
-        <div class="flex gap-3 items-center">
+        <div class="flex items-center gap-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -27,7 +28,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
     </a>
-    <ul class="{{ Route::is('inputVerifikasi.index') || Route::is('inputRetur.index') || Route::is('inputEvaluasi.index') ? 'show' : '' }} collapse accordion-collapse relative"
+    <ul class="{{ Route::is('inputVerifikasi.index') || Route::is('inputRetur.index') || Route::is('inputEvaluasi.index') ? 'show' : '' }} collapse accordion-collapse relative py-1"
         id="collapseInputData" aria-labelledby="inputData" data-bs-parent="#sideNav">
         {{-- 3.2.1 Input Data Verifikasi --}}
         <li class="relative my-1.5">
@@ -72,12 +73,12 @@
     </ul>
 </li>
 {{-- 3.3 Rekap Data --}}
-<li class="{{ Route::is('rekapVerif.index') || Route::is('rekapRetur.index') || Route::is('rekapEvaluasi.index') ? ' bg-slate-300 bg-opacity-30 dark:bg-opacity-10 rounded-md dark:text-gray-300 p-1' : '' }} relative w-full rounded-lg"
+<li class="{{ Route::is('rekapVerif.index') || Route::is('rekapRetur.index') || Route::is('rekapEvaluasi.index') ? ' bg-slate-300 bg-opacity-30 dark:bg-opacity-10 rounded-md dark:text-gray-300' : '' }} relative w-full rounded-lg"
     id="rekapData">
-    <a class="flex cursor-pointer justify-between space-x-3 overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-sm text-slate-600 transition duration-300 ease-in-out hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-400/10 dark:hover:text-slate-50"
+    <a class="flex cursor-pointer justify-between gap-3 overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-sm text-slate-600 transition duration-300 ease-in-out hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-400/10 dark:hover:text-slate-50"
         data-mdb-ripple="true" data-mdb-ripple-color="light" data-bs-toggle="collapse"
         data-bs-target="#collapseRekapData" aria-expanded="true" aria-controls="collapseRekapData">
-        <div class="flex gap-3 items-center">
+        <div class="flex items-center gap-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -90,14 +91,14 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
     </a>
-    <ul class="{{ Route::is('rekapVerif.index') || Route::is('rekapRetur.index') || Route::is('rekapEvaluasi.index') ? 'show' : '' }} collapse accordion-collapse relative py-2 pl-5 pr-2"
+    <ul class="{{ Route::is('rekapVerif.index') || Route::is('rekapRetur.index') || Route::is('rekapEvaluasi.index') ? 'show' : '' }} collapse accordion-collapse relative py-1"
         id="collapseRekapData" aria-labelledby="rekapData" data-bs-parent="#sideNav">
         {{-- 3.3.1 Rekap Verifikasi --}}
         <li class="relative my-1.5">
             <a href="{{ route('rekapVerif.index') }}"
                 class="{{ Route::is('rekapVerif.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium ' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
                 data-mdb-ripple="true" data-mdb-ripple-color="light">
-                <div class="flex gap-3 items-center">
+                <div class="flex items-center gap-3" :class="expandNavbar ? 'ml-2' : ''">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -113,7 +114,7 @@
             <a href="{{ route('rekapRetur.index') }}"
                 class="{{ Route::is('rekapRetur.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
                 data-mdb-ripple="true" data-mdb-ripple-color="light">
-                <div class="flex gap-3 items-center">
+                <div class="flex items-center gap-3" :class="expandNavbar ? 'ml-2' : ''">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -128,7 +129,7 @@
             <a href="{{ route('rekapEvaluasi.index') }}"
                 class="{{ Route::is('rekapEvaluasi.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
                 data-mdb-ripple="true" data-mdb-ripple-color="light">
-                <div class="flex gap-3 items-center">
+                <div class="flex items-center gap-3" :class="expandNavbar ? 'ml-2' : ''">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -147,7 +148,7 @@
     <a class="flex cursor-pointer items-center justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-[6px] px-2.5 mx-1 text-sm text-slate-600 transition duration-300 ease-in-out hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-400/10 dark:hover:text-slate-50"
         data-mdb-ripple="true" data-mdb-ripple-color="light" data-bs-toggle="collapse"
         data-bs-target="#collapsePerQty" aria-expanded="true" aria-controls="collapsePerQty">
-        <div class="flex gap-3 items-center">
+        <div class="flex items-center gap-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -194,7 +195,7 @@
     <a class="flex cursor-pointer items-center justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-[6px] px-2.5 mx-1 text-sm text-slate-600 transition duration-300 ease-in-out hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-400/10 dark:hover:text-slate-50"
         data-mdb-ripple="true" data-mdb-ripple-color="light" data-bs-toggle="collapse"
         data-bs-target="#collapsePerQuality" aria-expanded="true" aria-controls="collapsePerQuality">
-        <div class="flex gap-3 items-center">
+        <div class="flex items-center gap-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round"

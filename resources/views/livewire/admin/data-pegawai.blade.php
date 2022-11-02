@@ -1,4 +1,4 @@
-<div class="container flex justify-center mx-auto">
+<div class="grid grid-cols-1">
     @include('components.modal.update-pegawai')
     <div
         class="w-full rounded-md bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
@@ -11,7 +11,7 @@
             {{-- 1.0 Filter & Search Section --}}
             <div
                 class="px-4 py-3 border rounded-t bg-inerhit border-slate-400 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
-                <div class="flex justify-between">
+                <div class="flex flex-wrap justify-between gap-3">
                     {{-- Filter Unit --}}
                     <div class="flex gap-2 px-2 py-1 text-blue-500 border border-blue-500 rounded focus-within:brightness-125 focus-within:shadow-lg focus-within:shadow-blue-500/20">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -27,7 +27,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="flex gap-2">
+                    <div class="flex flex-wrap gap-2">
                         {{-- Search Box --}}
                         <div class="relative">
                             <input type="text" wire:model="search"

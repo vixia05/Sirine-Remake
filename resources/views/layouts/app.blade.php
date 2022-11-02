@@ -9,7 +9,6 @@
     <title>Sirine - @yield('title')</title>
 
     <!-- Fonts -->
-    {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"> --}}
 
     <!-- Styles -->
     <style>
@@ -27,40 +26,45 @@
 </head>
 
 <body class="font-sans antialiased scrollbar-hide">
-    {{-- <div class="sticky-top">
-        @include('layouts.navigation')
-    </div> --}}
     <div x-data="{expandNavbar: false }" class="min-w-fit bg-prism-svg dark:bg-prism-svg-dark" x-cloak>
-
         {{-- Medium Nav Bar --}}
-        <div class="sticky-top z-10 bg-slate-800 md:hidden">
-            <div class="ml-4">
-                {{-- Show Side Bar Button --}}
-                <button @click.prevent="expandNavbar = true" x-on:mouseleave="expandNavbar = false" class="flex justify-between px-2 py-4">
-                    <svg class="mr-2 h-6 w-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                        <path d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        {{-- End Medium Nav-bar --}}
-
-        <div class="relative flex min-h-screen justify-start">
-            <div class="absolute z-30">
-                @include('layouts.side-nav')
-            </div>
-
-            <!-- Page Content -->
-            <div class="relative w-full md:ml-20">
-                <div class="px-6 lg:px-8 pt-4">
-                    <h5 class="text-slate-700 dark:text-slate-300 text-2xl tracking-wide">@yield('title')</h5>
+            <div class="z-10 md:hidden">
+                <div class="flex justify-between px-4 pt-4 pb-1">
+                    {{-- Hamburger --}}
+                    <button @click.prevent="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
+                        class="flex justify-center px-2 py-1 my-auto transition duration-150 ease-in-out rounded dark:bg-slate-100 dark:bg-opacity-10 dark:backdrop-blur-sm hover:bg-slate-300">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    {{-- Logo --}}
+                    <div class="flex justify-center gap-2">
+                        <img src="{{ asset('img/logo-only.png') }}"  class="my-auto -mt-1 h-9">
+                        <span class="my-auto font-mono text-sm font-extrabold duration-300 ease-in-out text-slate-800 dark:text-white">SIRINE</h1>
+                    </div>
+                    {{-- User --}}
+                <img class="h-8 my-auto transition duration-150 ease-in-out rounded-full hover:ring-2 hover:ring-slate-300" src="{{ asset('img/Avatar/default.jpg') }}" alt="" />
                 </div>
-                <main>
-                        @yield('content')
-                    {{-- {{ $slot }} --}}
-                </main>
             </div>
+        {{-- End Medium Nav-bar --}}
+        <div class="relative flex justify-start min-h-screen">
+            {{-- Side Nav Bar --}}
+                <div class="absolute z-30">
+                    @include('layouts.side-nav')
+                </div>
+            {{-- End Side Nav Bar --}}
+            {{-- Main Content --}}
+                <div class="relative w-full md:ml-20">
+                    <div class="px-6 pt-4 lg:px-8">
+                        <h5 class="text-2xl tracking-wide text-slate-700 dark:text-slate-300">@yield('title')</h5>
+                    </div>
+                    <main>
+                        @yield('content')
+                        {{-- {{ $slot }} --}}
+                    </main>
+                </div>
+            {{-- End Main Content --}}
         </div>
     </div>
     @livewireScripts

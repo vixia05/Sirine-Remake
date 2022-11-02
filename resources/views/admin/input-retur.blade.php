@@ -2,10 +2,10 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <div class="mx-auto px-6 py-6 lg:px-8">
+        <div class="mx-auto px-4 py-6 lg:px-8">
             <div class="flex justify-center">
                 <div
-                    class="rounded bg-white/70 p-4 font-semibold text-slate-800 backdrop-blur-sm backdrop-filter dark:bg-slate-800 dark:bg-opacity-70 dark:text-slate-100">
+                    class="rounded-md bg-white/70 p-4 font-semibold text-slate-800 backdrop-blur-sm backdrop-filter dark:bg-slate-800 dark:bg-opacity-70 dark:text-slate-100">
                     <h6 class="border-b-2 border-slate-600 pb-2 text-xl dark:border-slate-100">INPUT DATA KELOLOSAN</h6>
                     @if(session('success'))
                         <div class="bg-green-500 brightness-110 text-green-100 shadow-lg shadow-green-500/50 my-3 p-2 rounded text-center">
@@ -15,9 +15,9 @@
                     <form class="py-4" action="{{ route('inputRetur.store') }}" method="post">
                         @method('post')
                         @csrf
-                        <div class="grid grid-cols-3 gap-4">
+                        <div class="grid grid-cols-2 gap-4">
                             {{-- 1.3 Input Tanggal --}}
-                            <div class="mb-4 flex flex-col">
+                            <div class="mb-4 flex flex-col w-full">
                                 <label for="tglCek"
                                     class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Tanggal Cek
                                     K3</label>
@@ -64,7 +64,7 @@
                                 </select>
                             </div>
                             {{-- 2.2 Jenis Kelolosan Row 1 --}}
-                            <div class="mt-4 grid grid-cols-4 gap-4">
+                            <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
                                 {{-- 2.2.1 Kelolosan Blobor --}}
                                 <div>
                                     <label for="blobor"
@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                             {{-- 2.2 Jenis Kelolosan Row 1 --}}
-                            <div class="mt-4 grid grid-cols-4 gap-4">
+                            <div class="mt-4 grid  grid-cols-2 md:grid-cols-4 gap-4">
                                 {{-- 2.2.1 Kelolosan Blobor --}}
                                 <div>
                                     <label for="noda"
@@ -135,7 +135,7 @@
                                 </div>
                             </div>
                             {{-- 2.2 Jenis Kelolosan Row 1 --}}
-                            <div class="mt-4 grid grid-cols-4 gap-4">
+                            <div class="mt-4 grid  grid-cols-2 md:grid-cols-4 gap-4">
                                 {{-- 2.2.1 Kelolosan Sobek --}}
                                 <div>
                                     <label for="sobek"

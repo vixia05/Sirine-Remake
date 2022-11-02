@@ -1,4 +1,4 @@
-<div class="flex justify-center">
+<div class="grid grid-cols-1">
     @include('components.modal.save-verifikasi')
     <div
         class="w-full rounded-md bg-white/70 dark:backdrop-blur-sm dark:backdrop-filter dark:bg-slate-800 dark:bg-opacity-60">
@@ -12,7 +12,7 @@
             {{-- 1.0 Filter Section --}}
             <div
                 class="px-4 py-6 border rounded-t bg-inerhit border-slate-400 bg-opacity-30 dark:border-slate-600 dark:bg-slate-700 dark:bg-opacity-20">
-                <div class="flex justify-between">
+                <div class="flex justify-between gap-3 flex-wrap">
                     {{-- 1.1 Filter By Team --}}
                     <div
                         class="flex justify-center text-blue-500 rounded-md focus-within:border-blue-500 focus-within:text-blue-400 focus-within:ring-1 focus-within:ring-blue-400">
@@ -26,7 +26,7 @@
                             <span class="my-auto">Team</span>
                         </div>
                         <select id="station" name="station" wire:model="workstation"
-                            class="text-xs font-medium border-r border-blue-500 outline-none rounded-r-md border-y bg-slate-200 text-slate-700 focus-within:ring-blue-400 dark:bg-slate-700 dark:text-slate-200">
+                            class="text-xs font-medium border-r w-full border-blue-500 outline-none rounded-r-md border-y bg-slate-200 text-slate-700 focus-within:ring-blue-400 dark:bg-slate-700 dark:text-slate-200">
                             @foreach ($station as $stations)
                                 <option value="{{ $stations->id }}"> {{ $stations->workstation }}</option>
                             @endforeach

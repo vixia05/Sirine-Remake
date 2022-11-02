@@ -1,4 +1,4 @@
-<div class="flex justify-center">
+<div class="grid grid-cols-1">
     <div
         class="w-full rounded-md bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
         {{-- Header --}}
@@ -11,10 +11,10 @@
             {{-- 1.0 Filter & Search Section --}}
             <div
                 class="px-4 py-4 border rounded-t bg-inerhit border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
-                <div class="flex justify-between">
+                <div class="flex justify-between flex-wrap gap-3">
                     {{-- Filter NP --}}
                     <div class="flex flex-row border border-blue-600 rounded-md brightness-110 dark:focus-within:shadow-lg dark:focus-within:shadow-blue-600/30 dark:focus-within:brightness-125">
-                        <div class="w-full px-2 py-1 rounded-l-md dark:bg-slate-800 dark:bg-opacity-50">
+                        <div class="px-2 py-1 rounded-l-md dark:bg-slate-800 dark:bg-opacity-50">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-6 h-6 text-blue-600">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -22,7 +22,7 @@
                             </svg>
                         </div>
                         <select
-                            class="text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
+                            class="w-full text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
                             wire:model="npUser">
                             <option value="0" class="text-center">-- NP/Nama --</option>
                             @foreach ($listNp as $np)
@@ -31,7 +31,7 @@
                         </select>
                     </div>
                     {{-- Search --}}
-                    <div class="relative flex gap-2">
+                    <div class="relative flex flex-wrap gap-3">
                         <input type="text" wire:model="search"
                             class="py-2 pl-10 pr-4 text-xs font-medium text-gray-600 border-t rounded-lg shadow focus:border-gray-400 focus:outline-none focus:ring-0"
                             placeholder="Search...">

@@ -1,15 +1,15 @@
 <div x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
     :class="expandNavbar ? 'w-64 ' : 'w-0 md:w-20'"
-    class="fixed top-0 bottom-0 min-h-full pb-12 overflow-y-auto shadow-md rounded-r-2xl bg-slate-50 bg-opacity-80 drop-shadow-md scrollbar-hide backdrop-blur backdrop-filter dark:bg-slate-900 dark:bg-opacity-80 transition-all duration-300 ease-in-out"
+    class="fixed top-0 bottom-0 min-h-full pb-12 overflow-y-auto transition-all duration-300 ease-in-out shadow-md rounded-r-2xl bg-slate-50 bg-opacity-80 drop-shadow-md scrollbar-hide backdrop-blur backdrop-filter dark:bg-slate-900 dark:bg-opacity-80"
     x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0 scale-x-70 -translate-x-1/2"
     x-transition:enter-end="opacity-100 scale-x-100 -translate-x-0"
     x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100 scale-x-100 -translate-x-0"
     x-transition:leave-end="opacity-0 scale-x-70 -translate-x-1/2">
-    <div :class="expandNavbar ? 'justify-center' : '' " class="top-0 flex items-center p-4 gap-3 sticky-top bg-slate-900 delay-300 duration-300 ease-in-out">
-            <img src="{{ asset('img/logo-only.png') }}"  class="object-cover h-16 flex-shrink-0">
-            <span :class="expandNavbar ? 'opacity-100' : 'opacity-0'" class="font-mono text-3xl font-extrabold text-slate-800 dark:text-white duration-300 ease-in-out">SIRINE</h1>
+    <div :class="expandNavbar ? 'justify-center' : '' " class="top-0 flex items-center gap-3 p-4 duration-300 ease-in-out delay-300 sticky-top bg-slate-900">
+            <img src="{{ asset('img/logo-only.png') }}"  class="flex-shrink-0 object-cover h-16">
+            <span :class="expandNavbar ? 'opacity-100' : 'opacity-0'" class="font-mono text-3xl font-extrabold duration-300 ease-in-out text-slate-800 dark:text-white">SIRINE</h1>
     </div>
     {{-- <button type="button"
     x-data="{
@@ -63,17 +63,11 @@
                     {{-- 4.0 Menu Verifikasi Pita Cukai --}}
                     @include('layouts.side-menu.verifikasi-pikai')
                     {{-- 5.0 Menu Cetak Pita Cukai --}}
-                    @include('layouts.side-menu.cetak-pikai')
+                    {{-- @include('layouts.side-menu.cetak-pikai') --}}
                     {{-- 6.0 Andon --}}
                     @include('layouts.side-menu.andon')
                     {{-- ***************** --}}
                 </ul>
-                <button @click.prevent=" expandNavbar = !expandNavbar " class="flex justify-between px-2.5 mx-1 pb-7">
-                    <svg class="w-6 h-6 mr-2 text-white" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                        <path d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
             </div>
         </nav>
     </div>
@@ -82,10 +76,10 @@
 <div
     x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
     :class="expandNavbar ? 'w-64' : 'w-20'"
-    class="fixed inset-x-0 bottom-0 hidden px-6 py-4 text-3xl text-center md:block rounded-r-2xl dark:bg-slate-900 dark:text-slate-200 transition-all duration-300 ease-in-out">
+    class="fixed inset-x-0 bottom-0 hidden px-6 py-4 text-3xl text-center transition-all duration-300 md:block rounded-r-2xl dark:bg-slate-900 dark:text-slate-200">
     <a data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
         <div class="flex justify-start space-x-4 cursor-pointer">
-            <div class="w-10 h-10rounded-full">
+            <div class="w-10 h-10 rounded-full">
                 <img class="transition duration-150 ease-in-out rounded-full hover:ring-2 hover:ring-slate-300"
                     src="{{ asset('img/Avatar/default.jpg') }}" alt="" />
             </div>
