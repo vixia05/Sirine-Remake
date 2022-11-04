@@ -1,4 +1,7 @@
-<div class="grid grid-cols-1">
+<div class="grid grid-cols-1" x-data="{editModal = false}">
+    <form>
+        @include('components.modal.edit-retur')
+    </form>
     <div class="w-full rounded-md bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
         {{-- Header --}}
         <div class="px-10 py-4">
@@ -231,7 +234,7 @@
                                                 <td
                                                     class="px-4 py-2 text-sm text-center border-y border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                     <div class="flex justify-center space-x-2">
-                                                        <button type="button" type="button" data-mdb-ripple="true"
+                                                        <button type="button" type="button" data-mdb-ripple="true" @click.prevent="editModal = true"
                                                             data-mdb-ripple-color="light"
                                                             class="inline-block px-3 py-2 text-sm font-semibold leading-tight transition duration-150 ease-in-out bg-green-500 rounded shadow-md text-slate-100 hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"

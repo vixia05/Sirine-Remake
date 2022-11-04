@@ -1,24 +1,24 @@
 @section('title', 'Quality Unit')
 @extends('layouts.app')
 @section('content')
-    <div class="grid grid-cols">
+    <div class="grid grid-cols-1">
         <div class="relative flex flex-col justify-center p-6">
             {{-- 1-A Grafik retur/kelolosan tahun ini --}}
             <div
                 class="w-full p-6 rounded-xl bg-white/70 dark:bg-slate-800 dark:bg-opacity-70 dark:backdrop-blur-md dark:backdrop-filter">
                 {{-- 1-A.1 Header --}}
-                <div class="flex justify-between pb-3 border-b-2 border-slate-600/70 dark:border-slate-300/70">
+                <div class="grid grid-cols-2 pb-3 gap-3 border-b-2 border-slate-600/70 dark:border-slate-300/70">
                     {{-- 1-A. 1.1 Header Title --}}
-                    <div class="flex flex-col">
+                    <div class="flex flex-col col-span-2 md:col-span-1">
                         <h5 class="w-full text-xl font-bold text-slate-800 dark:text-slate-100">Data Retur Pita Cukai
                         </h5>
                         <span class="text-sm font-light text-slate-600 dark:text-slate-400">Periode 2022</span>
                     </div>
                     {{-- 1-A. 1.2 Filter --}}
-                    <div class="flex my-auto text-slate-600 dark:text-slate-300">
+                    <div class="flex justify-end my-auto text-slate-600 dark:text-slate-300 col-span-2 md:col-span-1">
                         {{-- 1-A. 1.3 Filter Tahun --}}
                         <select
-                            class="inline-block text-sm border-blue-500 rounded-l-md bg-slate-100/80 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-20">
+                            class="inline-block w-fit text-sm border-blue-500 rounded-l-md bg-slate-100/80 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-20">
                             <option value="2022" selected>2022</option>
                         </select>
                         {{-- 1-A. 1.4 Reset --}}

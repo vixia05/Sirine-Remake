@@ -8,7 +8,7 @@
     class="absolute px-3 py-2 text-base font-bold leading-tight duration-300 ease-in-out text-ellipsis whitespace-nowrap drop-shadow-lg dark:text-gray-200">
     VPC
 </h6>
-{{-- 3.2 Input Data --}}
+{{-- 1 Input Data --}}
 <li
     class="{{ Route::is('inputVerifikasi.index') || Route::is('inputRetur.index') || Route::is('inputEvaluasi.index') ? ' bg-slate-300 bg-opacity-30 dark:bg-opacity-10 rounded-md dark:text-gray-300' : '' }} relative mt-12 mb-1.5"
     id="inputData">
@@ -30,7 +30,7 @@
     </a>
     <ul class="{{ Route::is('inputVerifikasi.index') || Route::is('inputRetur.index') || Route::is('inputEvaluasi.index') ? 'show' : '' }} collapse accordion-collapse relative py-1"
         id="collapseInputData" aria-labelledby="inputData" data-bs-parent="#sideNav">
-        {{-- 3.2.1 Input Data Verifikasi --}}
+        {{-- 1.2 Input Data Verifikasi --}}
         <li class="relative my-1.5">
             <a href="{{ route('inputVerifikasi.index') }}"
                 class="{{ Route::is('inputVerifikasi.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex gap-3 items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
@@ -42,7 +42,7 @@
                 </svg>
                 <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Input Verifikasi</span></a>
         </li>
-        {{-- 3.2.2 Input Data Retur --}}
+        {{-- 1.3 Input Data Retur --}}
         <li class="relative my-1.5">
             <a href="{{ route('inputRetur.index') }}"
                 class="{{ Route::is('inputRetur.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex gap-3 items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
@@ -55,7 +55,7 @@
                 <span class="">Input Retur</span>
             </a>
         </li>
-        {{-- 3.2.3 Input Data Evaluasi --}}
+        {{-- 1.4 Input Data Evaluasi --}}
         <li class="relative my-1.5">
             <a href="{{ route('inputEvaluasi.index') }}"
                 class="{{ Route::is('inputEvaluasi.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex gap-3 items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
@@ -72,7 +72,7 @@
         </li>
     </ul>
 </li>
-{{-- 3.3 Rekap Data --}}
+{{-- 2 Rekap Data --}}
 <li class="{{ Route::is('rekapVerif.index') || Route::is('rekapRetur.index') || Route::is('rekapEvaluasi.index') ? ' bg-slate-300 bg-opacity-30 dark:bg-opacity-10 rounded-md dark:text-gray-300' : '' }} relative w-full rounded-lg"
     id="rekapData">
     <a class="flex cursor-pointer justify-between gap-3 overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-sm text-slate-600 transition duration-300 ease-in-out hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-400/10 dark:hover:text-slate-50"
@@ -93,7 +93,7 @@
     </a>
     <ul class="{{ Route::is('rekapVerif.index') || Route::is('rekapRetur.index') || Route::is('rekapEvaluasi.index') ? 'show' : '' }} collapse accordion-collapse relative py-1"
         id="collapseRekapData" aria-labelledby="rekapData" data-bs-parent="#sideNav">
-        {{-- 3.3.1 Rekap Verifikasi --}}
+        {{-- 2.1 Rekap Verifikasi --}}
         <li class="relative my-1.5">
             <a href="{{ route('rekapVerif.index') }}"
                 class="{{ Route::is('rekapVerif.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium ' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
@@ -109,7 +109,7 @@
                 </div>
             </a>
         </li>
-        {{-- 3.3.1 Rekap Retur --}}
+        {{-- 2.2 Rekap Retur --}}
         <li class="relative my-1.5">
             <a href="{{ route('rekapRetur.index') }}"
                 class="{{ Route::is('rekapRetur.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
@@ -120,11 +120,11 @@
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                     </svg>
-                    <span class="ml-3">Data Retur</span>
+                    <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Data Retur</span>
                 </div>
             </a>
         </li>
-        {{-- 3.3.1 Rekap Evaluasi --}}
+        {{-- 2.3 Rekap Evaluasi --}}
         <li class="relative my-1.5">
             <a href="{{ route('rekapEvaluasi.index') }}"
                 class="{{ Route::is('rekapEvaluasi.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
@@ -142,8 +142,8 @@
         </li>
     </ul>
 </li>
-{{-- 4.1 Performa Qty --}}
-<li class="{{ Route::is('quantity.unit') || Route::is('quantity.individu') ? ' bg-slate-300 bg-opacity-30 dark:bg-opacity-10 rounded-md dark:text-gray-300 p-1' : '' }} relative my-1.5 rounded-md dark:text-gray-200"
+{{-- 3 Performa Quantity --}}
+<li class="{{ Route::is('quantity.unit') || Route::is('quantity.individu') ? ' bg-slate-300 bg-opacity-30 dark:bg-opacity-10 rounded-md dark:text-gray-300' : '' }} relative py-1 rounded-md dark:text-gray-200"
     id="perQty">
     <a class="flex cursor-pointer items-center justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-[6px] px-2.5 mx-1 text-sm text-slate-600 transition duration-300 ease-in-out hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-400/10 dark:hover:text-slate-50"
         data-mdb-ripple="true" data-mdb-ripple-color="light" data-bs-toggle="collapse"
@@ -163,7 +163,8 @@
     </a>
     <ul class="{{ Route::is('quantity.unit') || Route::is('quantity.individu') ? 'show' : '' }} collapse accordion-collapse relative"
         id="collapsePerQty" aria-labelledby="perQty" data-bs-parent="#sideNav">
-        <li class="relative my-1.5">
+        {{-- 3.1 Quantity Unit --}}
+        <li class="relative my-1">
             <a href="{{ route('quantity.unit') }}"
                 class="{{ Route::is('quantity.unit') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium ' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex gap-3 items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
                 data-mdb-ripple="true" data-mdb-ripple-color="light">
@@ -176,7 +177,8 @@
                 </span>
             </a>
         </li>
-        <li class="relative my-1.5">
+        {{-- 3.2 Quantity Individu --}}
+        <li class="relative my-1">
             <a href="{{ route('quantity.individu') }}"
                 class="{{ Route::is('quantity.individu') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium ' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex gap-3 items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
                 data-mdb-ripple="true" data-mdb-ripple-color="light">
@@ -185,12 +187,13 @@
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                 </svg>
-                <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Individu</span></a>
+                <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Individu</span>
+            </a>
         </li>
     </ul>
 </li>
-{{-- 4.2 Performa Quality --}}
-<li class="{{ Route::is('quality.unit') || Route::is('quality.individu') ? ' bg-slate-300 bg-opacity-30 dark:bg-opacity-10 rounded-md dark:text-gray-300 p-1' : '' }} relative my-1.5 rounded-md dark:text-gray-200"
+{{-- 4 Performa Quality --}}
+<li class="{{ Route::is('quality.unit') || Route::is('quality.individu') ? ' bg-slate-300 bg-opacity-30 dark:bg-opacity-10 rounded-md dark:text-gray-300' : '' }} relative my-1.5 rounded-md dark:text-gray-200"
     id="perQuality">
     <a class="flex cursor-pointer items-center justify-between overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-[6px] px-2.5 mx-1 text-sm text-slate-600 transition duration-300 ease-in-out hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-400/10 dark:hover:text-slate-50"
         data-mdb-ripple="true" data-mdb-ripple-color="light" data-bs-toggle="collapse"
@@ -210,6 +213,7 @@
     </a>
     <ul class="{{ Route::is('quality.unit') || Route::is('quality.individu') ? 'show' : '' }} collapse accordion-collapse relative"
         id="collapsePerQuality" aria-labelledby="perQuality" data-bs-parent="#sideNav">
+        {{-- 4.1 Quality Unit --}}
         <li class="relative my-1.5">
             <a href="{{ route('quality.unit') }}"
                 class="{{ Route::is('quality.unit') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium ' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex gap-3 items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
@@ -223,6 +227,7 @@
                 </span>
             </a>
         </li>
+        {{-- 4.1 Quality Individu --}}
         <li class="relative my-1.5">
             <a href="{{ route('quality.individu') }}"
                 class="{{ Route::is('quality.individu') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium ' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex gap-3 items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
@@ -238,7 +243,7 @@
         </li>
     </ul>
 </li>
-{{-- 4.3 Report Pegawai --}}
+{{-- 5 Report Pegawai --}}
 <li class="relative my-1.5">
     <a class="{{ Route::is('report') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex gap-3 items-center overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-sm transition duration-300 ease-in-out"
         href="{{ route('report') }}" data-mdb-ripple="true" data-mdb-ripple-color="light">

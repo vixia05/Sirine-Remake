@@ -1,6 +1,6 @@
 <div x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
     :class="expandNavbar ? 'w-64 ' : 'w-0 md:w-20'"
-    class="fixed top-0 bottom-0 min-h-full pb-12 overflow-y-auto transition-all duration-300 ease-in-out shadow-md rounded-r-2xl bg-slate-50 bg-opacity-80 drop-shadow-md scrollbar-hide backdrop-blur backdrop-filter dark:bg-slate-900 dark:bg-opacity-80"
+    class="fixed top-0 bottom-0 min-h-full pb-24 overflow-y-auto transition-all duration-300 ease-in-out shadow-md rounded-r-2xl bg-slate-50 bg-opacity-80 drop-shadow-md scrollbar-hide backdrop-blur backdrop-filter dark:bg-slate-900 dark:bg-opacity-80"
     x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0 scale-x-70 -translate-x-1/2"
     x-transition:enter-end="opacity-100 scale-x-100 -translate-x-0"

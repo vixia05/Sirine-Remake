@@ -6,7 +6,7 @@
 <h6
     :class="!expandNavbar ? 'opacity-100' : 'opacity-0'"
     class="absolute px-3 py-2 text-base font-bold leading-tight duration-300 ease-in-out text-ellipsis whitespace-nowrap drop-shadow-lg dark:text-gray-200">
-    Andon
+    AND
 </h6>
 {{-- 1.0 Progress Pita Cukai --}}
 <li class="relative mt-12 mb-1.5">

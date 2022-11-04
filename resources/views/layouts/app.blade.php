@@ -56,12 +56,8 @@
             {{-- End Side Nav Bar --}}
             {{-- Main Content --}}
                 <div class="relative w-full md:ml-20">
-                    <div class="px-6 pt-4 lg:px-8">
-                        <h5 class="text-2xl tracking-wide text-slate-700 dark:text-slate-300">@yield('title')</h5>
-                    </div>
                     <main>
                         @yield('content')
-                        {{-- {{ $slot }} --}}
                     </main>
                 </div>
             {{-- End Main Content --}}

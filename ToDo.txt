@@ -4,4 +4,21 @@
    2.2 Andon Cetak
    2.3 Andon Khazkhir
    2.4 Overview
-
+3. Rekap Kelolosan
+   3.1 Update Action
+   3.2 Delete Action
+   3.3 Year Filter
+   3.4 Export Excel
+4. Rekap Evaluasi
+   4.1 Update Action
+   4.2 Delete Action
+   4.3 Date Filter
+   4.4 Export Excel
+5. Quantity Unit
+   5.1 Rumus Performa MMEA
+   ** Cari Algoritma Yang Lebih Efisien **
+6. Quantity Individu
+   6.1 Data table Individu
+7. Quality Unit
+8. Quality Individu
+9. Report Pegawai
