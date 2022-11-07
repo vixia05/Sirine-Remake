@@ -1,7 +1,7 @@
 @section('title', 'Input Kelolosan')
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <div class="grid grid-cols-1">
         <div class="mx-auto px-4 py-6 lg:px-8">
             <div class="flex justify-center">
                 <div

@@ -43,6 +43,18 @@ class InputReturController extends Controller
     public function store(Request $request)
     {
         $namaUser = UserDetails::where('np_user',$request->npUser)->value('nama');
+        $jmlRetur = $request->blobor
+                    + $request->plooi
+                    + $request->blur
+                    + $request->hologram
+                    + $request->noda
+                    + $request->missReg
+                    + $request->tipis
+                    + $request->sobek
+                    + $request->terpotong
+                    + $request->tercampur
+                    + $request->botak;
+
         $request->validate([
             'tglCek' => 'required|date',
             'npUser' => 'required|max:4|alpha_num',
@@ -79,6 +91,7 @@ class InputReturController extends Controller
             'terpotong' => $request->terpotong,
             'tercampur' => $request->tercampur,
             'botak'   => $request->botak,
+            'jml_retur' => $jmlRetur,
             ]
             );
 
