@@ -9,7 +9,7 @@
         <div class="mb-3">
             <h3
                 class="border-b-2 dark:border-slate-100/80 border-slate-800/60 text-center pb-2 text-3xl text-slate-900/60 dark:text-slate-50">
-                Delete @yield('modal-title')</h3>
+                Delete @yield('delete-modal-title')</h3>
         </div>
         {{-- 2. Modal Content --}}
         @yield('delete-modal-content')
@@ -17,8 +17,8 @@
         <div class="mt-7 flex justify-end gap-4">
             <button @click.prevent="deleteModal = false" data-mdb-ripple="true" data-mdb-ripple-color="light"
                 class="rounded-md px-3 bg-violet-600 py-2 text-sm tracking-wide text-violet-50 shadow-lg shadow-blue-600/30 brightness-125">Close</button>
-            <button type="submit" data-mdb-ripple="true" data-mdb-ripple-color="light"
-                class="rounded-md bg-blue-600 px-3 py-2 text-sm tracking-wide text-blue-50 shadow-lg shadow-blue-600/30 brightness-125">Simpan</button>
+            <button type="btn" data-mdb-ripple="true" data-mdb-ripple-color="light" wire:click='destroy()'
+                class="rounded-md bg-red-600 px-3 py-2 text-sm tracking-wide text-red-50 shadow-lg shadow-red-600/30 brightness-125">Delete</button>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="grid grid-cols-1" x-data='{editModal : false, deleteModal : false}'>
     <form>
-        @include('components.modal.update-evaluasi')
+        @include('components.modal.edit-evaluasi')
     </form>
     <form>
         @include('components.modal.delete-evaluasi')
@@ -29,7 +29,7 @@
                         </div>
                         <select
                             class="w-full text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
-                            wire:model="npUser">
+                            wire:model="searchNp">
                             <option value="0" class="text-center">-- NP/Nama --</option>
                             @foreach ($listNp as $np)
                                 <option value="{{ $np->np_user }}">{{ $np->nama }} </option>
@@ -195,13 +195,13 @@
                                                 {{-- 2.2.4 Tanggal CK3 Coloumn --}}
                                                 <td
                                                     class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                    {{ Carbon\Carbon::parse($datas->post_date)->format('d-F-Y') }}
+                                                    {{ Carbon\Carbon::parse($datas->updated_at)->format('d-F-Y') }}
                                                 </td>
                                                 {{-- 2.2.11 Action Coloumn --}}
                                                 <td
                                                     class="px-4 py-2 text-sm text-center whitespace-nowrap border-y border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     <div class="flex justify-center space-x-2">
-                                                        <button type="button" type="button" data-mdb-ripple="true" @click.prevent="editModal = true"
+                                                        <button type="button" type="button" data-mdb-ripple="true" @click.prevent="editModal = true" wire:click='edit({{ $datas->id }})'
                                                             data-mdb-ripple-color="light"
                                                             class="inline-block px-3 py-2 text-sm font-semibold leading-tight transition duration-150 ease-in-out bg-green-500 rounded shadow-md text-slate-100 hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
@@ -213,7 +213,7 @@
                                                                     clip-rule="evenodd" />
                                                             </svg>
                                                         </button>
-                                                        <button type="button" type="button" data-mdb-ripple="true" @click.prevent="deleteModal = true"
+                                                        <button type="button" type="button" data-mdb-ripple="true" @click.prevent="deleteModal = true" wire:click='delete({{ $datas->id }})'
                                                             data-mdb-ripple-color="light"
                                                             class="inline-block px-3 py-2 text-sm font-semibold leading-tight transition duration-150 ease-in-out bg-red-500 rounded shadow-md text-slate-100 hover:bg-red-600 hover:shadow-lg focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-lg">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"

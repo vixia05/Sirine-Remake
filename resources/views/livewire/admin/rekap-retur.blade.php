@@ -154,12 +154,6 @@
                                                                 Hologram
                                                             </span>
                                                         @endif
-                                                        @if ($datas->blobor == !null)
-                                                            <span
-                                                                class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
-                                                                Blobor
-                                                            </span>
-                                                        @endif
                                                         @if ($datas->miss_reg == !null)
                                                             <span
                                                                 class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
@@ -231,7 +225,21 @@
                                                 {{-- 2.2.7 Total Retur Coloumn --}}
                                                 <td
                                                     class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
-                                                    {{ number_format($datas->jml_retur,0) }}
+                                                    {{ number_format(
+                                                        $datas->blobor +
+                                                        $datas->hologram +
+                                                        $datas->miss_reg +
+                                                        $datas->noda +
+                                                        $datas->plooi +
+                                                        $datas->blur +
+                                                        $datas->gradasi +
+                                                        $datas->terpotong +
+                                                        $datas->tipis +
+                                                        $datas->sobek +
+                                                        $datas->botak +
+                                                        $datas->tercampur +
+                                                        $datas->diecut
+                                                        ,0) }}
                                                 </td>
                                                 {{-- 2.2.11 Action Coloumn --}}
                                                 <td
@@ -250,7 +258,7 @@
                                                             </svg>
                                                         </button>
                                                         <button type="button" type="button" data-mdb-ripple="true"
-                                                            data-mdb-ripple-color="light" @click.prevent="deleteModal = true" wire:click="edit({{ $datas->id }})"
+                                                            data-mdb-ripple-color="light" @click.prevent="deleteModal = true" wire:click="delete({{ $datas->id }})"
                                                             class="inline-block px-3 py-2 text-sm font-semibold leading-tight transition duration-150 ease-in-out bg-red-500 rounded shadow-md text-slate-100 hover:bg-red-600 hover:shadow-lg focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-lg">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
                                                                 viewBox="0 0 20 20" fill="currentColor">

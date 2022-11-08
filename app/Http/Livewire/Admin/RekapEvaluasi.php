@@ -12,7 +12,9 @@ use App\Models\UserDetails;
 class RekapEvaluasi extends Component
 {
     use WithPagination;
-    public $search,$npUser;
+    public $search,$searchNp,$idEvaluasi;
+    public $npKasek,$npKaun,$npUser;
+    public $evaKasek,$evaKaun,$resUser;
     protected $queryString = ['search'];
 
     public function render()
@@ -28,8 +30,8 @@ class RekapEvaluasi extends Component
                             'eva_kaun',
                             'response'
                         ], $this->search ?? '')
-                        ->when($this->npUser,function($query,$npUser){
-                            return $query->where('np_user',$npUser);
+                        ->when($this->searchNp,function($query,$searchNp){
+                            return $query->where('np_user',$searchNp);
                         })
                         ->orderBy('updated_at')
                         ->paginate(10);
@@ -43,5 +45,45 @@ class RekapEvaluasi extends Component
     public function updatingsearch()
     {
         $this->resetPage();
+    }
+
+    public function edit($id)
+    {
+        $data = Evaluasi::findOrFail($id);
+
+        $this->npKasek  = $data->np_kasek ." - " .$data->nama_kasek;
+        $this->npKaun   = $data->np_kaun. " - " .$data->nama_kaun;
+        $this->npUser   = $data->np_user. " - " .$data->nama_user;
+        $this->evaKasek = $data->eva_kasek;
+        $this->evaKaun  = $data->eva_kaun;
+        $this->resUser  = $data->response;
+
+        $this->idEvaluasi = $id;
+    }
+
+    public function update()
+    {
+
+        Evaluasi::where('id',$this->idEvaluasi)
+                ->update([
+                    'eva_kasek' => $this->evaKasek,
+                    'eva_kaun'  => $this->evaKaun,
+                    'response'  => $this->resUser,
+                ]);
+
+        session()->flash('messageUpdate', 'Data '.$this->name.' Berhasil Di Perbaharui');
+        $this->resetInputFields();
+    }
+
+    public function delete($id)
+    {
+        $this->idEvaluasi = $id;
+    }
+
+    public function destroy()
+    {
+        Evaluasi::findOrFail($this->idEvaluasi)->delete();
+        session()->flash('messageDelete', 'Pesan Berhasil Di Hapus');
+
     }
 }

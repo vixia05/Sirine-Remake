@@ -7,6 +7,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 
+use App\Http\Controllers\SuperUser\UpdateOrderController;
+
 // Namespace Performance
 use App\Http\Controllers\Performance\QualityController;
 use App\Http\Controllers\Performance\QuantityController;
@@ -44,10 +46,18 @@ Route::group(['middleware' => ['auth','verified']], function() {
 
     //--- SuperUser ---//
         Route::group(['namespace' => 'App\Http\Controllers\SuperUser'], function() {
+            Route::get('updateOrder',[UpdateOrderController::class, 'index'])
+                ->name('updateOrder.index');
+
+            Route::post('updateOrder/Pcht',[UpdateOrderController::class, 'updatePcht'])
+                 ->name('updateOrder.pcht');
+
+            Route::post('updateOrder/Mmea',[UpdateOrderController::class, 'updateMmea'])
+                 ->name('updateOrder.mmea');
+
             Route::resources([
                 'users'      => UsersController::class,
                 'privillage' => PrivillageController::class,
-                'updateOrder'=> UpdateOrderController::class,
                 'jamEfektif' => JamEfektifController::class,
             ]);
         });
