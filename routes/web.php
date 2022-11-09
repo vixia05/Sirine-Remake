@@ -117,7 +117,15 @@ Route::group(['middleware' => ['auth','verified']], function() {
         ->group(function () {
               Route::get('khazwalPikai', [KhazwalController::class, 'index'])->name('khazwalPikai');
               Route::get('cetakPikai',   [CetakController::class,   'index'])->name('cetakPikai');
+
+              // Verifikasi Pikai
               Route::get('verifPikai',   [VerifikasiController::class, 'index'])->name('verifPikai');
+              Route::get('verifPikai/verifPcht',[VerifikasiController::class, 'verifikasiPcht'])->name('verifPcht');
+              Route::get('verifPikai/verifMmea',[VerifikasiController::class, 'verifikasiMmea'])->name('verifMmea');
+              Route::get('verifPikai/orderOcht',[VerifikasiController::class, 'orderPcht'])->name('orderPcht');
+              Route::get('verifPikai/orderMmea',[VerifikasiController::class, 'orderMmea'])->name('orderMmea');
+
+              // Khazanah Akhir Pikai
               Route::get('kahzkhirPikai',[KhazkhirController::class,   'index'])->name('khazkhirPikai');
           });
 

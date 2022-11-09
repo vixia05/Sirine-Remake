@@ -1,9 +1,12 @@
 @section('title', 'Verifikasi Pita Cukai')
 @extends('layouts.andon')
 @section('content')
-    <div x-data="{ active: 1,
+    <div x-data="{ verifPcht : '{{ number_format($verifPcht['harian'],0) }}',
+                    active: 1,
                     loop() {
-                            setInterval(() => { this.active = this.active === 4 ? 1 : this.active + 1 }, 1500)
+                            setInterval(() => {
+                                this.active = this.active === 4 ? 1 : this.active + 1;
+                            }, 1500)
                             },
                  }"
         x-init="loop">
@@ -22,7 +25,7 @@
                 <h3 class="border-b-4 pb-1 text-center text-4xl font-semibold text-slate-300">Periksa <span
                         class="text-emerald-300 brightness-125">PCHT</span> Hari Ini</h3>
                 <div class="relative -mt-4 flex h-full flex-col justify-center">
-                    <h1 class="text-center text-9xl font-bold text-emerald-500 brightness-200">{{ number_format($verifPcht['harian'],0) }}</h1>
+                    <h1 class="text-center text-9xl font-bold text-emerald-500 brightness-200" x-text="verifPcht"></h1>
                 </div>
             </div>
             <div class="grid h-[50vh] w-full grid-cols-2 gap-2">

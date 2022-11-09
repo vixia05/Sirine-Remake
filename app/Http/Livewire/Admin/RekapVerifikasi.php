@@ -10,6 +10,10 @@ use Auth;
 use App\Models\QcPikai;
 use App\Models\UserDetails;
 
+use App\Exports\RekapVerifExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+
 class RekapVerifikasi extends Component
 {
 
@@ -46,5 +50,10 @@ class RekapVerifikasi extends Component
     public function destroy()
     {
         QcPikai::where('id',$this->idUser)->delete();
+    }
+
+    public function exportExcel()
+    {
+        return (new RekapVerifExport($this->npUser))->download('rekap_verifikasi.xlsx');
     }
 }

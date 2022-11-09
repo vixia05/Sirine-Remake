@@ -2,9 +2,13 @@
 
 namespace App\Imports;
 
-use Carbon\Carbon;
-use App\Models\OrderMmea;
+use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
+
+use Carbon\Carbon;
+
+use App\Models\OrderMmea;
+
 use \PhpOffice\PhpSpreadsheet\Shared\Date;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -20,15 +24,27 @@ class UpdateMmea implements ToCollection, WithHeadingRow
     {
         foreach ($rows as $row)
         {
+            $len = Str::length($row['no_obc']);
+            $jenis = "MMEA";
+            if($len > 8)
+            {
+                $jenis = "HPTL";
+            }
+            else
+            {
+                $jenis = "MMEA";
+            }
+
             orderMmea::updateOrCreate(
                 ['no_obc' => $row['no_obc'], 'no_po' => (int)$row['order']],
                 [
+                'jenis'         => $jenis,
                 'tgl_obc'       => Date::excelToDatetimeObject($row['tgl_obc'])->format('Y-m-d'),
                 'tgl_jt'        => Date::excelToDatetimeObject($row['tgl_jtempo'])->format('Y-m-d'),
-                'tgl_bb'        => Date::excelToDatetimeObject($row['tgl_pakai_bb'])->format('Y-m-d'),
-                'tgl_cetak'     => Date::excelToDatetimeObject($row['tgl_cetak'])->format('Y-m-d'),
-                'tgl_verif'     => Date::excelToDatetimeObject($row['tgl_verifikasi'])->format('Y-m-d'),
-                'tgl_kemas'     => Date::excelToDatetimeObject($row['tanggal_kemas'])->format('Y-m-d'),
+                'tgl_bb'        => $row['tgl_pakai_bb']   == null ? null : Date::excelToDatetimeObject($row['tgl_pakai_bb'])->format('Y-m-d'),
+                'tgl_cetak'     => $row['tgl_cetak']      == null ? null : Date::excelToDatetimeObject($row['tgl_cetak'])->format('Y-m-d'),
+                'tgl_verif'     => $row['tgl_verifikasi'] == null ? null : Date::excelToDatetimeObject($row['tgl_verifikasi'])->format('Y-m-d'),
+                'tgl_kemas'     => $row['tanggal_kemas']  == null ? null : Date::excelToDatetimeObject($row['tanggal_kemas'])->format('Y-m-d'),
                 'jml_order'     => (int)$row['qty_pesan'],
                 'rencet'        => (int)$row['rencet'],
                 'jml_bb'        => (int)$row['jml_bb_lk'],

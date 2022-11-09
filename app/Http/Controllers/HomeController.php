@@ -61,13 +61,13 @@ class HomeController extends Controller
     public function hcs()
     {
         $hcsPcht = OrderPcht::whereMonth('tgl_obc',now())
-                              ->sum('hcs_qc');
+                              ->sum('hcs_verif');
 
         $hcsSisaMmea = OrderMmea::whereMonth('tgl_obc',now())
                               ->sum('hcs_sisa');
 
         $hcsMmea = OrderMmea::whereMonth('tgl_obc',now())
-                              ->sum('hcs_qc') - $hcsSisaMmea;
+                              ->sum('hcs_verif') - $hcsSisaMmea;
 
         return [
             'hcsPcht' => $hcsPcht,
@@ -85,10 +85,10 @@ class HomeController extends Controller
         $hcsMmea  = $this->hcs()['hcsMmea'];
 
         $hctsPcht = OrderPcht::whereMonth('tgl_obc',now())
-                                ->sum('hcts_qc');
+                                ->sum('hcts_verif');
 
         $hctsMmea = OrderMmea::whereMonth('tgl_obc',now())
-                                ->sum('hcts_qc');
+                                ->sum('hcts_verif');
 
         if($hcsPcht == !null && $hcsPcht == !null)
         {
@@ -122,12 +122,12 @@ class HomeController extends Controller
         // Prod Gnti ke 14
         $sub2w   = carbon::today()->subdays(14);
 
-        $data = OrderPcht::whereBetween('tgl_qc',[$sub2w,carbon::now()])
+        $data = OrderPcht::whereBetween('tgl_verif',[$sub2w,carbon::now()])
                             ->get()
-                            ->sortBy('tgl_qc')
-                            ->groupby('tgl_qc')
+                            ->sortBy('tgl_verif')
+                            ->groupby('tgl_verif')
                             ->map(function($sum){
-                                return $sum->sum('hcs_qc');
+                                return $sum->sum('hcs_verif');
                             });
 
         $dataPcht = $data->values();
@@ -144,12 +144,12 @@ class HomeController extends Controller
         // Prod Gnti ke 14
         $sub2w   = carbon::today()->subdays(14);
 
-        $data = OrderMmea::whereBetween('tgl_qc',[$sub2w,carbon::now()])
+        $data = OrderMmea::whereBetween('tgl_verif',[$sub2w,carbon::now()])
                             ->get()
-                            ->sortBy('tgl_qc')
-                            ->groupby('tgl_qc')
+                            ->sortBy('tgl_verif')
+                            ->groupby('tgl_verif')
                             ->map(function($sum){
-                                return $sum->sum('hcs_qc');
+                                return $sum->sum('hcs_verif');
                             });
 
         $dataMmea = $data->values();

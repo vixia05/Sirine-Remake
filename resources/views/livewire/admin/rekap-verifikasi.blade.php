@@ -49,7 +49,10 @@
                         </div>
                         {{-- Button Export --}}
                         <div>
-                            <button action="{{ route('dataPegawai.export') }}"
+                            <button
+                            wire:click="exportExcel()"
+                            data-mdb-ripple="true"
+                            data-mdb-ripple-color="light"
                              class="flex gap-2 px-2 py-1 text-green-400 border-2 border-green-400 rounded-md brightness-110 hover:shadow-lg hover:shadow-green-400/30 hover:brightness-125">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                     stroke="currentColor" class="w-5 h-5">
