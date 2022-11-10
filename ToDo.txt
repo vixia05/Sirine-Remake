@@ -6,10 +6,8 @@
    2.4 Overview
 3. Rekap Kelolosan
    3.3 Year Filter
-   3.4 Export Excel
 4. Rekap Evaluasi
    4.3 Date Filter
-   4.4 Export Excel
 5. Quantity Unit
    5.1 Rumus Performa MMEA
    ** Cari Algoritma Yang Lebih Efisien **
@@ -18,3 +16,5 @@
 7. Quality Unit
 8. Quality Individu
 9. Report Pegawai
+10. Privillage Sistem
+11. Form Input Kepala Meja

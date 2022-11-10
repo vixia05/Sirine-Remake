@@ -1,121 +1,81 @@
 id,np,email,password,level
-1,G715,zharghifari07@gmail.com,PeruriG715,1
-2,G752,cindydo124@gmail.com,PeruriG752,1
-3,G763,rahayu9703@gmail.com,PeruriG763,1
-4,G834,windaristika5@gmail.com,PeruriG834,1
-5,G840,kimimas88@gmail.com,PeruriG840,1
-6,G841,desyhidayat01@gmail.com,PeruriG841,1
-7,G849,Imasitoh810@gmail.com,PeruriG849,1
-8,H006,sitiimaroh98@gmail.com,PeruriH006,1
-9,H028,khanzasyafa.here@gmail.com,PeruriH028,1
-10,H064,radeagung07@gmail.com,PeruriH064,1
-11,H066,syaifulhrs@gmail.com,PeruriH066,1
-12,H071,Adithyaindra1@gmail.com,PeruriH071,1
-13,H075,muhammadpras001@gmail.com,PeruriH075,1
-14,H076,dhimassk0509@gmail.com,PeruriH076,1
-15,H077,aminsuroso21499@gmail.com,PeruriH077,1
-16,H079,muhamadharun672@gmail.com,PeruriH079,1
-17,H109,wildasalsabila63@gmail.com,PeruriH109,1
-18,H114,d.anandita117@gmail.com,PeruriH114,1
-19,H119,yessidewi23@gmail.com,PeruriH119,1
-20,H123,amzidny@gmail.com,PeruriH123,1
-21,H130,nurapriliani6@gmail.com,PeruriH130,1
+1,Admin,admin@admin.com,Admin!@#,0
+2,7426,aris.hudin@peruri.co.id,Peruri7426,4
+3,7020,mafut.jahrodin@peruri.co.id,Peruri7020,4
+4,7197,herman.yusup@peruri.co.id,Peruri7197,1
+5,7198,nunung.nurasiah@peruri.co.id,Peruri7198,1
+6,7199,riska.kartikasari@peruri.co.id ,Peruri7199,3
+7,7202,Kartika.kurniasih@peruri.co.id,Peruri7202,1
+8,7205,wawan.kurnawan@peruri.co.id,Peruri7205,1
+9,7206,eddy.rismanto@peruri.co.id,Peruri7206,1
+10,7418,muridin.akbar@peruri.co.id,Peruri7418,1
+11,7423,heni.suhaeni@peruri.co.id,Peruri7423,1
+12,7437,sandi.pratama@peruri.co.id,Peruri7437,1
+13,7443,agus.purnomo@peruri.co.id,Peruri7443,1
+14,7201,dwi.cahya@peruri.co.id,Peruri7201,1
+15,G752,cindydo124@gmail.com           ,PeruriG752,1
+16,G763,Rahayu9703@gmail.com,PeruriG763,1
+17,H006,sitiimaroh98@gmail.com         ,PeruriH006,1
+18,H109,Wildasalsabila63@gmail.com,PeruriH109,1
+19,H114,d.anandita117@gmail.com,PeruriH114,1
+20,H119,yessidewi23@gmail.com,PeruriH119,1
+21,H123,amzidny@gmail.com,PeruriH123,1
 22,H186,opeindah@gmail.com,PeruriH186,1
 23,H190,fifinfitria6@gmail.com,PeruriH190,1
 24,H191,dewi.nurhikmawati2807@gmail.com,PeruriH191,1
 25,H192,lisaaherln@gmail.com,PeruriH192,1
-26,H193,dindaamelia83@gmail.com,PeruriH193,1
+26,H193,dindaamelia83@gmail.com        ,PeruriH193,1
 27,H194,lustantiyulia1234@gmail.com,PeruriH194,1
-28,H195,luludwifauziyyah12@gmail.com,PeruriH195,1
-29,H196,febriantiine1@gmail.com,PeruriH196,1
-30,H198,nisamadani99@gmail.com,PeruriH198,1
-31,H199,deliaoctriane12@gmail.com,PeruriH199,1
-32,H200,putrielmiadevi@gmail.com ,PeruriH200,1
-33,H202,dputrigama@gmail.com,PeruriH202,1
-34,H260,ali.gitu@gmail.com,PeruriH260,1
-35,H265,bandoengdahulu@gmail.com,PeruriH265,1
-36,I375,sandidaniala1st@gmail.com,PeruriI375,1
-37,I401,selvia.ulfani08@gmail.com,PeruriI401,1
-38,I402,deliaharun96@gmail.com,PeruriI402,1
-39,I403,dian.oktaviani051@gmail.com,PeruriI403,1
-40,I404,apriliantidina8@gmail.com,PeruriI404,1
-41,I405,fitrisetyorini18@gmail.com,PeruriI405,1
-42,I406,karlinaibrahim97@gmail.com,PeruriI406,1
-43,I407,hikmayati@gmail.com,PeruriI407,1
-44,I409,mialistiana29@gmail.com,PeruriI409,1
-45,I411,nafisahfauziyah11@gmail.com,PeruriI411,1
-46,I412,Rahmaalifah85@gmail.com,PeruriI412,1
-47,I417,mardianadevi.dm@gmail.com,PeruriI417,1
-48,I418,adipamungkas7515@gmail.com,PeruriI418,1
-49,I419,adindasabila87@gmail.com,PeruriI419,1
-50,I420,Agusbungsubule@gmail.com,PeruriI420,1
-51,I421,avrilawiranti99@gmail.com ,PeruriI421,1
-52,I423,Citraafridasari1002@gmail.com,PeruriI423,1
-53,I424,daffapratamaputra157@gmail.com,PeruriI424,1
-54,I425,dewiper26@gmail.com,PeruriI425,1
-55,I426,diniflor1998@gmail.com,PeruriI426,1
-56,I427,gojekfauzan6@gmail.com,PeruriI427,1
-57,I428,Gusti.arifiyanto@gmail.com,PeruriI428,1
-58,I429,Hainaapriliani@gmail.com,PeruriI429,1
-59,I430,hermansyah5499@gmail.com,PeruriI430,1
-60,I431,iiskurnia10@gmail.com,PeruriI431,1
-61,I432,Julpiabdulmuti8@gmail.com ,PeruriI432,1
-62,I433,Marfianadefi@gmail.com,PeruriI433,1
-63,I434,rifkimuhamad752@gmail.com,PeruriI434,1
-64,I435,nova.amd@gmail.com,PeruriI435,1
-65,I437,nuraidadiah@gmail.com,PeruriI437,1
-66,I439,rizkialfani19@gmail.com ,PeruriI439,1
-67,I441,Sofianurrahayu90@gmail.com,PeruriI441,1
-68,I442,trirahayu24799@gmail.com,PeruriI442,1
-69,I444,zulfikar.h9050@gmail.com,PeruriI444,0
-70,I450,antonriantoro@gmail.com,PeruriI450,1
-71,I451,Bagusjak12@gmail.com,PeruriI451,1
-72,I452,Kangasep055@gmail.com,PeruriI452,1
-73,I453,Franscocahya@gmail.com,PeruriI453,1
-74,I456,hilmanhermawan0@gmail.com,PeruriI456,1
-75,I457,ilhamjanuaryy@gmail.com,PeruriI457,1
-76,I459,kiki.sukendro@gmail.com,PeruriI459,1
-77,I460,tauz.mifs17@gmail.com,PeruriI460,1
-78,I462,tamawisnu05@gmail.com,PeruriI462,1
-79,I463,Okthatrirejekifauji96@gmail.com,PeruriI463,1
-80,I464,reka23838@gmail.com,PeruriI464,1
-81,I465,rivaldipaskha@gmail.com,PeruriI465,1
-82,I466,yudhiisupriiyadhii@gmail.com,PeruriI466,1
-83,I471,achmadfauzi987@gmail.com,PeruriI471,1
-84,I472,dewawijaya321@gmail.com,PeruriI472,1
-85,I474,lukylukman45@gmail.com,PeruriI474,1
-86,I475,adamakhyan@gmail.com,PeruriI475,1
-87,I476,Faruqrojabi007@gmail.com,PeruriI476,1
-88,I477,marinska354@gmail.com,PeruriI477,1
-89,I501,hajimegayotara16@gmail.com,PeruriI501,1
-90,I655,afifkholis11@gmail.com,PeruriI655,1
-91,I704,roykeane313@gmail.com,PeruriI704,1
-92,I724,iputrar739@gmail.com,PeruriI724,1
-93,J362,-,PeruriJ362,1
-94,J391,andisukardi2004@gmail.com ,PeruriJ391,1
-95,J392,dwisudarmadiputro@gmail.com,PeruriJ392,1
-96,J393,nandiaprianto578@gmail.com,PeruriJ393,1
-97,J394,ridwanpugliara11@gmail.com ,PeruriJ394,1
-98,J395,adestiansyawaludinkholid@gmail.com,PeruriJ395,1
-99,J441,-,PeruriJ441,1
-100,J460,nandalfian12@gmail.com,PeruriJ460,1
-101,7197,hermanmaulanay@gmail.com,Peruri7197,1
-102,7198,Rinakhoerunnissa 16@gmail.com,Peruri7198,1
-103,7199,riska.kartikasari@peruri.co.id ,Peruri7199,1
-104,7202,Kartika.kurniasih@peruri.co.id,Peruri7202,1
-105,7205,pilotwawan1@gmail.com,Peruri7205,1
-106,7206,Eddoy_seluler@yahoo.co.id,Peruri7206,1
-107,7418,azighah@gmail.com,Peruri7418,1
-108,7423,henisuhaeni7423@gmail.com,Peruri7423,1
-109,7426,aris.hudin92@gmail.com,Peruri7426,1
-110,7437,Ndiepratama.sp@gmail.com,Peruri7437,1
-111,7442,fabbyfrazastifridyan@gmail.com ,Peruri7442,1
-112,7443,dd                             ,Peruri7443,1
-113,7201,dwi.cahya@peruri.co.id,Peruri7201,1
-114,J370,-,PeruriJ370,1
-115,J372,-,PeruriJ372,1
-116,J373,-,PeruriJ373,1
-117,J374,-,PeruriJ374,1
-118,J375,-,PeruriJ375,1
-119,J379,-,PeruriJ379,1
-120,J381,-,PeruriJ381,1
+28,H196,febriantiine1@gmail.com,PeruriH196,1
+29,H198,nisamadani99@gmail.com         ,PeruriH198,2
+30,H199,deliaoctriane12@gmail.com      ,PeruriH199,1
+31,I402,deliaharun96@gmail.com         ,PeruriI402,1
+32,I403,dian.oktaviani051@gmail.com    ,PeruriI403,1
+33,I404,apriliantidina8@gmail.com,PeruriI404,1
+34,I405,fitrisetyorini18@gmail.com,PeruriI405,1
+35,I406,Karlinaibrahim1604@gmail.com,PeruriI406,2
+36,I407,khikmayati@gmail.com           ,PeruriI407,1
+37,I409,mialistiana29@gmail.com,PeruriI409,1
+38,I418,adi.pamungkas@peruri.co.id,PeruriI418,1
+39,I420,Agusbungsubule@gmail.com,PeruriI420,1
+40,I421,avrilawiranti99@gmail.com,PeruriI421,1
+41,I423,Citraafridasari1002@gmail.com,PeruriI423,1
+42,I424,daffapratamaputra157@gmail.com,PeruriI424,1
+43,I425,dewiper26@gmail.com,PeruriI425,1
+44,I426,dini@gmail.com,PeruriI426,1
+45,I428,uti.arifiyanto@gmail.com,PeruriI428,1
+46,I429,Hainaapriliani@gmail.com,PeruriI429,1
+47,I430,hermansyah5499@gmail.com,PeruriI430,1
+48,I431,iiskurnia10@gmail.com          ,PeruriI431,1
+49,I432,Julpiabdulmuti8@gmail.com,PeruriI432,1
+50,I434,rifkimuhamad752@gmail.com,PeruriI434,1
+51,I437,nuraidadiah@gmail.com,PeruriI437,1
+52,I441,sofianurrahayu90@gmail.con,PeruriI441,1
+53,I442,trirahayu24799@gmail.com,PeruriI442,1
+54,I444,zulfikar.h9050@gmail.com,PeruriI444,0
+55,I704,roy@gmail.com,PeruriI704,1
+56,H071,Adithyaindra1@gmail.com,PeruriH071,1
+57,G834,windaristika5@gmail.com,PeruriG834,1
+58,G840,kimimas88@gmail.com,PeruriG840,1
+59,G715,zharghifari07@gmail.com,PeruriG715,1
+60,G849,Imasitoh810@gmail.com,PeruriG849,1
+61,H028,khanzasyafa.here@gmail.com,PeruriH028,1
+62,H195,luludwifauziyyah12@gmail.com,PeruriH195,1
+63,I435,nova.amd@gmail.com,PeruriI435,1
+64,H200,putrielmiadevi@gmail.com ,PeruriH200,1
+65,I411,nafisahfauziyah11@gmail.com,PeruriI411,1
+66,I417,mardianadevi.dm@gmail.com,PeruriI417,1
+67,I439,rizkialfani19@gmail.com ,PeruriI439,1
+68,J370,dwindyfitrizan44@gmail.com,PeruriJ370,1
+69,J372,alyanidap@gmail.com,PeruriJ372,1
+70,J373,rismachintia7@gmail.com,PeruriJ373,1
+71,J374,muhamadjamalludi1706@gmail.com,PeruriJ374,1
+72,J375,cicm231217@gmail.com,PeruriJ375,1
+73,J379,dioagung103@gmail.com,PeruriJ379,1
+74,J381,maulanairawan055@gmail.com,PeruriJ381,1
+75,J391,andisukardi2004@gmail.com,PeruriJ391,1
+76,J392,dwisudarmadiputro@gmail.com,PeruriJ392,1
+77,J393,nandiaprianto578@gmail.com,PeruriJ393,1
+78,J394,ridwanpugliara11@gmail.com,PeruriJ394,1
+79,J395,adestiansyawaludinkholid@gmail.com,PeruriJ395,1
+80,J441,template@template.com,PeruriJ441,1

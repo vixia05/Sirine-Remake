@@ -9,6 +9,10 @@ use Auth;
 use App\Models\Evaluasi;
 use App\Models\UserDetails;
 
+use App\Exports\RekapEvaluasiExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+
 class RekapEvaluasi extends Component
 {
     use WithPagination;
@@ -85,5 +89,11 @@ class RekapEvaluasi extends Component
         Evaluasi::findOrFail($this->idEvaluasi)->delete();
         session()->flash('messageDelete', 'Pesan Berhasil Di Hapus');
 
+    }
+
+
+    public function exportExcel()
+    {
+        return (new RekapEvaluasiExport($this->searchNp))->download('rekap_evaluasi.xlsx');
     }
 }

@@ -17,7 +17,7 @@
             {{-- 1.0 Filter & Search Section --}}
             <div
                 class="px-4 py-4 border rounded-t bg-inerhit border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
-                <div class="flex justify-between flex-wrap gap-3">
+                <div class="flex flex-wrap justify-between gap-3">
                     {{-- Filter NP --}}
                     <div class="flex flex-row border border-blue-600 rounded-md brightness-110 dark:focus-within:shadow-lg dark:focus-within:shadow-blue-600/30 dark:focus-within:brightness-125">
                         <div class="px-2 py-1 rounded-l-md dark:bg-slate-800 dark:bg-opacity-50">
@@ -51,7 +51,7 @@
                         </div>
                         {{-- Button Export --}}
                         <div>
-                            <button action="{{ route('dataPegawai.export') }}"
+                            <button wire:click='exportExcel'
                              class="flex gap-2 px-2 py-1 text-green-400 border-2 border-green-400 rounded-md brightness-110 hover:shadow-lg hover:shadow-green-400/30 hover:brightness-125">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                     stroke="currentColor" class="w-5 h-5">

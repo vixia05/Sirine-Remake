@@ -20,6 +20,7 @@ function load_chart()
             }]
         },
         options: {
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     display: false,

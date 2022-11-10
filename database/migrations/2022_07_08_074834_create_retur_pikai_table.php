@@ -16,10 +16,25 @@ class CreateReturPikaiTable extends Migration
         Schema::create('retur_pikai', function (Blueprint $table) {
             $table->id();
             $table->string('np_user');
+            $table->string('nama_user');
             $table->date('tgl_cek');
-            $table->string('category');
-            $table->string('sub_category');
-            $table->integer('jml_retur');
+            $table->string('jenis');
+            $table->integer('blobor')->default(0);
+            $table->integer('hologram')->default(0);
+            $table->integer('miss_reg')->default(0);
+            $table->integer('noda')->default(0);
+            $table->integer('plooi')->default(0);
+            $table->integer('blur')->default(0);
+            $table->integer('gradasi')->default(0);
+            $table->integer('terpotong')->default(0);
+            $table->integer('tipis')->default(0);
+            $table->integer('sobek')->default(0);
+            $table->integer('botak')->default(0);
+            $table->integer('tercampur')->default(0);
+            $table->integer('minyak')->default(0);
+            $table->integer('blanko')->default(0);
+            $table->integer('diecut')->default(0);
+            $table->integer('jml_retur')->default(0);
             $table->timestamps();
 
             // foreign key

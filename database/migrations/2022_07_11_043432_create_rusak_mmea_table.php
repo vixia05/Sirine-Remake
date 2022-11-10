@@ -16,22 +16,21 @@ class CreateRusakMmeaTable extends Migration
         Schema::create('hcts_mmea', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('no_po')->unique();
-            $table->integer('blobor')->nullable();
-            $table->integer('botak')->nullable();
-            $table->integer('blur')->nullable();
-            $table->integer('robek')->nullable();
-            $table->integer('gradasi')->nullable();
-            $table->integer('hologram')->nullable();
-            $table->integer('miss_reg')->nullable();
-            $table->integer('noda')->nullable();
-            $table->integer('sablon')->nullable();
-            $table->integer('spec')->nullable();
-            $table->integer('tercampur')->nullable();
-            $table->integer('diecut')->nullable();
-            $table->integer('tipis')->nullable();
-            $table->integer('zig-zag')->nullable();
-            $table->integer('terkelupas')->nullable();
-            $table->integer('rusak_mesin')->nullable();
+            $table->integer('blobor')->default(0);
+            $table->integer('hologram')->default(0);
+            $table->integer('miss_reg')->default(0);
+            $table->integer('noda')->default(0);
+            $table->integer('plooi')->default(0);
+            $table->integer('blur')->default(0);
+            $table->integer('gradasi')->default(0);
+            $table->integer('terpotong')->default(0);
+            $table->integer('tipis')->default(0);
+            $table->integer('sobek')->default(0);
+            $table->integer('botak')->default(0);
+            $table->integer('tercampur')->default(0);
+            $table->integer('minyak')->default(0);
+            $table->integer('blanko')->default(0);
+            $table->integer('diecut')->default(0);
             $table->timestamps();
 
             // Foreign Key

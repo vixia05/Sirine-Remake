@@ -10,6 +10,10 @@ use Auth;
 use App\Models\ReturPikai;
 use App\Models\UserDetails;
 
+use App\Exports\RekapReturExport;
+// use Maatwebsite\Excel\Facades\Excel;
+// use Maatwebsite\Excel\Concerns\WithHeadingRow;
+
 class RekapRetur extends Component
 {
     use WithPagination;
@@ -18,6 +22,9 @@ class RekapRetur extends Component
     public $blobor,$hologram,$missReg,$noda,$plooi,$blur,$gradasi,$terpotong,$tipis,$sobek,$botak,$tercampur,$diecut;
     protected $queryString = ['search'];
 
+    /**
+     * Render Fungsi Saat Pertama Load
+     */
     public function render()
     {
         $data = ReturPikai::whereLike(['np_user','nama_user'],$this->search ?? '')
@@ -38,6 +45,9 @@ class RekapRetur extends Component
         $this->resetPage();
     }
 
+    /**
+     * Fetch Data Untuk Modal
+     */
     public function edit($id)
     {
         $data = ReturPikai::findOrFail($id);
@@ -61,6 +71,9 @@ class RekapRetur extends Component
         $this->tercampur= $data->tercampur;
     }
 
+    /**
+     * Update Data
+     */
     public function update()
     {
         $validateData = $this->validate([
@@ -101,6 +114,9 @@ class RekapRetur extends Component
         $this->resetInputFields();
     }
 
+    /**
+     * Pass Id Untuk Destroy
+     */
     public function delete($id)
     {
         $this->deleteId = $id;
@@ -110,5 +126,10 @@ class RekapRetur extends Component
     {
         ReturPikai::findOrFail($this->deleteId)->delete();
         session()->flash('messageDelete', 'User Berhasil Di Hapus');
+    }
+
+    public function exportExcel()
+    {
+        return (new RekapReturExport($this->npUser))->download('rekap_retur.xlsx');
     }
 }
