@@ -4025,6 +4025,9 @@ textarea.form-control.is-invalid {
 .col-span-4 {
   grid-column: span 4 / span 4;
 }
+.col-auto {
+  grid-column: auto;
+}
 .row-span-3 {
   grid-row: span 3 / span 3;
 }
@@ -4153,6 +4156,9 @@ textarea.form-control.is-invalid {
 .ml-7 {
   margin-left: 1.75rem;
 }
+.-mt-5 {
+  margin-top: -1.25rem;
+}
 .box-content {
   box-sizing: content-box;
 }
@@ -4203,9 +4209,6 @@ textarea.form-control.is-invalid {
 .h-\[25vh\] {
   height: 25vh;
 }
-.h-\[90vh\] {
-  height: 90vh;
-}
 .h-4 {
   height: 1rem;
 }
@@ -4232,9 +4235,6 @@ textarea.form-control.is-invalid {
 }
 .h-\[80vh\] {
   height: 80vh;
-}
-.h-\[95vh\] {
-  height: 95vh;
 }
 .max-h-96 {
   max-height: 24rem;
@@ -5547,6 +5547,11 @@ textarea.form-control.is-invalid {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 .delay-300 {
   transition-delay: 300ms;
 }
@@ -6436,6 +6441,10 @@ textarea.form-control.is-invalid {
     --tw-bg-opacity: 0.2;
   }
 
+  .dark\:bg-opacity-100 {
+    --tw-bg-opacity: 1;
+  }
+
   .dark\:bg-prism-svg-dark {
     background-image: url('/svg/subtle-prism-dark.svg');
   }
@@ -6695,6 +6704,10 @@ textarea.form-control.is-invalid {
     grid-column: span 1 / span 1;
   }
 
+  .md\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+
   .md\:mb-6 {
     margin-bottom: 1.5rem;
   }
@@ -6817,6 +6830,10 @@ textarea.form-control.is-invalid {
     grid-column: span 3 / span 3;
   }
 
+  .lg\:col-span-6 {
+    grid-column: span 6 / span 6;
+  }
+
   .lg\:row-span-1 {
     grid-row: span 1 / span 1;
   }
@@ -6836,6 +6853,10 @@ textarea.form-control.is-invalid {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .lg\:gap-0 {

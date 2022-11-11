@@ -26,7 +26,10 @@
 
 </head>
 
-<body class="bg-prism-svg-dark font-sans antialiased scrollbar-hide">
+<body class="
+            bg-prism-svg-dark
+            bg-slate-900
+            font-sans antialiased scrollbar-hide">
     <main class="min-w-screen relative min-h-screen overflow-hidden">
         <div class="fixed-top flex w-screen justify-between gap-4 rounded-b px-4 py-1">
             <a href="#" class="flex gap-2 rounded bg-blue-700 px-2 py-0.5 text-blue-100 brightness-125">

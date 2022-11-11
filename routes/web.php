@@ -129,4 +129,11 @@ Route::group(['middleware' => ['auth','verified']], function() {
               Route::get('kahzkhirPikai',[KhazkhirController::class,   'index'])->name('khazkhirPikai');
           });
 
+//--- Input Operator ---//
+//---------------------//
+
+    //--- Pita Cukai ---//
+    Route::view('operator.verif-pikai', 'operator.verif-pikai');
+
+
 require __DIR__.'/auth.php';
