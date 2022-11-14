@@ -17,4 +17,3 @@
 8. Quality Individu
 9. Report Pegawai
 10. Privillage Sistem
-11. Form Input Kepala Meja

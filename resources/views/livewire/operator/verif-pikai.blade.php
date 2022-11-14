@@ -18,7 +18,7 @@
                         <div class="mb-4 flex flex-col w-full">
                             <label for="tglCek"
                                 class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Tanggal</label>
-                            <input type="date"
+                            <input type="date" wire:model='tanggal'
                                 class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600 dark:bg-opacity-40"
                                 required>
                         </div>
@@ -31,7 +31,7 @@
                                 PO</label>
                             <input type="number"
                                 class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600 dark:bg-opacity-40"
-                                wire:model='noPo' wire:change='getSpec()' value="{{ old('noPo') }}" required>
+                                wire:model='noPo' wire:change='getSpec' value="{{ old('noPo') }}" required>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
@@ -59,9 +59,8 @@
                         </div>
                         <div class="flex flex-col">
                             <label for="evaluasi"
-                                class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Terima Dari
-                                Khazwal</label>
-                            <input type="text" disabled
+                                class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Hasil Cetak</label>
+                            <input type="text" disabled wire:model='terima'
                                 class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-100">
                         </div>
                         <div class="flex flex-col">
@@ -111,17 +110,17 @@
                             <div>
                                 <label for="blobor"
                                     class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Blobor</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" wire:model='blobor'
                                     class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="blobor" name="blobor" value="{{ old('blobor') }}">
+                                    >
                             </div>
                             {{-- 2.2. Kelolosan Plooi --}}
                             <div>
                                 <label for="plooi"
                                     class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Plooi</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" wire:model='plooi'
                                     class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="plooi" name="plooi" value="{{ old('plooi') }}">
+                                    >
                             </div>
                             {{-- 2.2. Kelolosan Blur --}}
                             <div>
@@ -129,7 +128,7 @@
                                     class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Blur</label>
                                 <input type="number" min="0"
                                     class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="blur" name="blur" value="{{ old('blur') }}">
+                                    wire:model='blur'>
                             </div>
                             {{-- 2.2. Kelolosan Hologram --}}
                             <div>
@@ -137,7 +136,7 @@
                                     class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Hologram</label>
                                 <input type="number" min="0"
                                     class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="hologram" name="hologram" value="{{ old('hologram') }}">
+                                    wire:model='holo'>
                             </div>
                         </div>
                         {{-- 2.2 Jenis Kelolosan Row 1 --}}
@@ -148,7 +147,7 @@
                                     class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Noda</label>
                                 <input type="number" min="0"
                                     class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="noda" name="noda" value="{{ old('noda') }}">
+                                    wire:model='noda'>
                             </div>
                             {{-- 2.2. Kelolosan Miss Reg --}}
                             <div>
@@ -157,7 +156,7 @@
                                     Register</label>
                                 <input type="number" min="0"
                                     class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="missReg" name="missReg" value="{{ old('missReg') }}">
+                                    wire:model='miss'>
                             </div>
                             {{-- 2.2. Kelolosan Tipis--}}
                             <div>
@@ -165,7 +164,7 @@
                                     class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Tipis</label>
                                 <input type="number" min="0"
                                     class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="tipis" name="tipis" value="{{ old('tipis') }}">
+                                    wire:model='tipis'>
                             </div>
                             {{-- 2.2. Kelolosan Gradasi--}}
                             <div>
@@ -173,7 +172,7 @@
                                     class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Gradasi</label>
                                 <input type="number" min="0"
                                     class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="gradasi" name="gradasi" value="{{ old('gradasi') }}">
+                                    wire:model='gradasi'>
                             </div>
                         </div>
                         {{-- 2.2 Jenis Kelolosan Row 1 --}}
@@ -184,7 +183,7 @@
                                     class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Sobek</label>
                                 <input type="number" min="0"
                                     class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="sobek" name="sobek" value="{{ old('sobek') }}">
+                                    wire:model='sobek'>
                             </div>
                             {{-- 2.2. Kelolosan Terpotong --}}
                             <div>
@@ -192,7 +191,7 @@
                                     class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Terpotong</label>
                                 <input type="number" min="0"
                                     class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="terpotong" name="terpotong" value="{{ old('terpotong') }}">
+                                    wire:model='terpotong'>
                             </div>
                             {{-- 2.2. Kelolosan Tercampur --}}
                             <div>
@@ -200,16 +199,40 @@
                                     class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Tercampur</label>
                                 <input type="number" min="0"
                                     class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="tercampur" name="tercampur" value="{{ old('tercampur') }}">
+                                    wire:model='tercampur'>
                             </div>
                             {{-- 2.2. Kelolosan Botak \ Blanko--}}
                             <div>
                                 <label for="botak"
-                                    class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Botak \
-                                    Blanko</label>
+                                    class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Botak</label>
                                 <input type="number" min="0"
                                     class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="botak" name="botak" value="{{ old('botak') }}">
+                                    wire:model='botak'>
+                            </div>
+                        </div>
+                        <div class="mt-4 grid  grid-cols-2 md:grid-cols-4 gap-4">
+                            {{-- 2.2.1 Kelolosan Sobek --}}
+                            <div>
+                                <label for="minyak"
+                                    class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Minyak</label>
+                                <input type="number" min="0"
+                                    class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
+                                    wire:model='minyak'>
+                            </div>
+                            {{-- 2.2. Kelolosan Terpotong --}}
+                            <div>
+                                <label for="blanko"
+                                    class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Blanko</label>
+                                <input type="number" min="0"
+                                    class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
+                                    wire:model='blanko'>
+                            </div>
+                            <div>
+                                <label for="diecut"
+                                    class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Blanko</label>
+                                <input type="number" min="0"
+                                    class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
+                                    wire:model='diecut'>
                             </div>
                         </div>
                         <div class="mt-6">
@@ -218,12 +241,12 @@
                                     class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Keterangan</label>
                                 <textarea
                                     class="w-full transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 font-light leading-tight drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600  dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                    id="evaluasi" name="evaluasi" value="{{ old('evaluasi') }}" rows="4"></textarea>
+                                    wire:model='keterangan' rows="4"></textarea>
                             </div>
                         </div>
                         {{-- Submit --}}
                         <div class="flex justify-end space-x-2 pt-8">
-                            <button type="submit" data-mdb-ripple="true" data-mdb-ripple-color="light"
+                            <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" wire:click='save'
                                 class="inline-block rounded bg-blue-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-blue-50 shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg">Simpan</button>
                         </div>
                     </div>

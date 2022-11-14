@@ -16,6 +16,7 @@ class CreateRusakMmeaTable extends Migration
         Schema::create('hcts_mmea', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('no_po')->unique();
+            $table->date('tgl_verif')->default(today());
             $table->integer('blobor')->default(0);
             $table->integer('hologram')->default(0);
             $table->integer('miss_reg')->default(0);
@@ -31,6 +32,7 @@ class CreateRusakMmeaTable extends Migration
             $table->integer('minyak')->default(0);
             $table->integer('blanko')->default(0);
             $table->integer('diecut')->default(0);
+            $table->string('keterangan')->nullable();
             $table->timestamps();
 
             // Foreign Key
