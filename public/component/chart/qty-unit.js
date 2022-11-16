@@ -4,20 +4,8 @@ function load_chart()
     const qtyUnit = new Chart(ctxQty, {
         type: 'bar',
         data: {
-            labels: dataChart.date,
-            datasets: [{
-                label: 'Jumlah Verifikasi',
-                data: dataChart.data,
-                backgroundColor: 'rgba(59, 130, 246, 1)',
-                // [
-                //     '#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa',
-                //     '#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa',
-                //     '#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa',
-                //     '#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa','#60a5fa','#3b82f6','#2563eb','#3b82f6','#60a5fa',
-                // ],
-                borderColor: 'rgba(59, 130, 246, 0.8)',
-                borderWidth: 1
-            }]
+            labels: @json($labels),
+            datasets: @json($dataset)
         },
         options: {
             maintainAspectRatio: false,

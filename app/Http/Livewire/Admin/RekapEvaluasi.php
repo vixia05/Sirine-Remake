@@ -16,7 +16,7 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 class RekapEvaluasi extends Component
 {
     use WithPagination;
-    public $search,$searchNp,$idEvaluasi;
+    public $search,$searchNp,$idEvaluasi,$startDate,$endDate;
     public $npKasek,$npKaun,$npUser;
     public $evaKasek,$evaKaun,$resUser;
     protected $queryString = ['search'];
@@ -36,6 +36,9 @@ class RekapEvaluasi extends Component
                         ], $this->search ?? '')
                         ->when($this->searchNp,function($query,$searchNp){
                             return $query->where('np_user',$searchNp);
+                        })
+                        ->when($this->startDate,function($query,$startDate){
+                            return $query->whereBetween('tgl_verif',[$startDate,$this->endDate]);
                         })
                         ->orderBy('updated_at')
                         ->paginate(10);

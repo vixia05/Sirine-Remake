@@ -7,3 +7,10 @@
         </div>
     </div>
 @endsection
+
+@section('plugin-js')
+    <link rel="stylesheet" href="{{ asset('plugins/daterangepicker.css') }}">
+    <script src="{{ asset('plugins/jquery-3.6.1.min.js') }}"></script>
+    <script src="{{ asset('plugins/moment.min.js') }}"></script>
+    <script src="{{ asset('plugins/daterangepicker.min.js') }}"></script>
+@endsection

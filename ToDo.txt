@@ -4,16 +4,12 @@
    2.2 Andon Cetak
    2.3 Andon Khazkhir
    2.4 Overview
-3. Rekap Kelolosan
-   3.3 Year Filter
-4. Rekap Evaluasi
-   4.3 Date Filter
-5. Quantity Unit
-   5.1 Rumus Performa MMEA
+3. Quantity Unit
+   3.1 Rumus Performa MMEA
    ** Cari Algoritma Yang Lebih Efisien **
-6. Quantity Individu
-   6.1 Data table Individu
-7. Quality Unit
-8. Quality Individu
-9. Report Pegawai
-10. Privillage Sistem
+4. Quantity Individu
+   4.1 Data table Individu
+5. Quality Unit
+6. Quality Individu
+7. Report Pegawai
+8. Privillage Sistem

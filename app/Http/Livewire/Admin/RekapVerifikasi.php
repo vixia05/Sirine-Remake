@@ -19,7 +19,7 @@ class RekapVerifikasi extends Component
 
     use WithPagination;
     public $search,$npUser;
-    public $idUser;
+    public $idUser,$startDate,$endDate;
     protected $queryString = ['search'];
 
     public function render()
@@ -28,10 +28,14 @@ class RekapVerifikasi extends Component
                         ->when($this->npUser,function($query,$npUser){
                             return $query->where('np_user',$npUser);
                         })
+                        ->when($this->startDate,function($query,$startDate){
+                            return $query->whereBetween('tgl_verif',[$startDate,$this->endDate]);
+                        })
                         ->orderBy('tgl_verif')
                         ->paginate(10);
 
         return view('livewire.admin.rekap-verifikasi',[
+            'test' => $this->endDate,
             'data' => $data,
             'listNp' => UserDetails::all()->sortBy('nama'),
         ]);

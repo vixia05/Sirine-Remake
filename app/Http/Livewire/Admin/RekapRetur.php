@@ -17,7 +17,7 @@ use App\Exports\RekapReturExport;
 class RekapRetur extends Component
 {
     use WithPagination;
-    public $search,$npUser;
+    public $search,$npUser,$startDate,$endDate;
     public $npEdit,$namaUser,$tglCk3,$jenis,$editId,$deleteId;
     public $blobor,$hologram,$missReg,$noda,$plooi,$blur,$gradasi,$terpotong,$tipis,$sobek,$botak,$tercampur,$diecut;
     protected $queryString = ['search'];
@@ -30,6 +30,9 @@ class RekapRetur extends Component
         $data = ReturPikai::whereLike(['np_user','nama_user'],$this->search ?? '')
                         ->when($this->npUser, function($query, $npUser){
                             return $query->where('np_user',$npUser);
+                        })
+                        ->when($this->startDate,function($query,$startDate){
+                            return $query->whereBetween('tgl_verif',[$startDate,$this->endDate]);
                         })
                         ->orderBy('tgl_cek')
                         ->paginate(10);

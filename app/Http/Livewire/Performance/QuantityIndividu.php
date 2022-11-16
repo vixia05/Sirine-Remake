@@ -18,6 +18,7 @@ class QuantityIndividu extends Component
 
     public $npUser;
     public $listTeam,$team,$listNp;
+    public $startDates,$endDates;
 
     public function mount()
     {
