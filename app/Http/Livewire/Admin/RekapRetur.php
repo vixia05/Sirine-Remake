@@ -32,7 +32,7 @@ class RekapRetur extends Component
                             return $query->where('np_user',$npUser);
                         })
                         ->when($this->startDate,function($query,$startDate){
-                            return $query->whereBetween('tgl_verif',[$startDate,$this->endDate]);
+                            return $query->whereBetween('tgl_cek',[$startDate,$this->endDate]);
                         })
                         ->orderBy('tgl_cek')
                         ->paginate(10);

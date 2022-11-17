@@ -58,6 +58,9 @@
                 <div class="relative w-full md:ml-20">
                     <main>
                         @yield('content')
+                        @isset($slot)
+                            {{ $slot }}
+                        @endisset
                     </main>
                 </div>
             {{-- End Main Content --}}

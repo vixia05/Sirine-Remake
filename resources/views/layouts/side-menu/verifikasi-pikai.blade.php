@@ -10,7 +10,12 @@
 </h6>
 {{-- 1 Input Data --}}
 <li
-    class="{{ Route::is('inputVerifikasi.index') || Route::is('inputRetur.index') || Route::is('inputEvaluasi.index') ? ' bg-slate-300 bg-opacity-30 dark:bg-opacity-10 rounded-md dark:text-gray-300' : '' }} relative mt-12 mb-1.5"
+    class="{{
+              Route::is('operator.verif-pikai')
+              || Route::is('inputVerifikasi.index')
+              || Route::is('inputRetur.index')
+              || Route::is('inputEvaluasi.index') ? ' bg-slate-300 bg-opacity-30 dark:bg-opacity-10 rounded-md dark:text-gray-300' : ''
+            }} relative mt-12 mb-1.5"
     id="inputData">
     <a class="flex cursor-pointer justify-between gap-3 overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-sm text-slate-600 transition duration-300 ease-in-out hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-400/10 dark:hover:text-slate-50"
         data-mdb-ripple="true" data-mdb-ripple-color="light" data-bs-toggle="collapse" data-bs-target="#collapseInputData"
@@ -28,8 +33,25 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
     </a>
-    <ul class="{{ Route::is('inputVerifikasi.index') || Route::is('inputRetur.index') || Route::is('inputEvaluasi.index') ? 'show' : '' }} collapse accordion-collapse relative py-1"
+    <ul class="{{
+                    Route::is('operator.verif-pikai')
+                    || Route::is('inputVerifikasi.index')
+                    || Route::is('inputRetur.index')
+                    || Route::is('inputEvaluasi.index') ? 'show' : ''
+                }} collapse accordion-collapse relative py-1"
         id="collapseInputData" aria-labelledby="inputData" data-bs-parent="#sideNav">
+        {{-- 1.2 Input Data Verifikasi --}}
+        <li class="relative my-1.5">
+            <a href="{{ route('operator.verif-pikai') }}"
+                class="{{ Route::is('operator.verif-pikai') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex gap-3 items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
+                data-mdb-ripple="true" data-mdb-ripple-color="light">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="h-[19px] w-[19px] flex-shrink-0" :class="expandNavbar ? 'ml-2' : '' ">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
+                </svg>
+                <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Checklist Verifikasi</span></a>
+        </li>
         {{-- 1.2 Input Data Verifikasi --}}
         <li class="relative my-1.5">
             <a href="{{ route('inputVerifikasi.index') }}"
@@ -40,7 +62,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
                 </svg>
-                <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Input Verifikasi</span></a>
+                <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Pendapatan Harian</span></a>
         </li>
         {{-- 1.3 Input Data Retur --}}
         <li class="relative my-1.5">
@@ -52,7 +74,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
                 </svg>
-                <span class="">Input Retur</span>
+                <span class="">Input Kelolosan</span>
             </a>
         </li>
         {{-- 1.4 Input Data Evaluasi --}}
@@ -73,7 +95,12 @@
     </ul>
 </li>
 {{-- 2 Rekap Data --}}
-<li class="{{ Route::is('rekapVerif.index') || Route::is('rekapRetur.index') || Route::is('rekapEvaluasi.index') ? ' bg-slate-300 bg-opacity-30 dark:bg-opacity-10 rounded-md dark:text-gray-300' : '' }} relative w-full rounded-lg"
+<li class="{{
+                Route::is('operator.data-prod-verif')
+                || Route::is('rekapVerif.index')
+                || Route::is('rekapRetur.index')
+                || Route::is('rekapEvaluasi.index') ? ' bg-slate-300 bg-opacity-30 dark:bg-opacity-10 rounded-md dark:text-gray-300' : ''
+            }} relative w-full rounded-lg"
     id="rekapData">
     <a class="flex cursor-pointer justify-between gap-3 overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-sm text-slate-600 transition duration-300 ease-in-out hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-400/10 dark:hover:text-slate-50"
         data-mdb-ripple="true" data-mdb-ripple-color="light" data-bs-toggle="collapse"
@@ -95,6 +122,21 @@
         id="collapseRekapData" aria-labelledby="rekapData" data-bs-parent="#sideNav">
         {{-- 2.1 Rekap Verifikasi --}}
         <li class="relative my-1.5">
+            <a href="{{ route('operator.data-prod-verif') }}"
+                class="{{ Route::is('operator.data-prod-verif') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium ' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
+                data-mdb-ripple="true" data-mdb-ripple-color="light">
+                <div class="flex items-center gap-3" :class="expandNavbar ? 'ml-2' : ''">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Produksi Verifikasi</span>
+                </div>
+            </a>
+        </li>
+        {{-- 2.1 Rekap Verifikasi --}}
+        <li class="relative my-1.5">
             <a href="{{ route('rekapVerif.index') }}"
                 class="{{ Route::is('rekapVerif.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium ' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
                 data-mdb-ripple="true" data-mdb-ripple-color="light">
@@ -104,8 +146,8 @@
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                     </svg>
-                    <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Data
-                        Verifikasi</span>
+                        <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">
+                            Pendapatan Harian</span>
                 </div>
             </a>
         </li>

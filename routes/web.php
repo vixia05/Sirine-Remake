@@ -101,6 +101,14 @@ Route::group(['middleware' => ['auth','verified']], function() {
         // Raport Pegawai
             Route::get('report',[ReportController::class, 'index'])->name('report');
 
+
+
+    //--- Input Operator ---//
+
+        // Pita Cukai
+            Route::view('operator.verif-pikai', 'operator.verif-pikai')->name('operator.verif-pikai');
+            Route::get('operator.data-prod-verif',  \App\Http\Livewire\Operator\DataProdVerif::class)->name('operator.data-prod-verif');
+
     //--- Other Utilities ---//
 
         // DropDown Quantity Indiviud
@@ -128,12 +136,6 @@ Route::group(['middleware' => ['auth','verified']], function() {
               // Khazanah Akhir Pikai
               Route::get('kahzkhirPikai',[KhazkhirController::class,   'index'])->name('khazkhirPikai');
           });
-
-//--- Input Operator ---//
-//---------------------//
-
-    //--- Pita Cukai ---//
-    Route::view('operator.verif-pikai', 'operator.verif-pikai');
 
 
 require __DIR__.'/auth.php';

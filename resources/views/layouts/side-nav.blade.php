@@ -7,7 +7,7 @@
     x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100 scale-x-100 -translate-x-0"
     x-transition:leave-end="opacity-0 scale-x-70 -translate-x-1/2">
-    <div :class="expandNavbar ? 'justify-center' : '' " class="top-0 flex items-center gap-3 p-4 duration-300 ease-in-out delay-300 sticky-top bg-slate-900">
+    <div :class="expandNavbar ? 'justify-center' : '' " class="top-0 flex items-center gap-3 p-4 duration-300 ease-in-out delay-300 sticky-top bg-slate-50 dark:bg-slate-900">
             <img src="{{ asset('img/logo-only.png') }}"  class="flex-shrink-0 object-cover h-16">
             <span :class="expandNavbar ? 'opacity-100' : 'opacity-0'" class="font-mono text-3xl font-extrabold duration-300 ease-in-out text-slate-800 dark:text-white">SIRINE</h1>
     </div>
