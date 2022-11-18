@@ -4218,9 +4218,6 @@ textarea.form-control.is-invalid {
 .h-20 {
   height: 5rem;
 }
-.h-screen {
-  height: 100vh;
-}
 .h-auto {
   height: auto;
 }

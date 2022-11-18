@@ -19,19 +19,16 @@
                     {{-- Filter NP --}}
                     <div class="flex flex-row border border-blue-600 rounded-md brightness-110 dark:focus-within:shadow-lg dark:focus-within:shadow-blue-600/30 dark:focus-within:brightness-125">
                         <div class="px-2 py-1 rounded-l-md dark:bg-slate-800 dark:bg-opacity-50">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6 text-blue-600">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0112 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125M20.625 12c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5M12 14.625v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 14.625c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m0 1.5v-1.5m0 0c0-.621.504-1.125 1.125-1.125m0 0h7.5" />
+                              </svg>
+
                         </div>
                         <select
                             class="w-full text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
                             wire:model="npUser">
-                            <option value="0" class="text-center">-- NP/Nama --</option>
-                            @foreach ($listNp as $np)
-                                <option value="{{ $np->np_user }}">{{ $np->nama }} </option>
-                            @endforeach
+                            <option value="PCHT">PCHT</option>
+                            <option value="MMEA">MMEA</option>
                         </select>
                     </div>
                     {{-- Filter Date Range --}}
@@ -43,7 +40,7 @@
                           </svg>
                         </div>
                         <input type="text" id="dateRange" name="dateRange"
-                            class="text-xs w-full font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
+                            class="w-full text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
                             placeholder="Periode" />
                     </div>
                     {{-- Search --}}
@@ -139,7 +136,72 @@
                                     {{-- 2.2 Body Table --}}
                                     <tbody>
                                         @foreach ($data as $datas)
-
+                                        <tr class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
+                                            {{-- Nomor --}}
+                                            <td
+                                                class="px-4 py-2 text-sm text-center whitespace-nowrap border-y border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                {{ $data->firstItem() + $loop->index }}
+                                            </td>
+                                            {{--  --}}
+                                            <td
+                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                {{ $datas->no_obc }}
+                                            </td>
+                                            {{--  --}}
+                                            <td
+                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                {{ $datas->no_po }}
+                                            </td>
+                                            {{--  --}}
+                                            <td
+                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                {{ number_format($datas->rencet,0) }}
+                                            </td>
+                                            {{--  --}}
+                                            <td
+                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                {{ number_format($datas->hcs_verif,) }}
+                                            </td>
+                                            {{--  --}}
+                                            <td
+                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                {{ number_format($datas->hcts_verif,0) }}
+                                            </td>
+                                            {{--  --}}
+                                            <td
+                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                {{-- {{ $datas->no_obc }} --}}
+                                            </td>
+                                            {{--  --}}
+                                            <td
+                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                {{-- {{ $datas->no_obc }} --}}
+                                            </td>
+                                            {{--  --}}
+                                            <td
+                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                {{ $datas->keterangan }}
+                                            </td>
+                                            {{--  --}}
+                                            <td
+                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                {{ $datas->petugas }}
+                                            </td>
+                                            {{--  --}}
+                                            <td
+                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                @if ($datas->mesin == !null)
+                                                    {{ \App\Models\Mesin::where('serial',$datas->mesin)->value('nama_mesin') }}
+                                                @else
+                                                -
+                                                @endif
+                                            </td>
+                                            {{--  --}}
+                                            <td
+                                                class="px-4 py-2 text-sm text-center border-b whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                {{-- {{ $datas->no_obc }} --}}
+                                            </td>
+                                        </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
