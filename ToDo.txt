@@ -1,4 +1,4 @@
-1. Chart Color Jadi Loop
+----------- Main Quest -----------
 2. Andon
    2.1 Andon Verifikasi // tambah orwhere, button next
    2.2 Andon Cetak
@@ -13,3 +13,7 @@
 6. Quality Individu
 7. Report Pegawai
 8. Privillage Sistem
+
+----------- Sub Quest -----------
+
+1. Chart Color Jadi Loop

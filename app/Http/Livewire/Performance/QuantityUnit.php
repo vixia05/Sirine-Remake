@@ -103,32 +103,28 @@ class QuantityUnit extends Component
                                                 /** Menentukan WIP */
                                                     // Subtotal Jumlah Cetak Hingga Hari Tersebut * Tanpa Memasukan Mesin Komori 4
                                                         $sumCetakPcht = OrderPcht::where('mesin','!=','TGN-1032')
-                                                                                    ->whereBetween('tgl_cetak',[$startDate,$sum->pluck('tgl_verif')])
+                                                                                    ->whereBetween('tgl_cetak',[Carbon::parse($startDate)->subdays(1),Carbon::parse($sum['0']['tgl_verif'])->subdays(1)])
                                                                                     ->sum('jml_cetak') ;
+                                                                                    // dump($sumCetakPcht);
 
                                                     // Subtotal Jumlah Baik Periksa Hingga Hari Tersebut * Tanpa Memasukan Mesin Komori 4
                                                         $baikVerifPcht = OrderPcht::where('mesin','!=','TGN-1032')
-                                                                                    ->whereBetween('tgl_verif',[$startDate,$sum->pluck('tgl_verif')])
+                                                                                    ->whereBetween('tgl_verif',[Carbon::parse($startDate)->subdays(1),Carbon::parse($sum['0']['tgl_verif'])->subdays(1)])
                                                                                     ->sum('hcs_verif');
 
                                                     // Subtotal Jumlah Rusak Periksa Hingga Hari Tersebut * Tanpa Memasukan Mesin Komori 4
                                                         $rusakVerifPcht = OrderPcht::where('mesin','!=','TGN-1032')
-                                                                                    ->whereBetween('tgl_verif',[$startDate,$sum->pluck('tgl_verif')])
+                                                                                    ->whereBetween('tgl_verif',[Carbon::parse($startDate)->subdays(1),Carbon::parse($sum['0']['tgl_verif'])->subdays(1)])
                                                                                     ->sum('hcts_verif');
 
-                                                    // Subtotal Jumlah Verifikasi Hari Itu Saja ** Kedepannya cari cara untuk subDays yang di atas untukMengganti ini
-                                                        $lastVerifPcht  = OrderPcht::where('mesin','!=','TGN-1032')
-                                                                                    ->where('tgl_verif',$sum->pluck('tgl_verif'))
-                                                                                    ->sum('rencet');
-
-                                                    // Rumus WIP, WIP = Total Cetak - Baik Periksa + Rusak Periksa + Periksa Hari INI
-                                                        $wip = $sumCetakPcht - ($baikVerifPcht + $rusakVerifPcht) + $lastVerifPcht;
+                                                    // Rumus WIP, WIP = Total Cetak - Baik Periksa + Rusak Periksa
+                                                        $wip = $sumCetakPcht - ($baikVerifPcht + $rusakVerifPcht);
 
                                                 /** End Menentukan WIP */
 
                                                 /** Menentukan Target Harian PCHT Berdasarkan Jumlah Lembar */
                                                     // Default Value Untuk Target Pcht
-                                                        $targetPcht = 0;
+                                                        $targetPcht = 15000;
 
                                                     // Menentukan Target Berdasarkan WIP Harian
                                                         if ($wip < 780000 && $wip > 100000)
@@ -143,6 +139,7 @@ class QuantityUnit extends Component
                                                 /** End Menentukan Target Harian PCHT Berdasarkan Jumlah Lembar */
 
                                                     $hasilPcht  = $sum->sum('jml_verif');
+
                                                     //** Tambah Count Izin Disini <- */
                                                     $persenPcht = $targetPcht == 0 ? 0 : $hasilPcht / $targetPcht * 100;
                                                     $resultInd = 100;

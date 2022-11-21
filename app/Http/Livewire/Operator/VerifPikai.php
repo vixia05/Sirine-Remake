@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Operator;
 
+use Auth;
 use Carbon\Carbon;
 use Livewire\Component;
 
@@ -21,7 +22,6 @@ class VerifPikai extends Component
     public function render()
     {
         $this->listNp   = UserDetails::where('id_unit','4')->orderBy('np_user')->get();
-        $this->tanggal  = today()->format('Y-m-d');
         return view('livewire.operator.verif-pikai',[
             'listNp' => $this->listNp,
         ]);
@@ -85,7 +85,7 @@ class VerifPikai extends Component
                 ],
                 [
                     'blobor'  => $this->blobor  == null ? 0 : $this->blobor,
-                    'hologram'=> $this->holo    == null ? 0 : $this->hologram,
+                    'hologram'=> $this->holo    == null ? 0 : $this->holo,
                     'miss_reg'=> $this->miss    == null ? 0 : $this->miss,
                     'noda'    => $this->noda    == null ? 0 : $this->noda,
                     'plooi'   => $this->plooi   == null ? 0 : $this->plooi,
@@ -97,7 +97,8 @@ class VerifPikai extends Component
                     'minyak'  => $this->minyak  == null ? 0 : $this->minyak,
                     'blanko'  => $this->blanko  == null ? 0 : $this->blanko,
                     'diecut'  => $this->diecut  == null ? 0 : $this->diecut,
-                    'tgl_verif' => $this->tanggal == null ? 0 : $this->tanggal,
+                    'petugas' => $this->npUser  == null ? Auth::user()->np : $this->npUser,
+                    'tgl_periksa' => $this->tanggal == null ? 0 : $this->tanggal,
                     'terpotong'  => $this->terpotong == null ? 0 : $this->terpotong,
                     'tercampur'  => $this->tercampur == null ? 0 : $this->tercampur,
                     'keterangan' => $this->keterangan == null ? "-" : $this->keterangan,
@@ -113,7 +114,7 @@ class VerifPikai extends Component
                 ],
                 [
                     'blobor'  => $this->blobor  == null ? 0 : $this->blobor,
-                    'hologram'=> $this->holo    == null ? 0 : $this->hologram,
+                    'hologram'=> $this->holo    == null ? 0 : $this->holo,
                     'miss_reg'=> $this->miss    == null ? 0 : $this->miss,
                     'noda'    => $this->noda    == null ? 0 : $this->noda,
                     'plooi'   => $this->plooi   == null ? 0 : $this->plooi,
@@ -125,7 +126,8 @@ class VerifPikai extends Component
                     'minyak'  => $this->minyak  == null ? 0 : $this->minyak,
                     'blanko'  => $this->blanko  == null ? 0 : $this->blanko,
                     'diecut'  => $this->diecut  == null ? 0 : $this->diecut,
-                    'tgl_verif' => $this->tanggal == null ? 0 : $this->tanggal,
+                    'petugas' => $this->npUser  == null ? Auth::user()->np : $this->npUser,
+                    'tgl_periksa' => $this->tanggal == null ? 0 : $this->tanggal,
                     'terpotong'  => $this->terpotong == null ? 0 : $this->terpotong,
                     'tercampur'  => $this->tercampur == null ? 0 : $this->tercampur,
                     'keterangan' => $this->keterangan == null ? "-" : $this->keterangan,

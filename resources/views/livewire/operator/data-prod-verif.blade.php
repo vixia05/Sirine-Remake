@@ -26,7 +26,7 @@
                         </div>
                         <select
                             class="w-full text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
-                            wire:model="npUser">
+                            wire:model="produk">
                             <option value="PCHT">PCHT</option>
                             <option value="MMEA">MMEA</option>
                         </select>
@@ -142,52 +142,129 @@
                                                 class="px-4 py-2 text-sm text-center whitespace-nowrap border-y border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 {{ $data->firstItem() + $loop->index }}
                                             </td>
-                                            {{--  --}}
+                                            {{-- OBC --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 {{ $datas->no_obc }}
                                             </td>
-                                            {{--  --}}
+                                            {{-- Nomor PO --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 {{ $datas->no_po }}
                                             </td>
-                                            {{--  --}}
+                                            {{-- Jumlah Cetak --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 {{ number_format($datas->rencet,0) }}
                                             </td>
-                                            {{--  --}}
+                                            {{-- Baik Verifikasi --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 {{ number_format($datas->hcs_verif,) }}
                                             </td>
-                                            {{--  --}}
+                                            {{-- Rusak Verifikasi --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 {{ number_format($datas->hcts_verif,0) }}
                                             </td>
-                                            {{--  --}}
+                                            {{-- Wip / Sisa Baik --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
-                                                {{-- {{ $datas->no_obc }} --}}
+                                                {{-- {{ $datas->petugas }} --}}
                                             </td>
-                                            {{--  --}}
+                                            {{-- Jenis Kerusakan --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
-                                                {{-- {{ $datas->no_obc }} --}}
+                                                class="flex flex-wrap justify-center gap-2 px-4 py-2 text-sm text-center border border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                @if ($datas->blobor == !null)
+                                                    <span
+                                                        class="inline-block whitespace-nowrap rounded-full bg-red-600  py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
+                                                        Blobor ( {{ $datas->blobor }} )
+                                                    </span>
+                                                @endif
+                                                @if ($datas->hologram == !null)
+                                                    <span
+                                                        class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
+                                                        Hologram ({{ $datas->hologram }})
+                                                    </span>
+                                                @endif
+                                                @if ($datas->miss_reg == !null)
+                                                    <span
+                                                        class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
+                                                        Miss Register ({{ $datas->miss_reg }})
+                                                    </span>
+                                                @endif
+                                                @if ($datas->noda == !null)
+                                                    <span
+                                                        class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
+                                                        Noda ({{ $datas->noda }})
+                                                    </span>
+                                                @endif
+                                                @if ($datas->plooi == !null)
+                                                    <span
+                                                        class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
+                                                        Plooi ({{ $datas->plooi }})
+                                                    </span>
+                                                @endif
+                                                @if ($datas->blur == !null)
+                                                    <span
+                                                        class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
+                                                        Blur ({{ $datas->blur }})
+                                                    </span>
+                                                @endif
+                                                @if ($datas->gradasi == !null)
+                                                    <span
+                                                        class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
+                                                        Gradasi ({{ $datas->gradasi }})
+                                                    </span>
+                                                @endif
+                                                @if ($datas->terpotong == !null)
+                                                    <span
+                                                        class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
+                                                        Terpotong ({{ $datas->terpotong }})
+                                                    </span>
+                                                @endif
+                                                @if ($datas->tipis == !null)
+                                                    <span
+                                                        class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
+                                                        Tipis ({{ $datas->tipis }})
+                                                    </span>
+                                                @endif
+                                                @if ($datas->sobek == !null)
+                                                    <span
+                                                        class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
+                                                        Sobek ({{ $datas->sobek }})
+                                                    </span>
+                                                @endif
+                                                @if ($datas->botak == !null)
+                                                    <span
+                                                        class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
+                                                        Botak ({{ $datas->botak }})
+                                                    </span>
+                                                @endif
+                                                @if ($datas->tercampur == !null)
+                                                    <span
+                                                        class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
+                                                        Tercampur ({{ $datas->tercampur }})
+                                                    </span>
+                                                @endif
+                                                @if ($datas->diecut == !null)
+                                                    <span
+                                                        class="inline-block whitespace-nowrap rounded-full bg-red-600 py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
+                                                        Diecut ({{ $datas->diecut }})
+                                                    </span>
+                                                @endif
                                             </td>
-                                            {{--  --}}
+                                            {{-- Keterangan --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="px-4 py-2 text-sm text-center border border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 {{ $datas->keterangan }}
                                             </td>
-                                            {{--  --}}
+                                            {{-- Petugas --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 {{ $datas->petugas }}
                                             </td>
-                                            {{--  --}}
+                                            {{-- Mesin --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 @if ($datas->mesin == !null)
@@ -273,8 +350,8 @@
                     ],
                     "firstDay": 1
                 },
-                "startDate": moment().startOf('month'),
-                "endDate": moment().endOf('month'),
+                "startDate": moment(),
+                "endDate": moment(),
                 "opens": "auto"
             }, function(start, end, label) {
                 @this.set('startDate',start.format('YYYY-MM-DD'));
