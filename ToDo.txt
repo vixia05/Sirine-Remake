@@ -7,8 +7,6 @@
 3. Quantity Unit
    3.1 Rumus Performa MMEA
    ** Cari Algoritma Yang Lebih Efisien **
-4. Quantity Individu
-   4.1 Data table Individu
 5. Quality Unit
 6. Quality Individu
 7. Report Pegawai
@@ -17,3 +15,4 @@
 ----------- Sub Quest -----------
 
 1. Chart Color Jadi Loop
+2. Quantity Individu Rata Rata Dan Target

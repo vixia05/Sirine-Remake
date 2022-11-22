@@ -18,29 +18,110 @@ class QuantityIndividu extends Component
 
     public $npUser;
     public $listTeam,$team,$listNp;
-    public $startDates,$endDates;
+    public $startDate,$endDate;
+
+    public array $dataset = [];
+    public array $labels = [];
 
     public function mount()
     {
         $this->listTeam= Workstation::orderBy('workstation')->get();
-        $this->listNp  = [""];
-        $this->npUser  = Auth::user()->np;
-        $this->endDate = Carbon::now();
-        $this->startDate = Carbon::now()->startOfMonth();
+        $this->listNp  = [];
     }
 
     public function render()
     {
-        $data = QcPikai::where('np_user',$this->npUser)->paginate(10);
+        $data = QcPikai::where('np_user',$this->npUser)
+                       ->whereBetween('tgl_verif',[$this->startDate,$this->endDate])
+                       ->paginate(10);
 
         return view('livewire.performance.quantity-individu',
                     [
-                        'data' => $data,
+                        'data'  => $data,
+                        'listNp'    => $this->listNp,
+                        'listTeam'  => $this->listTeam,
                     ]);
     }
 
     public function listsNp()
     {
-        $this->listNp = UserDetails::where('id_workstation',$this->team)->orderBy('nama')->pluck('np_user');
+        $this->listNp = UserDetails::where('id_workstation',$this->team)->orderBy('nama')->get();
+    }
+
+    public function clearField()
+    {
+        $this->team = '';
+        $this->listNp = [];
+        $this->npUser = '';
+        $this->endDate = Carbon::now();
+        $this->startDate   = Carbon::now();
+    }
+
+    public function mainChart()
+    {
+        $mainData  = QcPikai::where('np_user',$this->npUser)
+                            ->whereBetween('tgl_verif',[$this->startDate,$this->endDate])
+                            ->orderBy('tgl_verif')
+                            ->pluck('jml_verif','tgl_verif');
+
+        $mainLabels     = array_keys($mainData->toArray());
+        $mainDataset    = [
+                            [
+                                'label' => "Hasil Verif",
+                                'backgroundColor' => 'rgba(59, 130, 246, 1)',
+                                'borderColor' => 'rgba(15,64,97,255)',
+                                'data' => $mainData->values(),
+                            ],
+                        ];
+
+        $yearData  = [
+                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',1)->sum('jml_verif') ,
+                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',2)->sum('jml_verif') ,
+                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',3)->sum('jml_verif') ,
+                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',4)->sum('jml_verif') ,
+                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',5)->sum('jml_verif') ,
+                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',6)->sum('jml_verif') ,
+                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',7)->sum('jml_verif') ,
+                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',8)->sum('jml_verif') ,
+                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',9)->sum('jml_verif') ,
+                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',10)->sum('jml_verif'),
+                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',11)->sum('jml_verif'),
+                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',12)->sum('jml_verif'),
+                     ];
+
+        $yearLabels     = [
+                            "Jan",
+                            "Feb",
+                            "Mar",
+                            "Apr",
+                            "Mei",
+                            "Jun",
+                            "Jul",
+                            "Agu",
+                            "Sep",
+                            "Okt",
+                            "Nov",
+                            "Des",
+                          ];
+        $yearDataset    = [
+                            [
+                                'label' => "Hasil Verif",
+                                'backgroundColor' => 'rgba(59, 130, 246, 1)',
+                                'borderColor' => 'rgba(15,64,97,255)',
+                                'data' => $yearData,
+                            ],
+                        ];
+
+        $this->emit('updateMainChart', [
+            'datasets' => $mainDataset,
+            'labels' => $mainLabels,
+        ]);
+
+        $this->emit('updateYearChart', [
+            'datasets' => $yearDataset,
+            'labels' => $yearLabels,
+        ]);
+
+        $this->resetpage();
     }
 }

@@ -1,13 +1,11 @@
-@section('title', 'Quality Individu')
-@extends('layouts.app')
-@section('content')
 <div class="mx-auto px-4 lg:px-8 py-4 md:py-6">
     <div class="grid grid-cols-1 gap-0 md:gap-3 space-y-3 md:grid-cols-3">
         {{-- 1-A Grafik retur/kelolosan tahun ini --}}
         <div
             class="relative p-4 rounded-xl bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter md:col-span-3 lg:col-span-2">
             {{-- 1-A.1 Header --}}
-            <div class="grid grid-rows-1 gap-3 lg:gap-0 md:grid-rows-2 pb-3 mb-3 md:mb-6 border-b-2 border-slate-600/70 dark:border-slate-300">
+            <div
+                class="grid grid-rows-1 gap-3 lg:gap-0 md:grid-rows-2 pb-3 mb-3 md:mb-6 border-b-2 border-slate-600/70 dark:border-slate-300">
                 {{-- 1-A. 1.1 Header Title --}}
                 <div class="flex flex-col">
                     <h5 class="w-full text-xl font-bold text-slate-800 dark:text-slate-100">Data Retur Pita Cukai
@@ -17,16 +15,22 @@
                 {{-- 1-A. 1.2 Filter --}}
                 <div class="my-auto flex justify-end flex-wrap text-slate-800 dark:text-slate-100">
                     {{-- 1-A. 1.1 Filter Team --}}
-                    <select
+                    <select wire:model='team' wire:change='listsNp()'
                         class="w-full md:w-1/4 rounded-l border-blue-400 py-2 pl-2 text-sm font-bold text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
                         <option>Team</option>
-                        <option>Team</option>
-                        <option>Team</option>
+                        @foreach ($listTeam as $teams)
+                            <option value="{{ $teams->id }}">{{ $teams->workstation }}</option>
+                        @endforeach
                     </select>
                     {{-- 1-A. 1.2 Filter Nama / NP --}}
-                    <select
+                    <select wire:model='npUser'
                         class="w-full md:w-1/4 border-blue-400 py-2 pl-2 text-sm font-bold text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
-                        <option>NP / Nama</option>
+                        <option selected>Nama/NP</option>
+                        @forelse ($listNp as $Nps)
+                            <option value="{{ $Nps->np_user }}">{{ $Nps->nama }}</option>
+                        @empty
+
+                        @endforelse
                     </select>
                     {{-- 1-A. 1.3 Filter Tahun --}}
                     <select
@@ -78,8 +82,6 @@
         </div>
     </div>
 </div>
-</div>
-@endsection
 
 @section('plugin-js')
 <link rel="stylesheet" href="{{ asset('plugins/daterangepicker.css') }}">
@@ -90,13 +92,6 @@
 @endsection
 
 @section('script-js')
-<script>
-    var dataChart = {
-            sumRetur : @json($data['sumRetur']),
-            returUsr : @json($data['returUsr']),
-            returUnt : @json($data['returUnt']),
-        }
-</script>
 @push('js')
 <script src="{{ asset('js/performance/qua-individu.js') }}"></script>
 <script src="{{ asset('component/chart/qua-individu.js') }}"></script>

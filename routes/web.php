@@ -10,8 +10,10 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SuperUser\UpdateOrderController;
 
 // Namespace Performance
-use App\Http\Controllers\Performance\QualityController;
-use App\Http\Controllers\Performance\QuantityController;
+use App\Http\Livewire\Performance\QuantityUnit;
+use App\Http\Livewire\Performance\QuantityIndividu;
+use App\Http\Livewire\Performance\QualityUnit;
+use App\Http\Livewire\Performance\QualityIndividu;
 use App\Http\Controllers\Performance\ReportController;
 
 // Namespace Andon
@@ -19,6 +21,9 @@ use App\Http\Controllers\Andon\PitaCukai\VerifikasiController;
 use App\Http\Controllers\Andon\PitaCukai\CetakController;
 use App\Http\Controllers\Andon\PitaCukai\KhazwalController;
 use App\Http\Controllers\Andon\PitaCukai\KhazkhirController;
+
+// Namespace Data Produksi
+use App\Http\Livewire\Operator\DataProdVerif;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +51,7 @@ Route::group(['middleware' => ['auth','verified']], function() {
 
     //--- SuperUser ---//
         Route::group(['namespace' => 'App\Http\Controllers\SuperUser'], function() {
+
             Route::get('updateOrder',[UpdateOrderController::class, 'index'])
                 ->name('updateOrder.index');
 
@@ -67,7 +73,8 @@ Route::group(['middleware' => ['auth','verified']], function() {
 
             // Data Pegawai
                 Route::resource('dataPegawai', DataPegawaiController::class);
-                Route::get('dataPegawai/export', 'DataPegawaiController@export')->name('dataPegawai.export');
+                Route::get('dataPegawai/export', 'DataPegawaiController@export')
+                    ->name('dataPegawai.export');
 
             // Input Data
                 Route::resources([
@@ -88,15 +95,20 @@ Route::group(['middleware' => ['auth','verified']], function() {
     //--- Performance Pegawai ---//
 
         // Quantity
-            Route::get('quantity/unit',     [QuantityController::class,  'indexUnit'])->name('quantity.unit');
-            Route::get('quantity/npTeam',   [QuantityController::class,  'npTeam'])->name('npTeam');
-            Route::get('quantity/chartUnit',[QuantityController::class,  'getUnitChart'])->name('chartUnit');
-            Route::get('quantity/individu', [QuantityController::class,  'indexIndividu'])->name('quantity.individu');
-            Route::get('quantity/chartIndividu',[QuantityController::class,  'getIndividuChart'])->name('chartIndividu');
+            Route::name('quantity.')
+               ->prefix('quantity')
+               ->group(function () {
+                    Route::get('unit',QuantityUnit::class)->name('unit');
+                    Route::get('individu', QuantityIndividu::class)->name('individu');
+               });
 
         // Quality
-            Route::get('quality/unit',     [QualityController::class, 'indexUnit'])->name('quality.unit');
-            Route::get('quality/individu', [QualityController::class, 'indexIndividu'])->name('quality.individu');
+            Route::name('quality.')
+                ->prefix('quality')
+                ->group(function () {
+                    Route::get('unit',QualityUnit::class)->name('unit');
+                    Route::get('individu',QualityIndividu::class)->name('individu');
+                });
 
         // Raport Pegawai
             Route::get('report',[ReportController::class, 'index'])->name('report');
@@ -107,7 +119,7 @@ Route::group(['middleware' => ['auth','verified']], function() {
 
         // Pita Cukai
             Route::view('operator.verif-pikai', 'operator.verif-pikai')->name('operator.verif-pikai');
-            Route::get('operator.data-prod-verif',  \App\Http\Livewire\Operator\DataProdVerif::class)->name('operator.data-prod-verif');
+            Route::get('operator.data-prod-verif', DataProdVerif::class)->name('operator.data-prod-verif');
 
     //--- Other Utilities ---//
 

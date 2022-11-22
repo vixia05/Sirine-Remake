@@ -42,92 +42,101 @@
         </div>
     </div>
 </div>
+
+@section('plugin-js')
+    <link rel="stylesheet" href="{{ asset('plugins/daterangepicker.css') }}">
+    <script src="{{ asset('plugins/jquery-3.6.1.min.js') }}"></script>
+    <script src="{{ asset('plugins/moment.min.js') }}"></script>
+    <script src="{{ asset('plugins/daterangepicker.min.js') }}"></script>
+    <script src="{{ asset('chart.js/chart.min.js') }}"></script>
+@endsection
+
 @push('js')
-{{-- Datepicker --}}
-<script>
-    $('#dateRange').daterangepicker({
-                ranges: {
-                    'Hari Ini': [moment(), moment()],
-                    'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                    '7 Hari Terakhir': [moment().subtract(6, 'days'), moment()],
-                    '30 Hari Terakhir': [moment().subtract(29, 'days'), moment()],
-                    'Bulan Ini': [moment().startOf('month'), moment().endOf('month')],
-                    'Bulan Kemarin': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                },
-                "locale": {
-                    "format": "DD-MM-YYYY",
-                    "separator": " - ",
-                    "applyLabel": "Apply",
-                    "cancelLabel": "Cancel",
-                    "fromLabel": "From",
-                    "toLabel": "To",
-                    "customRangeLabel": "Custom",
-                    "weekLabel": "W",
-                    "daysOfWeek": [
-                        "Min",
-                        "Sen",
-                        "Sel",
-                        "Rab",
-                        "Kam",
-                        "Jum",
-                        "Sab"
-                    ],
-                    "monthNames": [
-                        "Januari",
-                        "Febuari",
-                        "Maret",
-                        "April",
-                        "Mei",
-                        "Juni",
-                        "Juli",
-                        "Augustus",
-                        "September",
-                        "Oktober",
-                        "November",
-                        "December"
-                    ],
-                    "firstDay": 1
-                },
-                "startDate": moment().startOf('month'),
-                "endDate": moment().endOf('month'),
-                "opens": "auto"
-            }, function(start, end, label) {
-                @this.set('startDate',start.format('YYYY-MM-DD'));
-                @this.set('endDate',end.format('YYYY-MM-DD'));;
-            });
-</script>
-{{-- Chart Unit --}}
-<script>
-    $(document).ready(function(){
-        const chart = new Chart(
-                document.getElementById('qtyUnit'), {
-                    type: 'bar',
-                    data: {
-                        labels: @json($labels),
-                        datasets: @json($dataset)
+    {{-- Datepicker --}}
+    <script>
+        $('#dateRange').daterangepicker({
+                    ranges: {
+                        'Hari Ini': [moment(), moment()],
+                        'Kemarin': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                        '7 Hari Terakhir': [moment().subtract(6, 'days'), moment()],
+                        '30 Hari Terakhir': [moment().subtract(29, 'days'), moment()],
+                        'Bulan Ini': [moment().startOf('month'), moment().endOf('month')],
+                        'Bulan Kemarin': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
                     },
-                    options: {
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                display: false,
-                            },
+                    "locale": {
+                        "format": "DD-MM-YYYY",
+                        "separator": " - ",
+                        "applyLabel": "Apply",
+                        "cancelLabel": "Cancel",
+                        "fromLabel": "From",
+                        "toLabel": "To",
+                        "customRangeLabel": "Custom",
+                        "weekLabel": "W",
+                        "daysOfWeek": [
+                            "Min",
+                            "Sen",
+                            "Sel",
+                            "Rab",
+                            "Kam",
+                            "Jum",
+                            "Sab"
+                        ],
+                        "monthNames": [
+                            "Januari",
+                            "Febuari",
+                            "Maret",
+                            "April",
+                            "Mei",
+                            "Juni",
+                            "Juli",
+                            "Augustus",
+                            "September",
+                            "Oktober",
+                            "November",
+                            "December"
+                        ],
+                        "firstDay": 1
+                    },
+                    "startDate": moment().startOf('month'),
+                    "endDate": moment().endOf('month'),
+                    "opens": "auto"
+                }, function(start, end, label) {
+                    @this.set('startDate',start.format('YYYY-MM-DD'));
+                    @this.set('endDate',end.format('YYYY-MM-DD'));;
+                });
+    </script>
+    {{-- Chart Unit --}}
+    <script>
+        $(document).ready(function(){
+            const chart = new Chart(
+                    document.getElementById('qtyUnit'), {
+                        type: 'bar',
+                        data: {
+                            labels: @json($labels),
+                            datasets: @json($dataset)
                         },
-                        scales: {
-                            x: {
-                                display:true,
+                        options: {
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: false,
                                 },
-                            y: {
-                                display:true,
-                                }
                             },
-                    },
-                }
-            );
-            Livewire.on('updateChart', data => {
-                chart.data = data;
-                chart.update();
-            });
-    })
-</script>
+                            scales: {
+                                x: {
+                                    display:true,
+                                    },
+                                y: {
+                                    display:true,
+                                    }
+                                },
+                        },
+                    }
+                );
+                Livewire.on('updateChart', data => {
+                    chart.data = data;
+                    chart.update();
+                });
+        })
+    </script>
 @endpush
