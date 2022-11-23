@@ -23,7 +23,7 @@
                         @endforeach
                     </select>
                     {{-- 1-A. 1.2 Filter Nama / NP --}}
-                    <select wire:model='npUser'
+                    <select wire:model='npUser' wire:change='updateChart'
                         class="w-full md:w-1/4 border-blue-400 py-2 pl-2 text-sm font-bold text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
                         <option selected>Nama/NP</option>
                         @forelse ($listNp as $Nps)
@@ -33,8 +33,9 @@
                         @endforelse
                     </select>
                     {{-- 1-A. 1.3 Filter Tahun --}}
-                    <select
+                    <select wire:model='year' wire:change='updateChart'
                         class="w-full md:w-1/4 border-blue-400 py-2 pl-2 text-sm font-bold text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
+                        {{-- <option value="2021" selected>2021</option> --}}
                         <option value="2022" selected>2022</option>
                     </select>
                     {{-- 1-A. 1.4 Reset --}}
@@ -48,7 +49,7 @@
 
             {{-- 1-A.2 Canvas / Grafik Kelolosan Tahun --}}
             <div class="relative flex flex-col justify-center object-cover w-full h-fit md:h-5/6">
-                <canvas id="quaIndividu" name="quaIndividu"></canvas>
+                <canvas wire:ignore id="quaIndividu" name="quaIndividu"></canvas>
             </div>
             {{-- ** End Canvas / Grafik Kelolosan Tahun ** --}}
         </div>
@@ -64,7 +65,7 @@
                 </div>
                 {{-- Chart --}}
                 <div class="object-cover w-full pt-6 h-fit md:h-5/6">
-                    <canvas id="typeIndividu" name="typeIndividu"></canvas>
+                    <canvas wire:ignore id="typeIndividu" name="typeIndividu"></canvas>
                 </div>
             </div>
             <div
@@ -76,13 +77,13 @@
                 </div>
                 {{-- Chart --}}
                 <div class="object-cover w-full pt-6 h-fit md:h-5/6">
-                    <canvas id="typeUnit" name="typeUnit"></canvas>
+                    <canvas wire:ignore id="typeUnit" name="typeUnit"></canvas>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+@section('title','Quality Individu')
 @section('plugin-js')
 <link rel="stylesheet" href="{{ asset('plugins/daterangepicker.css') }}">
 <script src="{{ asset('plugins/jquery-3.6.1.min.js') }}"></script>
@@ -93,7 +94,89 @@
 
 @section('script-js')
 @push('js')
-<script src="{{ asset('js/performance/qua-individu.js') }}"></script>
-<script src="{{ asset('component/chart/qua-individu.js') }}"></script>
+    <script>
+            const ctxQuaIndividu  = document.getElementById('quaIndividu').getContext('2d');
+            const ctxTypeIndividu = document.getElementById('typeIndividu').getContext('2d');
+            const ctxTypeUnit     = document.getElementById('typeUnit').getContext('2d');
+
+            // Total Kelolosan
+            const qualityIndividu = new Chart(ctxQuaIndividu, {
+                type: 'bar',
+                data: {
+                        labels: @json($mainLabels),
+                        datasets: @json($mainDataset)
+                    },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            // Jenis Kerusakan Individu
+            const typeIndividu = new Chart(ctxTypeIndividu, {
+                type: 'polarArea',
+                data: {
+                        labels: @json($jenisLabels),
+                        datasets: @json($jenisDataset)
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend : {
+                            display : false,
+                        }
+                    },
+                    scales: {
+                        y: {
+                            display : false,
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            // Chart Jenis Kerusakan Unit
+            const typeUnit = new Chart(ctxTypeUnit, {
+                type: 'polarArea',
+                data: {
+                        labels: @json($jenisLabels),
+                        datasets: @json($jenisDataset)
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend : {
+                            display : false,
+                        }
+                    },
+                    scales: {
+                        y: {
+                            display:false,
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            Livewire.on('updateMainChart', data => {
+                            qualityIndividu.data = data;
+                            qualityIndividu.update();
+                        });
+
+            Livewire.on('updateJenisIndChart', data => {
+                            typeIndividu.data = data;
+                            typeIndividu.update();
+                        });
+
+            Livewire.on('updateJenisUniChart', data => {
+                            typeUnit.data = data;
+                            typeUnit.update();
+                        });
+    </script>
+
+{{-- <script src="{{ asset('js/performance/qua-individu.js') }}"></script>
+<script src="{{ asset('component/chart/qua-individu.js') }}"></script> --}}
 @endpush
 @endsection

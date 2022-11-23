@@ -8,7 +8,6 @@
    3.1 Rumus Performa MMEA
    ** Cari Algoritma Yang Lebih Efisien **
 5. Quality Unit
-6. Quality Individu
 7. Report Pegawai
 8. Privillage Sistem
 
