@@ -37,7 +37,7 @@ use App\Http\Livewire\Operator\DataProdVerif;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::view('/test', 'test');

@@ -23,38 +23,41 @@
             <img src="/public/img/logo-only.png" class="w-24 mx-auto">
             <h3 class="mx-auto text-3xl text-slate-100 ">Sirine</h3>
             <span class="text-slate-100">-- Sistem Informasi Kinerja --</span>
-            <div class="flex flex-col gap-4 my-4">
-                <div
-                    class="flex justify-start gap-2 transition duration-300 ease-in-out border-b focus-within:border-b-blue-500 focus-within:brightness-125">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                        class="w-4 h-4 mx-auto my-auto text-slate-100">
-                        <path
-                            d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z" />
-                    </svg>
-                    <input type="text" class="py-1 pb-1 outline-none text-slate-100 bg-inherit placeholder-slate-100"
-                        placeholder="Username">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="flex flex-col gap-4 my-4">
+                    <div
+                        class="flex justify-start gap-2 transition duration-300 ease-in-out border-b focus-within:border-b-blue-500 focus-within:brightness-125">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            class="w-4 h-4 mx-auto my-auto text-slate-100">
+                            <path
+                                d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z" />
+                        </svg>
+                        <input type="text" id="email" name="email" class="py-1 pb-1 outline-none text-slate-100 bg-inherit placeholder-slate-100"
+                            placeholder="Username">
+                    </div>
+                    <div
+                        class="flex justify-start gap-2 transition duration-300 ease-in-out border-b focus-within:border-b-blue-500 focus-within:brightness-125">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            class="w-4 h-4 mx-auto my-auto text-slate-100">
+                            <path fill-rule="evenodd"
+                                d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <input type="password" id="password" name="password"
+                            class="py-1 pb-1 outline-none text-slate-100 bg-inherit placeholder-slate-100"
+                            placeholder="Password">
+                    </div>
+                    <button type="submit"
+                        class="py-1 mt-4 text-blue-100 transition duration-300 ease-in-out bg-blue-600 rounded shadow-lg brightness-125 shadow-blue-600/30 hover:bg-blue-600/90">
+                        Sign-in
+                    </button>
+                    <button
+                        class="py-1 text-blue-100 transition duration-300 ease-in-out bg-blue-600 rounded shadow-lg brightness-125 shadow-blue-600/30 hover:bg-blue-600/90">
+                        Andon
+                    </button>
                 </div>
-                <div
-                    class="flex justify-start gap-2 transition duration-300 ease-in-out border-b focus-within:border-b-blue-500 focus-within:brightness-125">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                        class="w-4 h-4 mx-auto my-auto text-slate-100">
-                        <path fill-rule="evenodd"
-                            d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <input type="password"
-                        class="py-1 pb-1 outline-none text-slate-100 bg-inherit placeholder-slate-100"
-                        placeholder="Password">
-                </div>
-                <button
-                    class="py-1 mt-4 text-blue-100 transition duration-300 ease-in-out bg-blue-600 rounded shadow-lg brightness-125 shadow-blue-600/30 hover:bg-blue-600/90">
-                    Sign-in
-                </button>
-                <button
-                    class="py-1 text-blue-100 transition duration-300 ease-in-out bg-blue-600 rounded shadow-lg brightness-125 shadow-blue-600/30 hover:bg-blue-600/90">
-                    Andon
-                </button>
-            </div>
+            </form>
         </div>
     </div>
 </body>
