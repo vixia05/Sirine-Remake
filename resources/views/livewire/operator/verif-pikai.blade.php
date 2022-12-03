@@ -3,17 +3,17 @@
         <div class="flex justify-center">
             <div
                 class="p-4 font-semibold rounded-md bg-white/70 text-slate-800 backdrop-blur-sm backdrop-filter dark:bg-slate-800 dark:bg-opacity-70 dark:text-slate-100">
-                <h6 class="pb-2 text-xl border-b-2 border-slate-600 dark:border-slate-100"> </h6>
+                <h6 class="pb-2 text-xl border-b-2 border-slate-600 dark:border-slate-100"> Input Verifikasi </h6>
                 @if(session('success'))
-                <div
-                    class="p-2 my-3 text-center text-green-100 bg-green-500 rounded shadow-lg brightness-110 shadow-green-500/50">
-                    <h5 class="text-2xl">Data Berhasil Di Simpan</h5>
-                </div>
+                    <div
+                        class="p-2 my-3 text-center text-green-100 bg-green-500 rounded shadow-lg brightness-110 shadow-green-500/50">
+                        <h5 class="text-2xl">OBC {{ session('success') }} Berhasil Di Simpan</h5>
+                    </div>
                 @endif
                 <form>
                     @method('post')
                     @csrf
-                    <div class="grid grid-cols-2">
+                    <div class="grid grid-cols-2 mt-4">
                         {{-- 1.3 Input Tanggal --}}
                         <div class="flex flex-col w-full mb-4">
                             <label for="tglCek"
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-2">
-                        {{-- 1.3 Input Tanggal --}}
+                        {{-- 1.3 Input PO --}}
                         <div class="flex flex-col w-full mb-4">
                             <label for="tglCek"
                                 class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Nomor
@@ -38,11 +38,23 @@
                         {{-- 1.1 Input NP --}}
                         <div class="flex flex-col mb-4">
                             <label for="np"
-                                class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Nomor
-                                Pegawai</label>
+                                class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Petugas 1</label>
                             <select required
                                 class="w-full font-light leading-tight transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600 dark:bg-opacity-40 dark:focus:bg-opacity-100"
-                                wire:model='npUser'>
+                                wire:model='petugas1'>
+                                @foreach ($listNp as $np)
+                                    <option value="{{ $np->np_user }}">{{ $np->np_user }} - {{ $np->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        {{-- 1.1 Input NP --}}
+                        <div class="flex flex-col mb-4">
+                            <label for="np"
+                                class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Petugas 2</label>
+                            <select required
+                                class="w-full font-light leading-tight transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600 dark:bg-opacity-40 dark:focus:bg-opacity-100"
+                                wire:model='petugas2'>
+                                <option value="-" selected>-</option>
                                 @foreach ($listNp as $np)
                                     <option value="{{ $np->np_user }}">{{ $np->np_user }} - {{ $np->nama }}</option>
                                 @endforeach
@@ -51,6 +63,16 @@
                     </div>
                     {{-- Spesifikasi --}}
                     <div class="grid grid-cols-2 gap-4 mt-6 text-center md:grid-cols-4 lg:grid-cols-6">
+                        <div class="flex flex-col mb-4">
+                            <label for="jenis"
+                                class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">Jenis</label>
+                            <select required
+                                class="w-full font-light leading-tight transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600 dark:bg-opacity-40 dark:focus:bg-opacity-100"
+                                wire:model='jenis'>
+                                    <option value="PCHT">PCHT</option>
+                                    <option value="MMEA">MMEA \ HPTL</option>
+                            </select>
+                        </div>
                         <div class="flex flex-col">
                             <label for="evaluasi"
                                 class="inline-block pb-2 font-medium text-slate-800 dark:text-slate-100">OBC</label>
@@ -253,8 +275,10 @@
                         </div>
                         {{-- Submit --}}
                         <div class="flex justify-end pt-8 space-x-2">
-                            <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" wire:click='save'
-                                class="inline-block rounded bg-blue-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-blue-50 shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg">Simpan</button>
+                            <button x-data
+                                    @click.prevent="window.scrollTo({top: 0, behavior: 'smooth'})"
+                                    type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" wire:click='save'
+                                    class="inline-block rounded bg-blue-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-blue-50 shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg">Simpan</button>
                         </div>
                     </div>
                 </form>

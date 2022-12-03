@@ -15,9 +15,15 @@ use App\Models\HctsMmea;
 class VerifPikai extends Component
 {
     public $listNp;
-    public $tanggal,$noPo,$npUser;
+    public $tanggal,$noPo,$petugas1,$petugas2;
     public $obc,$terima,$koPab,$seri,$hje,$bpb,$warna,$jht,$jenis;
-    public $blobor,$holo,$miss,$noda,$plooi,$blur,$gradasi,$terpotong,$tipis,$sobek,$botak,$tercampur,$minyak,$blanko,$diecut,$keterangan;
+    public $blobor,$holo,$miss,$noda,$plooi,$blur,$gradasi,$terpotong,$tipis,$sobek,$botak,$tercampur,$minyak,$blanko,$diecut,$keterangan,$wip;
+
+    public function mount()
+    {
+        $this->tanggal   = Carbon::today()->format('Y-m-d');
+        $this->petugas1  = Auth::user()->np;
+    }
 
     public function render()
     {
@@ -43,22 +49,25 @@ class VerifPikai extends Component
 
         else
         {
-            $this->jenis = null;
             $data = null;
         }
-        $this->obc    = $data->pluck('no_obc');
-        $this->terima = $data->pluck('rencet');
+        $this->obc    = $data == null ? "" : $data->pluck('no_obc');
+        $this->terima = $data == null ? "" : $data->pluck('rencet');
     }
 
     public function resetInputField()
     {
-        $this->noPo = '';
+        session()->flash('success',$this->obc);
+
+        $this->blanko = '';
         $this->blobor = '';
+        $this->blur   = '';
+        $this->diecut = '';
         $this->holo   = '';
         $this->miss   = '';
+        $this->noPo = '';
         $this->noda   = '';
         $this->plooi  = '';
-        $this->blur   = '';
         $this->gradasi = '';
         $this->terpotong = '';
         $this->tipis = '';
@@ -66,9 +75,11 @@ class VerifPikai extends Component
         $this->botak = '';
         $this->tercampur = '';
         $this->minyak = '';
-        $this->blanko = '';
-        $this->diecut = '';
+        $this->wip = '';
         $this->keterangan = '';
+        $this->obc = '';
+        $this->terima = '';
+
     }
 
     public function save()
@@ -97,7 +108,8 @@ class VerifPikai extends Component
                     'minyak'  => $this->minyak  == null ? 0 : $this->minyak,
                     'blanko'  => $this->blanko  == null ? 0 : $this->blanko,
                     'diecut'  => $this->diecut  == null ? 0 : $this->diecut,
-                    'petugas' => $this->npUser  == null ? Auth::user()->np : $this->npUser,
+                    'petugas1' => $this->petugas1  == null ? Auth::user()->np : $this->petugas1,
+                    'petugas2' => $this->petugas2  == null ? "-" : $this->petugas2,
                     'tgl_periksa' => $this->tanggal == null ? 0 : $this->tanggal,
                     'terpotong'  => $this->terpotong == null ? 0 : $this->terpotong,
                     'tercampur'  => $this->tercampur == null ? 0 : $this->tercampur,
@@ -126,7 +138,8 @@ class VerifPikai extends Component
                     'minyak'  => $this->minyak  == null ? 0 : $this->minyak,
                     'blanko'  => $this->blanko  == null ? 0 : $this->blanko,
                     'diecut'  => $this->diecut  == null ? 0 : $this->diecut,
-                    'petugas' => $this->npUser  == null ? Auth::user()->np : $this->npUser,
+                    'petugas1' => $this->petugas1  == null ? Auth::user()->np : $this->petugas1,
+                    'petugas2' => $this->petugas2  == null ? "-" : $this->petugas2,
                     'tgl_periksa' => $this->tanggal == null ? 0 : $this->tanggal,
                     'terpotong'  => $this->terpotong == null ? 0 : $this->terpotong,
                     'tercampur'  => $this->tercampur == null ? 0 : $this->tercampur,

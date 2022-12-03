@@ -45,7 +45,7 @@ class VerifikasiController extends Controller
      */
     public function orderPcht()
     {
-        $getOrder = OrderPcht::whereMonth('tgl_obc',today())->get();
+        $getOrder = OrderPcht::whereMonth('tgl_obc',11)->get();
         $totalOrder = $getOrder->sum('rencet');
 
         $orderP   = $getOrder->where('jenis','P')
@@ -101,7 +101,7 @@ class VerifikasiController extends Controller
      */
     public function orderMmea()
     {
-        $getOrder = OrderMmea::whereMonth('tgl_obc',today())->get();
+        $getOrder = OrderMmea::whereMonth('tgl_obc',11)->get();
         $totalOrder = $getOrder->sum('rencet');
 
         $orderMmea   = $getOrder->where('jenis','MMEA')

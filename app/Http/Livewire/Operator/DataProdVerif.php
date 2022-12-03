@@ -15,22 +15,24 @@ use App\Models\UserDetails;
 class DataProdVerif extends Component
 {
     use WithPagination;
-    public $produk = 'PCHT';
+    public $produk;
     private $join;
     public $search,$npUser,$startDate,$endDate;
     protected $queryString = ['search'];
+
+    public function mount()
+    {
+        $this->produk = "PCHT";
+        $this->startDate = today();
+        $this->endDate  = today();
+    }
 
     public function render()
     {
         $this->data();
 
-        $data = $this->join->whereLike(['petugas','no_obc',],$this->search ?? '')
-                            ->when($this->startDate,function($query,$startDate){
-                                return $query->whereBetween('tgl_periksa',[$startDate,$this->endDate]);
-                            })
-                            ->orderBy('created_at')
-                            ->paginate(10);
-
+        $data = $this->join;
+        // dd($this->join);
         $listNp = UserDetails::all();
         return view('livewire.operator.data-prod-verif',[
             'data'  => $data,
@@ -50,7 +52,13 @@ class DataProdVerif extends Component
                                 'order_pcht.hcs_verif',
                                 'order_pcht.hcts_verif',
                                 'order_pcht.mesin',
-                                );
+                                )
+                            ->whereLike(['petugas1','petugas2','no_obc',],$this->search ?? '')
+                            ->when($this->startDate,function($query,$startDate){
+                                return $query->whereBetween('tgl_periksa',[$startDate,$this->endDate]);
+                            })
+                            ->orderBy('created_at')
+                            ->paginate(25);
         }
         elseif($this->produk == 'MMEA')
         {
@@ -62,7 +70,13 @@ class DataProdVerif extends Component
                                 'order_mmea.hcs_verif',
                                 'order_mmea.hcts_verif',
                                 'order_mmea.mesin',
-                                );
+                                )
+                                ->whereLike(['petugas1','petugas2','no_obc',],$this->search ?? '')
+                                ->when($this->startDate,function($query,$startDate){
+                                    return $query->whereBetween('tgl_periksa',[$startDate,$this->endDate]);
+                                })
+                                ->orderBy('created_at')
+                                ->paginate(25);
         }
     }
 }

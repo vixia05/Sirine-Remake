@@ -160,7 +160,7 @@
                                     <tbody>
                                         @foreach ($data as $datas)
                                         <tr
-                                            class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
+                                            class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10 border-b border-slate-400 dark:border-slate-500">
                                             {{-- Nomor --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center whitespace-nowrap border-y border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
@@ -198,7 +198,7 @@
                                             </td>
                                             {{-- Jenis Kerusakan --}}
                                             <td
-                                                class="flex flex-wrap justify-center gap-2 px-4 py-2 text-sm text-center border border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="flex flex-wrap justify-center gap-2 px-4 py-2 text-sm text-center dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 @if ($datas->blobor == !null)
                                                 <span
                                                     class="inline-block whitespace-nowrap rounded-full bg-red-600  py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
@@ -286,7 +286,7 @@
                                             {{-- Petugas --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
-                                                {{ $datas->petugas }}
+                                                {{ $datas->petugas1 }} | {{ $datas->petugas2 }}
                                             </td>
                                             {{-- Mesin --}}
                                             <td

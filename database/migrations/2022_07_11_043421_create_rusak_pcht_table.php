@@ -17,6 +17,8 @@ class CreateRusakPchtTable extends Migration
             $table->id();
             $table->bigInteger('no_po')->unique();
             $table->date('tgl_verif')->default(today());
+            $table->string('petugas1','4');
+            $table->string('petugas1','4')->nullable();
             $table->integer('blobor')->default(0);
             $table->integer('hologram')->default(0);
             $table->integer('miss_reg')->default(0);
