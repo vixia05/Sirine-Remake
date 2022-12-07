@@ -1,9 +1,9 @@
-<div class="grid grid-cols-1" x-data="{editModal : false, deleteModal : false}">
+<div class="grid grid-cols-1 px-10 py-10" x-data="{editModal : false, deleteModal : false}">
     <form>
-        @include('components.modal.edit-retur')
+        @include('components.modal.edit-checklist')
     </form>
     <form>
-        @include('components.modal.delete-retur')
+        @include('components.modal.delete-checklist')
     </form>
     <div
         class="w-full rounded-md bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
@@ -160,7 +160,7 @@
                                     <tbody>
                                         @foreach ($data as $datas)
                                         <tr
-                                            class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10 border-b border-slate-400 dark:border-slate-500">
+                                            class="transition duration-300 ease-in-out border-b hover:bg-slate-400 hover:bg-opacity-10 border-slate-400 dark:border-slate-500">
                                             {{-- Nomor --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center whitespace-nowrap border-y border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
@@ -178,17 +178,17 @@
                                             </td>
                                             {{-- Jumlah Cetak --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="text-right px-4 py-2 text-sm border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 {{ number_format($datas->rencet,0) }}
                                             </td>
                                             {{-- Baik Verifikasi --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="px-4 py-2 text-sm text-right border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 {{ number_format($datas->hcs_verif,) }}
                                             </td>
                                             {{-- Rusak Verifikasi --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="px-4 py-2 text-sm text-right border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 {{ number_format($datas->hcts_verif,0) }}
                                             </td>
                                             {{-- Wip / Sisa Baik --}}
@@ -198,7 +198,7 @@
                                             </td>
                                             {{-- Jenis Kerusakan --}}
                                             <td
-                                                class="flex flex-wrap justify-center gap-2 px-4 py-2 text-sm text-center dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="flex flex-wrap justify-start max-w-sm gap-2 px-4 py-2 text-sm text-center dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 @if ($datas->blobor == !null)
                                                 <span
                                                     class="inline-block whitespace-nowrap rounded-full bg-red-600  py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
@@ -301,7 +301,34 @@
                                             {{-- --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center border-b whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
-                                                {{-- {{ $datas->no_obc }} --}}
+                                                <div class="flex justify-center gap-2">
+                                                    <button type="button" data-mdb-ripple="true"
+                                                        @click.prevent="editModal = true"
+                                                        wire:click='edit({{ $datas->no_po }})'
+                                                        data-mdb-ripple-color="light"
+                                                        class="inline-block px-2 py-1.5 text-sm font-semibold transition duration-150 drop-shadow-md  brightness-150 shadow-green-500/50 ease-in-out bg-green-600 rounded shadow-md leading-tighttext-slate-200 hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg">
+                                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 20 20" fill="currentColor">
+                                                                <path
+                                                                    d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                                                <path fill-rule="evenodd"
+                                                                    d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                                                    clip-rule="evenodd" />
+                                                            </svg>
+                                                    </button>
+                                                    <button type="button" data-mdb-ripple="true"
+                                                        @click.prevent="deleteModal = true"
+                                                        wire:click='delete({{ $datas->no_po }})'
+                                                        data-mdb-ripple-color="light"
+                                                        class="inline-block px-2 py-1.5 text-sm font-semibold transition duration-150 drop-shadow-md  brightness-150 shadow-red-500/50 ease-in-out bg-red-600 rounded shadow-md leading-tighttext-slate-200 hover:bg-red-600 hover:shadow-lg focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-lg">
+                                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+                                                            viewBox="0 0 20 20" fill="currentColor">
+                                                            <path fill-rule="evenodd"
+                                                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                                clip-rule="evenodd" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -316,7 +343,7 @@
             {{-- 3.0 Footer --}}
             <div
                 class="px-10 py-2 overflow-hidden border-b rounded-b border-x border-slate-400 bg-inerhit dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 text-slate-800 dark:text-slate-100 ">
-                {{-- {{ $data->links('vendor.livewire.tailwind') }} --}}
+                {{ $data->links('vendor.livewire.tailwind') }}
             </div>
             {{-- End Footer --}}
         </div>

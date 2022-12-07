@@ -6,7 +6,7 @@
             <div class="grid grid-cols-2 gap-4">
                 {{-- A. Header & Filter --}}
                 <div class="relative col-span-2 w-full rounded-lg bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 p-6 dark:backdrop-blur-sm dark:backdrop-filter">
-                    <div class="border-b-2 border-slate-600/70 dark:border-slate-300/70 pb-4">
+                    <div class="border-b-2 border-slate-600 /70 dark:border-slate-300/70 pb-4">
                         <h3 class="text-center font-mono text-2xl font-semibold text-slate-600 dark:text-slate-300">REPORT PERFORMANCE</h3>
                     </div>
                     {{-- 1.0 Biodata --}}
@@ -20,41 +20,41 @@
                             <label for=""
                                 class="inline-block py-1 text-sm font-medium text-slate-700 dark:text-slate-200">Periode</label>
                             <input type="date"
-                                class="rounded-md border-slate-600bg-zinc-100/70 text-sm leading-tight text-slate-600 dark:text-slate-300 placeholder-slate-600 dark:placeholder-white drop-shadow-md focus:outline-2 focus:ring-blue-400">
+                                class="rounded-md dark:bg-slate-800 border-slate-600 bg-zinc-100/70 text-sm leading-tight text-slate-600 dark:text-slate-300 placeholder-slate-600 dark:placeholder-slate-400 drop-shadow-md focus:outline-2 focus:ring-blue-400">
                             {{-- 1.3 Nama User --}}
                             <label for="" class="inline-block py-1 text-sm font-medium text-slate-700 dark:text-slate-200">Nama</label>
                             <input type="text"
-                                class="rounded-md border-slate-600bg-zinc-100/70 text-sm leading-tight text-slate-600 dark:text-slate-300 placeholder-slate-600 dark:placeholder-white drop-shadow-md focus:outline-2 focus:ring-blue-400"
+                                class="rounded-md dark:bg-slate-800 border-slate-600 bg-zinc-100/70 text-sm leading-tight text-slate-600 dark:text-slate-300 placeholder-slate-600 dark:placeholder-slate-400 drop-shadow-md focus:outline-2 focus:ring-blue-400"
                                 placeholder="Nama">
                             {{-- 1.4 Nomor Pokok User --}}
                             <label for="" class="inline-block py-1 text-sm font-medium text-slate-700 dark:text-slate-200">Nomor
                                 Pokok</label>
                             <input type="text"
-                                class="rounded-md border-slate-600bg-zinc-100/70 text-sm leading-tight text-slate-600 dark:text-slate-300 placeholder-slate-600 dark:placeholder-white drop-shadow-md focus:outline-2 focus:ring-blue-400"
+                                class="rounded-md dark:bg-slate-800 border-slate-600 bg-zinc-100/70 text-sm leading-tight text-slate-600 dark:text-slate-300 placeholder-slate-600 dark:placeholder-slate-400 drop-shadow-md focus:outline-2 focus:ring-blue-400"
                                 placeholder="Nomor Pokok">
                             {{-- 1.5 Workstation User --}}
                             <label for=""
                                 class="inline-block py-1 text-sm font-medium text-slate-700 dark:text-slate-200">Workstation</label>
                             <input type="text"
-                                class="rounded-md border-slate-600bg-zinc-100/70 text-sm leading-tight text-slate-600 dark:text-slate-300 placeholder-slate-600 dark:placeholder-white drop-shadow-md focus:outline-2 focus:ring-blue-400"
+                                class="rounded-md dark:bg-slate-800 border-slate-600 bg-zinc-100/70 text-sm leading-tight text-slate-600 dark:text-slate-300 placeholder-slate-600 dark:placeholder-slate-400 drop-shadow-md focus:outline-2 focus:ring-blue-400"
                                 placeholder="Workstation">
                             {{-- 1.6 Quantitas User --}}
                             <label for=""
                                 class="inline-block py-1 text-sm font-medium text-slate-700 dark:text-slate-200">Kuantitas</label>
                             <input type="text"
-                                class="rounded-md border-slate-600bg-zinc-100/70 text-sm leading-tight text-slate-600 dark:text-slate-300 placeholder-slate-600 dark:placeholder-white drop-shadow-md focus:outline-2 focus:ring-blue-400"
+                                class="rounded-md dark:bg-slate-800 border-slate-600 bg-zinc-100/70 text-sm leading-tight text-slate-600 dark:text-slate-300 placeholder-slate-600 dark:placeholder-slate-400 drop-shadow-md focus:outline-2 focus:ring-blue-400"
                                 placeholder="Kuantitas">
                             {{-- 1.7 Qualitas User --}}
                             <label for=""
                                 class="inline-block py-1 text-sm font-medium text-slate-700 dark:text-slate-200">Kualitas</label>
                             <input type="text"
-                                class="rounded-md border-slate-600bg-zinc-100/70 text-sm leading-tight text-slate-600 dark:text-slate-300 placeholder-slate-600 dark:placeholder-white drop-shadow-md focus:outline-2 focus:ring-blue-400"
+                                class="rounded-md dark:bg-slate-800 border-slate-600 bg-zinc-100/70 text-sm leading-tight text-slate-600 dark:text-slate-300 placeholder-slate-600 dark:placeholder-slate-400 drop-shadow-md focus:outline-2 focus:ring-blue-400"
                                 placeholder="Kualitas">
                             {{-- 1.8 Total Performance User --}}
                             <label for="" class="inline-block py-1 text-sm font-medium text-slate-700 dark:text-slate-200">Total
                                 Performance</label>
                             <input type="text"
-                                class="rounded-md border-slate-600bg-zinc-100/70 text-sm leading-tight text-slate-600 dark:text-slate-300 placeholder-slate-600 dark:placeholder-white drop-shadow-md focus:outline-2 focus:ring-blue-400"
+                                class="rounded-md dark:bg-slate-800 border-slate-600 bg-zinc-100/70 text-sm leading-tight text-slate-600 dark:text-slate-300 placeholder-slate-600 dark:placeholder-slate-400 drop-shadow-md focus:outline-2 focus:ring-blue-400"
                                 placeholder="Performance">
                         </div>
                         <div class="my-auto h-full w-1/2">
@@ -67,7 +67,7 @@
                 {{-- B. Performance Monthly --}}
                 <div class="relative w-full rounded-lg bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 p-6 dark:backdrop-blur-sm dark:backdrop-filter">
                     {{-- 1. Header --}}
-                    <div class="mb-2 border-b-2 border-slate-600/70 dark:border-slate-300/70 pb-4">
+                    <div class="mb-2 border-b-2 border-slate-600 /70 dark:border-slate-300/70 pb-4">
                         <h3 class="text-center font-mono text-2xl font-semibold text-slate-600 dark:text-slate-300">Performance Tahun 2022</h3>
                     </div>
                     {{-- 2. Body Canvas --}}
@@ -79,7 +79,7 @@
                 {{-- C. Performance Weekly --}}
                 <div class="relative w-full rounded-lg bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 p-6 dark:backdrop-blur-sm dark:backdrop-filter">
                     {{-- 1. Header --}}
-                    <div class="mb-2 border-b-2 border-slate-600/70 dark:border-slate-300/70 pb-4">
+                    <div class="mb-2 border-b-2 border-slate-600 /70 dark:border-slate-300/70 pb-4">
                         <h3 class="text-center font-mono text-2xl font-semibold text-slate-600 dark:text-slate-300">Performance Bulan
                             {{ now()->format('F') }}</h3>
                     </div>

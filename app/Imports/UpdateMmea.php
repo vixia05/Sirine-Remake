@@ -8,6 +8,7 @@ use Illuminate\Support\Collection;
 use Carbon\Carbon;
 
 use App\Models\OrderMmea;
+use App\Models\HctsMmea;
 
 use \PhpOffice\PhpSpreadsheet\Shared\Date;
 use Maatwebsite\Excel\Concerns\ToCollection;
@@ -61,6 +62,23 @@ class UpdateMmea implements ToCollection, WithHeadingRow
                 'mesin'         => $row['work_center'],
             ]);
         }
+
+
+        $notNull = OrderMmea::whereMonth('tgl_verif',today())
+                        ->where('tgl_verif','!=',null)
+                        ->get()
+                        ->map(function($data){
+                            hctsMmea::firstOrCreate(
+                                [
+                                    'no_po' => $data->no_po
+                                ],
+                                [
+                                    'petugas1' => "-",
+                                    'petugas1' => "-",
+                                    'tgl_periksa' => $data->tgl_verif
+                                ]
+                                );
+                        });
 
         return redirect()->back();
     }

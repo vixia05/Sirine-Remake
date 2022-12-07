@@ -8,6 +8,7 @@ use Illuminate\Support\Collection;
 use Carbon\Carbon;
 
 use App\Models\OrderPcht;
+use App\Models\HctsPcht;
 
 use \PhpOffice\PhpSpreadsheet\Shared\Date;
 use Maatwebsite\Excel\Concerns\ToCollection;
@@ -51,6 +52,21 @@ class UpdatePcht implements ToCollection, WithHeadingRow
                 'mesin'         => $row['work_center'],
             ]);
         }
+
+        $notNull = OrderPcht::whereMonth('tgl_verif',today())
+                        ->where('tgl_verif','!=',null)
+                        ->get()
+                        ->map(function($data){
+                            hctsPcht::firstOrCreate(
+                                [
+                                    'no_po' => $data->no_po
+                                ],
+                                [
+                                    'petugas1' => 7443,
+                                    'tgl_periksa' => $data->tgl_verif
+                                ]
+                                );
+                        });
 
         return redirect()->back();
     }

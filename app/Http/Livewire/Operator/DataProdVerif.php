@@ -18,6 +18,7 @@ class DataProdVerif extends Component
     public $produk;
     private $join;
     public $search,$npUser,$startDate,$endDate;
+    public $tglVerif,$blobor,$holo,$miss,$noda,$plooi,$blur,$gradasi,$terpotong,$tipis,$sobek,$botak,$tercampur,$minyak,$blanko,$diecut,$keterangan,$wip;
     protected $queryString = ['search'];
 
     public function mount()
@@ -77,6 +78,132 @@ class DataProdVerif extends Component
                                 })
                                 ->orderBy('created_at')
                                 ->paginate(25);
+        }
+    }
+
+    /**
+     * Function for retrive data
+     * for edit modal
+     */
+    public function edit($po)
+    {
+        if(HctsPcht::where('no_po',$po)->exists())
+        {
+            $get = HctsPcht::where('no_po',$po);
+        }
+
+        elseif(HctsMmea::where('no_po',$po)->exists())
+        {
+            $get = HctsMmea::where('no_po',$po);
+        }
+
+        $this->tglVerif  = $get->value('tgl_periksa');
+        $this->blanko    = $get->value('blanko');
+        $this->blobor    = $get->value('blobor');
+        $this->blur      = $get->value('blur');
+        $this->diecut    = $get->value('diecut');
+        $this->holo      = $get->value('hologram');
+        $this->miss      = $get->value('miss_reg');
+        $this->noPo      = $get->value('no_po');
+        $this->noda      = $get->value('noda');
+        $this->plooi     = $get->value('plooi');
+        $this->gradasi   = $get->value('gradasi');
+        $this->terpotong = $get->value('terpotong');
+        $this->tipis     = $get->value('tipis');
+        $this->sobek     = $get->value('sobek');
+        $this->botak     = $get->value('botak');
+        $this->tercampur = $get->value('tercampur');
+        $this->minyak    = $get->value('minyak');
+        $this->wip       = '';
+        $this->obc       = '';
+        $this->keterangan = $get->value('keterangan');
+    }
+
+    /**
+     * Function for update and passing
+     * value to server
+     *
+     */
+    public function update()
+    {
+        // dd($this->noPo);
+        if($this->produk == "PCHT")
+        {
+            HctsPcht::where('no_po',$this->noPo)
+                    ->update([
+                                'blobor'  => $this->blobor  == null ? 0 : $this->blobor,
+                                'hologram'=> $this->holo    == null ? 0 : $this->holo,
+                                'miss_reg'=> $this->miss    == null ? 0 : $this->miss,
+                                'noda'    => $this->noda    == null ? 0 : $this->noda,
+                                'plooi'   => $this->plooi   == null ? 0 : $this->plooi,
+                                'blur'    => $this->blur    == null ? 0 : $this->blur,
+                                'gradasi' => $this->gradasi == null ? 0 : $this->gradasi,
+                                'tipis'   => $this->tipis   == null ? 0 : $this->tipis,
+                                'sobek'   => $this->sobek   == null ? 0 : $this->sobek,
+                                'botak'   => $this->botak   == null ? 0 : $this->botak,
+                                'minyak'  => $this->minyak  == null ? 0 : $this->minyak,
+                                'blanko'  => $this->blanko  == null ? 0 : $this->blanko,
+                                'diecut'  => $this->diecut  == null ? 0 : $this->diecut,
+                                // 'petugas1' => $this->petugas1  == null ? Auth::user()->np : $this->petugas1,
+                                // 'petugas2' => $this->petugas2  == null ? "-" : $this->petugas2,
+                                'tgl_periksa' => $this->tglVerif == null ? 0 : $this->tglVerif,
+                                'terpotong'  => $this->terpotong == null ? 0 : $this->terpotong,
+                                'tercampur'  => $this->tercampur == null ? 0 : $this->tercampur,
+                                'keterangan' => $this->keterangan == null ? "-" : $this->keterangan,
+                    ]);
+        }
+        else
+        {
+            HctsMmea::where('no_po',$this->noPo)
+                    ->update([
+                        'blobor'  => $this->blobor  == null ? 0 : $this->blobor,
+                        'hologram'=> $this->holo    == null ? 0 : $this->holo,
+                        'miss_reg'=> $this->miss    == null ? 0 : $this->miss,
+                        'noda'    => $this->noda    == null ? 0 : $this->noda,
+                        'plooi'   => $this->plooi   == null ? 0 : $this->plooi,
+                        'blur'    => $this->blur    == null ? 0 : $this->blur,
+                        'gradasi' => $this->gradasi == null ? 0 : $this->gradasi,
+                        'tipis'   => $this->tipis   == null ? 0 : $this->tipis,
+                        'sobek'   => $this->sobek   == null ? 0 : $this->sobek,
+                        'botak'   => $this->botak   == null ? 0 : $this->botak,
+                        'minyak'  => $this->minyak  == null ? 0 : $this->minyak,
+                        'blanko'  => $this->blanko  == null ? 0 : $this->blanko,
+                        'diecut'  => $this->diecut  == null ? 0 : $this->diecut,
+                        // 'petugas1' => $this->petugas1  == null ? Auth::user()->np : $this->petugas1,
+                        // 'petugas2' => $this->petugas2  == null ? "-" : $this->petugas2,
+                        'tgl_periksa' => $this->tglVerif == null ? 0 : $this->tglVerif,
+                        'terpotong'  => $this->terpotong == null ? 0 : $this->terpotong,
+                        'tercampur'  => $this->tercampur == null ? 0 : $this->tercampur,
+                        'keterangan' => $this->keterangan == null ? "-" : $this->keterangan,
+            ]);
+        }
+    }
+
+    /**
+     *
+     */
+    public function delete($po)
+    {
+        if(HctsPcht::where('no_po',$po)->exists())
+        {
+            $this->noPo = HctsPcht::where('no_po',$po)->value('no_po');
+        }
+
+        elseif(HctsMmea::where('no_po',$po)->exists())
+        {
+            $this->noPo = HctsMmea::where('no_po',$po)->value('no_po');
+        }
+    }
+
+    public function destroy()
+    {
+        if($this->product = "PCHT")
+        {
+            HctsPcht::where('no_po',$this->noPo)->delete();
+        }
+        else
+        {
+            HctsMmea::where('no_po',$this->noPo)->delete();
         }
     }
 }
