@@ -35,7 +35,7 @@ class InputVerifikasi extends Component
                                         ->value('id_workstation');
         $this->lembur = '0';
 
-        $this->tglVerif = Carbon::today();
+        $this->tglVerif = Carbon::today()->format('Y-m-d');
 
     }
 
@@ -90,7 +90,7 @@ class InputVerifikasi extends Component
         $this->saveIzin();
         $this->resetField();
 
-        session()->flash('saveModal', 'Data Berhasil Di Simpan');
+        session()->flash('success', 'Data Berhasil Di Simpan');
     }
 
 
@@ -103,116 +103,129 @@ class InputVerifikasi extends Component
         private function saveJmlVerif()
         {
             if($this->verifikasi == !null)
+            {
+                foreach($this->verifikasi as $key => $verif)
                 {
-                    $this->npUser = array_keys($this->verifikasi);
-                    for($i=0;$i<count($this->npUser);$i++)
-                        {
-                            QcPikai::updateOrCreate(
-                                    [
-                                        'np_user'   => $this->npUser[$i],
-                                        'nama_user' => UserDetails::where('np_user',$this->npUser)->pluck('nama')[$i],
-                                        'tgl_verif' => $this->tglVerif,
-                                        'id_station'=> $this->workstation,
-                                    ],
-                                    [
-                                        'jml_verif' => collect($this->verifikasi)->values()[$i],
-                                    ]);
-                        }
+                    QcPikai::updateOrCreate(
+                        [
+                            'tgl_verif' => $this->tglVerif,
+                            'np_user'   => $key,
+                            'id_station'=> $this->workstation
+                        ],
+                        [
+                            'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
+                            'jml_verif' => $verif,
+                        ]
+                    );
+                }
+            }
+            else{
 
-                }
-            else
-                {
-                    //
-                }
+            }
         }
 
     // 2. Save Jumlah OBC
         private function saveJmlObc()
         {
             if($this->obc == !null)
+            {
+                foreach($this->obc as $key => $obc)
                 {
-                    $this->npUser = array_keys($this->obc);
-                    for($i=0;$i<count($this->obc);$i++)
-                        {
-                            QcPikai::updateOrCreate(
-                                    [
-                                        'np_user'   => $this->npUser[$i],
-                                        'nama_user' => UserDetails::where('np_user',$this->npUser)->pluck('nama')[$i],
-                                        'tgl_verif' => $this->tglVerif,
-                                        'id_station'=> $this->workstation,
-                                    ],
-                                    [
-                                        'jml_obc' => collect($this->obc)->values()[$i],
-                                    ]);
-                        }
-
+                    QcPikai::updateOrCreate(
+                        [
+                            'tgl_verif' => $this->tglVerif,
+                            'np_user'   => $key,
+                            'id_station'=> $this->workstation
+                        ],
+                        [
+                            'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
+                            'jml_obc'   => $obc,
+                        ]
+                    );
                 }
+            }
             else
-                {
-                    //
-                }
+            {
+
+            }
         }
 
     // 3. Save Keterangan
         private function saveKeterangan()
         {
             if($this->keterangan == !null)
+            {
+                foreach($this->keterangan as $key => $keterangan)
                 {
-                    $this->npUser = array_keys($this->keterangan);
-                    for($i=0;$i<count($this->keterangan);$i++)
-                        {
-                            QcPikai::updateOrCreate(
-                                    [
-                                        'np_user'   => $this->npUser[$i],
-                                        'nama_user' => UserDetails::where('np_user',$this->npUser)->pluck('nama')[$i],
-                                        'tgl_verif' => $this->tglVerif,
-                                        'id_station'=> $this->workstation,
-                                    ],
-                                    [
-                                        'keterangan' => collect($this->keterangan)->values()[$i],
-                                    ]);
-                        }
-
+                    QcPikai::updateOrCreate(
+                        [
+                            'tgl_verif' => $this->tglVerif,
+                            'np_user'   => $key,
+                            'id_station'=> $this->workstation
+                        ],
+                        [
+                            'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
+                            'keterangan'   => $keterangan,
+                        ]
+                    );
                 }
+            }
             else
-                {
-                    //
-                }
+            {
+
+            }
         }
 
     // 4. Save Lembur
         private function saveLembur()
         {
-           // Check Jika Lembur awal & akhir ada recordnya
-           $array = [];
-           $lembur = [];
-           if($this->lembur == !null)
+            if($this->lembur == !null)
             {
-                 $this->npUser = array_keys($this->lembur);
-                 for($i = 0; $i < count($this->lembur); $i++)
-                     {
-                         QcPikai::updateOrCreate(
-                            [
-                                'np_user'   => $this->npUser[$i],
-                                'nama_user' => UserDetails::where('np_user',$this->npUser)->pluck('nama')[$i],
-                                'tgl_verif' => $this->tglVerif,
-                                'id_station'=> $this->workstation,
-                            ],
-                            [
-                                'lembur'    => collect($this->lembur)->values()[$i],
-                            ]);
-                     }
+                foreach($this->lembur as $key => $lembur)
+                {
+                    QcPikai::updateOrCreate(
+                        [
+                            'tgl_verif' => $this->tglVerif,
+                            'np_user'   => $key,
+                            'id_station'=> $this->workstation
+                        ],
+                        [
+                            'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
+                            'lembur'   => $lembur,
+                        ]
+                    );
+                }
             }
-           else
-           {
-            //
-           }
+            else
+            {
+
+            }
         }
 
     // 6. Save Perizinan
         private function saveIzin()
         {
+            if($this->izin == !null)
+            {
+                foreach($this->izin as $key => $izin)
+                {
+                    QcPikai::updateOrCreate(
+                        [
+                            'tgl_verif' => $this->tglVerif,
+                            'np_user'   => $key,
+                            'id_station'=> $this->workstation
+                        ],
+                        [
+                            'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
+                            'izin'      => $izin,
+                        ]
+                    );
+                }
+            }
+            else
+            {
 
+            }
         }
 
 }
