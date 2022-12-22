@@ -40,14 +40,6 @@ class CreateOrderPchtTable extends Migration
             $table->string('status')->nullable()->default('-');
             $table->string('mesin')->nullable();
             $table->timestamps();
-
-            // Foreign Key
-            // $table->foreign('serial_mesin')
-            //       ->references('serial')
-            //       ->on('mesin')
-            //       ->onUpdate('cascade')
-            //       ->onDelete('no action')
-            //       ->constrained();
         });
     }
 

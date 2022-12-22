@@ -15,51 +15,37 @@ class CreateEvaluasiTable extends Migration
     {
         Schema::create('evaluasi', function (Blueprint $table) {
             $table->id();
-            $table->string('np_kasek')->nullable();
-            $table->string('np_kaun')->nullable();
-            $table->string('np_user')->nullable();
-            $table->string('nama_kasek')->nullable();
-            $table->string('nama_kaun')->nullable();
-            $table->string('nama_user')->nullable();
-            $table->text('eva_kasek')
+            $table->string('np_user')
                   ->nullable();
-
-            $table->text('eva_kaun')
+            $table->string('np_evaluator')
                   ->nullable();
-
-            $table->text('response')
-                  ->nullable();
-
+            $table->string('evaluasi')
+                  ->default("-");
+            $table->string('response')
+                  ->default("-");
+            $table->integer('status')
+                  ->default(0);
             $table->date('post_date')
                   ->default(now());
-
             $table->date('response_date')
                   ->nullable();
-
             $table->timestamps();
 
 
             // Foreign Key
-            // $table->foreign('np_kasek')
-            //       ->references('np')
-            //       ->on('users')
-            //       ->onUpdate('cascade')
-            //       ->onDelete('no action')
-            //       ->constrained();
+                $table->foreign('np_evaluator')
+                    ->references('np')
+                    ->on('users')
+                    ->onUpdate('cascade')
+                    ->onDelete('no action')
+                    ->constrained();
 
-            // $table->foreign('np_kaun')
-            //       ->references('np')
-            //       ->on('users')
-            //       ->onUpdate('cascade')
-            //       ->onDelete('no action')
-            //       ->constrained();
-
-            // $table->foreign('np_user')
-            //       ->references('np')
-            //       ->on('users')
-            //       ->onUpdate('cascade')
-            //       ->onDelete('no action')
-            //       ->constrained();
+                $table->foreign('np_user')
+                    ->references('np')
+                    ->on('users')
+                    ->onUpdate('cascade')
+                    ->onDelete('no action')
+                    ->constrained();
         });
     }
 

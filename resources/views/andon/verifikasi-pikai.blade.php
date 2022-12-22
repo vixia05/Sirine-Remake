@@ -72,7 +72,7 @@
             <div
                 class="relative h-[40vh] w-full overflow-hidden rounded-lg bg-slate-800 bg-opacity-80 px-6 pt-2 pb-3 shadow-md shadow-slate-500/40 drop-shadow-lg backdrop-blur backdrop-filter">
                 <h3 class="pb-2 text-4xl font-bold text-center border-b-2 text-slate-300">Total Order <span
-                        class="text-blue-500 brightness-125">PCHT</span> November</h3>
+                        class="text-blue-500 brightness-125">PCHT</span> {{ today()->format('F') }}</h3>
                 <div class="relative flex flex-col justify-center h-full -mt-5">
                     <h1 class="font-bold text-center text-blue-300 text-9xl brightness-125">{{ number_format($orderPcht['total'],0) }}</h1>
                 </div>
@@ -99,7 +99,7 @@
                 <div
                     class="h-[25vh] overflow-hidden rounded-lg bg-slate-800 bg-opacity-80 px-6 pt-2 pb-3 shadow-md shadow-slate-500/40 drop-shadow-lg backdrop-blur backdrop-filter">
                     <h6 class="pb-2 text-2xl font-bold text-left border-b-2 text-slate-300">Sisa Order <span
-                            class="text-cyan-500 brightness-200">PCHT</span> November </h6>
+                            class="text-cyan-500 brightness-200">PCHT</span> {{ today()->format('F') }} </h6>
                     <div class="flex flex-col justify-center">
                         <h4 class="text-6xl font-bold text-right text-cyan-300 brightness-125">{{ number_format($orderPcht['sisaAll'],0) }}</h4>
                     </div>
@@ -107,7 +107,7 @@
                 <div
                     class="h-[25vh] overflow-hidden rounded-lg bg-slate-800 bg-opacity-80 px-6 pt-2 pb-3 shadow-md shadow-slate-500/40 drop-shadow-lg backdrop-blur backdrop-filter">
                     <h6 class="pb-2 text-2xl font-bold text-left border-b-2 text-slate-300"> <span
-                            class="text-orange-600 brightness-200">WIP PCHT</span> November </h6>
+                            class="text-orange-600 brightness-200">WIP PCHT</span> {{ today()->format('F') }} </h6>
                     <div class="flex flex-col justify-center">
                         <h4 class="text-6xl font-bold text-right text-orange-300 brightness-125">{{ number_format($orderPcht['wip'],0) }}</h4>
                     </div>
@@ -176,7 +176,7 @@
             <div
                 class="relative h-[40vh] w-full overflow-hidden rounded-lg bg-slate-800 bg-opacity-80 px-6 pt-2 pb-3 shadow-md shadow-slate-500/40 drop-shadow-lg backdrop-blur backdrop-filter">
                 <h3 class="pb-2 text-4xl font-bold text-center border-b-2 text-slate-300">Total Order <span
-                        class="text-yellow-500 brightness-125">MMEA</span> November</h3>
+                        class="text-yellow-500 brightness-125">MMEA</span> {{ today()->format('F') }}</h3>
                 <div class="relative flex flex-col justify-center h-full -mt-5">
                     <h1 class="font-bold text-center text-yellow-300 text-9xl brightness-125">{{ number_format($orderMmea['total'],0) }}</h1>
                 </div>

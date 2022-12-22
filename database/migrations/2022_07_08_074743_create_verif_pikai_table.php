@@ -13,29 +13,35 @@ class CreateVerifPikaiTable extends Migration
      */
     public function up()
     {
-        Schema::create('Qc_Pc', function (Blueprint $table) {
+        Schema::create('verif_pikai', function (Blueprint $table) {
             $table->id();
             $table->string('np_user');
-            $table->string('nama_user');
             $table->date('tgl_verif');
+            $table->string('jenis')->nullable()->default("PCHT");
             $table->integer('jml_verif')->nullable()->default(0);
             $table->integer('jml_obc')->nullable()->default(0);
             $table->integer('target')->default(30);
             $table->integer('lembur')->nullable()->default(0);
             $table->integer('izin')->nullable()->default(0);
-            $table->string('keterangan')->nullable()->default("-");
-            $table->integer('id_station');
-            $table->string('jenis')->nullable()->default("PCHT");
+            $table->foreignId('id_workstation');
             $table->integer('validation')->default(0);
+            $table->string('keterangan')->nullable()->default("-");
             $table->timestamps();
 
-            // // foreign key
-            // $table->foreign('np_user')
-            //       ->references('np')
-            //       ->on('users')
-            //       ->onUpdate('cascade')
-            //       ->onDelete('no action')
-            //       ->constrained();
+            // foreign key
+            $table->foreign('np_user')
+                  ->references('np')
+                  ->on('users')
+                  ->onUpdate('cascade')
+                  ->onDelete('no action')
+                  ->constrained();
+
+            $table->foreign('id_workstation')
+                  ->references('id')
+                  ->on('workstation')
+                  ->onUpdate('cascade')
+                  ->onDelete('no action')
+                  ->constrained();
         });
     }
 
@@ -46,6 +52,6 @@ class CreateVerifPikaiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Qc_Pc');
+        Schema::dropIfExists('verif_pikai');
     }
 }

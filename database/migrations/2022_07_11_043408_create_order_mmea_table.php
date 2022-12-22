@@ -17,7 +17,6 @@ class CreateOrderMmeaTable extends Migration
 
             $table->bigInteger('no_po')->unique();
             $table->string('no_obc');
-            $table->string('jenis');
             $table->date('tgl_obc')  ->nullable();
             $table->date('tgl_jt')   ->nullable();
             $table->date('tgl_bb')   ->nullable();
@@ -39,14 +38,6 @@ class CreateOrderMmeaTable extends Migration
             $table->string('status')->nullable()->default('-');
             $table->string('mesin')->nullable();
             $table->timestamps();
-
-            // Foreign Key
-            // $table->foreign('mesin')
-            //       ->references('serial')
-            //       ->on('mesin')
-            //       ->onUpdate('cascade')
-            //       ->onDelete('no action')
-            //       ->constrained();
         });
     }
 

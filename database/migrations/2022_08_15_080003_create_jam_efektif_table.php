@@ -15,12 +15,18 @@ class CreateJamEfektifTable extends Migration
     {
         Schema::create('jam_efektif', function (Blueprint $table) {
             $table->id();
-            $table->string('unit');
-            $table->string('group');
             $table->integer('gilir');
             $table->integer('jam_efektif');
-            $table->integer('target_jam');
+            $table->foreignId('id_unit');
+            $table->integer('target');
             $table->timestamps();
+
+            $table->foreign('id_unit')
+                  ->references('id')
+                  ->on('unit')
+                  ->onUpdate('cascade')
+                  ->onDelete('no action')
+                  ->constrained();
         });
     }
 
