@@ -53,11 +53,11 @@ class UpdatePcht implements ToCollection, WithHeadingRow
             ]);
         }
 
-        $notNull = OrderPcht::whereMonth('tgl_verif',today())
+        OrderPcht::whereMonth('tgl_verif',today())
                         ->where('tgl_verif','!=',null)
                         ->get()
                         ->map(function($data){
-                            hctsPcht::firstOrCreate(
+                            HctsPcht::firstOrCreate(
                                 [
                                     'no_po' => $data->no_po
                                 ],

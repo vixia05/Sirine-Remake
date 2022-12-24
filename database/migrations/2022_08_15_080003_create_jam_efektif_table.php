@@ -17,8 +17,8 @@ class CreateJamEfektifTable extends Migration
             $table->id();
             $table->integer('gilir');
             $table->integer('jam_efektif');
-            $table->foreignId('id_unit');
             $table->integer('target');
+            $table->foreignId('id_unit');
             $table->timestamps();
 
             $table->foreign('id_unit')

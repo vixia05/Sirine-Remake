@@ -64,17 +64,17 @@ class UpdateMmea implements ToCollection, WithHeadingRow
         }
 
 
-        $notNull = OrderMmea::whereMonth('tgl_verif',today())
+        OrderMmea::whereMonth('tgl_verif',today())
                         ->where('tgl_verif','!=',null)
                         ->get()
                         ->map(function($data){
-                            hctsMmea::firstOrCreate(
+                            HctsMmea::firstOrCreate(
                                 [
                                     'no_po' => $data->no_po
                                 ],
                                 [
                                     'petugas1' => "-",
-                                    'petugas1' => "-",
+                                    'petugas2' => "-",
                                     'tgl_periksa' => $data->tgl_verif
                                 ]
                                 );

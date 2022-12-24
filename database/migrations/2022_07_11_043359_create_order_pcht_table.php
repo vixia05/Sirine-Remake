@@ -18,7 +18,6 @@ class CreateOrderPchtTable extends Migration
             $table->bigInteger('no_po')->unique();
             $table->string('no_obc');
             $table->string('jenis');
-            $table->string('seri');
             $table->date('tgl_obc')  ->nullable();
             $table->date('tgl_jt')   ->nullable();
             $table->date('tgl_bb')   ->nullable();

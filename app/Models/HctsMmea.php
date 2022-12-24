@@ -14,4 +14,9 @@ class HctsMmea extends Model
         'created_at',
         'updated_at'
     ];
+
+    // public function order_mmea()
+    // {
+    //     return $this->belongsToMany(OrderMmea::class);
+    // }
 }

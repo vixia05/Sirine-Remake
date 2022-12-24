@@ -15,7 +15,7 @@ class CreateRusakPchtTable extends Migration
     {
         Schema::create('hcts_pcht', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('no_po')->unique();
+            $table->bigInteger('po_hcts')->unique();
             $table->string('petugas1','4');
             $table->string('petugas2','4')->nullable();
             $table->date('tgl_verif')->default(today());
