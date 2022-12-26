@@ -23,13 +23,16 @@ class UserDetailsSeeder extends Seeder
             if (!$firstline) {
                 UserDetails::create([
                     "np_user"   => $data['1'],
-                    "id_seksi"  => $data['2'],
-                    "id_unit"   => $data['3'],
-                    "id_workstation"=> $data['4'],
-                    "nama"      => $data['5'],
-                    "contact"   => $data['6'],
-                    "tgl_lahir" => $data['7'],
-                    // "alamat"    => $data['9'],
+                    "nama"      => $data['2'],
+                    "email"     => $data['3'],
+                    "tgl_lahir" => $data['4'],
+                    "contact"   => $data['5'],
+                    "alamat"    => $data['6'],
+                    "foto"      => $data['7'],
+                    "id_divisi" => $data['8'],
+                    "id_seksi"  => $data['9'],
+                    "id_unit"   => $data['10'],
+                    "id_workstation" => $data['11'],
                 ]);
             }
             $firstline = false;

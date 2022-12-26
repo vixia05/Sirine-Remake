@@ -16,6 +16,7 @@ class CreateMenuTable extends Migration
         Schema::create('menu', function (Blueprint $table) {
             $table->id();
             $table->string('menu');
+            $table->string('route');
             $table->timestamps();
         });
     }

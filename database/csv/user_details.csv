@@ -1,80 +1,80 @@
-id,np_user,email,id_unit,id_workstation,nama,contact,tgl_lahir,alamat
-1,7426,aris.hudin@peruri.co.id,4,7,Aris Hudin,87736932212,17-01-1992,Perum Green Harmony Residence Blok B3 No 3 Desa Pasirjengkol Kec. Majalaya
-2,7020,mafut.jahrodin@peruri.co.id,4,7,Mafut Jahrodin,,17-01-1992,
-3,7197,herman.yusup@peruri.co.id,4,15,Herman Maulana Y,85779777971,12-05-1984,"Perum permata nirwana, puseurjaya, Telukjambe timur, Karawang"
-4,7198,nunung.nurasiah@peruri.co.id,4,20,Nunung Nurasiah,85719894575,22-03-1980,Sukajaya 2 Rt12/05 Pinayungan Telukjambe Timur Karawang 41361
-5,7199,riska.kartikasari@peruri.co.id ,4,13,Riska Kartika Sari,"081311003785	             ",25-08-1987,Jl.suriadipati ko.poponcol kidul RT 01RW 01 no.13 Kel.karawang kulon kec.karawang barat 41311                                               
-6,7202,Kartika.kurniasih@peruri.co.id,4,18,Kartika Metawati K,81218427727,23-03-1984,Babakan Rt 004 Rw 001 No 23 Puseurjaya Teluk Jambe Timur Karawang Jawa Barat
-7,7205,wawan.kurnawan@peruri.co.id,4,15,Wawan Kurnawan,85714149002,04-04-1984,Ds. Balongsari RT 05/02 Kec. Rawamerta Kab. Karawang
-8,7206,eddy.rismanto@peruri.co.id,4,16,Eddy Rismanto,85710859953,15-03-1986,Perum.Nuansa tradisi residance blok A.03/no17 .kondang jaya .Karawang timur
-9,7418,muridin.akbar@peruri.co.id,4,26,Muridin Akbar,81213192327,20-03-1984,Perumahan Grand Mutiara Village jalan ronggo waluyo Blok Bk 12 A Rt 05 / Rw 09 kel. Sirnabaya kecamatan Telukjambe Timur Kab. Karawang 41361
-10,7423,heni.suhaeni@peruri.co.id,4,21,Heni Suhaeni,89688027256,25-09-1982,Puri Teluk Jambe Blok B14 no 11
-11,7437,sandi.pratama@peruri.co.id,4,16,Sandi Pratama,89699882051,23-01-1992,"Perum griya mas lestari blok h5 no 39 Kel kondang jaya , kec karawang timur , Jawa barat"
-12,7443,agus.purnomo@peruri.co.id,4,16,Agus Nurkomara,,01-06-1985,
-13,7201,dwi.cahya@peruri.co.id,4,26,Dwi Cahya,,23-08-2022,
-14,G752,cindydo124@gmail.com           ,4,18,Cindy Khania A,082292136752 / 085353172223  ,24-04-1999,"Perum Griya Indah blok E.4 / 29 Rt/Rw, 017/ 005 Desa. Parungmulya Kec. Ciampel Kab. Karawang kode pos.41361                                 "
-15,G763,Rahayu9703@gmail.com,4,27,Sri Rahayu,,03-12-1997,Kp. Suka mulya rt. 002/ rw. 019 kel.  Karawang wetan kec.  Karawang timur
-16,H006,sitiimaroh98@gmail.com         ,4,18,Siti Imaroh Nurfidha,"085730999598 	             ",02-03-1998,Perumnas BTJ blok F5                                                                                                                        
-17,H109,Wildasalsabila63@gmail.com,4,18,Wilda Nul'aini Salsabila,87776146084,02-01-1900,"Perumahan Puri Teluk Jambe Blok B 10/38 RT 06 RW 06 Ds.Sirnabaya ,Teluk Jambe Timur 41361"
-18,H114,d.anandita117@gmail.com,4,28,Dinda Anandita F,81290696980,17-11-1999,"GG. Sirnaraga 2, Dusun Sukatani, Desa Pinayungan, Kec. Teluk Jambe Timur (Kosan Bpk. Dedi)"
-19,H119,yessidewi23@gmail.com,4,27,Yessi Dewi Nastiti,85703070219,23-05-1996,Perum Puri Telukjambe Blok C20 No.12
-20,H123,amzidny@gmail.com,4,16,Ade Muhammad Irfan ,87776332208,30-09-1999,Perumahan griya indah
-21,H186,opeindah@gmail.com,4,27,Indah Oktora Paramita,81282229247,31-10-1998,Dusun krajan 1 Rt/Rw 009/003 Ds. Talagasari Kec. Telagasari Kab. Karawang 41381
-22,H190,fifinfitria6@gmail.com,4,20,Fifin Fitria Anggraeny,82117376085,24-01-1999,
-23,H191,dewi.nurhikmawati2807@gmail.com,4,20,Dewi Nurhikmawati,81804840621,07-04-2000,Perum puri telukjambe blok b1 no51
-24,H192,lisaaherln@gmail.com,4,19,Lisa Herlina,87820757576,01-11-1999,Dusun Sukawargi No.166 RT 007/003
-25,H193,dindaamelia83@gmail.com        ,4,18,Dinda Amelia,"08871226173 	             ",12-12-1998,"Rt/02 Rw/01 desa walahar kec. Klari, Karawang                                                                                               "
-26,H194,lustantiyulia1234@gmail.com,4,26,Lustanti Yuli Asih,83862315072,08-07-2000,Perumahan Puri Telukjambe Blok A9 no 19
-27,H196,febriantiine1@gmail.com,4,21,Ine Febrianti,85321795933,08-03-2000,Jl.Raya Peruri Perumahan Griya Indah blok C2 no 57A Karawang Jawa Barat
-28,H198,nisamadani99@gmail.com         ,4,18,Nisa Madani,"081381996133 	             ",06-04-1999,Puri Teluk Jambe Blok C 20 No.12                                                                                                            
-29,H199,deliaoctriane12@gmail.com      ,4,18,Delia Octariane,"085920620791 	             ",12-10-2000,Perum Puri Telukjambe blok A9 no 19                                                                                                         
-30,I402,deliaharun96@gmail.com         ,4,18,Delia Harun,"085819088979 	             ",15-08-1998,"perum griya indah blok K2, ciampel, karawang                                                                                                "
-31,I403,dian.oktaviani051@gmail.com    ,4,18,Dian Oktaviani,"0895353065699	             ",05-10-2000,"Perum Griya Indah Blok M1 nomer 32 Parung Mulya, Ciampel, Karawang                                                                          "
-32,I404,apriliantidina8@gmail.com,4,10,Dina Aprilianti,81388314497,14-04-1996,"Perumahan Griya Indah Blok F4/08 RT17/RW05 Parungmulya, Ciampel, Karawang"
-33,I405,fitrisetyorini18@gmail.com,4,19,Fitri Setyorini,81381046623,18-06-1996,"Kos Gubug Mesem A2, No.17 Perum Griya Indah, Ciampel,Karawang"
-34,I406,Karlinaibrahim1604@gmail.com,4,20,Karlina Ibrahim,81255117738,16-04-1997,Perum Griya Indah Blok A2 No 17 RT 10 RW 01 Desa Parungmulya Kec.Ciampel Kab. Karawang 41363
-35,I407,khikmayati@gmail.com           ,4,18,Khairunnisa Hikmayati,"082210345527 	             ",03-01-1999,Jl Kalijaya Puseurjaya No.70 RT/RW 011/002 Desa Sukaluyu                                                                                    
-36,I409,mialistiana29@gmail.com,4,21,Mia Listiana,89650640731,29-09-1996,"Perum griya indah blok f4/08, RT/RW. 17/05 Ds. Parungmulya kec. Ciampel Karawang"
-37,I418,adi.pamungkas@peruri.co.id,4,15,Adi Pamungkas,,23-12-1997,
-38,I420,Agusbungsubule@gmail.com,4,17,Agus Aziz ,89631394613,17-12-1997,Blok rabu Rt 07 RW 03 DESA LEUWILAJA KECAMATAN SINDANGWANGI KABUPATEN MAJALENGKA
-39,I421,avrilawiranti99@gmail.com,4,26,Avrila Wiranti,85600150852,09-04-1999,"Sukaluyu, Teluk Jambe Timur"
-40,I423,Citraafridasari1002@gmail.com,4,20,Citra Afrida Sari,82244419238,10-02-1998,"Perum griya indah blok L1 no 35 parung mulya, ciampel, karawang"
-41,I424,daffapratamaputra157@gmail.com,4,26,Daffa Pratama Putra,87781610010,18-09-1999,"Jl.permata bunda 5, blok I12A no.41. Kotabaru, Karawang"
-42,I425,dewiper26@gmail.com,4,26,Dewi Pertiwi,85811347375,11-05-1998,Perum Karawang Baru blok A 11 no 15
-43,I426,dini@gmail.com,4,21,Dini Andini,89624263667,08-06-1998,Perum Griya Indah Gang Kostrad Blok I 1 NO.3
-44,I428,uti.arifiyanto@gmail.com,4,17,Gusti Arifiyanto,087773311939 / 089618926881,06-08-1997,Perumahan KGV 2
-45,I429,Hainaapriliani@gmail.com,4,20,Haina Apriliani,81282430649,17-04-1999,Perum Bintang Alam blok N2/09 Rt40 Rw11 kec. Teluk Jambe Timur
-46,I430,hermansyah5499@gmail.com,4,21,Hermansyah,85865966702,05-04-1999,Perumahan kgv 2
-47,I431,iiskurnia10@gmail.com          ,4,18,Iis Kurnia,"085779249788 	             ",18-02-1997,Dusun Pasirtalaga 1 Rt.03/01 Desa Pasirtalaga Kecamatan Telagasari Kab. Karawang 41381                                                      
-48,I432,Julpiabdulmuti8@gmail.com,4,17,Julpi Abdul Muti,85211213322,27-09-1996,Perum kgv2
-49,I434,rifkimuhamad752@gmail.com,4,15,Muhamad Rifki,81384812460,02-06-1996,Dusun Sukajaya 02 rt 015 rw 005 Kel. Pinayungan Kec. Telukjambe timur
-50,I437,nuraidadiah@gmail.com,4,20,Nuraida Diah W,85770011531,12-12-1995,
-51,I441,sofianurrahayu90@gmail.con,4,20,Sofia Nurahayu,81373871789,22-11-1999,"Dusun Sukadana Rt 03 Rw 01, No. 92 , Pinayungan , Telukjambe Timur"
-52,I442,trirahayu24799@gmail.com,4,21,Tri Banda Rahayu,89634250484,24-07-1999,Perumahan Griya Indah Ds. Parungmulya Kec. Ciampel Karawang Jawa Barat
-53,I444,zulfikar.h9050@gmail.com,4,25,Zulfikar Hidayatullah,"081316461691	             ",20-05-1999,"Perumnas Bumi Teluk Jambe, Blok S.401, Kec Sukalauyu Teluk Jambe Timur Karawang                                                             "
-54,I704,roy@gmail.com,4,17,Roy Keane Junianta Saputra,,03-02-2022,karawang
-55,H071,Adithyaindra1@gmail.com,4,26,Adithya Indra ,,17-02-2022,
-56,G834,windaristika5@gmail.com,4,18,Winda Ristika Ratu,,31-12-2021,
-57,G840,kimimas88@gmail.com,4,18,Siti Masitoh,,31-12-2022,
-58,G715,zharghifari07@gmail.com,4,18,Abudzar Al Ghifari,,31-12-2022,
-59,G849,Imasitoh810@gmail.com,4,18,Siti Masitoh,,31-12-2022,
-60,H028,khanzasyafa.here@gmail.com,4,18,Khanza Sukma Syafa,,31-12-2022,
-61,H195,luludwifauziyyah12@gmail.com,4,18,Lulu Dwi Fauziyyah,,31-12-2022,
-62,I435,nova.amd@gmail.com,4,11,Nova Rahmatyastuti,,31-12-2022,
-63,H200,putrielmiadevi@gmail.com ,4,11,Putri Elmia Devi,,31-12-2022,
-64,I411,nafisahfauziyah11@gmail.com,4,11,Nafisah Ulfi Fauziyah,,31-12-2022,
-65,I417,mardianadevi.dm@gmail.com,4,21,Devi Mardiana,,31-12-2022,
-66,I439,rizkialfani19@gmail.com ,4,19,Rizki Alfani,,31-12-2022,
-67,J370,dwindyfitrizan44@gmail.com,4,19,Dwindy Fitrizan,83812873757,17-01-2004,"Johar Timur	003	009	Adiarsa Timur	Karawang Timur	Karawang	Jawa Barat"
-68,J372,alyanidap@gmail.com,4,19,Alyanida Putri Az Zahra,82260503521,24-02-2004,"Perum Karawang Jaya Blok J1 NO 29	036	016	Gintungkerta	Klari	Karawang	Jawa Barat"
-69,J373,rismachintia7@gmail.com,4,19,Risma Chintia,85771676732,18-11-2003,"Paracis	003	011	Tanjungpura 	Karawang barat	Karawang 	Jawa barat"
-70,J374,muhamadjamalludi1706@gmail.com,4,19,Muhammad Jamalludi,85717737101,17-06-2003,"Ciketing, RT/RW 011/004 Desa, Wanakerta Kec, Telukjambe Barat	011	004	Wanakerta 	Telukjambe Barat	Karawang 	Jawa Barat"
-71,J375,cicm231217@gmail.com,4,19,Muhammad Arif L H,85773743935,16-06-2004,"Kampung Baru 2	007	004	Pasirjengkol	Majalaya	Karawang	Jawa Barat"
-72,J379,dioagung103@gmail.com,4,19,Dio Agung,89604648414,10-10-2003,"KAREES RT 003/RW 010 palumbonsari Karawang timur karawang	003	010	Palumbonsari 	Karawang timur 	Karawang	Jawa barat"
-73,J381,maulanairawan055@gmail.com,4,19,Maulana Irawan,89512141655,10-05-2004,"Kedung Salam	032	008	Plawad	Karawang Timur	Karawang	Jawa Barat"
-74,J391,andisukardi2004@gmail.com,4,19,Andi Sukardi,85719471803,23-04-2004,"Dusun 1 Sumedangan	004	002	Purwadana 	TelukJambe Timur 	Karawang 	Jawa Barat"
-75,J392,dwisudarmadiputro@gmail.com,4,19,Dwi Sudarmadi Putro,81283051450,03-05-2004,"Griya mas lestari blok D.4/16	039	009	Kondangjaya 	Karawang Timur 	Karawang 	Jawa barat"
-76,J393,nandiaprianto578@gmail.com,4,19,Nandi Aprianto,89671451454,04-04-2002,"Dipo Barat RT 01 RW 22 kelurahan nagasari kecamatan Karawang barat kabupaten karawang kode pos 41312	001	022	Nagasari 	Karawang barat 	Karawang 	Jawa barat"
-77,J394,ridwanpugliara11@gmail.com,4,19,Ridwan,89521112858,10-10-2002,"Kp. Nyangkokot RT 007/ RW 004,Desa Wanasari kec.Telukjambe barat, Kab.karawang	007	004	Wanasari 	Telukjambe barat 	Karawang 	Jawa barat"
-78,J395,adestiansyawaludinkholid@gmail.com,4,19,Destian Syawaludin K,81514732501,13-12-2003,"Pesona griya indah, B4/17	007	005	Sirnabaya	Telukjambe timur	Karawang 	Jawa barat"
-79,J441,template@template.com,4,19,Hana Anjarsari,,24-10-2022,
+id,np_user,nama,email,tgl_lahir,contact,alamat,foto,id_divisi,id_seksi,id_unit,id_workstation
+1,7426,Aris Hudin,Aris.Hudin@peruri.co.id,1992-01-17,87736932212,Perum Green Harmony Residence Blok B3 No 3 Desa Pasirjengkol Kec. Majalaya,default.jpg,1,1,2,18
+2,7020,Mafut Jahrodin,Mafut.Jahrodin@peruri.co.id,1992-05-20,123456,Karawang,default.jpg,1,1,2,18
+3,7197,Herman Maulana Yusup,Herman.Maulana@peruri.co.id,1984-05-12,85779777971,"Perum permata nirwana, puseurjaya, Telukjambe timur, Karawang",default.jpg,1,1,2,18
+4,7198,Nunung Nurasiah,Nunung.Nurasiah@peruri.co.id,1980-03-22,85719894575,Sukajaya 2 Rt12/05 Pinayungan Telukjambe Timur Karawang 41361,default.jpg,1,1,2,18
+5,7199,Riska Kartika Sari          ,Riska.Kartika@peruri.co.id,1987-08-25,"081311003785	             ",Jl.suriadipati ko.poponcol kidul RT 01RW 01 no.13 Kel.karawang kulon kec.karawang barat 41311                                               ,default.jpg,1,1,2,18
+6,7202,Kartika meta,Kartika.meta@peruri.co.id,1984-03-23,81218427727,Babakan Rt 004 Rw 001 No 23 Puseurjaya Teluk Jambe Timur Karawang Jawa Barat,default.jpg,1,1,2,18
+7,7205,Wawan Kurnawan,Wawan.Kurnawan@peruri.co.id,1984-04-04,85714149002,Ds. Balongsari RT 05/02 Kec. Rawamerta Kab. Karawang,default.jpg,1,1,2,18
+8,7206,Eddy rismanto,Eddy.rismanto@peruri.co.id,1986-03-15,85710859953,Perum.Nuansa tradisi residance blok A.03/no17 .kondang jaya .Karawang timur,default.jpg,1,1,2,18
+9,7418,Muridin Akbar,Muridin.Akbar@peruri.co.id,1984-03-20,81213192327,Perumahan Grand Mutiara Village jalan ronggo waluyo Blok Bk 12 A Rt 05 / Rw 09 kel. Sirnabaya kecamatan Telukjambe Timur Kab. Karawang 41361,default.jpg,1,1,2,18
+10,7423,Heni Suhaeni,Heni.Suhaeni@peruri.co.id,1982-09-25,89688027256,Puri Teluk Jambe Blok B14 no 11,default.jpg,1,1,2,18
+11,7437,Sandi Pratama,Sandi.Pratama@peruri.co.id,1992-01-23,89699882051,"Perum griya mas lestari blok h5 no 39 Kel kondang jaya , kec karawang timur , Jawa barat",default.jpg,1,1,2,18
+12,7443,Agus Nurkomara              ,Agus.Nurkomara@peruri.co.id,1985-06-01,"123	                         ",Karawang,default.jpg,1,1,2,18
+13,7201,Dwi Cahya,Dwi.Cahya@peruri.co.id,1985-06-01,123456,Karawang,default.jpg,1,1,2,18
+14,G752,Cindy Kania Aprillia        ,Cindy.Kania@peruri.co.id,1999-04-24,082292136752 / 085353172223  ,"Perum Griya Indah blok E.4 / 29 Rt/Rw, 017/ 005 Desa. Parungmulya Kec. Ciampel Kab. Karawang kode pos.41361                                 ",default.jpg,1,1,2,18
+15,G763,Sri Rahayu,Sri.Rahayu@peruri.co.id,1997-12-03,8.95369E+11,Kp. Suka mulya rt. 002/ rw. 019 kel.  Karawang wetan kec.  Karawang timur,default.jpg,1,1,2,18
+16,H006,Siti Imaroh Nurfirdha Vamela,Siti.Imaroh@peruri.co.id,1998-03-02,"085730999598 	             ",Perumnas BTJ blok F5                                                                                                                        ,default.jpg,1,1,2,18
+17,H109,Wilda Nul`aini Salsabila,Wilda.Nul`aini@peruri.co.id,1900-01-02,87776146084,"Perumahan Puri Teluk Jambe Blok B 10/38 RT 06 RW 06 Ds.Sirnabaya ,Teluk Jambe Timur 41361",default.jpg,1,1,2,18
+18,H114,Dinda Anandita Faustina,Dinda.Anandita@peruri.co.id,1999-11-17,81290696980,"GG. Sirnaraga 2, Dusun Sukatani, Desa Pinayungan, Kec. Teluk Jambe Timur (Kosan Bpk. Dedi)",default.jpg,1,1,2,18
+19,H119,Yessi Dewi Nastiti,Yessi.Dewi@peruri.co.id,1996-05-23,85703070219,Perum Puri Telukjambe Blok C20 No.12,default.jpg,1,1,2,18
+20,H123,Ade Muhammad Irfan Zidny,Ade.Muhammad@peruri.co.id,1999-09-30,87776332208,Perumahan griya indah,default.jpg,1,1,2,18
+21,H186,Indah Oktora Paramita,Indah.Oktora@peruri.co.id,1998-10-31,81282229247,Dusun krajan 1 Rt/Rw 009/003 Ds. Talagasari Kec. Telagasari Kab. Karawang 41381,default.jpg,1,1,2,18
+22,H190,Fifin Fitria Anggraeni,Fifin.Fitria@peruri.co.id,1999-01-24,82117376085,ss,default.jpg,1,1,2,18
+23,H191,Dewi Nurhikmawati,Dewi.Nurhikmawati@peruri.co.id,2000-04-07,81804840621,Perum puri telukjambe blok b1 no51,default.jpg,1,1,2,18
+24,H192,Lisa Herlina,Lisa.Herlina@peruri.co.id,1999-11-01,87820757576,Dusun Sukawargi No.166 RT 007/003,default.jpg,1,1,2,18
+25,H193,Dinda Amelia                ,Dinda.Amelia@peruri.co.id,1998-12-12,"08871226173 	             ","Rt/02 Rw/01 desa walahar kec. Klari, Karawang                                                                                               ",default.jpg,1,1,2,18
+26,H194,Lustanti Yuli Asih,Lustanti.Yuli@peruri.co.id,2000-07-08,83862315072,Perumahan Puri Telukjambe Blok A9 no 19,default.jpg,1,1,2,18
+27,H196,Ine Febrianti,Ine.Febrianti@peruri.co.id,2000-03-08,85321795933,Jl.Raya Peruri Perumahan Griya Indah blok C2 no 57A Karawang Jawa Barat,default.jpg,1,1,2,18
+28,H198,Nisa Madani                 ,Nisa.Madani@peruri.co.id,1999-04-06,"081381996133 	             ",Puri Teluk Jambe Blok C 20 No.12                                                                                                            ,default.jpg,1,1,2,18
+29,H199,Delia Octriane              ,Delia.Octriane@peruri.co.id,2000-10-12,"085920620791 	             ",Perum Puri Telukjambe blok A9 no 19                                                                                                         ,default.jpg,1,1,2,18
+30,I402,Delia Harun                 ,Delia.Harun@peruri.co.id,1998-08-15,"085819088979 	             ","perum griya indah blok K2, ciampel, karawang                                                                                                ",default.jpg,1,1,2,18
+31,I403,Dian Oktaviani              ,Dian.Oktaviani@peruri.co.id,2000-10-05,"0895353065699	             ","Perum Griya Indah Blok M1 nomer 32 Parung Mulya, Ciampel, Karawang                                                                          ",default.jpg,1,1,2,18
+32,I404,Dina Aprilianti,Dina.Aprilianti@peruri.co.id,1996-04-14,81388314497,"Perumahan Griya Indah Blok F4/08 RT17/RW05 Parungmulya, Ciampel, Karawang",default.jpg,1,1,2,18
+33,I405,Fitri Setyorini,Fitri.Setyorini@peruri.co.id,1996-06-18,81381046623,"Kos Gubug Mesem A2, No.17 Perum Griya Indah, Ciampel,Karawang",default.jpg,1,1,2,18
+34,I406,Karlina Ibrahim,Karlina.Ibrahim@peruri.co.id,1997-04-16,81255117738,Perum Griya Indah Blok A2 No 17 RT 10 RW 01 Desa Parungmulya Kec.Ciampel Kab. Karawang 41363,default.jpg,1,1,2,18
+35,I407,Khairunnisa Hikmayati       ,Khairunnisa.Hikmayati@peruri.co.id,1999-01-03,"082210345527 	             ",Jl Kalijaya Puseurjaya No.70 RT/RW 011/002 Desa Sukaluyu                                                                                    ,default.jpg,1,1,2,18
+36,I409,Mia Listiana,Mia.Listiana@peruri.co.id,1996-09-29,89650640731,"Perum griya indah blok f4/08, RT/RW. 17/05 Ds. Parungmulya kec. Ciampel Karawang",default.jpg,1,1,2,18
+37,I418,Adi Pamungkas,Adi.Pamungkas@peruri.co.id,1997-12-23,123456789,Karawang,default.jpg,1,1,2,18
+38,I420,Agus Aziz,Agus.Aziz@peruri.co.id,1997-12-17,89631394613,Blok rabu Rt 07 RW 03 DESA LEUWILAJA KECAMATAN SINDANGWANGI KABUPATEN MAJALENGKA,default.jpg,1,1,2,18
+39,I421,Avrila Wiranti,Avrila.Wiranti@peruri.co.id,1999-04-09,85600150852,"Sukaluyu, Teluk Jambe Timur",default.jpg,1,1,2,18
+40,I423,Citra afrida sari,Citra.afrida@peruri.co.id,1998-02-10,82244419238,"Perum griya indah blok L1 no 35 parung mulya, ciampel, karawang",default.jpg,1,1,2,18
+41,I424,Daffa Pratama Putra,Daffa.Pratama@peruri.co.id,1999-09-18,87781610010,"Jl.permata bunda 5, blok I12A no.41. Kotabaru, Karawang",default.jpg,1,1,2,18
+42,I425,Dewi Pertiwi,Dewi.Pertiwi@peruri.co.id,1998-05-11,85811347375,Perum Karawang Baru blok A 11 no 15,default.jpg,1,1,2,18
+43,I426,Dini Andini,Dini.Andini@peruri.co.id,1998-06-08,89624263667,Perum Griya Indah Gang Kostrad Blok I 1 NO.3,default.jpg,1,1,2,18
+44,I428,Gusti Arifiyanto,Gusti.Arifiyanto@peruri.co.id,1997-08-06,087773311939 / 089618926881,Dusun Sukadana,default.jpg,1,1,2,18
+45,I429,Haina Apriliani,Haina.Apriliani@peruri.co.id,1999-04-17,81282430649,Perum Bintang Alam blok N2/09 Rt40 Rw11 kec. Teluk Jambe Timur,default.jpg,1,1,2,18
+46,I430,Hermansyah,Hermansyah@peruri.co.id,1999-04-05,85865966702,Perumahan kgv 2,default.jpg,1,1,2,18
+47,I431,Iis Kurnia                  ,Iis.Kurnia.@peruri.co.id,1997-02-18,"085779249788 	             ",Dusun Pasirtalaga 1 Rt.03/01 Desa Pasirtalaga Kecamatan Telagasari Kab. Karawang 41381                                                      ,default.jpg,1,1,2,18
+48,I432,Julpi Abdul  Muti,Julpi.Abdul@peruri.co.id,1996-09-27,85211213322,Perum kgv2,default.jpg,1,1,2,18
+49,I434,Muhamad Rifki,Muhamad.Rifki@peruri.co.id,1996-06-02,81384812460,Dusun Sukajaya 02 rt 015 rw 005 Kel. Pinayungan Kec. Telukjambe timur,default.jpg,1,1,2,18
+50,I437,Nuraida Diah W,Nuraida.Diah@peruri.co.id,1995-12-12,85770011531,Karawang,default.jpg,1,1,2,18
+51,I441,Sofia Nurrahayu,Sofia.Nurrahayu@peruri.co.id,1999-11-22,81373871789,"Dusun Sukadana Rt 03 Rw 01, No. 92 , Pinayungan , Telukjambe Timur",default.jpg,1,1,2,18
+52,I442,Tri Banda Rahayu,Tri.Banda@peruri.co.id,1999-07-24,89634250484,Perumahan Griya Indah Ds. Parungmulya Kec. Ciampel Karawang Jawa Barat,default.jpg,1,1,2,18
+53,I444,Zulfikar Hidayatullah       ,Zulfikar.Hidayatullah@peruri.co.id,1999-05-20,"081316461691	             ","Perumnas Bumi Teluk Jambe, Blok S.401, Kec Sukalauyu Teluk Jambe Timur Karawang                                                             ",default.jpg,1,1,2,18
+54,I704,Roy kenae Junianta,Roy.kenae@peruri.co.id,2022-02-03,12345678,karawang,default.jpg,1,1,2,18
+55,H071,Adithya Indra,Adithya.Indra@peruri.co.id,2022-02-17,123456,karawang,default.jpg,1,1,2,18
+56,G834,Winda Ristika Ratu          ,Winda.Ristika@peruri.co.id,2021-12-31,"1234	                     ",karawang                                                                                                                                           ,default.jpg,1,1,2,18
+57,G840,Siti Masitoh                ,Siti.Masitoh@peruri.co.id,2022-12-31,"1234	                     ",karawang                                                                                                                                           ,default.jpg,1,1,2,18
+58,G715,Abudzar Al Ghifari          ,Abudzar.Al@peruri.co.id,2022-12-31,"123	                         ",karawang                                                                                                                                           ,default.jpg,1,1,2,18
+59,G849,Siti Masitoh                ,Siti.Masitoh@peruri.co.id,2022-12-31,"12345	                     ",karawang                                                                                                                                           ,default.jpg,1,1,2,18
+60,H028,Khanza Sukma S.             ,Khanza.Sukma.S@peruri.co.id,2022-12-31,"123456	                     ",karawang                                                                                                                                           ,default.jpg,1,1,2,18
+61,H195,Lulu Dwi Fauziyyah          ,Lulu.Dwi.Fauziyyah@peruri.co.id,2022-12-31,"1234	                     ",karawang                                                                                                                                           ,default.jpg,1,1,2,18
+62,I435,Nova Rahmatyastuti,Nova.Rahmatyastuti@peruri.co.id,2022-12-31,123456,karawang,default.jpg,1,1,2,18
+63,H200,Putri Elmia Devi,Putri.Elmia@peruri.co.id,2022-12-31,1234567,karawang,default.jpg,1,1,2,18
+64,I411,Nafisah Ulfi Fauziyah,Nafisah.Ulfi@peruri.co.id,2022-12-31,123456,karawang,default.jpg,1,1,2,18
+65,I417,Devi Mardiana,Devi.Mardiana@peruri.co.id,2022-12-31,123456,karawang,default.jpg,1,1,2,18
+66,I439,Rizky Alfani,Rizky.Alfani@peruri.co.id,2022-12-31,1234567,karawang,default.jpg,1,1,2,18
+67,J370,Dwindy Fitrizan,Dwindy.Fitrizan@peruri.co.id,2004-01-17,83812873757,"Johar Timur	003	009	Adiarsa Timur	Karawang Timur	Karawang	Jawa Barat",default.jpg,1,1,2,18
+68,J372,Alyanida Putri Az Zahra,Alyanida.Putri@peruri.co.id,2004-02-24,82260503521,"Perum Karawang Jaya Blok J1 NO 29	036	016	Gintungkerta	Klari	Karawang	Jawa Barat",default.jpg,1,1,2,18
+69,J373,Risma Chintia,Risma.Chintia@peruri.co.id,2003-11-18,85771676732,"Paracis	003	011	Tanjungpura 	Karawang barat	Karawang 	Jawa barat",default.jpg,1,1,2,18
+70,J374,Muhammad Jamalludi,Muhammad.Jamalludi@peruri.co.id,2003-06-17,85717737101,"Ciketing, RT/RW 011/004 Desa, Wanakerta Kec, Telukjambe Barat	011	004	Wanakerta 	Telukjambe Barat	Karawang 	Jawa Barat",default.jpg,1,1,2,18
+71,J375,Muhammad Arif L H,Muhammad.Arif@peruri.co.id,2004-06-16,85773743935,"Kampung Baru 2	007	004	Pasirjengkol	Majalaya	Karawang	Jawa Barat",default.jpg,1,1,2,18
+72,J379,Dio Agung,Dio.Agung@peruri.co.id,2003-10-10,89604648414,"KAREES RT 003/RW 010 palumbonsari Karawang timur karawang	003	010	Palumbonsari 	Karawang timur 	Karawang	Jawa barat",default.jpg,1,1,2,18
+73,J381,Maulana Irawan,Maulana.Irawan@peruri.co.id,2004-05-10,89512141655,"Kedung Salam	032	008	Plawad	Karawang Timur	Karawang	Jawa Barat",default.jpg,1,1,2,18
+74,J391,Andi Sukardi,Andi.Sukardi@peruri.co.id,2004-04-23,85719471803,"Dusun 1 Sumedangan	004	002	Purwadana 	TelukJambe Timur 	Karawang 	Jawa Barat",default.jpg,1,1,2,18
+75,J392,Dwi Sudarmadi Putro,Dwi.Sudarmadi@peruri.co.id,2004-05-03,81283051450,"Griya mas lestari blok D.4/16	039	009	Kondangjaya 	Karawang Timur 	Karawang 	Jawa barat",default.jpg,1,1,2,18
+76,J393,Nandi Aprianto,Nandi.Aprianto@peruri.co.id,2002-04-04,89671451454,"Dipo Barat RT 01 RW 22 kelurahan nagasari kecamatan Karawang barat kabupaten karawang kode pos 41312	001	022	Nagasari 	Karawang barat 	Karawang 	Jawa barat",default.jpg,1,1,2,18
+77,J394,Ridwan,Ridwan@peruri.co.id,2002-10-10,89521112858,"Kp. Nyangkokot RT 007/ RW 004,Desa Wanasari kec.Telukjambe barat, Kab.karawang	007	004	Wanasari 	Telukjambe barat 	Karawang 	Jawa barat",default.jpg,1,1,2,18
+78,J395,Destian Syawaludin K,Destian.Syawaludin@peruri.co.id,2003-12-13,81514732501,"Pesona griya indah, B4/17	007	005	Sirnabaya	Telukjambe timur	Karawang 	Jawa barat",default.jpg,1,1,2,18
+79,J441,Hana Anjarsari,Hana.Anjarsari@peruri.co.id,2022-10-24,123456789,template,default.jpg,1,1,2,18

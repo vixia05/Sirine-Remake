@@ -1,0 +1,26 @@
+id,menu,route
+1,Dashboard,dashboard
+2,Biodata,profile.index
+3,Tambah User,users.create
+4,List User,users.index
+5,Role & Privillage,privillage.index
+6,Update Order,updateOrder.index
+7,Jam Efektif & Target,jamEfektif.index
+8,Data Pegawai,dataPegawai.index
+9,Input Checklist (Verpikai),operator.verif-pikai
+10,Input Pendaptan Harian (Verpikai),inputVerifikasi.index
+11,Input Kelolosan (Verpikai),inputRetur.index
+12,Input Evaluasi (Verpikai),inputEvaluasi.index
+13,Laporan Produksi Verifikasi (Verpikai),operator.data-prod-verif
+14,Laporan Pendapatan Harian (Verpikai),rekapVerif.index
+15,Laporan Retur  (Verpikai),rekapRetur.index
+16,Laporan Evaluasi  (Verpikai),rekapEvaluasi.index
+17,Performa Quantity Unit  (Verpikai),quantity.unit
+18,Performa Quantity Individu  (Verpikai),quantity.individu
+19,Performa Quality Unit (Verpikai),quality.unit
+20,Performa Quality Individu (Verpikai),quality.individu
+21,Report Pegawai,report
+22,Andon Khazwal Pikai,andon.khazwalPikai
+23,Andon Cetak Pikai,andon.cetakPikai
+24,Andon Verif Pikai,andon.verifPikai
+25,Andon Khazkhir Pikai,andon.khazkhirPikai

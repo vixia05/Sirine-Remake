@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class QcPikai extends Model
+class Level extends Model
 {
     use HasFactory;
-    protected $table = 'verif_pikai';
+    protected $table = 'levels';
     protected $guarded = [
         'id',
         'created_at',

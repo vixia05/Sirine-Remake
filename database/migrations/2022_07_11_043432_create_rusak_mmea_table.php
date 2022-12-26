@@ -37,12 +37,6 @@ class CreateRusakMmeaTable extends Migration
             $table->string('keterangan')->nullable();
             $table->timestamps();
 
-            // Foreign Key
-            $table->foreign('no_po')
-                  ->references('no_po')
-                  ->on('order_mmea')
-                  ->onUpdate('cascade')
-                  ->onDelete('no action');
         });
     }
 

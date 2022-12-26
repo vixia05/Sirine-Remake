@@ -14,13 +14,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UsersSeeder::class);
+        $this->call(LevelsSeeder::class);
         $this->call(PrivillageSeeder::class);
+        $this->call(DivisiSeeder::class);
         $this->call(SeksiSeeder::class);
         $this->call(UnitSeeder::class);
         $this->call(WorkstationSeeder::class);
-        $this->call(JamEfektifSeeder::class);
         $this->call(UserDetailsSeeder::class);
-        $this->call(VerifSeeder::class);
+        // $this->call(VerifSeeder::class);
+        $this->call(MesinSeeder::class);
+        // $this->call(HctsPchtSeeder::class);
+        // $this->call(HctsMmeaSeeder::class);
+        $this->call(MenuSeeder::class);
+        $this->call(JamEfektifSeeder::class);
         // \App\Models\User::factory(10)->create();
     }
 }

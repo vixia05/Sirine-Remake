@@ -20,11 +20,10 @@ class JamEfektifSeeder extends Seeder
         while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {
             if (!$firstline) {
                 JamEfektif::create([
-                    "gilir"  => $data['1'],
-                    "unit"   => $data['2'],
-                    "group"  => $data['3'],
-                    "jam_efektif"   => $data['4'],
-                    "target_jam"   => $data['5'],
+                    "gilir"         => $data['1'],
+                    "jam_efektif"   => $data['2'],
+                    "target"        => $data['3'],
+                    "id_unit"       => $data['4'],
                 ]);
             }
             $firstline = false;

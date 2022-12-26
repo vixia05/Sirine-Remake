@@ -15,14 +15,20 @@ class CreatePrivillageTable extends Migration
     {
         Schema::create('privillage', function (Blueprint $table) {
             $table->id();
-            $table->integer('level');
             $table->string('np_user');
-            $table->string('role');
+            $table->integer('level_user');
             $table->timestamps();
 
             $table->foreign('np_user')
                   ->references('np')
                   ->on('users')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade')
+                  ->constrained();
+
+            $table->foreign('level_user')
+                  ->references('level')
+                  ->on('levels')
                   ->onUpdate('cascade')
                   ->onDelete('cascade')
                   ->constrained();

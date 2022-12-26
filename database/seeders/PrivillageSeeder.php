@@ -20,8 +20,8 @@ class PrivillageSeeder extends Seeder
         while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {
             if (!$firstline) {
                 Privillage::create([
-                    "level"  => $data['1'],
-                    "role"   => $data['2'],
+                    "level_user"   => $data['1'],
+                    "np_user" => $data['2'],
                 ]);
             }
             $firstline = false;

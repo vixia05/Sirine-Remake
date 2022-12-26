@@ -1,0 +1,8 @@
+id,level,role
+1,1,PIC
+2,2,Admin
+3,3,Kepala Unit
+4,4,Kepala Seksi
+5,5,Kepala Divisi
+6,10,Super User
+7,0,User

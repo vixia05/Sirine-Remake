@@ -37,12 +37,6 @@ class CreateRusakPchtTable extends Migration
             $table->string('keterangan')->nullable();
             $table->timestamps();
 
-            // Foreign Key
-            $table->foreign('no_po')
-                  ->references('no_po')
-                  ->on('order_pcht')
-                  ->onUpdate('cascade')
-                  ->onDelete('no action');
         });
     }
 

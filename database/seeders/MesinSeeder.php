@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Seksi;
+use App\Models\Mesin;
 
-class SeksiSeeder extends Seeder
+class MesinSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,15 +14,14 @@ class SeksiSeeder extends Seeder
      */
     public function run()
     {
-
-        $csvFile = fopen(base_path("database/csv/seksi.csv"), "r");
+        $csvFile = fopen(base_path("database/csv/mesin.csv"), "r");
 
         $firstline = true;
         while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {
             if (!$firstline) {
-                Seksi::create([
-                    "id_divisi"   => $data['1'],
-                    "seksi"       => $data['2'],
+                Mesin::create([
+                    "kode_mesin" => $data['1'],
+                    "mesin"      => $data['2'],
                 ]);
             }
             $firstline = false;

@@ -30,9 +30,7 @@ class UsersSeeder extends Seeder
             if (!$firstline) {
                 User::create([
                     "np"   => $data['1'],
-                    "email"   => $data['2'],
-                    "level"    => $data['4'],
-                    "password"   => hash::make($data['3']),
+                    "password"   => hash::make($data['2']),
                     "remember_token" => Str::random(10),
                 ]);
             }
