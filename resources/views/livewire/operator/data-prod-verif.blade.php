@@ -174,7 +174,7 @@
                                             {{-- Nomor PO --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
-                                                {{ $datas->no_po }}
+                                                {{ $datas->po_hcts }}
                                             </td>
                                             {{-- Jumlah Cetak --}}
                                             <td
@@ -292,7 +292,7 @@
                                             <td
                                                 class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 @if ($datas->mesin == !null)
-                                                {{ \App\Models\Mesin::where('serial',$datas->mesin)->value('nama_mesin')
+                                                {{ \App\Models\Mesin::where('kode_mesin',$datas->mesin)->value('mesin')
                                                 }}
                                                 @else
                                                 -

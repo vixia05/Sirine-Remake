@@ -70,7 +70,7 @@ class UpdateMmea implements ToCollection, WithHeadingRow
                         ->map(function($data){
                             HctsMmea::firstOrCreate(
                                 [
-                                    'no_po' => $data->no_po
+                                    'po_hcts' => $data->no_po
                                 ],
                                 [
                                     'petugas1' => "-",

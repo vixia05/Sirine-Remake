@@ -16,8 +16,7 @@ class PrivillageController extends Controller
      */
     public function index()
     {
-        $data = Privillage::orderBy('level')->paginate(15);
-        return view('SuperUser.Privillage',['data' => $data]);
+        return view('SuperUser.Privillage');
     }
 
     /**

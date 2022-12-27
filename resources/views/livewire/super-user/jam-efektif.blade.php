@@ -60,17 +60,17 @@
                                                 </td>
                                                 <td
                                                     class="px-4 py-2 text-sm text-center border-r whitespace-nowrap border-y border-slate-400 dark:border-slate-500">
-                                                    {{ number_format($datas->target_jam / 500, 0) }} Rim
-                                                    ({{ number_format($datas->target_jam, 0) }} Lbr)
+                                                    {{ number_format($datas->target / 500, 0) }} Rim
+                                                    ({{ number_format($datas->target, 0) }} Lbr)
                                                     / Jam
 
                                                 </td>
                                                 <td
                                                     class="px-4 py-2 text-sm text-center border-r whitespace-nowrap border-y border-slate-400 dark:border-slate-500">
-                                                    {{ number_format(($datas->target_jam * $datas->jam_efektif) / 500, 0) }}
+                                                    {{ number_format(($datas->target * $datas->jam_efektif) / 500, 0) }}
                                                     Rim
                                                     (
-                                                    {{ number_format($datas->target_jam * $datas->jam_efektif, 0) }}
+                                                    {{ number_format($datas->target * $datas->jam_efektif, 0) }}
                                                     Lbr ) / Hari
                                                 </td>
                                                 <td class="px-4 py-2 text-sm text-center whitespace-nowrap border-y border-slate-400 dark:border-slate-500">

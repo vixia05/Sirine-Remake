@@ -82,7 +82,7 @@
                                 <select
                                     class="w-full text-sm leading-tight border-none rounded-md bg-zinc-100 text-slate-600 focus:ring-blue-500 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                     id="divisi" name="divisi">
-                                    <option>SBU Produk Non Uang</option>
+                                    <option value="1">SBU Produk Non Uang</option>
                                 </select>
                             </div>
                             {{-- 2.2 Select Seksi --}}

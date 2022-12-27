@@ -124,10 +124,10 @@
                                                 </td>
                                                 <td
                                                     class="px-4 py-2 text-sm border whitespace-nowrap border-slate-400 dark:border-slate-500">
-                                                    {{ \App\Models\User::where('np', $datas->np_user)->value('email') }}
+                                                    {{ $datas->email }}
                                                 </td>
                                                 <td
-                                                    class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500">
+                                                    class="px-4 py-2 text-sm border whitespace-nowrap border-slate-400 dark:border-slate-500">
                                                     @if (substr($datas->contact, 0, 1) == '0')
                                                         {{ Str::limit($datas->contact, 4, '-') }}{{ Str::limit(substr($datas->contact, 4), 4, '-') }}{{ Str::limit(substr($datas->contact, 8), 4, '') }}
                                                     @else
@@ -147,7 +147,8 @@
                                                 <td
                                                     class="max-w-sm px-4 py-2 text-sm text-center border border-slate-400 dark:border-slate-500">
                                                     <span class="line-clamp-2">
-                                                        {{ \App\Models\Unit::where('id', $datas->id_unit)->value('unit') }}
+                                                        {{ $datas->unit->unit }}
+                                                        {{-- {{ \App\Models\Unit::where('id', $datas->id_unit)->value('unit') }} --}}
                                                     </span>
                                                 </td>
                                                 <td

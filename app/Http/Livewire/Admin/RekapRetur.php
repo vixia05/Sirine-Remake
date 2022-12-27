@@ -27,14 +27,14 @@ class RekapRetur extends Component
      */
     public function render()
     {
-        $data = ReturPikai::whereLike(['np_user','nama_user'],$this->search ?? '')
+        $data = ReturPikai::whereLike(['np_user'],$this->search ?? '')
                         ->when($this->npUser, function($query, $npUser){
                             return $query->where('np_user',$npUser);
                         })
                         ->when($this->startDate,function($query,$startDate){
-                            return $query->whereBetween('tgl_cek',[$startDate,$this->endDate]);
+                            return $query->whereBetween('tgl_ck3',[$startDate,$this->endDate]);
                         })
-                        ->orderBy('tgl_cek')
+                        ->orderBy('tgl_ck3')
                         ->paginate(10);
 
         return view('livewire.admin.rekap-retur',[
@@ -65,7 +65,7 @@ class RekapRetur extends Component
         $this->diecut   = $data->diecut;
         $this->blobor   = $data->blobor;
         $this->npEdit   = $data->np_user;
-        $this->tglCk3   = $data->tgl_cek;
+        $this->tglCk3   = $data->tgl_ck3;
         $this->gradasi  = $data->gradasi;
         $this->missReg  = $data->miss_reg;
         $this->hologram = $data->hologram;

@@ -24,7 +24,7 @@ class RekapVerifikasi extends Component
 
     public function render()
     {
-        $data = QcPikai::whereLike(['np_user','nama_user'],$this->search ?? '')
+        $data = QcPikai::whereLike(['np_user'],$this->search ?? '')
                         ->when($this->npUser,function($query,$npUser){
                             return $query->where('np_user',$npUser);
                         })

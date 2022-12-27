@@ -45,7 +45,7 @@ class DataProdVerif extends Component
     {
         if($this->produk == 'PCHT')
         {
-            $this->join = HctsPcht::join('order_pcht','hcts_pcht.no_po','=','order_pcht.no_po')
+            $this->join = HctsPcht::join('order_pcht','po_hcts','=','order_pcht.no_po')
                             ->select(
                                 'hcts_pcht.*',
                                 'order_pcht.no_obc',
@@ -63,7 +63,7 @@ class DataProdVerif extends Component
         }
         elseif($this->produk == 'MMEA')
         {
-            $this->join = HctsMmea::join('order_mmea','hcts_mmea.no_po','=','order_mmea.no_po')
+            $this->join = HctsMmea::join('order_mmea','po_hcts','=','order_mmea.no_po')
                             ->select(
                                 'hcts_mmea.*',
                                 'order_mmea.no_obc',

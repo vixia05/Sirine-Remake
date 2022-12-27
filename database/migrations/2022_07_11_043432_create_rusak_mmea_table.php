@@ -16,7 +16,7 @@ class CreateRusakMmeaTable extends Migration
         Schema::create('hcts_mmea', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('po_hcts')->unique();
-            $table->date('tgl_verif')->default(today());
+            $table->date('tgl_periksa')->default(today());
             $table->string('petugas1','4');
             $table->string('petugas2','4')->nullable();
             $table->integer('blobor')->default(0);

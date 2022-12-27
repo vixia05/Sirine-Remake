@@ -14,4 +14,9 @@ class Level extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function privillage()
+    {
+       return $this->belongsToMany(Privillage::class);
+    }
 }

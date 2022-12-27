@@ -16,7 +16,7 @@ class RekapReturController extends Controller
      */
     public function index()
     {
-        $data = RekapReturPikai::orderBy('tgl_cek')->paginate(15);
+        $data = RekapReturPikai::orderBy('tgl_ck3')->paginate(15);
         return view('Admin.Rekap-Retur',compact('data'));
     }
 

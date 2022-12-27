@@ -92,7 +92,7 @@ class VerifPikai extends Component
         {
             HctsPcht::updateOrCreate(
                 [
-                    'no_po' => $this->noPo == null ? 0 : $this->noPo,
+                    'po_hcts' => $this->noPo == null ? 0 : $this->noPo,
                 ],
                 [
                     'blobor'  => $this->blobor  == null ? 0 : $this->blobor,
@@ -122,7 +122,7 @@ class VerifPikai extends Component
         {
             HctsMmea::updateOrCreate(
                 [
-                    'no_po' => $this->noPo == null ? 0 : $this->noPo,
+                    'po_hcts' => $this->noPo == null ? 0 : $this->noPo,
                 ],
                 [
                     'blobor'  => $this->blobor  == null ? 0 : $this->blobor,

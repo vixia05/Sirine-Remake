@@ -3,16 +3,23 @@
 namespace App\Http\Livewire\SuperUser;
 
 use Livewire\Component;
+use Livewire\WithPagination;
+
 use App\Models\Privillage;
+use App\Models\UserDetals;
+use App\Models\Level;
 
 class Privillages extends Component
 {
-    public $data, $level, $role;
+    use WithPagination;
+    public $level, $role;
 
     public function render()
     {
-        $this->data = Privillage::all();
-        return view('livewire.super-user.privillage');
+        $data = Level::paginate(10);
+        return view('livewire.super-user.privillage',[
+            'data' => $data
+        ]);
     }
 
     public function edit($id)

@@ -15,7 +15,7 @@
             {{-- 1.0 Filter & Search Section --}}
             <div
                 class="px-4 py-4 border rounded-t bg-inerhit border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
-                <div class="flex justify-between gap-3 flex-wrap">
+                <div class="flex flex-wrap justify-between gap-3">
                     {{-- Filter NP --}}
                     <div class="flex flex-row border border-blue-600 rounded-md brightness-110 dark:focus-within:shadow-lg dark:focus-within:shadow-blue-600/30 dark:focus-within:brightness-125">
                         <div class="px-2 py-1 rounded-l-md dark:bg-slate-800 dark:bg-opacity-50">
@@ -26,7 +26,7 @@
                             </svg>
                         </div>
                         <select
-                            class="text-xs w-full font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
+                            class="w-full text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
                             wire:model="npUser">
                             <option value="0" class="text-center">-- NP/Nama --</option>
                             @foreach ($listNp as $np)
@@ -43,7 +43,7 @@
                           </svg>
                         </div>
                         <input type="text" id="dateRange" name="dateRange"
-                            class="text-xs w-full font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
+                            class="w-full text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
                             placeholder="Periode" />
                     </div>
                     {{-- Search --}}
@@ -164,7 +164,7 @@
                                                 </td>
                                                 {{-- 2.2.3 Nama User Coloumn --}}
                                                 <td
-                                                    class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
+                                                    class="px-4 py-2 text-sm leading-normal border border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
                                                     {{ \App\Models\UserDetails::where('np_user', $datas->np_user)->value('nama') }}
                                                 </td>
                                                 {{-- 2.2.4 Tanggal Verifikasi Coloumn --}}
@@ -174,13 +174,13 @@
                                                 </td>
                                                 {{-- 2.2.5 Jumlah Verifikasi Coloumn --}}
                                                 <td
-                                                    class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
+                                                    class="px-4 py-2 text-sm text-right border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
                                                     {{ number_format($datas->jml_verif / 500, 0) }} Rim /
                                                     {{ number_format($datas->jml_verif, 0) }} Lbr
                                                 </td>
                                                 {{-- 2.2.6 Jumlah OBC Coloumn --}}
                                                 <td
-                                                    class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
+                                                    class="px-4 py-2 text-sm text-right border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
                                                     {{ $datas->jml_obc }} OBC
                                                 </td>
                                                 {{-- 2.2.7 Target Coloumn --}}
@@ -204,7 +204,7 @@
                                                 </td>
                                                 {{-- 2.2.9 Keterangan Coloumn --}}
                                                 <td
-                                                    class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
+                                                    class="px-4 py-2 text-sm border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
                                                     {{ $datas->keterangan }}
                                                 </td>
                                                 {{-- 2.2.10 Status Approval Coloumn --}}

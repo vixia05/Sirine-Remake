@@ -59,7 +59,7 @@ class UpdatePcht implements ToCollection, WithHeadingRow
                         ->map(function($data){
                             HctsPcht::firstOrCreate(
                                 [
-                                    'no_po' => $data->no_po
+                                    'po_hcts' => $data->no_po
                                 ],
                                 [
                                     'petugas1' => 7443,

@@ -110,7 +110,7 @@ class InputVerifikasi extends Component
                         [
                             'tgl_verif' => $this->tglVerif,
                             'np_user'   => $key,
-                            'id_station'=> $this->workstation
+                            'id_workstation'=> $this->workstation
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
@@ -135,7 +135,7 @@ class InputVerifikasi extends Component
                         [
                             'tgl_verif' => $this->tglVerif,
                             'np_user'   => $key,
-                            'id_station'=> $this->workstation
+                            'id_workstation'=> $this->workstation
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
@@ -161,7 +161,7 @@ class InputVerifikasi extends Component
                         [
                             'tgl_verif' => $this->tglVerif,
                             'np_user'   => $key,
-                            'id_station'=> $this->workstation
+                            'id_workstation'=> $this->workstation
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
@@ -187,7 +187,7 @@ class InputVerifikasi extends Component
                         [
                             'tgl_verif' => $this->tglVerif,
                             'np_user'   => $key,
-                            'id_station'=> $this->workstation
+                            'id_workstation'=> $this->workstation
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
@@ -213,7 +213,7 @@ class InputVerifikasi extends Component
                         [
                             'tgl_verif' => $this->tglVerif,
                             'np_user'   => $key,
-                            'id_station'=> $this->workstation
+                            'id_workstation'=> $this->workstation
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),

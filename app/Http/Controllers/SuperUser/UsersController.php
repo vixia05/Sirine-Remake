@@ -74,9 +74,7 @@ class UsersController extends Controller
         User::updateOrCreate(
             ['np'    => $request->np],
             [
-                'email'    => $request->email,
                 'password' => hash::make($request->password),
-                'level'    => $request->privillage
             ]
         );
 
@@ -87,15 +85,23 @@ class UsersController extends Controller
             [
                 'foto'    => 'default.jpg',
                 'nama'    => $request->name,
+                'email'    => $request->email,
                 'alamat'  => $request->address,
                 'contact' => $request->contact,
                 'tgl_lahir' => $request->birthDate,
+                'id_divisi' => $request->divisi,
                 'id_unit'   => $request->unit,
                 'id_seksi'  => $request->seksi,
                 'id_workstation' => $request->workstation
             ]
             );
 
+        Privillage::updateOrCreate(
+            ['np_user' => $request->np],
+            [
+                'level_user'    => $request->privillage
+            ]
+            );
 
         return redirect()->back();
     }

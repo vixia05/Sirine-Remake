@@ -14,4 +14,14 @@ class UserDetails extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function divisi()
+    {
+        return $this->hasOne(Divisi::class,'id','id_divisi');
+    }
+
+    public function unit()
+    {
+        return $this->hasOne(Unit::class,'id','id_unit');
+    }
 }

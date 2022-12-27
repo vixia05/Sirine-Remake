@@ -6,6 +6,8 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\User;
 use App\Models\UserDetails;
+use App\Models\Level;
+use App\Models\Privillage;
 
 
 class ListUsers extends Component
@@ -18,7 +20,7 @@ class ListUsers extends Component
 
     public function render()
     {
-        $data   = User::where('np', 'like', '%'.$this->search.'%')->paginate(10);
+        $data   = Privillage::where('np_user', 'like', '%'.$this->search.'%')->paginate(10);
         return view('livewire.super-user.list-users',['data' => $data]);
     }
 

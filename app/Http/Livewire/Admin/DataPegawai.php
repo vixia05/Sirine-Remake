@@ -62,7 +62,7 @@ class DataPegawai extends Component
         $this->unit     = $user->id_unit;
         $this->seksi    = $user->id_seksi;
         $this->station  = $user->id_workstation;
-        $this->email    = User::where('np',$this->np)->value('email');
+        $this->email    = $user->email;
         $this->alamat   = $user->alamat;
         $this->contact  = $user->contact;
         $this->tglLahir = $user->tgl_lahir;
