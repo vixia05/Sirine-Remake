@@ -17,22 +17,17 @@ class RekapEvaluasi extends Component
 {
     use WithPagination;
     public $search,$searchNp,$idEvaluasi,$startDate,$endDate;
-    public $npKasek,$npKaun,$npUser;
-    public $evaKasek,$evaKaun,$resUser;
+    public $evaluator,$npUser;
+    public $evaluasi,$response;
     protected $queryString = ['search'];
 
     public function render()
     {
         $data = Evaluasi::whereLike([
                             'np_user',
-                            'np_kasek',
-                            'np_kaun',
-                            'nama_user',
-                            'nama_kaun',
-                            'nama_kasek',
-                            'eva_kasek',
-                            'eva_kaun',
-                            'response'
+                            'np_evaluator',
+                            'evaluasi',
+                            'response',
                         ], $this->search ?? '')
                         ->when($this->searchNp,function($query,$searchNp){
                             return $query->where('np_user',$searchNp);
@@ -58,12 +53,10 @@ class RekapEvaluasi extends Component
     {
         $data = Evaluasi::findOrFail($id);
 
-        $this->npKasek  = $data->np_kasek ." - " .$data->nama_kasek;
-        $this->npKaun   = $data->np_kaun. " - " .$data->nama_kaun;
-        $this->npUser   = $data->np_user. " - " .$data->nama_user;
-        $this->evaKasek = $data->eva_kasek;
-        $this->evaKaun  = $data->eva_kaun;
-        $this->resUser  = $data->response;
+        $this->evaluator= $data->np_evaluator ." - " .$data->evaluatorDetails->nama;
+        $this->npUser   = $data->np_user. " - " .$data->userDetails->nama;
+        $this->evaluasi = $data->evaluasi;
+        $this->response = $data->response;
 
         $this->idEvaluasi = $id;
     }

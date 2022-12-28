@@ -7,7 +7,7 @@
                 @if(session('success'))
                     <div
                         class="p-2 my-3 text-center text-green-100 bg-green-500 rounded shadow-lg brightness-110 shadow-green-500/50">
-                        <h5 class="text-2xl">OBC {{ session('success') }} Berhasil Di Simpan</h5>
+                        <h5 class="text-2xl">Nomor PO {{ session('success') }} Berhasil Di Simpan</h5>
                     </div>
                 @endif
                 <form>
@@ -69,7 +69,7 @@
                             <select required
                                 class="w-full font-light leading-tight transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600 dark:bg-opacity-40 dark:focus:bg-opacity-100"
                                 wire:model='jenis'>
-                                    <option value="PCHT">PCHT</option>
+                                    <option value="PCHT" selected>PCHT</option>
                                     <option value="MMEA">MMEA \ HPTL</option>
                             </select>
                         </div>

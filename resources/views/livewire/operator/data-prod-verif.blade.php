@@ -1,5 +1,6 @@
 <div class="grid grid-cols-1 px-10 py-10" x-data="{editModal : false, deleteModal : false}">
     <form>
+        @csrf
         @include('components.modal.edit-checklist')
     </form>
     <form>
@@ -14,6 +15,18 @@
         </div>
         {{-- Body --}}
         <div class="px-4 pb-4">
+            @if(session('saved'))
+                <div
+                    class="p-2 my-3 text-center text-green-100 bg-green-500 rounded shadow-lg brightness-110 shadow-green-500/50">
+                    <h5 class="text-2xl">Jenis Kerusakan {{ session('saved') }} Berhasil Di Ubah</h5>
+                </div>
+            @endif
+            @if(session('deleted'))
+                <div
+                    class="p-2 my-3 text-center text-red-100 bg-red-500 rounded shadow-lg brightness-110 shadow-red-500/50">
+                    <h5 class="text-2xl">Data Produksi {{ session('deleted') }} Berhasil Di Hapus</h5>
+                </div>
+            @endif
             {{-- 1.0 Filter & Search Section --}}
             <div
                 class="px-4 py-4 border rounded-t bg-inerhit border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
@@ -280,7 +293,7 @@
                                             </td>
                                             {{-- Keterangan --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-center border border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="px-4 py-2 text-sm border border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 {{ $datas->keterangan }}
                                             </td>
                                             {{-- Petugas --}}
@@ -304,7 +317,7 @@
                                                 <div class="flex justify-center gap-2">
                                                     <button type="button" data-mdb-ripple="true"
                                                         @click.prevent="editModal = true"
-                                                        wire:click='edit({{ $datas->no_po }})'
+                                                        wire:click='edit({{ $datas->po_hcts }})'
                                                         data-mdb-ripple-color="light"
                                                         class="inline-block px-2 py-1.5 text-sm font-semibold transition duration-150 drop-shadow-md  brightness-150 shadow-green-500/50 ease-in-out bg-green-600 rounded shadow-md leading-tighttext-slate-200 hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg">
                                                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
@@ -318,7 +331,7 @@
                                                     </button>
                                                     <button type="button" data-mdb-ripple="true"
                                                         @click.prevent="deleteModal = true"
-                                                        wire:click='delete({{ $datas->no_po }})'
+                                                        wire:click='delete({{ $datas->po_hcts }})'
                                                         data-mdb-ripple-color="light"
                                                         class="inline-block px-2 py-1.5 text-sm font-semibold transition duration-150 drop-shadow-md  brightness-150 shadow-red-500/50 ease-in-out bg-red-600 rounded shadow-md leading-tighttext-slate-200 hover:bg-red-600 hover:shadow-lg focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-lg">
                                                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"

@@ -54,6 +54,7 @@ class RekapVerifikasi extends Component
     public function destroy()
     {
         QcPikai::where('id',$this->idUser)->delete();
+        session()->flash('deleted');
     }
 
     public function exportExcel()

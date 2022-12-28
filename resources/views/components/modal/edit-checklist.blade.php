@@ -12,13 +12,13 @@
     {{-- 1. Nomor Pokok --}}
     <div class="flex flex-col">
         <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Nomor PO</label>
-        <input type="text" wire:model='noPo'
-            class="appearance-none rounded border-slate-300 bg-zinc-300/60 py-1 px-2 text-sm tracking-wide text-slate-800 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:border-slate-600 dark:bg-slate-500/40 dark:text-slate-100">
+        <input disabled type="text" wire:model='noPo'
+            class="appearance-none rounded border-none bg-zinc-400/60 py-1 px-2 text-center text-sm tracking-wide text-slate-600 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:bg-slate-500/20 dark:text-slate-400">
     </div>
     {{-- 2. Nama --}}
     <div class="flex flex-col">
         <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Nomor OBC</label>
-        <input disabled type="text" wire:model='noObc'
+        <input disabled type="text" wire:model='obc'
             class="appearance-none rounded border-none bg-zinc-400/60 py-1 px-2 text-center text-sm tracking-wide text-slate-600 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:bg-slate-500/20 dark:text-slate-400">
     </div>
 </div>

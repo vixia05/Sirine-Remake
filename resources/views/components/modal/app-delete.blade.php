@@ -14,10 +14,10 @@
         {{-- 2. Modal Content --}}
         @yield('delete-modal-content')
         {{-- 4. Simpan Button --}}
-        <div class="mt-7 flex justify-end gap-4">
+        <div class="mt-7 flex justify-center gap-4">
             <button @click.prevent="deleteModal = false" data-mdb-ripple="true" data-mdb-ripple-color="light"
                 class="rounded-md px-3 bg-violet-600 py-2 text-sm tracking-wide text-violet-50 shadow-lg shadow-blue-600/30 brightness-125">Close</button>
-            <button type="btn" data-mdb-ripple="true" data-mdb-ripple-color="light" wire:click='destroy()'
+            <button @click.prevent="deleteModal = false" type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" wire:click='destroy'
                 class="rounded-md bg-red-600 px-3 py-2 text-sm tracking-wide text-red-50 shadow-lg shadow-red-600/30 brightness-125">Delete</button>
         </div>
     </div>

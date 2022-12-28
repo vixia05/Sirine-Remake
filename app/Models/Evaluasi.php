@@ -14,4 +14,14 @@ class Evaluasi extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function userDetails()
+    {
+        return $this->hasOne(UserDetails::class,'np_user','np_user');
+    }
+
+    public function evaluatorDetails()
+    {
+        return $this->hasOne(UserDetails::class,'np_user','np_evaluator');
+    }
 }

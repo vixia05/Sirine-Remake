@@ -2,7 +2,7 @@
     @keydown.escape="deleteModal = false"
     x-cloak
     class="grid grid-cols-1">
-    @include('components.modal.delete')
+    @include('components.modal.delete-verifikasi')
     <div
         class="w-full rounded-md bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
         {{-- Header --}}
@@ -12,6 +12,18 @@
         </div>
         {{-- Body --}}
         <div class="px-4 pb-4">
+            @if(session('saved'))
+                <div
+                    class="p-2 mb-4 text-center text-green-100 bg-green-500 rounded shadow-lg brightness-110 shadow-green-500/50">
+                    <h5 class="text-2xl">Data Berhasil Di Ubah</h5>
+                </div>
+            @endif
+            @if(session('deleted'))
+                <div
+                    class="p-2 mb-4 text-center text-red-100 bg-red-500 rounded shadow-lg brightness-110 shadow-red-500/50">
+                    <h5 class="text-2xl">Data Berhasil Di Hapus</h5>
+                </div>
+            @endif
             {{-- 1.0 Filter & Search Section --}}
             <div
                 class="px-4 py-4 border rounded-t bg-inerhit border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
@@ -98,12 +110,7 @@
                                             {{-- 2.1.2 Nomor Pokok --}}
                                             <th scope="col"
                                                 class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-400">
-                                                NP
-                                            </th>
-                                            {{-- 2.1.3 Nama --}}
-                                            <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-400">
-                                                Nama
+                                                NP/Nama
                                             </th>
                                             {{-- 2.1.4 Tanggal Verifikasi --}}
                                             <th scope="col"
@@ -159,13 +166,11 @@
                                                 </td>
                                                 {{-- 2.2.2 Np User Coloumn --}}
                                                 <td
-                                                    class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
-                                                    {{ $datas->np_user }}
-                                                </td>
-                                                {{-- 2.2.3 Nama User Coloumn --}}
-                                                <td
-                                                    class="px-4 py-2 text-sm leading-normal border border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
-                                                    {{ \App\Models\UserDetails::where('np_user', $datas->np_user)->value('nama') }}
+                                                    class="px-4 py-2 text-sm border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
+                                                    <div class="flex flex-col justify-center">
+                                                        <span class="font-bold dark:text-slate-300">{{ $datas->np_user }}</span>
+                                                        <span>{{ $datas->userDetails->nama }}</span>
+                                                    </div>
                                                 </td>
                                                 {{-- 2.2.4 Tanggal Verifikasi Coloumn --}}
                                                 <td

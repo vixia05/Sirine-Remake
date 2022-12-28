@@ -102,22 +102,12 @@
                                             {{-- 2.1.3 Nama --}}
                                             <th scope="col"
                                                 class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
-                                                Kasek
-                                            </th>
-                                            {{-- 2.1.4 Tanggal CK3 --}}
-                                            <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
-                                                Kaun
+                                                Evaluator
                                             </th>
                                             {{-- 2.1.5 Jenis Barang --}}
                                             <th scope="col"
                                                 class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
-                                                Evaluasi Kasek
-                                            </th>
-                                            {{-- 2.1.6 Jenis Retur --}}
-                                            <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
-                                                Evaluasi Kaun
+                                                Evaluasi
                                             </th>
                                             {{-- 2.1.7 Total Retur --}}
                                             <th scope="col"
@@ -153,50 +143,28 @@
                                                 </td>
                                                 {{-- 2.2.2 Np User Coloumn --}}
                                                 <td
-                                                    class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                    class="px-4 py-2 text-sm border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     <div class="flex flex-col justify-center">
-                                                        <div>{{ $datas->np_user }}</div>
-                                                        <span
-                                                            class="block rounded-full bg-blue-600 py-1 px-3.5 text-center align-baseline text-xs font-medium leading-none text-white">
-                                                            {{ $datas->nama_user }}
-                                                        </span>
+                                                        <span class="font-bold dark:text-slate-300">{{ $datas->np_user }}</span>
+                                                        <span>{{ $datas->userDetails->nama }}</span>
                                                     </div>
                                                 </td>
                                                 {{-- 2.2.3 Nama User Coloumn --}}
                                                 <td
-                                                    class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                    class="px-4 py-2 text-sm border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     <div class="flex flex-col justify-center space-y-1">
-                                                        {{ $datas->np_kasek }}
-                                                        <div
-                                                            class="mt-1 rounded-full bg-blue-600 py-1 px-3.5 text-center align-baseline text-xs font-medium leading-none text-white">
-                                                            {{ $datas->nama_kasek }}
-                                                        </div>
+                                                        <span class="font-bold dark:text-slate-300">{{ $datas->np_evaluator }}</span>
+                                                        <span>{{ $datas->userDetails->nama }}</span>
                                                     </div>
                                                 </td>
                                                 {{-- 2.2.3 Nama User Coloumn --}}
                                                 <td
-                                                    class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                    <div class="flex flex-col justify-center">
-                                                        <span>{{ $datas->np_kaun }}</span>
-                                                        <span
-                                                            class="block rounded-full bg-blue-600 py-1 px-3.5 text-center align-baseline text-xs font-medium leading-none text-white">
-                                                            {{ $datas->nama_kaun }}
-                                                        </span>
-                                                    </div>
+                                                    class="w-1/6 px-4 py-2 text-xs border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                    <span class="line-clamp-2">{{ $datas->evaluasi }}</span>
                                                 </td>
                                                 {{-- 2.2.3 Nama User Coloumn --}}
                                                 <td
-                                                    class="w-1/6 px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                    <span class="line-clamp-2">{{ $datas->eva_kasek }}</span>
-                                                </td>
-                                                {{-- 2.2.3 Nama User Coloumn --}}
-                                                <td
-                                                    class="w-1/6 px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                    <span class="line-clamp-2">{{ $datas->eva_kaun }}</span>
-                                                </td>
-                                                {{-- 2.2.3 Nama User Coloumn --}}
-                                                <td
-                                                    class="w-1/6 px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                    class="w-1/6 px-4 py-2 text-xs border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                     <span class="line-clamp-2">{{ $datas->response }}</span>
                                                 </td>
                                                 {{-- 2.2.3 Nama User Coloumn --}}

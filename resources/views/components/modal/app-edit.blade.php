@@ -19,7 +19,7 @@
             <button @click.prevent="editModal = false" data-mdb-ripple="true" data-mdb-ripple-color="light"
                 class="rounded-md px-3 bg-violet-600 py-2 text-sm tracking-wide text-violet-50 shadow-lg shadow-blue-600/30 brightness-125">Close</button>
             {{-- 4. Simpan Button --}}
-            <button type="btn" data-mdb-ripple="true" data-mdb-ripple-color="light" wire:click='update()'
+            <button type="button" @click.prevent="editModal = false"  data-mdb-ripple="true" data-mdb-ripple-color="light" wire:click='update'
                 class="rounded-md bg-blue-600 px-3 py-2 text-sm tracking-wide text-blue-50 shadow-lg shadow-blue-600/30 brightness-125">Simpan</button>
         </div>
     </div>

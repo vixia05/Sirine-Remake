@@ -17,6 +17,7 @@ class DataProdVerif extends Component
     use WithPagination;
     public $produk;
     private $join;
+    public $noPo;
     public $search,$npUser,$startDate,$endDate;
     public $tglVerif,$blobor,$holo,$miss,$noda,$plooi,$blur,$gradasi,$terpotong,$tipis,$sobek,$botak,$tercampur,$minyak,$blanko,$diecut,$keterangan,$wip;
     protected $queryString = ['search'];
@@ -38,6 +39,7 @@ class DataProdVerif extends Component
         return view('livewire.operator.data-prod-verif',[
             'data'  => $data,
             'listNp' => $listNp,
+            'confPo' => $this->noPo,
         ]);
     }
 
@@ -54,7 +56,7 @@ class DataProdVerif extends Component
                                 'order_pcht.hcts_verif',
                                 'order_pcht.mesin',
                                 )
-                            ->whereLike(['petugas1','petugas2','no_obc',],$this->search ?? '')
+                            ->whereLike(['petugas1','petugas2','no_obc','po_hcts'],$this->search ?? '')
                             ->when($this->startDate,function($query,$startDate){
                                 return $query->whereBetween('tgl_periksa',[$startDate,$this->endDate]);
                             })
@@ -72,7 +74,7 @@ class DataProdVerif extends Component
                                 'order_mmea.hcts_verif',
                                 'order_mmea.mesin',
                                 )
-                                ->whereLike(['petugas1','petugas2','no_obc',],$this->search ?? '')
+                                ->whereLike(['petugas1','petugas2','no_obc','po_hcts'],$this->search ?? '')
                                 ->when($this->startDate,function($query,$startDate){
                                     return $query->whereBetween('tgl_periksa',[$startDate,$this->endDate]);
                                 })
@@ -87,14 +89,16 @@ class DataProdVerif extends Component
      */
     public function edit($po)
     {
-        if(HctsPcht::where('no_po',$po)->exists())
+        if(HctsPcht::where('po_hcts',$po)->exists())
         {
-            $get = HctsPcht::where('no_po',$po);
+            $get = HctsPcht::where('po_hcts',$po);
+            $this->obc = OrderPcht::where('no_po',$po)->value('no_obc');
         }
 
-        elseif(HctsMmea::where('no_po',$po)->exists())
+        elseif(HctsMmea::where('po_hcts',$po)->exists())
         {
-            $get = HctsMmea::where('no_po',$po);
+            $get = HctsMmea::where('po_hcts',$po);
+            $this->obc = OrderMmea::where('no_po',$po)->value('no_obc');
         }
 
         $this->tglVerif  = $get->value('tgl_periksa');
@@ -104,7 +108,7 @@ class DataProdVerif extends Component
         $this->diecut    = $get->value('diecut');
         $this->holo      = $get->value('hologram');
         $this->miss      = $get->value('miss_reg');
-        $this->noPo      = $get->value('no_po');
+        $this->noPo      = $get->value('po_hcts');
         $this->noda      = $get->value('noda');
         $this->plooi     = $get->value('plooi');
         $this->gradasi   = $get->value('gradasi');
@@ -115,7 +119,6 @@ class DataProdVerif extends Component
         $this->tercampur = $get->value('tercampur');
         $this->minyak    = $get->value('minyak');
         $this->wip       = '';
-        $this->obc       = '';
         $this->keterangan = $get->value('keterangan');
     }
 
@@ -129,7 +132,7 @@ class DataProdVerif extends Component
         // dd($this->noPo);
         if($this->produk == "PCHT")
         {
-            HctsPcht::where('no_po',$this->noPo)
+            HctsPcht::where('po_hcts',$this->noPo)
                     ->update([
                                 'blobor'  => $this->blobor  == null ? 0 : $this->blobor,
                                 'hologram'=> $this->holo    == null ? 0 : $this->holo,
@@ -154,7 +157,7 @@ class DataProdVerif extends Component
         }
         else
         {
-            HctsMmea::where('no_po',$this->noPo)
+            HctsMmea::where('po_hcts',$this->noPo)
                     ->update([
                         'blobor'  => $this->blobor  == null ? 0 : $this->blobor,
                         'hologram'=> $this->holo    == null ? 0 : $this->holo,
@@ -177,6 +180,8 @@ class DataProdVerif extends Component
                         'keterangan' => $this->keterangan == null ? "-" : $this->keterangan,
             ]);
         }
+
+        session()->flash('saved',$this->noPo);
     }
 
     /**
@@ -184,26 +189,28 @@ class DataProdVerif extends Component
      */
     public function delete($po)
     {
-        if(HctsPcht::where('no_po',$po)->exists())
+        if(HctsPcht::where('po_hcts',$po)->exists())
         {
-            $this->noPo = HctsPcht::where('no_po',$po)->value('no_po');
+            $this->noPo = HctsPcht::where('po_hcts',$po)->value('po_hcts');
         }
 
-        elseif(HctsMmea::where('no_po',$po)->exists())
+        elseif(HctsMmea::where('po_hcts',$po)->exists())
         {
-            $this->noPo = HctsMmea::where('no_po',$po)->value('no_po');
+            $this->noPo = HctsMmea::where('po_hcts',$po)->value('po_hcts');
         }
     }
 
     public function destroy()
     {
-        if($this->product = "PCHT")
+        if($this->produk === "PCHT")
         {
-            HctsPcht::where('no_po',$this->noPo)->delete();
+            HctsPcht::where('po_hcts',$this->noPo)->delete();
+            session()->flash('deleted',$this->noPo);
         }
-        else
+        elseif($this->produk === "MMEA")
         {
-            HctsMmea::where('no_po',$this->noPo)->delete();
+            HctsMmea::where('po_hcts',$this->noPo)->delete();
+            session()->flash('deleted',$this->noPo);
         }
     }
 }

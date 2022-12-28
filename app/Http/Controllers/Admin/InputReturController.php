@@ -75,7 +75,7 @@ class InputReturController extends Controller
         // dd($namaUser);
 
         ReturPikai::updateOrCreate(
-            ['tgl_cek' => $request->tglCek, 'np_user' => $request->npUser],
+            ['tgl_ck3' => $request->tglCek, 'np_user' => $request->npUser],
             [
             'nama_user' => $namaUser,
             'jenis'  => $request->jProduk,

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Livewire\Admin;
+use Auth;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -21,6 +22,11 @@ class DataPegawai extends Component
 
     public $seksi, $unit, $station;
     public $row, $data_id, $nama, $np ,$email, $alamat, $tglLahir;
+
+    public function mount()
+    {
+        $this->unit = UserDetails::where('np_user',Auth::user()->np)->value('id_unit');
+    }
 
     public function render()
     {

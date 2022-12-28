@@ -23,6 +23,7 @@ class VerifPikai extends Component
     {
         $this->tanggal   = Carbon::today()->format('Y-m-d');
         $this->petugas1  = Auth::user()->np;
+        $this->jenis     = "PCHT";
     }
 
     public function render()
@@ -51,13 +52,13 @@ class VerifPikai extends Component
         {
             $data = null;
         }
-        $this->obc    = $data == null ? "" : $data->pluck('no_obc');
-        $this->terima = $data == null ? "" : $data->pluck('rencet');
+        $this->obc    = $data == null ? "" : $data->value('no_obc');
+        $this->terima = $data == null ? "" : $data->value('rencet');
     }
 
     public function resetInputField()
     {
-        session()->flash('success',$this->obc);
+        session()->flash('success',$this->noPo);
 
         $this->blanko = '';
         $this->blobor = '';
