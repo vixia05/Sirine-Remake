@@ -33,9 +33,9 @@ class RekapEvaluasi extends Component
                             return $query->where('np_user',$searchNp);
                         })
                         ->when($this->startDate,function($query,$startDate){
-                            return $query->whereBetween('tgl_verif',[$startDate,$this->endDate]);
+                            return $query->whereBetween('post_date',[$startDate,$this->endDate]);
                         })
-                        ->orderBy('updated_at')
+                        ->orderBy('post_date')
                         ->paginate(10);
 
         return view('livewire.admin.rekap-evaluasi',[
@@ -53,8 +53,8 @@ class RekapEvaluasi extends Component
     {
         $data = Evaluasi::findOrFail($id);
 
-        $this->evaluator= $data->np_evaluator ." - " .$data->evaluatorDetails->nama;
-        $this->npUser   = $data->np_user. " - " .$data->userDetails->nama;
+        $this->evaluator= $data->np_evaluator;
+        $this->npUser   = $data->np_user;
         $this->evaluasi = $data->evaluasi;
         $this->response = $data->response;
 
@@ -66,13 +66,14 @@ class RekapEvaluasi extends Component
 
         Evaluasi::where('id',$this->idEvaluasi)
                 ->update([
-                    'eva_kasek' => $this->evaKasek,
-                    'eva_kaun'  => $this->evaKaun,
-                    'response'  => $this->resUser,
+                    'np_evaluator' => $this->evaluator,
+                    'np_user'   => $this->npUser,
+                    'evaluasi'  => $this->evaluasi,
+                    'response'  => $this->response,
                 ]);
 
-        session()->flash('messageUpdate', 'Data '.$this->name.' Berhasil Di Perbaharui');
-        $this->resetInputFields();
+        session()->flash('saved', 'Evaluasi Berhasil Di Perbaharui');
+        // $this->resetInputFields();
     }
 
     public function delete($id)
@@ -82,8 +83,11 @@ class RekapEvaluasi extends Component
 
     public function destroy()
     {
-        Evaluasi::findOrFail($this->idEvaluasi)->delete();
-        session()->flash('messageDelete', 'Pesan Berhasil Di Hapus');
+        Evaluasi::where('id',$this->idEvaluasi)
+                ->firstOrFail()
+                ->delete();
+
+        session()->flash('deleted', 'Pesan Berhasil Di Hapus');
 
     }
 

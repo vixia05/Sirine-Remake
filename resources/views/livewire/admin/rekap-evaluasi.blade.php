@@ -14,6 +14,18 @@
         </div>
         {{-- Body --}}
         <div class="px-4 pb-4 overflow-x-auto">
+            @if(session('saved'))
+                <div
+                    class="p-2 mb-4 text-center text-green-100 bg-green-500 rounded shadow-lg brightness-110 shadow-green-500/50">
+                    <h5 class="text-2xl">Evaluasi Berhasil Di Perbaharui</h5>
+                </div>
+            @endif
+            @if(session('deleted'))
+                <div
+                    class="p-2 mb-4 text-center text-red-100 bg-red-500 rounded shadow-lg brightness-110 shadow-red-500/50">
+                    <h5 class="text-2xl">Evaluasi Berhasil Di Hapus</h5>
+                </div>
+            @endif
             {{-- 1.0 Filter & Search Section --}}
             <div
                 class="px-4 py-4 border rounded-t bg-inerhit border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
@@ -170,12 +182,26 @@
                                                 {{-- 2.2.3 Nama User Coloumn --}}
                                                 <td
                                                     class="w-1/6 px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                    <span class="line-clamp-2">{{ $datas->status }}</span>
+                                                    @if ($datas->status === 0)
+                                                        <div class="px-4 py-2 rounded-full bg-gray-500">
+                                                            <span>Not Readed</span>
+                                                        </div>
+                                                    @elseif ($datas->status === 1)
+                                                        <div class="px-4 py-2 rounded-full bg-blue-500">
+                                                            <span>Read</span>
+                                                        </div>
+                                                    @elseif ($datas->status === 2)
+                                                        <div class="px-4 py-2 rounded-full bg-green-500">
+                                                            <span>Responded</span>
+                                                        </div>
+                                                    @else
+                                                        -
+                                                    @endif
                                                 </td>
                                                 {{-- 2.2.4 Tanggal CK3 Coloumn --}}
                                                 <td
                                                     class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                    {{ Carbon\Carbon::parse($datas->updated_at)->format('d-F-Y') }}
+                                                    {{ Carbon\Carbon::parse($datas->post_date)->format('d-F-Y') }}
                                                 </td>
                                                 {{-- 2.2.11 Action Coloumn --}}
                                                 <td

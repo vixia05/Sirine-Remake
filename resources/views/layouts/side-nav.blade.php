@@ -3,16 +3,17 @@
     class="fixed top-0 bottom-0 min-h-full pb-24 overflow-y-auto transition-all duration-300 ease-in-out shadow-md rounded-r-2xl bg-slate-50 bg-opacity-80 drop-shadow-md scrollbar-hide backdrop-blur backdrop-filter dark:bg-slate-900 dark:bg-opacity-80"
     x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0 scale-x-70 -translate-x-1/2"
-    x-transition:enter-end="opacity-100 scale-x-100 -translate-x-0"
-    x-transition:leave="transition ease-in duration-300"
+    x-transition:enter-end="opacity-100 scale-x-100 -translate-x-0" x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100 scale-x-100 -translate-x-0"
     x-transition:leave-end="opacity-0 scale-x-70 -translate-x-1/2">
-    <div :class="expandNavbar ? 'justify-center' : '' " class="top-0 flex items-center gap-3 p-4 duration-300 ease-in-out delay-300 sticky-top bg-slate-50 dark:bg-slate-900">
-            <img src="{{ asset('img/logo-only.png') }}"  class="flex-shrink-0 object-cover h-16">
-            <span :class="expandNavbar ? 'opacity-100' : 'opacity-0'" class="font-mono text-3xl font-extrabold duration-300 ease-in-out text-slate-800 dark:text-white">SIRINE</h1>
+    <div :class="expandNavbar ? 'justify-center' : '' "
+        class="top-0 flex items-center gap-3 p-4 duration-300 ease-in-out delay-300 sticky-top bg-slate-50 dark:bg-slate-900">
+        <img src="{{ asset('img/logo-only.png') }}" class="flex-shrink-0 object-cover h-16">
+        <h1 :class="expandNavbar ? 'opacity-100' : 'opacity-0'"
+            class="font-mono text-3xl font-extrabold duration-300 ease-in-out text-slate-800 dark:text-white">SIRINE
+            </h1>
     </div>
-    {{-- <button type="button"
-    x-data="{
+    {{-- <button type="button" x-data="{
         toggle: () => {
             if (localStorage.theme === 'dark') {
                 localStorage.theme = 'light';
@@ -23,9 +24,11 @@
             }
         },
     }" @click="toggle">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-      </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+        </svg>
     </button> --}}
     <div class="px-4 mt-4">
         <nav class="relative">
@@ -41,7 +44,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                             </svg>
-                            <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Dashboard</span>
+                            <span class="tracking-wide duration-300 ease-in-out"
+                                :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Dashboard</span>
                         </a>
                     </li>
                     {{-- 1.2 Profile --}}
@@ -53,15 +57,22 @@
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
-                            <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Biodata</span>
+                            <span class="tracking-wide duration-300 ease-in-out"
+                                :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Biodata</span>
                         </a>
                     </li>
                     {{-- 2.0 Menu Super User --}}
+                    @if (Helper::getRole() === 10)
                     @include('layouts.side-menu.super-user')
+                    @endif
                     {{-- 3.0 Menu Admin --}}
+                    @if (Helper::getRole() > 1)
                     @include('layouts.side-menu.admin-pikai')
+                    @endif
                     {{-- 4.0 Menu Verifikasi Pita Cukai --}}
+                    @if (Helper::getUnit() === 4)
                     @include('layouts.side-menu.verifikasi-pikai')
+                    @endif
                     {{-- 5.0 Menu Cetak Pita Cukai --}}
                     {{-- @include('layouts.side-menu.cetak-pikai') --}}
                     {{-- 6.0 Andon --}}
@@ -73,6 +84,7 @@
     </div>
 </div>
 {{-- 3. Footer Side Bar --}}
+
 <div
     x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
     :class="expandNavbar ? 'w-64' : 'w-20'"
@@ -129,3 +141,4 @@
         </ul>
     </a>
 </div>
+

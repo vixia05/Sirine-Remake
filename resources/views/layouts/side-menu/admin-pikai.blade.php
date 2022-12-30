@@ -1,10 +1,8 @@
-<h6
-    :class="expandNavbar ? 'opacity-100' : 'opacity-0'"
+<h6 :class="expandNavbar ? 'opacity-100' : 'opacity-0'"
     class="absolute px-3 py-2 text-base font-bold leading-tight duration-300 ease-in-out text-ellipsis whitespace-nowrap drop-shadow-lg dark:text-gray-200">
     Admin
 </h6>
-<h6
-    :class="!expandNavbar ? 'opacity-100' : 'opacity-0'"
+<h6 :class="!expandNavbar ? 'opacity-100' : 'opacity-0'"
     class="absolute px-3 py-2 text-base font-bold leading-tight duration-300 ease-in-out text-ellipsis whitespace-nowrap drop-shadow-lg dark:text-gray-200">
     ADM
 </h6>
@@ -17,6 +15,7 @@
             <path stroke-linecap="round" stroke-linejoin="round"
                 d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
-        <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Data Pegawai</span>
+        <span class="tracking-wide duration-300 ease-in-out" :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Data
+            Pegawai</span>
     </a>
 </li>

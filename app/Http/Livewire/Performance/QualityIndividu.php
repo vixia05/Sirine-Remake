@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Performance;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+use Auth;
 use Carbon\Carbon;
 use App\Models\ReturPikai;
 use App\Models\Workstation;
@@ -36,6 +37,18 @@ class QualityIndividu extends Component
 
     public function mount()
     {
+
+
+        if(Helper::getRole() === 0)
+        {
+            $this->team = Helper::getWorkstation();
+            $this->npUser = Auth::user()->np;
+            $this->mainChart(Carbon::now()->format('Y'));
+        }
+        else
+        {
+            //
+        }
         $this->year = Carbon::now();
         $this->listTeam= Workstation::orderBy('workstation')->get();
         $this->listNp  = [];
@@ -124,35 +137,35 @@ class QualityIndividu extends Component
         if($this->npUser != '')
         {
             $data = [
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->whereMonth('tgl_cek',1)->sum('jml_retur') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->whereMonth('tgl_cek',2)->sum('jml_retur') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->whereMonth('tgl_cek',3)->sum('jml_retur') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->whereMonth('tgl_cek',4)->sum('jml_retur') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->whereMonth('tgl_cek',5)->sum('jml_retur') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->whereMonth('tgl_cek',6)->sum('jml_retur') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->whereMonth('tgl_cek',7)->sum('jml_retur') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->whereMonth('tgl_cek',8)->sum('jml_retur') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->whereMonth('tgl_cek',9)->sum('jml_retur') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->whereMonth('tgl_cek',10)->sum('jml_retur'),
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->whereMonth('tgl_cek',11)->sum('jml_retur'),
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->whereMonth('tgl_cek',12)->sum('jml_retur'),
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',1)->sum('jml_retur') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',2)->sum('jml_retur') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',3)->sum('jml_retur') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',4)->sum('jml_retur') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',5)->sum('jml_retur') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',6)->sum('jml_retur') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',7)->sum('jml_retur') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',8)->sum('jml_retur') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',9)->sum('jml_retur') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',10)->sum('jml_retur'),
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',11)->sum('jml_retur'),
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',12)->sum('jml_retur'),
                     ];
         }
         else
         {
             $data = [
-                        ReturPikai::whereYear('tgl_cek',$year)->whereMonth('tgl_cek',1)->sum('jml_retur') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->whereMonth('tgl_cek',2)->sum('jml_retur') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->whereMonth('tgl_cek',3)->sum('jml_retur') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->whereMonth('tgl_cek',4)->sum('jml_retur') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->whereMonth('tgl_cek',5)->sum('jml_retur') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->whereMonth('tgl_cek',6)->sum('jml_retur') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->whereMonth('tgl_cek',7)->sum('jml_retur') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->whereMonth('tgl_cek',8)->sum('jml_retur') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->whereMonth('tgl_cek',9)->sum('jml_retur') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->whereMonth('tgl_cek',10)->sum('jml_retur'),
-                        ReturPikai::whereYear('tgl_cek',$year)->whereMonth('tgl_cek',11)->sum('jml_retur'),
-                        ReturPikai::whereYear('tgl_cek',$year)->whereMonth('tgl_cek',12)->sum('jml_retur'),
+                        ReturPikai::whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',1)->sum('jml_retur') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',2)->sum('jml_retur') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',3)->sum('jml_retur') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',4)->sum('jml_retur') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',5)->sum('jml_retur') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',6)->sum('jml_retur') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',7)->sum('jml_retur') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',8)->sum('jml_retur') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',9)->sum('jml_retur') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',10)->sum('jml_retur'),
+                        ReturPikai::whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',11)->sum('jml_retur'),
+                        ReturPikai::whereYear('tgl_ck3',$year)->whereMonth('tgl_ck3',12)->sum('jml_retur'),
                     ];
         }
         return $data;
@@ -162,61 +175,61 @@ class QualityIndividu extends Component
     public function dataJenisChart($year)
     {
         $dataUni = [
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('blobor') ,
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('hologram') ,
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('miss_reg') ,
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('noda') ,
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('plooi') ,
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('blur') ,
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('gradasi') ,
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('terpotong') ,
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('tipis') ,
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('sobek'),
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('botak'),
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('tercampur'),
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('minyak'),
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('blanko'),
-                    ReturPikai::whereYear('tgl_cek',$year)->sum('diecut'),
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('blobor') ,
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('hologram') ,
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('miss_reg') ,
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('noda') ,
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('plooi') ,
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('blur') ,
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('gradasi') ,
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('terpotong') ,
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('tipis') ,
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('sobek'),
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('botak'),
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('tercampur'),
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('minyak'),
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('blanko'),
+                    ReturPikai::whereYear('tgl_ck3',$year)->sum('diecut'),
                 ];
 
         if($this->npUser != '')
         {
             $dataInd = [
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('blobor') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('hologram') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('miss_reg') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('noda') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('plooi') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('blur') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('gradasi') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('terpotong') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('tipis') ,
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('sobek'),
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('botak'),
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('tercampur'),
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('minyak'),
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('blanko'),
-                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_cek',$year)->sum('diecut'),
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('blobor') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('hologram') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('miss_reg') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('noda') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('plooi') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('blur') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('gradasi') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('terpotong') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('tipis') ,
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('sobek'),
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('botak'),
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('tercampur'),
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('minyak'),
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('blanko'),
+                        ReturPikai::where('np_user',$this->npUser)->whereYear('tgl_ck3',$year)->sum('diecut'),
                     ];
         }
         else
         {
             $dataInd = [
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('blobor') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('hologram') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('miss_reg') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('noda') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('plooi') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('blur') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('gradasi') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('terpotong') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('tipis') ,
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('sobek'),
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('botak'),
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('tercampur'),
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('minyak'),
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('blanko'),
-                        ReturPikai::whereYear('tgl_cek',$year)->sum('diecut'),
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('blobor') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('hologram') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('miss_reg') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('noda') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('plooi') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('blur') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('gradasi') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('terpotong') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('tipis') ,
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('sobek'),
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('botak'),
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('tercampur'),
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('minyak'),
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('blanko'),
+                        ReturPikai::whereYear('tgl_ck3',$year)->sum('diecut'),
                     ];
         }
         return [
