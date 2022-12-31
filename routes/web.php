@@ -17,7 +17,7 @@ use App\Http\Livewire\Performance\QualityIndividu;
 use App\Http\Controllers\Performance\ReportController;
 
 // Namespace Andon
-use App\Http\Controllers\Andon\PitaCukai\VerifikasiController;
+use App\Http\Livewire\Andon\VerifikasiPitaCukai;
 use App\Http\Controllers\Andon\PitaCukai\CetakController;
 use App\Http\Controllers\Andon\PitaCukai\KhazwalController;
 use App\Http\Controllers\Andon\PitaCukai\KhazkhirController;
@@ -139,11 +139,11 @@ Route::group(['middleware' => ['auth','verified']], function() {
               Route::get('cetakPikai',   [CetakController::class,   'index'])->name('cetakPikai');
 
               // Verifikasi Pikai
-              Route::get('verifPikai',   [VerifikasiController::class, 'index'])->name('verifPikai');
-              Route::get('verifPikai/verifPcht',[VerifikasiController::class, 'verifikasiPcht'])->name('verifPcht');
-              Route::get('verifPikai/verifMmea',[VerifikasiController::class, 'verifikasiMmea'])->name('verifMmea');
-              Route::get('verifPikai/orderOcht',[VerifikasiController::class, 'orderPcht'])->name('orderPcht');
-              Route::get('verifPikai/orderMmea',[VerifikasiController::class, 'orderMmea'])->name('orderMmea');
+              Route::get('verifPikai',VerifikasiPitaCukai::class)->name('verifPikai');
+            //   Route::get('verifPikai/verifPcht',[VerifikasiController::class, 'verifikasiPcht'])->name('verifPcht');
+            //   Route::get('verifPikai/verifMmea',[VerifikasiController::class, 'verifikasiMmea'])->name('verifMmea');
+            //   Route::get('verifPikai/orderOcht',[VerifikasiController::class, 'orderPcht'])->name('orderPcht');
+            //   Route::get('verifPikai/orderMmea',[VerifikasiController::class, 'orderMmea'])->name('orderMmea');
 
               // Khazanah Akhir Pikai
               Route::get('kahzkhirPikai',[KhazkhirController::class,   'index'])->name('khazkhirPikai');

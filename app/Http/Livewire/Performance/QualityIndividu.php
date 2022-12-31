@@ -7,6 +7,8 @@ use Livewire\WithPagination;
 
 use Auth;
 use Carbon\Carbon;
+
+use Helper;
 use App\Models\ReturPikai;
 use App\Models\Workstation;
 use App\Models\UserDetails;
@@ -39,11 +41,11 @@ class QualityIndividu extends Component
     {
 
 
-        if(Helper::getRole() === 0)
+        if(Helper::getRole() < 2)
         {
             $this->team = Helper::getWorkstation();
             $this->npUser = Auth::user()->np;
-            $this->mainChart(Carbon::now()->format('Y'));
+            $this->dataMainChart(Carbon::now()->format('Y'));
         }
         else
         {

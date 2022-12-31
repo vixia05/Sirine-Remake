@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 
 use Auth;
+use Helper;
 use Carbon\Carbon;
 use App\Models\QcPikai;
 use App\Models\Workstation;
@@ -25,8 +26,20 @@ class QuantityIndividu extends Component
 
     public function mount()
     {
-        $this->listTeam= Workstation::orderBy('workstation')->get();
-        $this->listNp  = [];
+        $this->startDate = Carbon::today()->startOfMonth();
+        $this->endDate   = Carbon::today();
+        $this->listTeam  = Workstation::orderBy('workstation')->get();
+        $this->listNp    = [];
+        if(Helper::getRole() < 2)
+        {
+            $this->team = Helper::getWorkstation();
+            $this->npUser = Auth::user()->np;
+            $this->mainChart();
+        }
+        else
+        {
+            //
+        }
     }
 
     public function render()
@@ -64,8 +77,8 @@ class QuantityIndividu extends Component
                             ->orderBy('tgl_verif')
                             ->pluck('jml_verif','tgl_verif');
 
-        $mainLabels     = array_keys($mainData->toArray());
-        $mainDataset    = [
+        $this->labels     = array_keys($mainData->toArray());
+        $this->dataset    = [
                             [
                                 'label' => "Hasil Verif",
                                 'backgroundColor' => 'rgba(59, 130, 246, 1)',
@@ -113,8 +126,8 @@ class QuantityIndividu extends Component
                         ];
 
         $this->emit('updateMainChart', [
-            'datasets' => $mainDataset,
-            'labels' => $mainLabels,
+            'datasets' => $this->dataset,
+            'labels' => $this->labels,
         ]);
 
         $this->emit('updateYearChart', [

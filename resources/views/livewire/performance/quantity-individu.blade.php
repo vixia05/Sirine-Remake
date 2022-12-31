@@ -15,6 +15,7 @@
                     </div>
                     {{-- 1.2 Filter Chart --}}
                     <div class="my-auto flex justify-end flex-wrap">
+                        @if (Helper::getRole() > 1)
                         {{-- Filter By Team --}}
                         <select id="team" name="team" wire:model='team' wire:change='listsNp()'
                             class="w-full md:w-1/4 rounded-l border-blue-400 py-2 pl-2 text-sm font-bold text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
@@ -33,6 +34,7 @@
 
                             @endforelse
                         </select>
+                        @endif
                         {{-- Filter Date Range --}}
                         <input type="text" id="dateRange" name="dateRange"
                             class="w-full md:w-fit border-blue-400 px-4 py-2 text-xs font-medium text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200"
@@ -206,12 +208,7 @@
                                                     {{-- 1.2 Nomor Pokok --}}
                                                     <th scope="col"
                                                         class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-400">
-                                                        NP
-                                                    </th>
-                                                    {{-- 1.3 Nama --}}
-                                                    <th scope="col"
-                                                        class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-400">
-                                                        Nama
+                                                        NP / Nama
                                                     </th>
                                                     {{-- 1.4 Tanggal Verifikasi --}}
                                                     <th scope="col"
@@ -253,16 +250,15 @@
                                                     {{-- 2.1 Indexing --}}
                                                     <td
                                                         class="px-4 py-2 text-sm font-medium text-center whitespace-nowrap border-y border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                        {{ $data->firstItem() + $loop->index }}</td>
+                                                            <span>{{ $data->firstItem() + $loop->index }}</span>
+                                                    </td>
                                                     {{-- 2.2 Nomor Pokok --}}
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                        {{ $table->np_user }}
-                                                    </td>
-                                                    {{-- 2.3 Nama --}}
-                                                    <td
-                                                        class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                        {{ $table->nama_user }}
+                                                        class="px-4 py-2 text-sm border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        <div class="flex flex-col gap-1">
+                                                            <span class="font-bold">{{ $table->np_user }}</span>
+                                                            <span>{{ $table->UserDetails->nama }}</span>
+                                                        </div>
                                                     </td>
                                                     {{-- 2.4 Tanggal Verifikasi --}}
                                                     <td
@@ -271,17 +267,17 @@
                                                     </td>
                                                     {{-- 2.5 Pendapatan Lembar --}}
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="px-4 py-2 text-sm text-right border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                         {{ number_format($table->jml_verif,0) }} Lbr
                                                     </td>
                                                     {{-- 2.6 Pendapatan OBC --}}
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                        {{ $table->jml_obc }}
+                                                        class="px-4 py-2 text-sm text-right border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        {{ $table->jml_obc }} OBC
                                                     </td>
                                                     {{-- 2.7 Target --}}
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="px-4 py-2 text-sm text-right border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                         {{ number_format($table->target * 500,0) }} Lbr
                                                     </td>
                                                     {{-- 2.8 Lembur --}}
@@ -299,7 +295,7 @@
                                                     </td>
                                                     {{-- 2.9 Keterangan --}}
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="px-4 py-2 text-sm border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
                                                         {{ $table->keterangan }}
                                                     </td>
                                                 </tr>

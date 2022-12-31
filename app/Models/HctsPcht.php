@@ -14,4 +14,9 @@ class HctsPcht extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function orderPcht()
+    {
+        return $this->belongsTo(OrderPcht::class,'po_hcts','no_po');
+    }
 }

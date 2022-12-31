@@ -17,6 +17,7 @@ class CreateOrderMmeaTable extends Migration
 
             $table->bigInteger('no_po')->unique();
             $table->string('no_obc');
+            $table->string('jenis')->nullable();
             $table->date('tgl_obc')  ->nullable();
             $table->date('tgl_jt')   ->nullable();
             $table->date('tgl_bb')   ->nullable();

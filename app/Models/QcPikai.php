@@ -17,6 +17,6 @@ class QcPikai extends Model
 
     public function userDetails()
     {
-        return $this->hasOne(UserDetails::class,'np_user','np_user');
+        return $this->belongsTo(UserDetails::class,'np_user','np_user');
     }
 }

@@ -14,12 +14,13 @@
                 </div>
                 {{-- 1-A. 1.2 Filter --}}
                 <div class="my-auto flex justify-end flex-wrap text-slate-800 dark:text-slate-100">
+                    @if (Helper::getRole() > 1)
                     {{-- 1-A. 1.1 Filter Team --}}
                     <select wire:model='team' wire:change='listsNp()'
                         class="w-full md:w-1/4 rounded-l border-blue-400 py-2 pl-2 text-sm font-bold text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
                         <option>Team</option>
                         @foreach ($listTeam as $teams)
-                            <option value="{{ $teams->id }}">{{ $teams->workstation }}</option>
+                        <option value="{{ $teams->id }}">{{ $teams->workstation }}</option>
                         @endforeach
                     </select>
                     {{-- 1-A. 1.2 Filter Nama / NP --}}
@@ -27,11 +28,12 @@
                         class="w-full md:w-1/4 border-blue-400 py-2 pl-2 text-sm font-bold text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
                         <option selected>Nama/NP</option>
                         @forelse ($listNp as $Nps)
-                            <option value="{{ $Nps->np_user }}">{{ $Nps->nama }}</option>
+                        <option value="{{ $Nps->np_user }}">{{ $Nps->nama }}</option>
                         @empty
 
                         @endforelse
                     </select>
+                    @endif
                     {{-- 1-A. 1.3 Filter Tahun --}}
                     <select wire:model='year' wire:change='updateChart'
                         class="w-full md:w-1/4 border-blue-400 py-2 pl-2 text-sm font-bold text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
@@ -94,8 +96,8 @@
 
 @section('script-js')
 @push('js')
-    <script>
-            const ctxQuaIndividu  = document.getElementById('quaIndividu').getContext('2d');
+<script>
+    const ctxQuaIndividu  = document.getElementById('quaIndividu').getContext('2d');
             const ctxTypeIndividu = document.getElementById('typeIndividu').getContext('2d');
             const ctxTypeUnit     = document.getElementById('typeUnit').getContext('2d');
 
@@ -174,7 +176,7 @@
                             typeUnit.data = data;
                             typeUnit.update();
                         });
-    </script>
+</script>
 
 {{-- <script src="{{ asset('js/performance/qua-individu.js') }}"></script>
 <script src="{{ asset('component/chart/qua-individu.js') }}"></script> --}}
