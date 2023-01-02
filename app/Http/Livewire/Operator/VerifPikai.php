@@ -66,7 +66,6 @@ class VerifPikai extends Component
         $this->diecut = '';
         $this->holo   = '';
         $this->miss   = '';
-        $this->noPo = '';
         $this->noda   = '';
         $this->plooi  = '';
         $this->gradasi = '';
@@ -80,6 +79,7 @@ class VerifPikai extends Component
         $this->keterangan = '';
         $this->obc = '';
         $this->terima = '';
+        $this->noPo = '';
 
     }
 

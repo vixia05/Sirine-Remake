@@ -52,12 +52,6 @@
         {{ $slot }}
     </main>
     @livewireScripts
-
-    <script>
-          setTimeout(function(){
-            location.reload();
-          },59000);
-    </script>
 </body>
 @stack('js')
 

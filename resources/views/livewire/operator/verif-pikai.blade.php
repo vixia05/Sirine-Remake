@@ -1,5 +1,5 @@
 <div class="grid grid-cols-1">
-    <div class="px-4 py-6 mx-auto lg:px-8">
+    <div class="px-4 py-6 mx-auto lg:px-8" x-data x-init="$refs.noPo.focus()">
         <div class="flex justify-center">
             <div
                 class="p-4 font-semibold rounded-md bg-white/70 text-slate-800 backdrop-blur-sm backdrop-filter dark:bg-slate-800 dark:bg-opacity-70 dark:text-slate-100">
@@ -31,7 +31,7 @@
                                 PO</label>
                             <input type="number"
                                 class="w-full font-light leading-tight transition duration-150 ease-in-out rounded-md border-slate-400/30 bg-slate-300 bg-opacity-60 drop-shadow-md focus:ring-blue-500 dark:border-none dark:bg-slate-600 dark:bg-opacity-40"
-                                wire:model='noPo' wire:change='getSpec' value="{{ old('noPo') }}" required>
+                                wire:model.lazy='noPo' x-ref='noPo' wire:change='getSpec' value="{{ old('noPo') }}" required autofocus>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
@@ -286,3 +286,12 @@
         </div>
     </div>
 </div>
+@push('js')
+<script>
+    window.addEventListener('livewire:load', () => {
+        @this.on('noPo', () => {
+            document.querySelector('input').focus()
+        })
+    })
+</script>
+@endpush
