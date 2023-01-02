@@ -51,10 +51,10 @@
                         class="py-1 mt-4 text-blue-100 transition duration-300 ease-in-out bg-blue-600 rounded shadow-lg brightness-125 shadow-blue-600/30 hover:bg-blue-600/90">
                         Sign-in
                     </button>
-                    <button data-mdb-ripple="true" data-mdb-ripple-color="light"
+                    <a href="{{ route('andon.verifPikai') }}" data-mdb-ripple="true" data-mdb-ripple-color="light"
                         class="py-1 text-blue-100 transition duration-300 ease-in-out bg-blue-600 rounded shadow-lg brightness-125 shadow-blue-600/30 hover:bg-blue-600/90">
                         Andon
-                    </button>
+                    </a>
                 </div>
             </form>
         </div>

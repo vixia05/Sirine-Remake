@@ -1,6 +1,5 @@
 ----------- Main Quest -----------
 2. Andon
-   2.1 Andon Verifikasi // tambah orwhere, button next
    2.2 Andon Cetak
    2.3 Andon Khazkhir
    2.4 Overview
@@ -10,6 +9,7 @@
 5. Quality Unit
 7. Report Pegawai
 8. Privillage Sistem
+    - verifikasi user
 
 ----------- Sub Quest -----------
 

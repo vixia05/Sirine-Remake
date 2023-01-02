@@ -33,13 +33,13 @@ class HomeController extends Controller
     */
     public function order()
     {
-        $orderPcht = OrderPcht::whereMonth('tgl_obc',now())
+        $orderPcht = OrderPcht::whereMonth('tgl_obc',now())->whereYear('tgl_obc',now())
                                 ->get()
                                 ->unique('no_obc')
                                 ->sum('jml_order');
 
 
-        $orderMmea = OrderMmea::whereMonth('tgl_obc',now())
+        $orderMmea = OrderMmea::whereMonth('tgl_obc',now())->whereYear('tgl_obc',now())
                                 ->get()
                                 ->unique('no_obc')
                                 ->sum('jml_order');
@@ -60,13 +60,13 @@ class HomeController extends Controller
     */
     public function hcs()
     {
-        $hcsPcht = OrderPcht::whereMonth('tgl_obc',now())
+        $hcsPcht = OrderPcht::whereMonth('tgl_obc',now())->whereYear('tgl_obc',now())
                               ->sum('hcs_verif');
 
-        $hcsSisaMmea = OrderMmea::whereMonth('tgl_obc',now())
+        $hcsSisaMmea = OrderMmea::whereMonth('tgl_obc',now())->whereYear('tgl_obc',now())
                               ->sum('hcs_sisa');
 
-        $hcsMmea = OrderMmea::whereMonth('tgl_obc',now())
+        $hcsMmea = OrderMmea::whereMonth('tgl_obc',now())->whereYear('tgl_obc',now())
                               ->sum('hcs_verif') - $hcsSisaMmea;
 
         return [
@@ -84,10 +84,10 @@ class HomeController extends Controller
         $hcsPcht  = $this->hcs()['hcsPcht'];
         $hcsMmea  = $this->hcs()['hcsMmea'];
 
-        $hctsPcht = OrderPcht::whereMonth('tgl_obc',now())
+        $hctsPcht = OrderPcht::whereMonth('tgl_obc',now())->whereYear('tgl_obc',now())
                                 ->sum('hcts_verif');
 
-        $hctsMmea = OrderMmea::whereMonth('tgl_obc',now())
+        $hctsMmea = OrderMmea::whereMonth('tgl_obc',now())->whereYear('tgl_obc',now())
                                 ->sum('hcts_verif');
 
         if($hcsPcht == !null && $hcsPcht == !null)
