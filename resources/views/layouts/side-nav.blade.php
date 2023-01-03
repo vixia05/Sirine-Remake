@@ -37,27 +37,27 @@
                     {{-- 1. Global Menu --}}
                     {{-- 1.1 Dashboard --}}
                     <li class="relative my-1.5">
-                        <a class="{{ Route::is('dashboard') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex gap-3 items-center overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-sm transition duration-300 ease-in-out"
+                        <a class="{{ Route::is('dashboard') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-semibold' }} flex gap-3 items-center overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
                             href="{{ route('dashboard') }}" data-mdb-ripple="true" data-mdb-ripple-color="light">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                             </svg>
-                            <span class="tracking-wide duration-300 ease-in-out"
+                            <span class="tracking-wide font-medium duration-300 ease-in-out"
                                 :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Dashboard</span>
                         </a>
                     </li>
                     {{-- 1.2 Profile --}}
                     <li class="relative my-1.5">
-                        <a class="{{ Route::is('profile.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-medium' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-medium' }} flex gap-3 items-center overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-sm transition duration-300 ease-in-out"
+                        <a class="{{ Route::is('profile.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-semibold' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-semibold' }} flex gap-3 items-center overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
                             href="{{ route('profile.index') }}" data-mdb-ripple="true" data-mdb-ripple-color="light">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
-                            <span class="tracking-wide duration-300 ease-in-out"
+                            <span class="tracking-wide font-medium duration-300 ease-in-out"
                                 :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Biodata</span>
                         </a>
                     </li>
@@ -98,7 +98,7 @@
             <div
                 x-show="expandNavbar"
                 class="flex justify-between w-3/4 my-auto">
-                <h6 class="text-sm font-medium">{{ Auth::user()->np }}</h6>
+                <h6 class="text-xs font-semibold">{{ Auth::user()->np }}</h6>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="h-[19px] w-[19px]">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -120,7 +120,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
                             </svg>
-                            <span class="ml-3 text-sm font-medium text-ellipsis" >Logout</span>
+                            <span class="ml-3 text-xs font-semibold text-ellipsis" >Logout</span>
                         </div>
                     </a>
                 </li>
@@ -134,7 +134,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
-                        <span class="ml-3 text-sm font-medium text-ellipsis">Biodata</span>
+                        <span class="ml-3 text-xs font-semibold text-ellipsis">Biodata</span>
                     </div>
                 </a>
             </li>
