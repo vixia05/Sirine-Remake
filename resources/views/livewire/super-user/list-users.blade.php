@@ -4,18 +4,24 @@
     <div
         class="w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
         {{-- Header --}}
-        <div class="px-10 py-4">
-            <h4 class="my-auto font-sans text-2xl font-semibold leading-tight text-slate-600 dark:text-slate-100">LIST
+        <div class="pl-4 py-6">
+            <h4 class="my-auto font-sans text-lg font-semibold leading-tight text-slate-500 dark:text-slate-100">LIST
                 USER SIRINE</h4>
         </div>
         <div class="px-4 pb-4">
             {{-- 1.0 Filter & Search Section --}}
             <div
-                class="px-4 py-2 text-sm border rounded-t bg-inerhit border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
-                <div class="flex justify-start">
+                class="p-4 text-sm border-y bg-inerhit border-slate-300 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
+                <div class="flex justify-between">
+                    <button class="border-2 font-medium text-blue-600 brightness-125 rounded border-blue-500 px-2 py-2 flex justify-between gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+                          </svg>
+                        Filter
+                    </button>
                     <div class="relative">
                         <input type="text" wire:model="search"
-                            class="py-2 pl-10 pr-4 text-sm font-medium text-gray-600 border-t rounded-lg shadow focus:border-gray-400 focus:outline-none focus:ring-0"
+                            class="py-2 pl-10 pr-4 text-sm font-medium text-gray-600 border-t rounded border border-slate-400 shadow focus:border-gray-400 focus:outline-none focus:ring-0"
                             placeholder="Search...">
                         <div class="absolute top-0 left-0 inline-flex items-center pt-2 pl-2 text-gray-500">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
@@ -31,14 +37,14 @@
             {{-- Message CRUD --}}
             @if (session()->has('messageUpdate'))
                 <div
-                    class="p-2 font-bold leading-tight text-center text-green-400 border border-slate-400 bg-slate-700 bg-opacity-80 dark:border-slate-500">
+                    class="p-2 font-bold leading-tight text-center text-green-400 border border-slate-300 bg-slate-700 bg-opacity-80 dark:border-slate-500">
                     <div class="p-4 border border-green-400 rounded">
                         {{ session('messageUpdate') }}
                     </div>
                 </div>
             @elseif (session()->has('messageDelete'))
                 <div
-                    class="p-4 font-bold leading-tight text-center text-red-500 border border-red-500 bg-slate-700 bg-opacity-80">
+                    class="p-4 font-bold leading-tight text-center text-red-500 bordered-500 bg-slate-700 bg-opacity-80">
                     {{ session('messageDelete') }}
                 </div>
             @endif
@@ -46,32 +52,28 @@
             {{-- End Filter & Search --}}
             {{-- Body / Table --}}
             <div
-                class="overflow-hidden bg-inerhit border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
+                class="overflow-hidden bg-inerhit border-slate-300 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
                 <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full sm:px-4 lg:px-8">
                             <div class="overflow-hidden">
                                 <table class="min-w-full">
                                     <thead
-                                        class="text-base font-bold border-b border-slate-400 text-slate-500 dark:border-slate-500 dark:text-slate-400">
+                                        class="text-sm font-bold border-b border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-400">
                                         <tr>
-                                            <th class="px-4 py-2 text-center border-x border-slate-400 dark:border-slate-500"
-                                                scope="col">
-                                                No
-                                            </th>
-                                            <th class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500"
+                                            <th class="p-3 text-left border-slate-300 dark:border-slate-500"
                                                 scope="col">
                                                 NP
                                             </th>
-                                            <th class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500"
+                                            <th class="p-3 text-left border-slate-300 dark:border-slate-500"
                                                 scope="col">
                                                 Nama
                                             </th>
-                                            <th class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500"
+                                            <th class="p-3 text-center border-slate-300 dark:border-slate-500"
                                                 scope="col">
                                                 Role
                                             </th>
-                                            <th class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500"
+                                            <th class="p-3 text-center border-slate-300 dark:border-slate-500"
                                                 scope="col">
                                                 Action
                                             </th>
@@ -82,23 +84,19 @@
                                             <tr
                                                 class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
                                                 <td
-                                                    class="px-4 py-2 text-sm font-medium text-center border whitespace-nowrap border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                    {{ $data->firstItem() + $loop->index }}
-                                                </td>
-                                                <td
-                                                    class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                    class="p-3 text-sm font-light border-b whitespace-nowrap border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                     {{ $datas->np_user }}
                                                 </td>
                                                 <td
-                                                    class="px-4 py-2 text-sm border whitespace-nowrap border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                    class="p-3 text-sm border-b whitespace-nowrap font-light  border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                     {{ $datas->userDetails->nama }}
                                                 </td>
                                                 <td
-                                                    class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                    class="p-3 text-sm text-center border-b whitespace-nowrap font-light  border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                     {{ $datas->level->role }}
                                                 </td>
                                                 <td
-                                                    class="px-4 py-2 text-sm font-light text-center border whitespace-nowrap border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                    class="p-3 text-sm font-light text-center border-b whitespace-nowrap border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                     <div class="flex justify-center space-x-2">
                                                         <button
                                                             class="inline-block px-3 py-2 text-sm font-semibold leading-tight transition duration-150 ease-in-out bg-green-500 rounded shadow-md text-slate-100 hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg"
@@ -134,7 +132,7 @@
                                 </table>
                             </div>
                             <div
-                                class="px-10 py-2 overflow-hidden border-b rounded-b bg-inerhit border-x border-slate-400 text-slate-800 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 dark:text-slate-100">
+                                class="px-10 py-2 overflow-hidden border-b rounded-b bg-inerhit border-slate-300 text-slate-700 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 dark:text-slate-100">
                                 {{ $data->links('vendor.livewire.tailwind') }}
                             </div>
                         </div>
