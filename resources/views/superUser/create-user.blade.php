@@ -152,7 +152,8 @@
                         </div>
                         <div class="grid grid-rows-2">
                             <label for="division"
-                                class="inline-block font-medium text-slate-700 dark:text-slate-200">Confirm Password</label>
+                                class="inline-block font-medium text-slate-700 dark:text-slate-200">Confirm
+                                Password</label>
                             <input type="password"
                                 class="w-full text-sm leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 id="passwordConfirmation" name="passwordConfirmation" required>

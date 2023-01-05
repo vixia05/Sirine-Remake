@@ -1,16 +1,16 @@
 <div class="grid grid-cols-1">
     @include('components.modal.update-target')
     <div
-        class="w-full rounded-md bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
+        class="w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
         {{-- Header --}}
-        <div class="px-10 py-4">
-            <h4 class="my-auto font-sans text-2xl font-semibold leading-tight text-slate-800 dark:text-slate-100">TARGET
+        <div class="pl-4 py-6">
+            <h4 class="my-auto font-sans text-lg font-semibold leading-tight text-slate-500 dark:text-slate-100">TARGET
                 HARIAN & JAM EFEKTIF</h4>
         </div>
         {{-- Body / Table --}}
-        <div class="p-4">
+        <div class="px-4 pb-4">
             <div
-                class="overflow-hidden border-t rounded-t bg-inerhit border-x border-slate-400 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
+                class="overflow-hidden border-slate-400 bg-inherit dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
                 <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         @if (session()->has('messageUpdate'))
@@ -22,26 +22,26 @@
                             <div class="overflow-x-auto">
                                 <table class="min-w-full">
                                     <thead
-                                        class="text-base font-bold border-b border-slate-400 text-slate-600 dark:border-slate-500 dark:text-slate-400">
+                                        class="text-sm font-bold border-b border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-400">
                                         <tr>
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 Gilir
                                             </th>
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 Jam Efektif
                                             </th>
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 Target/Jam
                                             </th>
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 Target/Hari
                                             </th>
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-b border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 Action
                                             </th>
                                         </tr>
@@ -51,29 +51,29 @@
                                             <tr
                                                 class="transition duration-300 ease-in-out text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
                                                 <td
-                                                    class="px-4 py-2 text-sm text-center border-r whitespace-nowrap border-y border-slate-400 dark:border-slate-500">
+                                                    class="p-3 text-sm text-center font-light border-b whitespace-nowrap border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                     {{ $datas->gilir }}
                                                 </td>
                                                 <td
-                                                    class="px-4 py-2 text-sm text-center border-r whitespace-nowrap border-y border-slate-400 dark:border-slate-500">
+                                                    class="p-3 text-sm text-center font-light border-b whitespace-nowrap border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                     {{ $datas->jam_efektif }} Jam
                                                 </td>
                                                 <td
-                                                    class="px-4 py-2 text-sm text-center border-r whitespace-nowrap border-y border-slate-400 dark:border-slate-500">
+                                                    class="p-3 text-sm text-center font-light border-b whitespace-nowrap border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                     {{ number_format($datas->target / 500, 0) }} Rim
                                                     ({{ number_format($datas->target, 0) }} Lbr)
                                                     / Jam
 
                                                 </td>
                                                 <td
-                                                    class="px-4 py-2 text-sm text-center border-r whitespace-nowrap border-y border-slate-400 dark:border-slate-500">
+                                                    class="p-3 text-sm text-center font-light border-b whitespace-nowrap border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                     {{ number_format(($datas->target * $datas->jam_efektif) / 500, 0) }}
                                                     Rim
                                                     (
                                                     {{ number_format($datas->target * $datas->jam_efektif, 0) }}
                                                     Lbr ) / Hari
                                                 </td>
-                                                <td class="px-4 py-2 text-sm text-center whitespace-nowrap border-y border-slate-400 dark:border-slate-500">
+                                                <td class="p-3 text-sm text-center font-light border-b whitespace-nowrap border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                     <div class="flex justify-center space-x-2">
                                                         <button type="button" wire:click="edit({{ $datas->id }})"
                                                             data-mdb-ripple="true" data-mdb-ripple-color="light"
@@ -98,9 +98,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            {{-- Footer --}}
-            <div class="px-10 py-2 overflow-hidden border-b rounded-b border-x bg-inerhit border-slate-400 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
             </div>
         </div>
     </div>
