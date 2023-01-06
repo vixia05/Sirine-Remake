@@ -7,7 +7,7 @@
             <div class="grid grid-cols-2 gap-2 md:gap-4 lg:grid-cols-4">
                 {{-- 1.1 Order Pcht --}}
                 <div
-                    class="order-1 px-2 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200 rounded-lg dark:bg-slate-900 dark:bg-opacity-40 dark:backdrop-blur-sm dark:backdrop-filter md:py-4 md:px-6">
+                    class="order-1 px-2 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200 rounded-lg dark:bg-slate-900 dark:from-transparent dark:to-transparent dark:bg-opacity-40 dark:backdrop-blur-sm dark:backdrop-filter md:py-4 md:px-6">
                     <div class="flex flex-col items-center justify-between h-full gap-2 md:flex-row">
                         <div class="my-1 text-center md:text-left">
                             <h6 class="mb-2 font-sans text-sm text-slate-800 dark:text-slate-300">
@@ -24,7 +24,7 @@
                 </div>
                 {{-- 1.2 Sisa Order PCHT --}}
                 <div
-                    class="order-3 px-2 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  md:order-2 rounded-lg backdrop-filter dark:bg-slate-900 dark:bg-opacity-40 dark:backdrop-blur-sm dark:backdrop-filter md:py-4 md:px-6">
+                    class="order-3 px-2 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  md:order-2 rounded-lg backdrop-filter dark:bg-slate-900 dark:from-transparent dark:to-transparent dark:bg-opacity-40 dark:backdrop-blur-sm dark:backdrop-filter md:py-4 md:px-6">
                     <div class="flex flex-col items-center justify-between h-full gap-2 md:flex-row">
                         <div class="my-1 text-center md:text-left">
                             <h6 class="mb-2 font-sans text-sm text-slate-800 dark:text-slate-300">
@@ -41,7 +41,7 @@
                 </div>
                 {{-- 1.3 Order Mmea --}}
                 <div
-                    class="order-2 px-2 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  md:order-3 rounded-lg backdrop-filter dark:bg-slate-900 dark:bg-opacity-40 dark:backdrop-blur-sm dark:backdrop-filter md:py-4 md:px-6">
+                    class="order-2 px-2 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  md:order-3 rounded-lg backdrop-filter dark:bg-slate-900 dark:from-transparent dark:to-transparent dark:bg-opacity-40 dark:backdrop-blur-sm dark:backdrop-filter md:py-4 md:px-6">
                     <div class="flex flex-col items-center justify-between h-full gap-2 md:flex-row">
                         <div class="my-1 text-center md:text-left">
                             <h6 class="mb-2 font-sans text-sm text-slate-800 dark:text-slate-300">
@@ -58,7 +58,7 @@
                 </div>
                 {{-- 1.4 Sisa Order Mmea --}}
                 <div
-                    class="order-4 px-2 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  rounded-lg backdrop-filter dark:bg-slate-900 dark:bg-opacity-40 dark:backdrop-blur-sm dark:backdrop-filter md:py-4 md:px-6">
+                    class="order-4 px-2 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  rounded-lg backdrop-filter dark:bg-slate-900 dark:from-transparent dark:to-transparent dark:bg-opacity-40 dark:backdrop-blur-sm dark:backdrop-filter md:py-4 md:px-6">
                     <div class="flex flex-col items-center justify-between h-full gap-2 md:flex-row">
                         <div class="my-1 text-center md:text-left">
                             <h6 class="mb-2 font-sans text-sm text-slate-800 dark:text-slate-300">
@@ -79,7 +79,7 @@
                 <div class="grid grid-flow-col col-span-4 grid-rows-2 gap-3 lg:col-span-1">
                     {{-- 2.1 Inschiet Pcht --}}
                     <div
-                        class="row-span-2 px-8 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  shadow-sm dark:backdrop-blur-smbackdrop-filter rounded-lg dark:bg-slate-900 dark:bg-opacity-40 lg:row-span-1">
+                        class="row-span-2 px-8 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  shadow-sm dark:backdrop-blur-smbackdrop-filter rounded-lg dark:bg-slate-900 dark:from-transparent dark:to-transparent dark:bg-opacity-40 lg:row-span-1">
                         <h5 class="font-sans text-lg text-center text-slate-800 dark:text-slate-300">
                             INSCHIET PCHT
                         </h5>
@@ -94,7 +94,7 @@
                     </div>
                     {{-- 2.2 Inschiet Mmea --}}
                     <div
-                        class="h-full row-span-2 px-8 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  shadow-sm dark:backdrop-blur-smbackdrop-filter rounded-lg dark:bg-slate-900 dark:bg-opacity-40 lg:row-span-1">
+                        class="h-full row-span-2 px-8 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  shadow-sm dark:backdrop-blur-smbackdrop-filter rounded-lg dark:bg-slate-900 dark:from-transparent dark:to-transparent dark:bg-opacity-40 lg:row-span-1">
                         <h5 class="font-sans text-lg text-center text-slate-800 dark:text-slate-300">INSCHIET MMEA</h5>
                         <div class="flex flex-col items-center justify-center">
                             <div class="w-1/3 h-auto my-auto mt-1 md:w-1/2">
@@ -108,7 +108,7 @@
                 </div>
                 <div class="col-span-4 lg:col-span-3">
                     <div
-                        class="h-full px-8 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  shadow-sm dark:backdrop-blur-smbackdrop-filter rounded-lg dark:bg-slate-900 dark:bg-opacity-40">
+                        class="h-full px-8 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  shadow-sm dark:backdrop-blur-smbackdrop-filter rounded-lg dark:bg-slate-900 dark:from-transparent dark:to-transparent dark:bg-opacity-40">
                         <h5
                             class="mt-0 mb-4 text-xl font-medium leading-tight text-center text-slate-800 dark:text-slate-300">
                             Verifikasi PCHT
@@ -123,7 +123,7 @@
             <div class="grid grid-cols-4 gap-4 mt-5">
                 <div class="col-span-4 lg:col-span-3">
                     <div
-                        class="h-full px-8 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  shadow-sm dark:backdrop-blur-smbackdrop-filter rounded-lg dark:bg-slate-900 dark:bg-opacity-40">
+                        class="h-full px-8 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  shadow-sm dark:backdrop-blur-smbackdrop-filter rounded-lg dark:bg-slate-900 dark:from-transparent dark:to-transparent dark:bg-opacity-40">
                         <h5
                             class="mt-0 mb-4 text-xl font-medium leading-tight text-center text-slate-800 dark:text-slate-300">
                             Verifikasi MMEA
@@ -136,7 +136,7 @@
                 <div class="grid grid-flow-col col-span-4 grid-rows-2 gap-3 lg:col-span-1">
                     {{-- 2.1 Inschiet Pcht --}}
                     <div
-                        class="row-span-2 px-8 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  shadow-sm dark:backdrop-blur-smbackdrop-filter rounded-lg dark:bg-slate-900 dark:bg-opacity-40 lg:row-span-1">
+                        class="row-span-2 px-8 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  shadow-sm dark:backdrop-blur-smbackdrop-filter rounded-lg dark:bg-slate-900 dark:from-transparent dark:to-transparent dark:bg-opacity-40 lg:row-span-1">
                         <h5 class="font-sans text-lg text-center text-slate-800 dark:text-slate-300">
                             Retur PCHT
                         </h5>
@@ -148,7 +148,7 @@
                     </div>
                     {{-- 2.2 Inschiet Mmea --}}
                     <div
-                        class="h-full row-span-2 px-8 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  shadow-sm dark:backdrop-blur-smbackdrop-filter rounded-lg dark:bg-slate-900 dark:bg-opacity-40 lg:row-span-1">
+                        class="h-full row-span-2 px-8 py-4 overflow-hidden bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200  shadow-sm dark:backdrop-blur-smbackdrop-filter rounded-lg dark:bg-slate-900 dark:from-transparent dark:to-transparent dark:bg-opacity-40 lg:row-span-1">
                         <h5 class="font-sans text-lg text-center text-slate-800 dark:text-slate-300">Retur MMEA</h5>
                         <div class="flex justify-center">
                             <h3 class="my-auto text-3xl leading-tight text-right text-slate-600 dark:text-slate-100">

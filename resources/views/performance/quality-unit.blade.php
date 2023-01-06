@@ -5,7 +5,7 @@
         <div class="relative flex flex-col justify-center p-6">
             {{-- 1-A Grafik retur/kelolosan tahun ini --}}
             <div
-                class="w-full p-6 rounded-xl bg-white/70 dark:bg-slate-800 dark:bg-opacity-70 dark:backdrop-blur-md dark:backdrop-filter">
+                class="w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
                 {{-- 1-A.1 Header --}}
                 <div class="grid grid-cols-2 pb-3 gap-3 border-b-2 border-slate-600/70 dark:border-slate-300/70">
                     {{-- 1-A. 1.1 Header Title --}}

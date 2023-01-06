@@ -7,43 +7,40 @@
         @include('components.modal.delete-checklist')
     </form>
     <div
-        class="w-full rounded-md bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
+        class="w-full rounded-md bg-gradient-to-br from-slate-50 dark:from-transparent dark:to-transparent via-slate-100 to-slate-50  dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
         {{-- Header --}}
-        <div class="px-10 py-4">
-            <h4 class="my-auto font-sans text-2xl font-semibold leading-tight text-slate-800 dark:text-slate-100">DATA
+        <div class="px-4 py-6">
+            <h4 class="my-auto font-sans text-lg font-semibold leading-tight text-slate-500 dark:text-slate-100">DATA
                 PPRODUKSI VERIFIKASI</h4>
         </div>
         {{-- Body --}}
         <div class="px-4 pb-4">
             @if(session('saved'))
-                <div
-                    class="p-2 my-3 text-center text-green-100 bg-green-500 rounded shadow-lg brightness-110 shadow-green-500/50">
-                    <h5 class="text-2xl">Jenis Kerusakan {{ session('saved') }} Berhasil Di Ubah</h5>
-                </div>
+            <div
+                class="p-2 my-3 text-center text-green-100 bg-green-500 rounded shadow-lg brightness-110 shadow-green-500/50">
+                <h5 class="text-2xl">Jenis Kerusakan {{ session('saved') }} Berhasil Di Ubah</h5>
+            </div>
             @endif
             @if(session('deleted'))
-                <div
-                    class="p-2 my-3 text-center text-red-100 bg-red-500 rounded shadow-lg brightness-110 shadow-red-500/50">
-                    <h5 class="text-2xl">Data Produksi {{ session('deleted') }} Berhasil Di Hapus</h5>
-                </div>
+            <div
+                class="p-2 my-3 text-center text-red-100 bg-red-500 rounded shadow-lg brightness-110 shadow-red-500/50">
+                <h5 class="text-2xl">Data Produksi {{ session('deleted') }} Berhasil Di Hapus</h5>
+            </div>
             @endif
             {{-- 1.0 Filter & Search Section --}}
             <div
-                class="px-4 py-4 border rounded-t bg-inerhit border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
+                class="p-4 text-sm border-y bg-inerhit border-slate-300 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
                 <div class="flex flex-wrap justify-between gap-3">
                     {{-- Filter NP --}}
                     <div
-                        class="flex flex-row border border-blue-600 rounded-md brightness-110 dark:focus-within:shadow-lg dark:focus-within:shadow-blue-600/30 dark:focus-within:brightness-125">
-                        <div class="px-2 py-1 rounded-l-md dark:bg-slate-800 dark:bg-opacity-50">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6 text-blue-600">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0112 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125M20.625 12c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5M12 14.625v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 14.625c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m0 1.5v-1.5m0 0c0-.621.504-1.125 1.125-1.125m0 0h7.5" />
-                            </svg>
-
-                        </div>
+                        class="flex gap-2 px-2 py-1 transition duration-300 ease-in-out focus-within:ring-1 text-blue-600 border-blue-600 dark:text-blue-500 border dark:border-blue-500 rounded dark:focus-within:brightness-125 focus-within:shadow-lg focus-within:shadow-blue-500/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0112 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125M20.625 12c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5M12 14.625v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 14.625c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m0 1.5v-1.5m0 0c0-.621.504-1.125 1.125-1.125m0 0h7.5" />
+                        </svg>
                         <select
-                            class="w-full text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
+                            class="-my-1 -mr-2 text-xs text-slate-700 transition duration-150 dark:border-blue-500 border-none rounded-r appearance-none focus:ring-0 dark:bg-slate-800 dark:bg-opacity-10 focus:bg-opacity-100 dark:text-slate-100"
                             wire:model="produk">
                             <option value="PCHT">PCHT</option>
                             <option value="MMEA">MMEA</option>
@@ -51,33 +48,33 @@
                     </div>
                     {{-- Filter Date Range --}}
                     <div
-                        class="flex flex-row border border-blue-600 rounded-md brightness-110 dark:focus-within:shadow-lg dark:focus-within:shadow-blue-600/30 dark:focus-within:brightness-125">
-                        <div class="px-2 py-1 rounded-l-md dark:bg-slate-800 dark:bg-opacity-50">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                class="w-6 h-6 text-blue-600">
-                                <path
-                                    d="M12.75 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM7.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM8.25 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM9.75 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM12.75 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM14.25 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 13.5a.75.75 0 100-1.5.75.75 0 000 1.5z" />
-                                <path fill-rule="evenodd"
-                                    d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </div>
+                        class="flex gap-2 px-2 py-1 transition duration-300 ease-in-out focus-within:ring-1 text-blue-600 border-blue-600 dark:text-blue-500 border dark:border-blue-500 rounded dark:focus-within:brightness-125 focus-within:shadow-lg focus-within:shadow-blue-500/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 text-blue-600">
+                            <path
+                                d="M12.75 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM7.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM8.25 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM9.75 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM12.75 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM14.25 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 13.5a.75.75 0 100-1.5.75.75 0 000 1.5z" />
+                            <path fill-rule="evenodd"
+                                d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z"
+                                clip-rule="evenodd" />
+                        </svg>
                         <input type="text" id="dateRange" name="dateRange"
-                            class="w-full text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
+                            class="-my-1 -mr-2 text-xs text-slate-700 transition duration-150 dark:border-blue-500 border-none rounded-r appearance-none focus:ring-0 dark:bg-slate-800 dark:bg-opacity-10 focus:bg-opacity-100 dark:text-slate-100"
                             placeholder="Periode" />
                     </div>
                     {{-- Search --}}
                     <div class="relative flex flex-wrap gap-3">
-                        <input type="text" wire:model="search"
-                            class="py-2 pl-10 pr-4 text-xs font-medium text-gray-600 border-t rounded-lg shadow focus:border-gray-400 focus:outline-none focus:ring-0"
-                            placeholder="Search...">
-                        <div class="absolute top-0 left-0 inline-flex items-center pt-2 pl-2 text-gray-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
-                                fill="currentColor">
-                                <path fill-rule="evenodd"
-                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                    clip-rule="evenodd" />
-                            </svg>
+                        <div class="relative">
+                            <input type="text" wire:model="search"
+                                class="py-2 pl-10 pr-4 text-xs font-medium text-gray-600 border-t rounded border border-slate-400 shadow focus:shadow-md focus:shadow-blue-500/30 focus:border-blue-500 focus:ring-blue-600 focus:outline-none focus:ring-1 hover:border-blue-500 transition ease-out duration-150"
+                                placeholder="Search...">
+                            <div class="absolute top-0 left-0 inline-flex items-center pt-2 pl-2 text-gray-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
                         </div>
                         {{-- Button Export --}}
                         <div>
@@ -97,7 +94,7 @@
             {{-- End Filter & Search --}}
             {{-- 2.0 Table --}}
             <div
-                class="row-span-3 overflow-hidden border-x border-slate-400 bg-inerhit dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 ">
+                class="overflow-hidden border-t border-slate-400 bg-inherit dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
                 <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full sm:px-6 lg:px-8">
@@ -105,61 +102,56 @@
                                 <table class="min-w-full">
                                     {{-- 2.1 Header Table --}}
                                     <thead
-                                        class="text-base font-bold border-b border-slate-400 dark:border-slate-500 text-slate-600 dark:text-slate-400">
+                                        class="text-sm font-bold border-b-2 border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-400">
                                         <tr>
                                             {{-- 2.1.1 Index --}}
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 No
                                             </th>
                                             {{-- 2.1.2 Nomor Pokok --}}
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 OBC
                                             </th>
                                             {{-- 2.1.2 Nomor Pokok --}}
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 Nomor PO
                                             </th>
                                             {{-- 2.1.3 Nama --}}
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 Jumlah Cetak
                                             </th>
                                             {{-- 2.1.4 Tanggal CK3 --}}
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 Baik Periksa
                                             </th>
                                             {{-- 2.1.5 Jenis Barang --}}
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 Rusak Periksa
-                                            </th>
-                                            {{-- 2.1.6 Jenis Retur --}}
-                                            <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
-                                                WIP / Sisa Baik
                                             </th>
                                             {{-- 2.1.7 Total Retur --}}
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 Jenis Kerusakan
                                             </th>
                                             {{-- 2.1.8 Action --}}
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 Keterangan
                                             </th>
                                             {{-- 2.1.8 Action --}}
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 Petugas
                                             </th>
                                             {{-- 2.1.8 Action --}}
                                             <th scope="col"
-                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                 Mesin
                                             </th>
                                             {{-- 2.1.8 Action --}}
@@ -173,45 +165,40 @@
                                     <tbody>
                                         @foreach ($data as $datas)
                                         <tr
-                                            class="transition duration-300 ease-in-out border-b hover:bg-slate-400 hover:bg-opacity-10 border-slate-400 dark:border-slate-500">
+                                            class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
                                             {{-- Nomor --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-center whitespace-nowrap border-y border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="p-3 text-sm text-center font-medium whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                 {{ $data->firstItem() + $loop->index }}
                                             </td>
                                             {{-- OBC --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                 {{ $datas->no_obc }}
                                             </td>
                                             {{-- Nomor PO --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="p-3 text-sm text-center font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                 {{ $datas->po_hcts }}
                                             </td>
                                             {{-- Jumlah Cetak --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-right border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                 {{ number_format($datas->rencet,0) }}
                                             </td>
                                             {{-- Baik Verifikasi --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-right border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                 {{ number_format($datas->hcs_verif,) }}
                                             </td>
                                             {{-- Rusak Verifikasi --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-right border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                 {{ number_format($datas->hcts_verif,0) }}
-                                            </td>
-                                            {{-- Wip / Sisa Baik --}}
-                                            <td
-                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
-                                                {{-- {{ $datas->petugas }} --}}
                                             </td>
                                             {{-- Jenis Kerusakan --}}
                                             <td
-                                                class="flex flex-wrap justify-start max-w-sm gap-2 px-4 py-2 text-sm text-center dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="flex flex-wrap justify-start gap-2 px-4 py-2 text-sm text-center dark:border-slate-500 text-slate-800 dark:text-slate-100">
                                                 @if ($datas->blobor == !null)
                                                 <span
                                                     class="inline-block whitespace-nowrap rounded-full bg-red-600  py-1 px-2.5 text-center align-baseline text-xs font-bold leading-none text-slate-100">
@@ -293,17 +280,17 @@
                                             </td>
                                             {{-- Keterangan --}}
                                             <td
-                                                class="px-4 py-2 text-sm border border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="p-3 text-sm text-center font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                 {{ $datas->keterangan }}
                                             </td>
                                             {{-- Petugas --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="p-3 text-sm text-center font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                 {{ $datas->petugas1 }} | {{ $datas->petugas2 }}
                                             </td>
                                             {{-- Mesin --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="p-3 text-sm text-center font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                 @if ($datas->mesin == !null)
                                                 {{ \App\Models\Mesin::where('kode_mesin',$datas->mesin)->value('mesin')
                                                 }}
@@ -313,7 +300,7 @@
                                             </td>
                                             {{-- --}}
                                             <td
-                                                class="px-4 py-2 text-sm text-center border-b whitespace-nowrap border-slate-400 dark:border-slate-500 text-slate-800 dark:text-slate-100">
+                                                class="p-3 text-sm text-center font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                 <div class="flex justify-center gap-2">
                                                     <button type="button" data-mdb-ripple="true"
                                                         @click.prevent="editModal = true"
@@ -321,13 +308,13 @@
                                                         data-mdb-ripple-color="light"
                                                         class="inline-block px-2 py-1.5 text-sm font-semibold transition duration-150 drop-shadow-md  brightness-150 shadow-green-500/50 ease-in-out bg-green-600 rounded shadow-md leading-tighttext-slate-200 hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg">
                                                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
-                                                                viewBox="0 0 20 20" fill="currentColor">
-                                                                <path
-                                                                    d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
-                                                                <path fill-rule="evenodd"
-                                                                    d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
-                                                                    clip-rule="evenodd" />
-                                                            </svg>
+                                                            viewBox="0 0 20 20" fill="currentColor">
+                                                            <path
+                                                                d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                                            <path fill-rule="evenodd"
+                                                                d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                                                clip-rule="evenodd" />
+                                                        </svg>
                                                     </button>
                                                     <button type="button" data-mdb-ripple="true"
                                                         @click.prevent="deleteModal = true"
@@ -355,7 +342,7 @@
             </div>
             {{-- 3.0 Footer --}}
             <div
-                class="px-10 py-2 overflow-hidden border-b rounded-b border-x border-slate-400 bg-inerhit dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 text-slate-800 dark:text-slate-100 ">
+                class="px-10 pt-2 pb-3 overflow-hidden border-b rounded-b bg-inerhit border-slate-300 text-slate-700 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 dark:text-slate-100">
                 {{ $data->links('vendor.livewire.tailwind') }}
             </div>
             {{-- End Footer --}}

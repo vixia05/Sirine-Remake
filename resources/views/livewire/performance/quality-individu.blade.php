@@ -2,7 +2,7 @@
     <div class="grid grid-cols-1 gap-0 md:gap-3 space-y-3 md:grid-cols-3">
         {{-- 1-A Grafik retur/kelolosan tahun ini --}}
         <div
-            class="relative p-4 rounded-xl bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter md:col-span-3 lg:col-span-2">
+            class="relative p-4 w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter md:col-span-3 lg:col-span-2">
             {{-- 1-A.1 Header --}}
             <div
                 class="grid grid-rows-1 gap-3 lg:gap-0 md:grid-rows-2 pb-3 mb-3 md:mb-6 border-b-2 border-slate-600/70 dark:border-slate-300">
@@ -59,7 +59,7 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-1 col-span-3 lg:col-span-1 gap-3">
             {{-- 1-B.2 Kelolosan Tahunan --}}
             <div
-                class="p-4 px-6 overflow-hidden rounded-xl bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
+                class="p-4 px-6 overflow-hidden w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
                 {{-- Header --}}
                 <div class="flex flex-col pb-3 border-b-2 border-slate-600 dark:border-slate-300">
                     <h5 class="w-full text-xl font-bold text-slate-800 dark:text-slate-100">Jenis Retur User</h5>
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div
-                class="p-4 px-6 overflow-hidden rounded-xl bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
+                class="p-4 px-6 overflow-hidden w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
                 {{-- Header --}}
                 <div class="flex flex-col pb-3 border-b-2 border-slate-600 dark:border-slate-300">
                     <h5 class="w-full text-xl font-bold text-slate-800 dark:text-slate-100">Jenis Retur Unit</h5>

@@ -2,7 +2,7 @@
     <div class="px-4 py-6 mx-auto lg:px-8" x-data x-init="$refs.noPo.focus()">
         <div class="flex justify-center">
             <div
-                class="px-8 py-4 rounded-lg  bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 dark:backdrop-blur-sm dark:backdrop-filter dark:bg-slate-800 dark:bg-opacity-70">
+                class="px-8 py-4 rounded-lg  bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 dark:backdrop-blur-sm dark:backdrop-filter dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-70">
                 <h6 class="pt-5 pb-3 mb-6 text-xl font-bold border-b-2 border-slate-400 text-slate-500 dark:border-slate-100 dark:text-slate-100"> Checklist Harian </h6>
                 @if(session('success'))
                     <div

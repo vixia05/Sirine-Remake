@@ -2,16 +2,16 @@
     @include('components.modal.update-user')
     @include('components.modal.delete-user')
     <div
-        class="w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
+        class="w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
         {{-- Header --}}
-        <div class="pl-4 py-6">
+        <div class="px-4 py-6">
             <h4 class="my-auto font-sans text-lg font-semibold leading-tight text-slate-500 dark:text-slate-100">LIST
                 USER SIRINE</h4>
         </div>
         <div class="px-4 pb-4">
             {{-- 1.0 Filter & Search Section --}}
             <div
-                class="p-4 text-sm border-y bg-inerhit border-slate-300 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
+                class="p-4 text-sm border-y bg-inerhit border-slate-300 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:from-transparent dark:to-transparent dark:bg-opacity-50">
                 <div class="flex justify-between">
                     <button
                         class="border-2 font-medium text-blue-600 brightness-125 rounded border-blue-500 px-2 py-2 flex justify-between gap-2">
@@ -54,7 +54,7 @@
             {{-- End Filter & Search --}}
             {{-- Body / Table --}}
             <div
-                class="overflow-hidden border-t border-slate-400 bg-inherit dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
+                class="overflow-hidden border-t border-slate-400 bg-inherit dark:border-slate-500 dark:bg-slate-700 dark:from-transparent dark:to-transparent dark:bg-opacity-50">
                 <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full sm:px-4 lg:px-8">
@@ -134,7 +134,7 @@
                                 </table>
                             </div>
                             <div
-                                class="px-10 py-2 overflow-hidden border-b rounded-b bg-inerhit border-slate-300 text-slate-700 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 dark:text-slate-100">
+                                class="px-10 py-2 overflow-hidden border-b rounded-b bg-inerhit border-slate-300 text-slate-700 dark:border-slate-500 dark:bg-slate-700 dark:from-transparent dark:to-transparent dark:bg-opacity-50 dark:text-slate-100">
                                 {{ $data->links('vendor.livewire.tailwind') }}
                             </div>
                         </div>

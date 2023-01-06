@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1">
     <div class="relative flex flex-col justify-center p-6">
         <div
-            class="relative md:h-[95vh] rounded-xl bg-slate-100/80 dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-lg dark:backdrop-filter">
+            class="relative md:h-[95vh] w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter  ">
             <div class="w-full px-4 py-3">
                 {{-- 1.0 Header Section --}}
                 <div

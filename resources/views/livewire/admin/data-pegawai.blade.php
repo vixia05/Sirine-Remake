@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1">
     @include('components.modal.update-pegawai')
     <div
-        class="w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
+        class="w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
         {{-- Header --}}
         <div class="pl-4 py-6">
             <h4 class="my-auto font-sans text-lg font-semibold leading-tight text-slate-500 dark:text-slate-100">Data
@@ -21,7 +21,7 @@
                                 d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                         </svg>
                         <select wire:model="unit"
-                            class="-my-1 -mr-2 text-xs text-slate-700 transition duration-150 dark:border-blue-500 border-none rounded-r appearance-none focus:ring-0 dark:bg-slate-800 dark:bg-opacity-10 focus:bg-opacity-100 dark:text-slate-100">
+                            class="-my-1 -mr-2 text-xs text-slate-700 transition duration-150 dark:border-blue-500 border-none rounded-r appearance-none focus:ring-0 dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-10 focus:bg-opacity-100 dark:text-slate-100">
                             <option class="text-center">-- Unit Kerja --</option>
                             @foreach ($listUnit as $unit)
                             <option value="{{ $unit->id }}">{{ $unit->unit }}</option>

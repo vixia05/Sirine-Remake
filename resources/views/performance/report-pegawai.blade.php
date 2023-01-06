@@ -5,7 +5,7 @@
         <div class="mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 gap-4">
                 {{-- A. Header & Filter --}}
-                <div class="relative col-span-2 w-full rounded-lg bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 p-6 dark:backdrop-blur-sm dark:backdrop-filter">
+                <div class="relative col-span-2 w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm p-6 dark:backdrop-filter">
                     <div class="border-b-2 border-slate-600 /70 dark:border-slate-300/70 pb-4">
                         <h3 class="text-center font-mono text-2xl font-semibold text-slate-600 dark:text-slate-300">REPORT PERFORMANCE</h3>
                     </div>
@@ -65,7 +65,7 @@
                 {{-- End A. Header / Filter --}}
 
                 {{-- B. Performance Monthly --}}
-                <div class="relative w-full rounded-lg bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 p-6 dark:backdrop-blur-sm dark:backdrop-filter">
+                <div class="relative w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm p-6 dark:backdrop-filter">
                     {{-- 1. Header --}}
                     <div class="mb-2 border-b-2 border-slate-600 /70 dark:border-slate-300/70 pb-4">
                         <h3 class="text-center font-mono text-2xl font-semibold text-slate-600 dark:text-slate-300">Performance Tahun 2022</h3>
@@ -77,7 +77,7 @@
                 </div>
 
                 {{-- C. Performance Weekly --}}
-                <div class="relative w-full rounded-lg bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 p-6 dark:backdrop-blur-sm dark:backdrop-filter">
+                <div class="relative w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm p-6 dark:backdrop-filter">
                     {{-- 1. Header --}}
                     <div class="mb-2 border-b-2 border-slate-600 /70 dark:border-slate-300/70 pb-4">
                         <h3 class="text-center font-mono text-2xl font-semibold text-slate-600 dark:text-slate-300">Performance Bulan
@@ -90,7 +90,7 @@
                 </div>
 
                 {{-- D. Table Rekap Evaluasi Pegawai --}}
-                <div class="relative col-span-2 w-full rounded-lg bg-white/70 dark:bg-slate-800 dark:bg-opacity-60 py-6 dark:backdrop-blur-sm dark:backdrop-filter">
+                <div class="relative col-span-2 w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent px-2 py-6 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
                     <div class="overflow-x-auto px-4">
                         {{-- 1.0 Filter & Search Section --}}
                         <div

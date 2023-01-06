@@ -8,7 +8,7 @@
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                 {{-- 1.0 Form Data Pegawai --}}
                 <div
-                    class="px-8 py-4 rounded-lg  bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 dark:backdrop-blur-sm dark:backdrop-filter dark:bg-slate-800 dark:bg-opacity-70">
+                    class="px-8 py-4 rounded-lg  bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 dark:backdrop-blur-sm dark:backdrop-filter dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-70">
                     <h5
                         class="pt-5 pb-3 mb-6 text-xl font-bold border-b-2 border-slate-600 text-slate-600 dark:border-slate-100 dark:text-slate-100">
                         DATA PEGAWAI</h5>
@@ -70,7 +70,7 @@
                 {{-- 2.0 Form Unit Kerja --}}
                 <div class="grid grid-rows-2 gap-4">
                     <div
-                        class="px-8 py-2 rounded-lg  bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 dark:backdrop-blur-sm dark:backdrop-filter dark:bg-slate-800 dark:bg-opacity-70">
+                        class="px-8 py-2 rounded-lg  bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 dark:backdrop-blur-sm dark:backdrop-filter dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-70">
                         <h5
                             class="pt-5 pb-3 mb-4 text-xl font-bold border-b-2 border-slate-600 text-slate-600 dark:border-slate-100 dark:text-slate-100">
                             Unit Kerja</h5>
@@ -123,7 +123,7 @@
                     </div>
                     {{-- 3.0 Form Privillage --}}
                     <div
-                        class="px-8 py-2 rounded-lg  bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 dark:backdrop-blur-sm dark:backdrop-filter dark:bg-slate-800 dark:bg-opacity-70">
+                        class="px-8 py-2 rounded-lg  bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 dark:backdrop-blur-sm dark:backdrop-filter dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-70">
                         <h5
                             class="pt-6 pb-3 mb-6 text-xl font-bold border-b-2 border-slate-600 text-slate-600 dark:border-slate-100 dark:text-slate-100">
                             Privillage</h5>
