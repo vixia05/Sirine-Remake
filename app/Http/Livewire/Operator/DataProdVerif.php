@@ -6,6 +6,10 @@ use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+use App\Exports\ChecklistVerifExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+
 use App\Models\HctsPcht;
 use App\Models\HctsMmea;
 use App\Models\OrderPcht;
@@ -212,5 +216,10 @@ class DataProdVerif extends Component
             HctsMmea::where('po_hcts',$this->noPo)->delete();
             session()->flash('deleted',$this->noPo);
         }
+    }
+
+    public function exportExcel()
+    {
+        return (new ChecklistVerifExport($this->startDate,$this->endDate,$this->produk))->download('hcts_pikai.xlsx');
     }
 }

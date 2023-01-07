@@ -17,6 +17,8 @@ class HctsPcht extends Model
 
     public function orderPcht()
     {
-        return $this->belongsTo(OrderPcht::class,'po_hcts','no_po');
+        // return $this->belongsTo(OrderPcht::class,'po_hcts','no_po');
+        return $this->hasOne(OrderPcht::class,'po_hcts','no_po');
     }
+
 }

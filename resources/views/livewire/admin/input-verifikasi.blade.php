@@ -71,7 +71,7 @@
                             <div class="min-w-full">
                                 <table class="min-w-full">
                                     <thead
-                                        class="text-sm font-bold border-b-2 border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-400">
+                                        class="text-sm font-bold border-b-2 border-slate-300 text-slate-600 dark:border-slate-500 dark:text-slate-400">
                                         <tr>
                                             <th scope="col"
                                                 class="p-3 text-center border-slate-300 dark:border-slate-500">
