@@ -5,15 +5,15 @@
     class="fixed inset-0 z-[2000] flex flex-col items-center justify-center bg-black/50">
     <div x-show="editModal" x-transition.duration.350ms @click.away="editModal = false"
         @keyup.escape="editModal = false"
-        class="relative w-3/4 max-w-2xl rounded-2xl bg-slate-100/80 px-10 py-10 backdrop-blur-lg backdrop-filter dark:bg-slate-800/90">
+        class="relative w-3/4 max-w-2xl px-8 py-4 rounded-lg  bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 dark:backdrop-blur-sm dark:backdrop-filter dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-70">
         {{-- 1. Header Modal --}}
         <div class="mb-3">
             <h3
-                class="border-b-2 dark:border-slate-100/80 border-slate-800/60 text-center pb-2 text-3xl text-slate-900/60 dark:text-slate-50">
-                Edit @yield('modal-title')</h3>
+                class="text-center pt-5 pb-3 mb-6 text-xl font-bold border-b-2 border-slate-600 text-slate-600 dark:border-slate-100 dark:text-slate-100">
+                Edit {{ $title }}</h3>
         </div>
         {{-- 2. Modal Content --}}
-        @yield('edit-modal-content')
+            {{ $slot }}
         <div class="mt-7 flex justify-end gap-4">
             {{-- 3. Close Button --}}
             <button @click.prevent="editModal = false" data-mdb-ripple="true" data-mdb-ripple-color="light"

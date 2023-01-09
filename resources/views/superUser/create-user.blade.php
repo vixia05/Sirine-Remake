@@ -15,7 +15,7 @@
                     @csrf
                     {{-- 1.1 Input Nomor Pegawai --}}
                     <div class="grid grid-rows-2 mb-6">
-                        <label for="np" class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Nomor
+                        <label for="np" class="inline-block py-1 font-medium text-slate-600 dark:text-slate-200">Nomor
                             Pegawai</label>
                         <input type="text" maxlength="4"
                             class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
@@ -24,7 +24,7 @@
                     {{-- 1.2 Input Nama Pegawai --}}
                     <div class="grid grid-rows-2 mb-6">
                         <label for="name"
-                            class="inline-block font-medium text-slate-700 dark:text-slate-200">Nama</label>
+                            class="inline-block font-medium text-slate-600 dark:text-slate-200">Nama</label>
                         <input type="text"
                             class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                             id="name" name="name" value="{{ old('name') }}" required>
@@ -32,7 +32,7 @@
                     {{-- 1.3 Input E-mail Pegawai --}}
                     <div class="grid grid-rows-2 mb-6">
                         <label for="email"
-                            class="inline-block font-medium text-slate-700 dark:text-slate-200">E-Mail</label>
+                            class="inline-block font-medium text-slate-600 dark:text-slate-200">E-Mail</label>
                         <input type="email"
                             class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                             id="email" name="email" value="{{ old('email') }}" required>
@@ -40,7 +40,7 @@
                     {{-- 1.5 Input Contact Pegawai --}}
                     <div class="grid grid-rows-2 mb-6">
                         <label for="contact"
-                            class="inline-block font-medium text-slate-700 dark:text-slate-200">Contact</label>
+                            class="inline-block font-medium text-slate-600 dark:text-slate-200">Contact</label>
                         <input type="text"
                             class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                             id="contact" name="contact" value="{{ old('contact') }}">
@@ -48,7 +48,7 @@
                     {{-- 1.6 Input Tanggal Lahir Pegawai --}}
                     <div class="grid grid-rows-2 mb-6">
                         <label for="birthDate"
-                            class="inline-block font-medium text-slate-700 dark:text-slate-200">Tanggal Lahir</label>
+                            class="inline-block font-medium text-slate-600 dark:text-slate-200">Tanggal Lahir</label>
                         <input type="date"
                             class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                             id="birthDate" name="birthDate" value="{{ old('birthDate') }}">
@@ -56,7 +56,7 @@
                     {{-- 1.6 Input Alamat Pegawai --}}
                     <div class="mb-6 form-control flex-col flex gap-2">
                         <label for="address"
-                            class="inline-block font-medium text-slate-700 dark:text-slate-200">Alamat</label>
+                            class="inline-block font-medium text-slate-600 dark:text-slate-200">Alamat</label>
                         <textarea
                             class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                             id="address" name="address" value="{{ old('address') }}"></textarea>
@@ -77,7 +77,7 @@
                         {{-- 2.1 Select Divisi --}}
                         <div class="mb-5 form-control flex flex-col gap-2">
                             <label for="division"
-                                class="inline-block font-medium text-slate-700 dark:text-slate-200">Divisi</label>
+                                class="inline-block font-medium text-slate-600 dark:text-slate-200">Divisi</label>
                             <select
                                 class="w-full text-sm leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 id="divisi" name="divisi">
@@ -87,7 +87,7 @@
                         {{-- 2.2 Select Seksi --}}
                         <div class="mb-5 form-control flex flex-col gap-2">
                             <label for="division"
-                                class="inline-block font-medium text-slate-700 dark:text-slate-200">Seksi</label>
+                                class="inline-block font-medium text-slate-600 dark:text-slate-200">Seksi</label>
                             <select
                                 class="w-full text-sm leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 id="seksi" name="seksi">
@@ -99,7 +99,7 @@
                         {{-- 2.3 Select Unit --}}
                         <div class="mb-5 form-control flex flex-col gap-2">
                             <label for="division"
-                                class="inline-block font-medium text-slate-700 dark:text-slate-200">Unit</label>
+                                class="inline-block font-medium text-slate-600 dark:text-slate-200">Unit</label>
                             <select
                                 class="w-full text-sm leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 id="unit" name="unit">
@@ -111,7 +111,7 @@
                         {{-- 2.4 Select Workstation --}}
                         <div class="mb-5 form-control flex flex-col gap-2">
                             <label for="division"
-                                class="inline-block font-medium text-slate-700 dark:text-slate-200">Workstation</label>
+                                class="inline-block font-medium text-slate-600 dark:text-slate-200">Workstation</label>
                             <select
                                 class="w-full text-sm leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 id="workstation" name="workstation">
@@ -130,7 +130,7 @@
                         {{-- 3.1 Select Privillige/Role --}}
                         <div class="grid grid-rows-2 mb-4">
                             <label for="division"
-                                class="inline-block font-medium text-slate-700 dark:text-slate-200">Privillage</label>
+                                class="inline-block font-medium text-slate-600 dark:text-slate-200">Privillage</label>
                             <select
                                 class="w-full text-sm leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 id="privillage" name="privillage">
@@ -145,14 +145,14 @@
                         {{-- 3.1 Select Privillige/Role --}}
                         <div class="grid grid-rows-2 mb-4">
                             <label for="division"
-                                class="inline-block font-medium text-slate-700 dark:text-slate-200">Password</label>
+                                class="inline-block font-medium text-slate-600 dark:text-slate-200">Password</label>
                             <input type="password"
                                 class="w-full text-sm leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 id="password" name="password" required>
                         </div>
                         <div class="grid grid-rows-2">
                             <label for="division"
-                                class="inline-block font-medium text-slate-700 dark:text-slate-200">Confirm
+                                class="inline-block font-medium text-slate-600 dark:text-slate-200">Confirm
                                 Password</label>
                             <input type="password"
                                 class="w-full text-sm leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"

@@ -108,8 +108,36 @@ class ChecklistVerifExport implements FromQuery, WithHeadings, ShouldAutoSize, W
         }
         else
         {
-            $dataExcel = QcPikai::query()
-                            ->select('np_user','nama_user','tgl_verif','jml_verif','jml_obc','target','lembur','keterangan','jenis','validation');
+            $dataExcel = HctsMmea::whereBetween('tgl_periksa',[$this->startDate,$this->endDate])
+                                ->join('order_mmea','po_hcts','=','order_mmea.no_po')
+                                ->select(
+                                    'hcts_mmea.id',
+                                    'hcts_mmea.tgl_periksa',
+                                    'order_mmea.no_obc',
+                                    'hcts_mmea.po_hcts',
+                                    'order_mmea.rencet',
+                                    'order_mmea.hcs_verif',
+                                    'order_mmea.hcts_verif',
+                                    'hcts_mmea.blobor',
+                                    'hcts_mmea.blanko',
+                                    'hcts_mmea.blur',
+                                    'hcts_mmea.botak',
+                                    'hcts_mmea.diecut',
+                                    'hcts_mmea.gradasi',
+                                    'hcts_mmea.hologram',
+                                    'hcts_mmea.miss_reg',
+                                    'hcts_mmea.minyak',
+                                    'hcts_mmea.noda',
+                                    'hcts_mmea.plooi',
+                                    'hcts_mmea.sobek',
+                                    'hcts_mmea.tercampur',
+                                    'hcts_mmea.terpotong',
+                                    'hcts_mmea.tipis',
+                                    'hcts_mmea.keterangan',
+                                    'hcts_mmea.petugas1',
+                                    'hcts_mmea.petugas2',
+                                    'order_mmea.mesin',
+                                    );
         }
 
         return $dataExcel ;

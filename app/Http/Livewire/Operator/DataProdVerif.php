@@ -31,6 +31,7 @@ class DataProdVerif extends Component
         $this->produk = "PCHT";
         $this->startDate = today();
         $this->endDate  = today();
+        $this->noPo = "";
     }
 
     public function render()
@@ -220,6 +221,15 @@ class DataProdVerif extends Component
 
     public function exportExcel()
     {
-        return (new ChecklistVerifExport($this->startDate,$this->endDate,$this->produk))->download('hcts_pikai.xlsx');
+        if($this->produk === "PCHT")
+        {
+            $download = (new ChecklistVerifExport($this->startDate,$this->endDate,$this->produk))->download('hcts_pcht_pikai.xlsx');
+        }
+        else
+        {
+            $download = (new ChecklistVerifExport($this->startDate,$this->endDate,$this->produk))->download('hcts_mmea_pikai.xlsx');
+        }
+
+        return $download;
     }
 }

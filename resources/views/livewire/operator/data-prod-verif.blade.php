@@ -1,18 +1,24 @@
 <div class="grid grid-cols-1 px-10 py-10" x-data="{editModal : false, deleteModal : false}">
+    {{-- Edit Modal --}}
     <form>
-        @csrf
-        @include('components.modal.edit-checklist')
+        <x-modal.edit-checklist />
     </form>
+    {{-- Delete Modal --}}
     <form>
-        @include('components.modal.delete-checklist')
+        <x-modal.app-delete>
+            <x-slot name="title">
+                <span>PO </span>
+                <span class="dark:text-red-400 font-semibold">{{ $confPo }}</span>
+            </x-slot>
+        </x-modal.app-delete>
     </form>
-    <div
-        class="w-full rounded-md bg-gradient-to-br from-slate-50 dark:from-transparent dark:to-transparent via-slate-100 to-slate-50  dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
-        {{-- Header --}}
-        <div class="px-4 py-6">
-            <h4 class="my-auto font-sans text-lg font-semibold leading-tight text-slate-500 dark:text-slate-100">DATA
-                PPRODUKSI VERIFIKASI</h4>
-        </div>
+    {{-- Content --}}
+    <x-card>
+        {{-- Card Title --}}
+        <x-slot name="title">
+            DATA PPRODUKSI VERIFIKASI
+        </x-slot>
+
         {{-- Body --}}
         <div class="px-4 pb-4">
             @if(session('saved'))
@@ -163,6 +169,7 @@
                                     </thead>
                                     {{-- 2.2 Body Table --}}
                                     <tbody>
+                                        <x-loading></x-loading>
                                         @foreach ($data as $datas)
                                         <tr
                                             class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
@@ -347,7 +354,7 @@
             </div>
             {{-- End Footer --}}
         </div>
-    </div>
+    </x-card>
 </div>
 
 @section('plugin-js')

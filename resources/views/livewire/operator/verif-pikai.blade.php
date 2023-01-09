@@ -18,7 +18,7 @@
                         <div class="flex flex-col w-full mb-4">
                             <label for="tglCek"
                                 class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Tanggal</label>
-                            <input type="date" wire:model='tanggal'
+                            <input type="date" wire:model='tanggal' id="tglCek"
                                 class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 required>
                         </div>
@@ -26,10 +26,10 @@
                     <div class="grid grid-cols-2">
                         {{-- 1.3 Input PO --}}
                         <div class="flex flex-col w-full mb-4">
-                            <label for="tglCek"
+                            <label for="noPo"
                                 class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Nomor
                                 PO</label>
-                            <input type="number"
+                            <input type="number" id="noPo"
                                 class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                                 wire:model.lazy='noPo' x-ref='noPo' wire:change='getSpec' value="{{ old('noPo') }}" required autofocus>
                         </div>
@@ -37,9 +37,9 @@
                     <div class="grid grid-cols-2 gap-4">
                         {{-- 1.1 Input NP --}}
                         <div class="flex flex-col mb-4">
-                            <label for="np"
+                            <label for="petugas1"
                                 class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Petugas 1</label>
-                            <select required
+                            <select required id="petugas1"
                                 class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                 wire:model='petugas1'>
                                 @foreach ($listNp as $np)
@@ -49,9 +49,9 @@
                         </div>
                         {{-- 1.1 Input NP --}}
                         <div class="flex flex-col mb-4">
-                            <label for="np"
+                            <label for="petugas2"
                                 class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Petugas 2</label>
-                            <select required
+                            <select required id="petugas2"
                                 class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                 wire:model='petugas2'>
                                 <option value="-" selected>-</option>
@@ -66,7 +66,7 @@
                         <div class="flex flex-col mb-4">
                             <label for="jenis"
                                 class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Jenis</label>
-                            <select required
+                            <select required id="jenis"
                                 class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                 wire:model='jenis'>
                                     <option value="PCHT" selected>PCHT</option>
@@ -132,7 +132,7 @@
                             <div>
                                 <label for="blobor"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Blobor</label>
-                                <input type="number" min="0" wire:model='blobor'
+                                <input type="number" min="0" wire:model='blobor' id="blobor"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     >
                             </div>
@@ -140,7 +140,7 @@
                             <div>
                                 <label for="plooi"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Plooi</label>
-                                <input type="number" min="0" wire:model='plooi'
+                                <input type="number" min="0" wire:model='plooi' id="plooi"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     >
                             </div>
@@ -148,15 +148,15 @@
                             <div>
                                 <label for="blur"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Blur</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" id="blur"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='blur'>
                             </div>
                             {{-- 2.2. Kelolosan Hologram --}}
                             <div>
-                                <label for="hologram"
+                                <label for="holo"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Hologram</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" id="holo"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='holo'>
                             </div>
@@ -167,16 +167,16 @@
                             <div>
                                 <label for="noda"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Noda</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" id="noda"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='noda'>
                             </div>
                             {{-- 2.2. Kelolosan Miss Reg --}}
                             <div>
-                                <label for="missReg"
+                                <label for="miss"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Miss
                                     Register</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" id="miss"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='miss'>
                             </div>
@@ -184,7 +184,7 @@
                             <div>
                                 <label for="tipis"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Tipis</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" id="tipis"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='tipis'>
                             </div>
@@ -192,7 +192,7 @@
                             <div>
                                 <label for="gradasi"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Gradasi</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" id="gradasi"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='gradasi'>
                             </div>
@@ -203,7 +203,7 @@
                             <div>
                                 <label for="sobek"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Sobek</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" id="sobek"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='sobek'>
                             </div>
@@ -211,7 +211,7 @@
                             <div>
                                 <label for="terpotong"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Terpotong</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" id="terpotong"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='terpotong'>
                             </div>
@@ -219,7 +219,7 @@
                             <div>
                                 <label for="tercampur"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Tercampur</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" id="tercampur"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='tercampur'>
                             </div>
@@ -227,7 +227,7 @@
                             <div>
                                 <label for="botak"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Botak</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" id="botak"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='botak'>
                             </div>
@@ -237,7 +237,7 @@
                             <div>
                                 <label for="minyak"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Minyak</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" id="minyak"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='minyak'>
                             </div>
@@ -245,30 +245,30 @@
                             <div>
                                 <label for="blanko"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Blanko</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" id="blanko"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='blanko'>
                             </div>
                             <div>
                                 <label for="diecut"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Diecut</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" id="diecut"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='diecut'>
                             </div>
                             <div>
-                                <label for="diecut"
+                                <label for="wip"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">WIP / Sisa Baik</label>
-                                <input type="number" min="0"
+                                <input type="number" min="0" id="wip"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='wip'>
                             </div>
                         </div>
                         <div class="mt-6">
                             <div class="flex flex-col col-span-2 md:col-span-4 lg:col-span-6">
-                                <label for="evaluasi"
+                                <label for="keterangan"
                                     class="inline-block py-1 font-medium text-slate-700 dark:text-slate-200">Keterangan</label>
-                                <textarea
+                                <textarea id="keterangan"
                                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 dark:focus:bg-opacity-100"
                                     wire:model='keterangan' rows="4"></textarea>
                             </div>

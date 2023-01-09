@@ -1,25 +1,27 @@
-@extends('components.modal.app-edit')
-@section('modal-title','Jumlah Kelolosan')
-@section('edit-modal-content')
-{{-- Tanggal CK3 --}}
+<x-modal.app-edit>
+    <x-slot name="title">
+        Jumlah Kelolosan
+    </x-slot>
+
+    {{-- Tanggal CK3 --}}
 <div class="flex flex-col mb-2">
-    <label class="mb-1 text-slate-800/90 dark:text-slate-100/90 text-center">Tanggal CK3</label>
+    <label class="text-center inline-block py-1 font-medium text-slate-600 dark:text-slate-200">Tanggal CK3</label>
     <input type="date" disabled wire:model='tglCk3'
-        class="appearance-none rounded border-none bg-zinc-400/60 py-1 px-2 text-center text-sm tracking-wide text-slate-600 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:bg-slate-500/20 dark:text-slate-400">
+        class="w-full leading-tight border-slate-300 rounded-md bg-slate-300 text-slate-600 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100">
 </div>
 {{-- Row Nama --}}
 <div class="mb-2 grid grid-cols-2 gap-4">
     {{-- 1. Nomor Pokok --}}
     <div class="flex flex-col">
-        <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Nomor Pokok</label>
+        <label class="inline-block py-1 font-medium text-slate-600 dark:text-slate-200">Nomor Pokok</label>
         <input type="text" disabled wire:model='npEdit'
-            class="appearance-none rounded border-none bg-zinc-400/60 py-1 px-2 text-center text-sm tracking-wide text-slate-600 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:bg-slate-500/20 dark:text-slate-400">
+            class="w-full leading-tight border-slate-300 rounded-md bg-slate-300 text-slate-600 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100">
     </div>
     {{-- 2. Nama --}}
     <div class="flex flex-col">
-        <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Nama</label>
+        <label class="inline-block py-1 font-medium text-slate-600 dark:text-slate-200">Nama</label>
         <input type="text" wire:model='namaUser'
-            class="appearance-none rounded border-slate-300 bg-zinc-300/60 py-1 px-2 text-sm tracking-wide text-slate-800 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:border-slate-600 dark:bg-slate-500/40 dark:text-slate-100">
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100 ">
         @if($errors->has('namaUser'))
         <div class="text-red-500 p-1 text-sm">{{ $errors->first('namaUser') }}</div>
         @endif
@@ -28,85 +30,136 @@
 {{-- Row Jenis Kerusakan --}}
 <div class="my-3">
     <h3
-        class="border-b-2 dark:border-slate-100/80 border-slate-800/60 text-center pb-2 text-3xl text-slate-900/60 dark:text-slate-50">
+        class="text-center pt-5 pb-3 mb-6 text-xl font-bold border-b-2 border-slate-600 text-slate-600 dark:border-slate-100 dark:text-slate-100">
         Jenis Kelolosan</h3>
 </div>
-<div class="mb-2 grid grid-cols-4 gap-4">
-    {{-- 1. Blobor--}}
-    <div class="flex flex-col">
-        <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Blobor</label>
-        <input type="number" wire:model='blobor'
-            class="appearance-none rounded border-slate-300 bg-zinc-300/60 py-1 px-2 text-sm tracking-wide text-slate-800 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:border-slate-600 dark:bg-slate-500/40 dark:text-slate-100">
+{{-- 2.2 Jenis Kelolosan Row 1 --}}
+<div class="grid grid-cols-2 gap-4 mt-4 md:grid-cols-4">
+    {{-- 2.2.1 Kelolosan Blobor --}}
+    <div>
+        <label for="blobor" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="blobor">Blobor</label>
+        <input type="number" min="0" wire:model='blobor' id="blobor"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100">
     </div>
-    {{-- 2.Plooi --}}
-    <div class="flex flex-col">
-        <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Plooi</label>
-        <input type="number" wire:model='plooi'
-            class="appearance-none rounded border-slate-300 bg-zinc-300/60 py-1 px-2 text-sm tracking-wide text-slate-800 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:border-slate-600 dark:bg-slate-500/40 dark:text-slate-100">
+    {{-- 2.2. Kelolosan Plooi --}}
+    <div>
+        <label for="plooi" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="plooi">Plooi</label>
+        <input type="number" min="0" wire:model='plooi' id="plooi"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100">
     </div>
-    {{-- 3.Blur --}}
-    <div class="flex flex-col">
-        <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Blur</label>
-        <input type="number" wire:model='blur'
-            class="appearance-none rounded border-slate-300 bg-zinc-300/60 py-1 px-2 text-sm tracking-wide text-slate-800 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:border-slate-600 dark:bg-slate-500/40 dark:text-slate-100">
+    {{-- 2.2. Kelolosan Blur --}}
+    <div>
+        <label for="blur" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="blur">Blur</label>
+        <input type="number" min="0" id="blur"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+            wire:model='blur'>
     </div>
-    {{-- 4.Hologram --}}
-    <div class="flex flex-col">
-        <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Hologram</label>
-        <input type="number" wire:model='hologram'
-            class="appearance-none rounded border-slate-300 bg-zinc-300/60 py-1 px-2 text-sm tracking-wide text-slate-800 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:border-slate-600 dark:bg-slate-500/40 dark:text-slate-100">
-    </div>
-</div>
-<div class="mb-2 grid grid-cols-4 gap-4">
-    {{-- 5.Noda --}}
-    <div class="flex flex-col">
-        <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Noda</label>
-        <input type="number" wire:model='noda'
-            class="appearance-none rounded border-slate-300 bg-zinc-300/60 py-1 px-2 text-sm tracking-wide text-slate-800 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:border-slate-600 dark:bg-slate-500/40 dark:text-slate-100">
-    </div>
-    {{-- 6.Miss Register --}}
-    <div class="flex flex-col">
-        <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Miss Register</label>
-        <input type="number" wire:model='missReg'
-            class="appearance-none rounded border-slate-300 bg-zinc-300/60 py-1 px-2 text-sm tracking-wide text-slate-800 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:border-slate-600 dark:bg-slate-500/40 dark:text-slate-100">
-    </div>
-    {{-- 7.Tipis --}}
-    <div class="flex flex-col">
-        <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Tipis</label>
-        <input type="number" wire:model='tipis'
-            class="appearance-none rounded border-slate-300 bg-zinc-300/60 py-1 px-2 text-sm tracking-wide text-slate-800 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:border-slate-600 dark:bg-slate-500/40 dark:text-slate-100">
-    </div>
-    {{-- 8.Gradasi --}}
-    <div class="flex flex-col">
-        <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Gradasi</label>
-        <input type="number" wire:model='gradasi'
-            class="appearance-none rounded border-slate-300 bg-zinc-300/60 py-1 px-2 text-sm tracking-wide text-slate-800 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:border-slate-600 dark:bg-slate-500/40 dark:text-slate-100">
+    {{-- 2.2. Kelolosan Hologram --}}
+    <div>
+        <label for="hologram" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="holo">Hologram</label>
+        <input type="number" min="0" id="holo"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+            wire:model='holo'>
     </div>
 </div>
-<div class="mb-2 grid grid-cols-4 gap-4">
-    {{-- 9.Sobek --}}
-    <div class="flex flex-col">
-        <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Sobek</label>
-        <input type="number" wire:model='sobek'
-            class="appearance-none rounded border-slate-300 bg-zinc-300/60 py-1 px-2 text-sm tracking-wide text-slate-800 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:border-slate-600 dark:bg-slate-500/40 dark:text-slate-100">
+{{-- 2.2 Jenis Kelolosan Row 1 --}}
+<div class="grid grid-cols-2 gap-4 mt-4 md:grid-cols-4">
+    {{-- 2.2.1 Kelolosan Blobor --}}
+    <div>
+        <label for="noda" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="noda">Noda</label>
+        <input type="number" min="0" id="noda"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+            wire:model='noda'>
     </div>
-    {{-- 10.Terpotong --}}
-    <div class="flex flex-col">
-        <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Terpotong</label>
-        <input type="number" wire:model='terpotong'
-            class="appearance-none rounded border-slate-300 bg-zinc-300/60 py-1 px-2 text-sm tracking-wide text-slate-800 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:border-slate-600 dark:bg-slate-500/40 dark:text-slate-100">
+    {{-- 2.2. Kelolosan Miss Reg --}}
+    <div>
+        <label for="missReg" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="miss">Miss
+            Register</label>
+        <input type="number" min="0" id="miss"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+            wire:model='miss'>
     </div>
-    {{-- 11.Tercampur --}}
-    <div class="flex flex-col">
-        <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Tercampur</label>
-        <input type="number" wire:model='tercampur'
-            class="appearance-none rounded border-slate-300 bg-zinc-300/60 py-1 px-2 text-sm tracking-wide text-slate-800 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:border-slate-600 dark:bg-slate-500/40 dark:text-slate-100">
+    {{-- 2.2. Kelolosan Tipis--}}
+    <div>
+        <label for="tipis" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="tipis">Tipis</label>
+        <input type="number" min="0" id="tipis"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+            wire:model='tipis'>
     </div>
-    {{-- 12.Botak/Blanko --}}
-    <div class="flex flex-col">
-        <label class="mb-1 text-slate-800/90 dark:text-slate-100/90">Botak / Blanko</label>
-        <input type="number" wire:model='botak'
-            class="appearance-none rounded border-slate-300 bg-zinc-300/60 py-1 px-2 text-sm tracking-wide text-slate-800 transition duration-150 ease-in-out focus:outline-double focus:outline-2 focus:outline-blue-500 focus:ring-2 focus:ring-blue-500/40 dark:border-slate-600 dark:bg-slate-500/40 dark:text-slate-100">
+    {{-- 2.2. Kelolosan Gradasi--}}
+    <div>
+        <label for="gradasi" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="gradasi">Gradasi</label>
+        <input type="number" min="0" id="gradasi"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+            wire:model='gradasi'>
     </div>
 </div>
-@endsection
+{{-- 2.2 Jenis Kelolosan Row 1 --}}
+<div class="grid grid-cols-2 gap-4 mt-4 md:grid-cols-4">
+    {{-- 2.2.1 Kelolosan Sobek --}}
+    <div>
+        <label for="sobek" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="sobek">Sobek</label>
+        <input type="number" min="0" id="sobek"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+            wire:model='sobek'>
+    </div>
+    {{-- 2.2. Kelolosan Terpotong --}}
+    <div>
+        <label for="terpotong" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="terpotong">Terpotong</label>
+        <input type="number" min="0" id="terpotong"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+            wire:model='terpotong'>
+    </div>
+    {{-- 2.2. Kelolosan Tercampur --}}
+    <div>
+        <label for="tercampur" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="tercampur">Tercampur</label>
+        <input type="number" min="0"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+            wire:model='tercampur' id="tercampur">
+    </div>
+    {{-- 2.2. Kelolosan Botak \ Blanko--}}
+    <div>
+        <label for="botak" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="botak">Botak</label>
+        <input type="number" min="0" id="botak"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+            wire:model='botak'>
+    </div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-4 md:grid-cols-4">
+    {{-- 2.2.1 Kelolosan Sobek --}}
+    <div>
+        <label for="minyak" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="minyak">Minyak</label>
+        <input type="number" min="0" id="minyak"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+            wire:model='minyak'>
+    </div>
+    {{-- 2.2. Kelolosan Terpotong --}}
+    <div>
+        <label for="blanko" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="blanko">Blanko</label>
+        <input type="number" min="0" id="blanko"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+            wire:model='blanko'>
+    </div>
+    <div>
+        <label for="diecut" class="inline-block py-1 font-medium text-slate-600 text-sm dark:text-slate-200"
+            for="diecut">Diecut</label>
+        <input type="number" min="0" id="diecut"
+            class="w-full leading-tight text-sm border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
+            wire:model='diecut'>
+    </div>
+</div>
+</x-modal.app-edit>

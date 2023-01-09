@@ -18,10 +18,17 @@ class ListUsers extends Component
     public $search;
     protected $queryString = ['search'];
 
+    public function mount()
+    {
+        $this->name = "";
+    }
     public function render()
     {
         $data   = Privillage::where('np_user', 'like', '%'.$this->search.'%')->paginate(10);
-        return view('livewire.super-user.list-users',['data' => $data]);
+        return view('livewire.super-user.list-users',[
+            'data' => $data,
+            'name' => $this->name,
+        ]);
     }
 
 
