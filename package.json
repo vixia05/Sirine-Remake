@@ -30,6 +30,6 @@
         "apexcharts": "^3.35.5",
         "chart.js": "^2.9.4",
         "jquery": "^3.6.1",
-        "tw-elements": "^1.0.0-alpha12"
+        "tw-elements": "^1.0.0-alpha13"
     }
 }

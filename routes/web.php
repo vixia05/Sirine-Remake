@@ -23,6 +23,7 @@ use App\Http\Controllers\Andon\PitaCukai\KhazwalController;
 use App\Http\Controllers\Andon\PitaCukai\KhazkhirController;
 
 // Namespace Data Produksi
+use App\Http\Livewire\Admin\LaporanProduksi;
 use App\Http\Livewire\Operator\DataProdVerif;
 
 /*
@@ -90,6 +91,8 @@ Route::group(['middleware' => ['auth','verified']], function() {
                     'rekapEvaluasi' => RekapEvaluasiController::class,
                 ]);
             });
+
+        Route::get('laporanProduksi',LaporanProduksi::class)->name('laporanProduksi');
 
 
     //--- Performance Pegawai ---//

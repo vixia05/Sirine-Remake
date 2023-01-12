@@ -27,7 +27,7 @@ module.exports = {
                 'prism-svg-dark' : "url('/svg/subtle-prism-dark.svg')",
             },
             animation: {
-                //
+              'spin-slow': 'spin 3s linear infinite',
             },
         },
     },

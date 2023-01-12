@@ -9,7 +9,6 @@
             </x-slot>
         </x-modal.app-delete>
     </form>
-    @include('components.modal.delete-user')
     <div
         class="w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
         {{-- Header --}}
