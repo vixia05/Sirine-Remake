@@ -3,7 +3,7 @@
         {{-- Header --}}
         <x-slot name="title">
             <h4
-                class="my-auto font-sans text-lg font-semibold leading-tight text-slate-500 dark:text-slate-100 text-center">
+                class="my-auto font-sans text-lg font-semibold leading-tight text-slate-900 dark:text-slate-100 text-center">
                 Monitoring Produksi Pita Cukai</h4>
         </x-slot>
         {{-- Filter --}}
@@ -34,14 +34,14 @@
                                         <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l" scope="col" rowspan="3">
                                             Hasil Cetak
                                         </th>
-                                        <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l border-b" scope="col" colspan="3">
-                                            Baik Periksa
+                                        <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l border-b" scope="col" colspan="2">
+                                            Non-Personal
                                         </th>
-                                        <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l border-b" scope="col" colspan="3">
-                                            Rusak Periksa
+                                        <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l border-b" scope="col" colspan="2">
+                                            Personal
                                         </th>
-                                        <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l border-b" scope="col" colspan="3">
-                                            Total Periksa
+                                        <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l border-b" scope="col" colspan="2">
+                                            Total
                                         </th>
                                         <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l" scope="col" rowspan="3">
                                             % Incshiet
@@ -61,87 +61,79 @@
                                     </tr>
                                     <tr class="border border-slate-400 rounded-md bg-cyan-100">
                                         <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
-                                            NP
+                                            Baik
                                         </th>
                                         <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
-                                            P
+                                            Rusak
                                         </th>
                                         <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
-                                            Total
+                                            Baik
                                         </th>
                                         <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
-                                            NP
+                                            Rusak
                                         </th>
                                         <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
-                                            P
+                                            Baik
                                         </th>
                                         <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
-                                            Total
-                                        </th>
-                                        <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
-                                            NP
-                                        </th>
-                                        <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
-                                            P
-                                        </th>
-                                        <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
-                                            Total
+                                            Rusak
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($test as $key => $data)
-                                    <tr class="p-3 text-center border-slate-400 dark:border-slate-500 border-b border-x">
+                                    <tr class="p-3 text-center border-slate-400 dark:border-slate-500 border-b border-x hover:bg-green-100/80 transition ease-in-out duration-150">
                                         {{-- Tanggal --}}
-                                        <td class="px-3 py-2 text-sm text-center font-light whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r">
+                                        <td class="px-3 py-2 text-xs text-center  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                             {{ $key }}
                                         </td>
                                         {{-- Cetak Harian --}}
-                                        <td class="px-3 py-2 text-sm text-center font-light whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r">
-                                            0
+                                        <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                           {{ number_format($data['cetakHarian'],0) }}
                                         </td>
                                         {{-- Baik NP --}}
-                                        <td class="px-3 py-2 text-sm text-right font-light whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r">
+                                        <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-green-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                             {{ number_format($data['hcsNP'],0) }}
                                         </td>
-                                        {{-- Baik P --}}
-                                        <td class="px-3 py-2 text-sm text-right font-light whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r">
-                                            {{ number_format($data['hcsP'],0) }}
-                                        </td>
-                                        {{-- Baik Total --}}
-                                        <td class="px-3 py-2 text-sm text-right font-light whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r">
-                                            {{ number_format($data['hcsPcht'],0) }}
-                                        </td>
                                         {{-- Rusak NP --}}
-                                        <td class="px-3 py-2 text-sm text-right font-light whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r">
+                                        <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                             {{ number_format($data['hctsNP'],0) }}
                                         </td>
+                                        {{-- Baik P --}}
+                                        <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                            {{ number_format($data['hcsP'],0) }}
+                                        </td>
                                         {{-- Rusak P --}}
-                                        <td class="px-3 py-2 text-sm text-right font-light whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r">
+                                        <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                             {{ number_format($data['hctsP'],0) }}
                                         </td>
+                                        {{-- Baik Total --}}
+                                        <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                            {{ number_format($data['hcsPcht'],0) }}
+                                        </td>
                                         {{-- Rusak Total --}}
-                                        <td class="px-3 py-2 text-sm text-right font-light whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r">
+                                        <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                             {{ number_format($data['hctsPcht'],0) }}
                                         </td>
-                                        {{-- Incshiet Total --}}
-                                        <td class="px-3 py-2 text-sm text-right font-light whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r">
+                                        {{-- Incshiet Harian --}}
+                                        <td class="pl-6 pr-2 py-2 text-xs text-right font-medium whitespace-nowrap border-slate-400 text-amber-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                            {{ number_format($data['inscPCHT'],2) }} %
+                                        </td>
+                                        {{-- WIP --}}
+                                        <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+
+                                        </td>
+                                        {{-- Jumlah Kemas --}}
+                                        <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                            {{ number_format($data['kemasPCHT'],0) }}
+                                        </td>
+                                        {{-- Jumlah Kirim --}}
+                                        <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                             0
                                         </td>
-                                        <td class="px-3 py-2 text-sm text-right font-light whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r">
-                                            0
-                                        </td>
-                                        <td class="px-3 py-2 text-sm text-right font-light whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r">
-                                            0
-                                        </td>
-                                        <td class="px-3 py-2 text-sm text-right font-light whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r">
-                                            0
-                                        </td>
-                                        <td class="px-3 py-2 text-sm text-right font-light whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r">
-                                            0
-                                        </td>
-                                        <td class="px-3 py-2 text-sm text-right font-light whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r">
-                                            0
+                                        {{-- Stock Barang --}}
+                                        <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                            {{ number_format($data['kemasPCHT'],0) }}
                                         </td>
                                     </tr>
                                     @endforeach
