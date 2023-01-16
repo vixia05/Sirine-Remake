@@ -73,7 +73,7 @@
                 "opens": "auto"
             }, function(start, end, label) {
                 @this.set('startDate',start.format('YYYY-MM-DD'));
-                @this.set('endDate',end.format('YYYY-MM-DD'));;
+                @this.set('endDate',end.format('YYYY-MM-DD'));
             });
 </script>
 @endpush

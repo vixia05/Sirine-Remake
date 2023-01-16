@@ -46,7 +46,7 @@
                                         <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l" scope="col" rowspan="3">
                                             % Incshiet
                                         </th>
-                                        <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l" scope="col" rowspan="3">
+                                        <th class="p-3 text-center max-w-[10rem] border-slate-400 dark:border-slate-500 border-l" scope="col" rowspan="3">
                                             Saldo Akhir Verifikasi (WIP)
                                         </th>
                                         <th class="p-3 text-center border-slate-400 dark:border-slate-500 border-l" scope="col" rowspan="3">
@@ -81,7 +81,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($test as $key => $data)
+                                    @foreach ($dataPcht as $key => $data)
                                     <tr class="p-3 text-center border-slate-400 dark:border-slate-500 border-b border-x hover:bg-green-100/80 transition ease-in-out duration-150">
                                         {{-- Tanggal --}}
                                         <td class="px-3 py-2 text-xs text-center  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
@@ -121,7 +121,7 @@
                                         </td>
                                         {{-- WIP --}}
                                         <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
-
+                                            {{ number_format($data['wipPcht'],0) }}
                                         </td>
                                         {{-- Jumlah Kemas --}}
                                         <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
@@ -129,11 +129,11 @@
                                         </td>
                                         {{-- Jumlah Kirim --}}
                                         <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
-                                            0
+                                            {{ number_format($data['pengiriman'],0) }}
                                         </td>
                                         {{-- Stock Barang --}}
                                         <td class="pl-6 pr-2 py-2 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
-                                            {{ number_format($data['kemasPCHT'],0) }}
+                                            {{ number_format($data['stockKirim'],0) }}
                                         </td>
                                     </tr>
                                     @endforeach
