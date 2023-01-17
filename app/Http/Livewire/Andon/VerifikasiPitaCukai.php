@@ -56,7 +56,7 @@ class VerifikasiPitaCukai extends Component
      */
     public function orderPcht()
     {
-        $getOrder = OrderPcht::whereMonth('tgl_obc',now())->get();
+        $getOrder = OrderPcht::whereMonth('tgl_obc',today())->whereYear('tgl_obc',today())->get();
         $totalOrder = $getOrder->sum('rencet');
 
         $orderP   = $getOrder->where('jenis','P')
@@ -114,7 +114,7 @@ class VerifikasiPitaCukai extends Component
      */
     public function orderMmea()
     {
-        $getOrder = OrderMmea::whereMonth('tgl_obc',now())->get();
+        $getOrder = OrderMmea::whereMonth('tgl_obc',today())->whereYear('tgl_obc',today())->get();
         $totalOrder = $getOrder->sum('rencet');
 
         $orderMmea   = $getOrder->where('jenis','MMEA')
