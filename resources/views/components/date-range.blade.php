@@ -68,7 +68,7 @@
                     ],
                     "firstDay": 1
                 },
-                "startDate": moment(),
+                "startDate": moment().startOf('month'),
                 "endDate": moment(),
                 "opens": "auto"
             }, function(start, end, label) {

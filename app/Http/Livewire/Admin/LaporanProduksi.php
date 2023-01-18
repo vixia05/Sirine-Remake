@@ -41,8 +41,8 @@ class LaporanProduksi extends Component
     public function laporanPcht()
     {
         // Data Harian PCHT
-        $this->dataPcht = OrderPcht::whereBetween('tgl_obc',[$this->startDate,$this->endDate])
-                                    ->where('tgl_verif','!=',null)
+        $this->dataPcht = OrderPcht::whereMonth('tgl_obc',Carbon::parse($this->startDate))
+                                    ->whereBetween('tgl_verif',[$this->startDate,$this->endDate])
                                     ->orderBy('tgl_verif')
                                     ->get()
                                     ->groupBy('tgl_verif')
@@ -214,8 +214,8 @@ class LaporanProduksi extends Component
     public function laporanMmea()
     {
         // Data Harian MMEA
-        $this->dataMmea = OrderMmea::whereBetween('tgl_obc',[$this->startDate,$this->endDate])
-                                    ->where('tgl_verif','!=',null)
+        $this->dataMmea = OrderMmea::whereMonth('tgl_obc',Carbon::parse($this->startDate))
+                                    ->whereBetween('tgl_verif',[$this->startDate,$this->endDate])
                                     ->orderBy('tgl_verif')
                                     ->get()
                                     ->groupBy('tgl_verif')

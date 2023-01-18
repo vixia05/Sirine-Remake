@@ -90,37 +90,37 @@
                                 </td>
                                 {{-- Cetak Harian --}}
                                 <td
-                                    class="pl-6 pr-2 py-1 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     {{ number_format($data['cetakHarian'],0) }}
                                 </td>
                                 {{-- Baik NP --}}
                                 <td
-                                    class="pl-6 pr-2 py-1 text-xs text-right  whitespace-nowrap border-slate-400 text-emerald-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-emerald-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     {{ number_format($data['hcsNP'],0) }}
                                 </td>
                                 {{-- Rusak NP --}}
                                 <td
-                                    class="pl-6 pr-2 py-1 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     {{ number_format($data['hctsNP'],0) }}
                                 </td>
                                 {{-- Baik P --}}
                                 <td
-                                    class="pl-6 pr-2 py-1 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     {{ number_format($data['hcsP'],0) }}
                                 </td>
                                 {{-- Rusak P --}}
                                 <td
-                                    class="pl-6 pr-2 py-1 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     {{ number_format($data['hctsP'],0) }}
                                 </td>
                                 {{-- Baik Total --}}
                                 <td
-                                    class="pl-6 pr-2 py-1 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     {{ number_format($data['hcsPcht'],0) }}
                                 </td>
                                 {{-- Rusak Total --}}
                                 <td
-                                    class="pl-6 pr-2 py-1 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     {{ number_format($data['hctsPcht'],0) }}
                                 </td>
                                 {{-- Total Verifikasi --}}
@@ -130,27 +130,27 @@
                                 </td>
                                 {{-- Incshiet Harian --}}
                                 <td
-                                    class="pl-6 pr-2 py-1 text-xs text-right whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    class="pl-6 pr-2 py-1 text-xs text-right font-medium whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     {{ number_format($data['totalPCHT'],0) }}
                                 </td>
                                 {{-- WIP --}}
                                 <td
-                                    class="pl-6 pr-2 py-1 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     {{ number_format($data['wipPcht'],0) }}
                                 </td>
                                 {{-- Jumlah Kemas --}}
                                 <td
-                                    class="pl-6 pr-2 py-1 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     {{ number_format($data['kemasPCHT'],0) }}
                                 </td>
                                 {{-- Jumlah Kirim --}}
                                 <td
-                                    class="pl-6 pr-2 py-1 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     {{ number_format($data['pengiriman'],0) }}
                                 </td>
                                 {{-- Stock Barang --}}
                                 <td
-                                    class="pl-6 pr-2 py-1 text-xs text-right  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     {{ number_format($data['stockKirim'],0) }}
                                 </td>
                             </tr>

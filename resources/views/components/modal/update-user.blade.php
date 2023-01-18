@@ -1,4 +1,4 @@
-@props(['name'])
+@props(['name','listRole'])
 <form>
     <x-modal.app-edit>
         <x-slot name="title">
@@ -35,10 +35,9 @@
                 <select
                     class="w-full leading-tight border-slate-400/60 rounded-md text-slate-600 hover:border-blue-500 transition duration-300 ease-in-out focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100"
                     id="role" name="role" wire:model="role">
-                    <option selected>Role</option>
-                    <option value="1" selected>User</option>
-                    <option value="2">Admin</option>
-                    <option value="3">Super User</option>
+                    @foreach ($listRole as $role)
+                        <option value="{{ $role->level }}">{{ $role->role }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>

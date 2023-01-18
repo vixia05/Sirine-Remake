@@ -92,7 +92,8 @@ Route::group(['middleware' => ['auth','verified']], function() {
                 ]);
             });
 
-        Route::get('laporanProduksi',LaporanProduksi::class)->name('laporanProduksi');
+        Route::get('laporanProduksi',LaporanProduksi::class)
+            ->name('laporanProduksi');
 
 
     //--- Performance Pegawai ---//
@@ -101,28 +102,35 @@ Route::group(['middleware' => ['auth','verified']], function() {
             Route::name('quantity.')
                ->prefix('quantity')
                ->group(function () {
-                    Route::get('unit',QuantityUnit::class)->name('unit');
-                    Route::get('individu', QuantityIndividu::class)->name('individu');
+                    Route::get('unit',QuantityUnit::class)
+                        ->name('unit');
+                    Route::get('individu', QuantityIndividu::class)
+                        ->name('individu');
                });
 
         // Quality
             Route::name('quality.')
                 ->prefix('quality')
                 ->group(function () {
-                    Route::get('unit',QualityUnit::class)->name('unit');
-                    Route::get('individu',QualityIndividu::class)->name('individu');
+                    Route::get('unit',QualityUnit::class)
+                        ->name('unit');
+                    Route::get('individu',QualityIndividu::class)
+                        ->name('individu');
                 });
 
         // Raport Pegawai
-            Route::get('report',[ReportController::class, 'index'])->name('report');
+            Route::get('report',[ReportController::class, 'index'])
+                ->name('report');
 
 
 
     //--- Input Operator ---//
 
         // Pita Cukai
-            Route::view('operator.verif-pikai', 'operator.verif-pikai')->name('operator.verif-pikai');
-            Route::get('operator.data-prod-verif', DataProdVerif::class)->name('operator.data-prod-verif');
+            Route::view('operator.verif-pikai', 'operator.verif-pikai')
+                ->name('operator.verif-pikai');
+            Route::get('operator.data-prod-verif', DataProdVerif::class)
+                ->name('operator.data-prod-verif');
 
     //--- Other Utilities ---//
 

@@ -1,6 +1,6 @@
 <div class="flex justify-center" x-data="{editModal : false, deleteModal : false}">
     {{-- Update Modal --}}
-    <x-modal.update-user :name="$name" />
+    <x-modal.update-user :name="$name" :listRole="$listRole" />
     {{-- Delete Modal --}}
     <form>
         <x-modal.app-delete>

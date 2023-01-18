@@ -28,6 +28,7 @@ class ListUsers extends Component
         return view('livewire.super-user.list-users',[
             'data' => $data,
             'name' => $this->name,
+            'listRole' => Level::all(),
         ]);
     }
 
@@ -47,7 +48,7 @@ class ListUsers extends Component
         $this->data_id = $id;
         $this->np   = $user->np;
         $this->name = UserDetails::where('np_user',$user->np)->value('nama');
-        $this->role = $user->level;
+        $this->role = $user->role->level_user;
 
         $this->updateMode = true;
     }
@@ -69,8 +70,12 @@ class ListUsers extends Component
         $user = User::find($this->data_id);
         $user->update([
             'np' => $this->np,
-            'level' => $this->role,
         ]);
+
+        Privillage::where('np_user',$this->np)
+                ->update([
+                    'level_user' => $this->role,
+                ]);
 
         $this->updateMode = false;
 

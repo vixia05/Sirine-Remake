@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Menu::class,'menu_privillage');
     }
+
+    public function role()
+    {
+        return $this->hasOne(Privillage::class,'np_user','np');
+    }
 }
