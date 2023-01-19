@@ -11,7 +11,7 @@
                                 class="border border-slate-400 rounded-md bg-gradient-to-br from-green-200 to-emerald-300 brightness-105">
                                 <th colspan="17"
                                     class=" py-1 text-lg text-slate-700 drop-shadow-lg shadow-slate-200/30">Pita
-                                    Cukai MMEA & HPTL {{ today()->format('F Y') }}</th>
+                                    Cukai Ber-Perekat {{ today()->format('F Y') }}</th>
                             </tr>
                             <tr class="border border-slate-400 rounded-md bg-cyan-100">
                                 <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-l" scope="col"
@@ -38,9 +38,9 @@
                                     rowspan="3">
                                     Total Verifikasi
                                 </th>
-                                <th class="px-3 py-1 text-center max-w-[10rem] border-slate-400 dark:border-slate-500 border-l"
+                                <th class="px-3 py-1 text-center max-w-[6rem] border-slate-400 dark:border-slate-500 border-l"
                                     scope="col" rowspan="3">
-                                    Saldo Akhir Verifikasi (WIP)
+                                    Siap Periksa (WIP)
                                 </th>
                                 <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-l" scope="col"
                                     rowspan="3">
@@ -50,9 +50,8 @@
                                     rowspan="3">
                                     Jumlah Kirim
                                 </th>
-                                <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-x" scope="col"
-                                    rowspan="3">
-                                    Kemas, Belum Kirim
+                                <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-x" scope="col" colspan="2">
+                                    Siap Kirim
                                 </th>
                             </tr>
                             <tr class="border border-slate-400 rounded-md bg-cyan-100">
@@ -76,6 +75,12 @@
                                 </th>
                                 <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
                                     % Incshiet
+                                </th>
+                                <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
+                                    MMEA
+                                </th>
+                                <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
+                                    HPTL
                                 </th>
                             </tr>
                         </thead>
@@ -151,7 +156,11 @@
                                 {{-- Stock Barang --}}
                                 <td
                                     class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
-                                    {{ number_format($data['stockKirim'],0) }}
+                                    {{ number_format($data['siapKirimM'],0) }}
+                                </td>
+                                <td
+                                    class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    {{ number_format($data['siapKirimH'],0) }}
                                 </td>
                             </tr>
                             @endforeach
@@ -216,9 +225,9 @@
                                     {{ number_format($akmMmea['kirimMmea'],0) }}
                                 </td>
                                 {{-- --}}
-                                <td
-                                    class="px-3 py-1 text-xs font-semibold text-right whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
-
+                                <td colspan="2"
+                                    class="px-3 py-1 text-xs font-semibold text-center whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    {{ number_format($akmMmea['siapKirim'],0) }}
                                 </td>
                             </tr>
                             {{-- Row Total PCHT --}}
@@ -226,7 +235,7 @@
                                 class="px-3 py-1 bg-blue-200 drop-shadow-lg text-center border-slate-600 dark:border-slate-500 border-b border-x  transition ease-in-out duration-150">
                                 <td colspan="2"
                                     class="px-3 py-1 text-xs font-semibold text-center whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
-                                    Order PCHT (Rencet)
+                                    Order MMEA (Rencet)
                                 </td>
                                 <td colspan="2"
                                     class="px-3 py-1 text-xs font-semibold text-right whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
@@ -234,7 +243,7 @@
                                 </td>
                                 <td colspan="2"
                                     class="px-3 py-1 text-xs font-semibold text-center whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
-                                    Sisa Order PCHT (Rencet)
+                                    Sisa Order MMEA (Rencet)
                                 </td>
                                 <td colspan="2"
                                     class="px-3 py-1 text-xs font-semibold text-right whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
@@ -250,7 +259,7 @@
                                 </td>
                                 <td
                                     class="px-3 py-1 text-xs font-semibold text-center whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
-                                    Sisa OBC PCHT
+                                    Sisa OBC MMEA
                                 </td>
                                 <td
                                     class="px-3 py-1 text-xs font-semibold text-right whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
@@ -260,7 +269,7 @@
                                     class="px-3 py-1 text-xs font-semibold text-center whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     Jatuh Tempo Terdekat
                                 </td>
-                                <td
+                                <td colspan="2"
                                     class="px-3 py-1 text-xs font-semibold text-right whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     {{ $akmMmea['tglJt'] }} = {{ number_format($akmMmea['jmlJtMmea'],0) }} LK
                                 </td>

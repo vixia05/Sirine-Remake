@@ -85,10 +85,20 @@ class LaporanProduksi extends Component
                                                                                         Carbon::parse($key)->firstOfMonth(),
                                                                                         Carbon::parse($key)
                                                                                     ])
-                                                                ->sum('kemas');
+                                                                ->get();
+
+                                        $akmKemasNP = $akmKemas->where('jenis',"NP")
+                                                               ->sum('kemas');
+
+                                        $akmKemasP  = $akmKemas->where('jenis',"P")
+                                                               ->sum('kemas');
 
                                         $getPengiriman = PengirimanPikai::whereMonth('bulan_order',Carbon::parse($this->startDate))
                                                                         ->where('tgl_kirim',$key)->get();
+
+                                        $getAkmPengiriman = PengirimanPikai::whereMonth('bulan_order',Carbon::parse($this->startDate))
+                                                                        ->whereBetween('tgl_kirim',[Carbon::parse($this->startDate),$key])
+                                                                        ->get();
 
                                         $pengiriman = $getPengiriman->sum('np_s1')+
                                                     $getPengiriman->sum('np_s2')+
@@ -97,7 +107,16 @@ class LaporanProduksi extends Component
                                                     $getPengiriman->sum('p_s2')+
                                                     $getPengiriman->sum('p_s3');
 
-                                        $stockKirim = $akmKemas - $pengiriman;
+                                        $akmPengirimanNP = $getAkmPengiriman->sum('np_s1')+
+                                                           $getAkmPengiriman->sum('np_s2')+
+                                                           $getAkmPengiriman->sum('np_s3');
+
+                                        $akmPengirimanP  = $getAkmPengiriman->sum('p_s1')+
+                                                           $getAkmPengiriman->sum('p_s2')+
+                                                           $getAkmPengiriman->sum('p_s3');
+
+                                        $siapKirimP  = $akmKemasP  - $akmPengirimanP;
+                                        $siapKirimNP = $akmKemasNP - $akmPengirimanNP;
 
                                         return [
                                             'cetakHarian' => $cetakHarian,
@@ -112,11 +131,14 @@ class LaporanProduksi extends Component
                                             'totalPCHT' => $data->sum('rencet'),
                                             'kemasPCHT' => $data->sum('kemas'),
                                             'wipPcht'   => $wipPcht,
-                                            'stockKirim'=> $stockKirim,
+                                            'siapKirimP'=> $siapKirimP,
+                                            'siapKirimNP'=> $siapKirimNP,
                                             'pengiriman'=> $pengiriman,
                                         ];
                                     });
         // End Data Harian PCHT
+
+        // Akm PCHT
 
         $orderPcht      = OrderPcht::whereMonth('tgl_obc',Carbon::parse($this->startDate))
                                     ->whereYear('tgl_obc',Carbon::parse($this->startDate))
@@ -205,6 +227,7 @@ class LaporanProduksi extends Component
             'kirimPcht'=> $totalKirim,
             'orderPcht'=> $orderPcht,
             'sisaPcht' => $sisaOrder,
+            'siapKirim'=> $totalKemas-$totalKirim,
         ];
     }
 
@@ -258,15 +281,29 @@ class LaporanProduksi extends Component
                                                                                         Carbon::parse($key)->firstOfMonth(),
                                                                                         Carbon::parse($key)
                                                                                     ])
-                                                                ->sum('kemas');
+                                                                ->get();
+
+                                        $akmKemasM  = $akmKemas->where('jenis',"MMEA")
+                                                               ->sum('kemas');
+
+                                        $akmKemasH  = $akmKemas->where('jenis',"HPTL")
+                                                               ->sum('kemas');
 
                                         $getPengiriman = PengirimanPikai::whereMonth('bulan_order',Carbon::parse($this->startDate))
                                                                         ->where('tgl_kirim',$key)->get();
 
+                                        $getAkmPengiriman = PengirimanPikai::whereMonth('bulan_order',Carbon::parse($this->startDate))
+                                                                        ->whereBetween('tgl_kirim',[Carbon::parse($this->startDate),$key])
+                                                                        ->get();
+
                                         $pengiriman = $getPengiriman->sum('mmea')+
                                                       $getPengiriman->sum('hptl');
 
-                                        $stockKirim = $akmKemas - $pengiriman;
+                                        $akmPengirimanM = $getAkmPengiriman->sum('mmea');
+                                        $akmPengirimanH = $getAkmPengiriman->sum('hptl');
+
+                                        $siapKirimM = $akmKemasM - $akmPengirimanM;
+                                        $siapKirimH = $akmKemasH - $akmPengirimanH;
 
                                         return [
                                             'cetakHarian'  => $cetakHarian,
@@ -281,7 +318,8 @@ class LaporanProduksi extends Component
                                             'totalPerekat' => $data->sum('rencet'),
                                             'kemasPerekat' => $data->sum('kemas'),
                                             'wipMmea'      => $wipMmea,
-                                            'stockKirim'   => $stockKirim,
+                                            'siapKirimM'   => $siapKirimM,
+                                            'siapKirimH'   => $siapKirimH,
                                             'pengiriman'   => $pengiriman,
                                         ];
                                     });
@@ -349,6 +387,7 @@ class LaporanProduksi extends Component
         $totalKirim     = $getKirim->sum('mmea')+
                           $getKirim->sum('hptl');
 
+
         // Jatuh Tempo
         $jtMmea = OrderMmea::whereMonth('tgl_obc',Carbon::parse($this->startDate))
                             ->whereYear('tgl_obc',Carbon::parse($this->startDate))
@@ -379,6 +418,7 @@ class LaporanProduksi extends Component
             'kirimMmea'=> $totalKirim,
             'orderMmea'=> $orderMmea,
             'sisaMmea' => $sisaOrder,
+            'siapKirim'=> $totalKemas-$totalKirim,
         ];
     }
 }

@@ -38,9 +38,9 @@
                                     rowspan="3">
                                     Total Verifikasi
                                 </th>
-                                <th class="px-3 py-1 text-center max-w-[10rem] border-slate-400 dark:border-slate-500 border-l"
+                                <th class="px-3 py-1 text-center max-w-[6rem] border-slate-400 dark:border-slate-500 border-l"
                                     scope="col" rowspan="3">
-                                    Saldo Akhir Verifikasi (WIP)
+                                    Siap Periksa (WIP)
                                 </th>
                                 <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-l" scope="col"
                                     rowspan="3">
@@ -51,8 +51,8 @@
                                     Jumlah Kirim
                                 </th>
                                 <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-x" scope="col"
-                                    rowspan="3">
-                                    Kemas, Belum Kirim
+                                colspan="2">
+                                    Siap Kirim
                                 </th>
                             </tr>
                             <tr class="border border-slate-400 rounded-md bg-cyan-100">
@@ -76,6 +76,12 @@
                                 </th>
                                 <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
                                     % Incshiet
+                                </th>
+                                <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
+                                    NP
+                                </th>
+                                <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-l" scope="col">
+                                    P
                                 </th>
                             </tr>
                         </thead>
@@ -151,7 +157,12 @@
                                 {{-- Stock Barang --}}
                                 <td
                                     class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
-                                    {{ number_format($data['stockKirim'],0) }}
+                                    {{ number_format($data['siapKirimNP'],0) }}
+                                </td>
+                                {{-- Stock Barang --}}
+                                <td
+                                    class="pl-6 pr-2 py-1 text-xs text-right font-medium  whitespace-nowrap border-slate-400 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    {{ number_format($data['siapKirimP'],0) }}
                                 </td>
                             </tr>
                             @endforeach
@@ -216,9 +227,9 @@
                                     {{ number_format($akmPcht['kirimPcht'],0) }}
                                 </td>
                                 {{-- --}}
-                                <td
-                                    class="px-3 py-1 text-xs font-semibold text-right whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
-
+                                <td colspan="2"
+                                    class="px-3 py-1 text-xs font-semibold text-center whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    {{ number_format($akmPcht['siapKirim'],0) }}
                                 </td>
                             </tr>
                             {{-- Row Total PCHT --}}
@@ -260,7 +271,7 @@
                                     class="px-3 py-1 text-xs font-semibold text-center whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     Jatuh Tempo Terdekat
                                 </td>
-                                <td
+                                <td colspan="2"
                                     class="px-3 py-1 text-xs font-semibold text-right whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     {{ $akmPcht['tglJt'] }} = {{ number_format($akmPcht['jmlJtPcht'],0) }} LK
                                 </td>
