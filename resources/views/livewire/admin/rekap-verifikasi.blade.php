@@ -120,6 +120,11 @@
                                             {{-- 2.1.4 Tanggal Verifikasi --}}
                                             <th scope="col"
                                                 class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-400">
+                                                Produk
+                                            </th>
+                                            {{-- 2.1.4 Tanggal Verifikasi --}}
+                                            <th scope="col"
+                                                class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-400">
                                                 Tgl Verif
                                             </th>
                                             {{-- 2.1.5 Pendapatan Lembar --}}
@@ -181,6 +186,11 @@
                                             {{-- 2.2.4 Tanggal Verifikasi Coloumn --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
+                                                {{ $datas->jenis }}
+                                            </td>
+                                            {{-- 2.2.4 Tanggal Verifikasi Coloumn --}}
+                                            <td
+                                                class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
                                                 {{ Carbon\Carbon::parse($datas->tgl_verif)->format('d-F-Y') }}
                                             </td>
                                             {{-- 2.2.5 Jumlah Verifikasi Coloumn --}}
@@ -197,8 +207,8 @@
                                             {{-- 2.2.7 Target Coloumn --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
-                                                {{ number_format($datas->target, 0) }} Rim /
-                                                {{ number_format($datas->target * 500, 0) }} Lbr
+                                                {{ number_format($datas->target/500, 0) }} Rim /
+                                                {{ number_format($datas->target, 0) }} Lbr
                                             </td>
                                             {{-- 2.2.8 Lembur Coloumn --}}
                                             <td

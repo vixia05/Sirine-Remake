@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
+
 use Auth;
 use Illuminate\Http\Request;
-use App\Models\Users;
+use App\Models\User;
 use App\Models\Unit;
 use App\Models\Seksi;
 use App\Models\Privillage;
@@ -52,7 +54,24 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'oldPass'  => 'required',
+            'newPass'  => 'required|min:8|different:oldPass',
+            'confPass' => 'required|same:newPass'
+        ]);
+
+        $user = User::where('np',Auth::user()->np)
+                    ->firstorfail();
+
+                    // dd([Hash::make($request->oldPass),$user->password]);
+        if(Hash::check($request->oldPass, $user->password))
+        {
+            $user->update(['password' => Hash::make($request->newPass)]);
+        }
+        else
+        {
+            return back();
+        }
     }
 
     /**
@@ -108,6 +127,11 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+    {
+        //
+    }
+
+    public function updatePassword(Request $request)
     {
         //
     }

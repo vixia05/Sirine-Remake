@@ -16,7 +16,7 @@ use App\Models\Seksi;
 class InputVerifikasi extends Component
 {
 
-    public $data, $workstation, $unit, $npUser;
+    public $data, $workstation, $unit, $npUser,$jenis;
     public $verifikasi, $obc, $keterangan, $lembur, $tglVerif, $izin;
 
     // public Collection $npUser;
@@ -36,6 +36,8 @@ class InputVerifikasi extends Component
         $this->lembur = '0';
 
         $this->tglVerif = Carbon::today()->format('Y-m-d');
+
+        $this->jenis = "PCHT";
 
     }
 
@@ -110,7 +112,9 @@ class InputVerifikasi extends Component
                         [
                             'tgl_verif' => $this->tglVerif,
                             'np_user'   => $key,
-                            'id_workstation'=> $this->workstation
+                            'id_workstation'=> $this->workstation,
+                            'jenis'     => $this->jenis,
+                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
@@ -135,7 +139,9 @@ class InputVerifikasi extends Component
                         [
                             'tgl_verif' => $this->tglVerif,
                             'np_user'   => $key,
-                            'id_workstation'=> $this->workstation
+                            'id_workstation'=> $this->workstation,
+                            'jenis'     => $this->jenis,
+                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
@@ -161,7 +167,9 @@ class InputVerifikasi extends Component
                         [
                             'tgl_verif' => $this->tglVerif,
                             'np_user'   => $key,
-                            'id_workstation'=> $this->workstation
+                            'id_workstation'=> $this->workstation,
+                            'jenis'     => $this->jenis,
+                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
@@ -187,7 +195,9 @@ class InputVerifikasi extends Component
                         [
                             'tgl_verif' => $this->tglVerif,
                             'np_user'   => $key,
-                            'id_workstation'=> $this->workstation
+                            'id_workstation'=> $this->workstation,
+                            'jenis'     => $this->jenis,
+                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
@@ -213,7 +223,9 @@ class InputVerifikasi extends Component
                         [
                             'tgl_verif' => $this->tglVerif,
                             'np_user'   => $key,
-                            'id_workstation'=> $this->workstation
+                            'id_workstation'=> $this->workstation,
+                            'jenis'     => $this->jenis,
+                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),

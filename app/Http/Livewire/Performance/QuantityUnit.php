@@ -92,7 +92,7 @@ class QuantityUnit extends Component
         $endDate = $this->endDate;
         $startDate = $this->startDate;
 
-        $data  = QcPikai::where('id_station',$team)
+        $data  = QcPikai::where('id_workstation',$team)
                         ->whereBetween('tgl_verif',[$this->startDate,$this->endDate])
                         ->get()
                         ->groupBy('np_user')

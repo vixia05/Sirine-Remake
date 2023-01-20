@@ -47,7 +47,8 @@ Route::get('test/con', [TestController::class, 'test'])->name('test/con');
 Route::group(['middleware' => ['auth','verified']], function() {
 
     //--- Global User ---//
-        Route::get('dashboard',[HomeController::class, 'index'])->name('dashboard');
+        Route::get('dashboard',[HomeController::class, 'index'])
+             ->name('dashboard');
         Route::resource('profile',ProfileController::class);
 
     //--- SuperUser ---//
@@ -67,6 +68,7 @@ Route::group(['middleware' => ['auth','verified']], function() {
                 'privillage' => PrivillageController::class,
                 'jamEfektif' => JamEfektifController::class,
             ]);
+
         });
 
     //--- Admin ---//
