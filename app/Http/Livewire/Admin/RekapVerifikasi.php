@@ -18,7 +18,9 @@ class RekapVerifikasi extends Component
 {
 
     use WithPagination;
-    public $search,$npUser;
+    public $search = '';
+    public $npUser;
+    public $jenis;
     public $idUser,$startDate,$endDate;
     protected $queryString = ['search'];
 
@@ -27,6 +29,9 @@ class RekapVerifikasi extends Component
         $data = QcPikai::whereLike(['np_user'],$this->search ?? '')
                         ->when($this->npUser,function($query,$npUser){
                             return $query->where('np_user',$npUser);
+                        })
+                        ->when($this->jenis,function($query,$jenis){
+                            return $query->where('jenis',$jenis);
                         })
                         ->when($this->startDate,function($query,$startDate){
                             return $query->whereBetween('tgl_verif',[$startDate,$this->endDate]);

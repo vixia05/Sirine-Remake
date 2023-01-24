@@ -37,15 +37,13 @@ use App\Http\Livewire\Operator\DataProdVerif;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
 
 Route::view('/test', 'test');
 Route::get('test/con', [TestController::class, 'test'])->name('test/con');
 
 Route::group(['middleware' => ['auth','verified']], function() {
 
+        Route::get('/', [HomeController::class, 'index']);
     //--- Global User ---//
         Route::get('dashboard',[HomeController::class, 'index'])
              ->name('dashboard');

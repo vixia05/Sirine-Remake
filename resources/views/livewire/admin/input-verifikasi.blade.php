@@ -57,7 +57,7 @@
                     {{-- 1.3 Search Section --}}
                     <div class="relative">
                         <input type="text" wire:model="search"
-                            class="py-2 pl-10 pr-4 text-xs font-medium text-gray-600 transition duration-150 ease-out border border-t rounded shadow border-slate-400 focus:shadow-md focus:shadow-blue-500/30 focus:border-blue-500 focus:ring-blue-600 focus:outline-none focus:ring-1 hover:border-blue-500"
+                            class="py-2 pl-10 pr-4 text-xs font-medium text-gray-600 border-t rounded-lg shadow focus:border-gray-400 focus:outline-none focus:ring-0"
                             placeholder="Search...">
                         <div class="absolute top-0 left-0 inline-flex items-center pt-2 pl-2 text-gray-500">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
@@ -198,10 +198,14 @@
             {{-- Footer --}}
             <div
                 class="px-10 pt-2 pb-3 overflow-hidden border-b rounded-b bg-inerhit border-slate-300 text-slate-700 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 dark:text-slate-100">
-                <div class="flex justify-end">
+                <div class="flex justify-end gap-3">
+                    <button type="btn" wire:click="resetField()" data-mdb-ripple="true" data-mdb-ripple-color="light"
+                        class="inline-block px-6 py-2 text-xs font-medium leading-tight tracking-wider text-blue-600 underline uppercase transition duration-300 ease-in-out border border-blue-500 rounded shadow-md bg-innerhit brightness-125 hover:text-blue-700 focus:text-blue-700 hover:border-blue-700 hover:shadow-lg focus:border-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:border-blue-800 active:shadow-lg dark:text-slate-100 hover:shadow-blue-500/30">
+                        Clear
+                    </button>
                     <button type="btn" wire:click="store" data-mdb-ripple="true" data-mdb-ripple-color="light"
-                        class="px-2 py-1 tracking-wider transition duration-150 bg-blue-600 rounded-md text-slate-100 hover:bg-blue-500">
-                        Simpan
+                        class="inline-block px-6 py-2 text-xs font-medium leading-tight tracking-wider text-blue-100 uppercase transition duration-300 ease-in-out bg-blue-500 rounded shadow-md brightness-125 hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg dark:text-slate-100 hover:shadow-blue-500/30">
+                        Save
                     </button>
                 </div>
             </div>

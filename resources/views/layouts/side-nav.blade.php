@@ -1,6 +1,6 @@
 <div x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
     :class="expandNavbar ? 'w-64 ' : 'w-0 md:w-20'"
-    class="fixed top-0 bottom-0 min-h-full pb-24 overflow-y-auto transition-all duration-300 ease-in-out shadow-md rounded-r-2xl bg-slate-50 bg-opacity-80 drop-shadow-md scrollbar-hide backdrop-blur backdrop-filter dark:bg-slate-900 dark:bg-opacity-80"
+    class="fixed top-0 bottom-0 min-h-full pb-24 overflow-y-auto transition-all duration-300 ease-in-out shadow-md rounded-r-2xl bg-gradient-to-r from-slate-100 to-slate-200 drop-shadow-md scrollbar-hide backdrop-blur backdrop-filter dark:bg-slate-900 dark:bg-opacity-80"
     x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0 scale-x-70 -translate-x-1/2"
     x-transition:enter-end="opacity-100 scale-x-100 -translate-x-0" x-transition:leave="transition ease-in duration-300"
@@ -86,7 +86,7 @@
 <div
     x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
     :class="expandNavbar ? 'w-64' : 'w-20'"
-    class="fixed inset-x-0 bottom-0 hidden px-6 py-4 text-3xl text-center transition-all duration-300 md:block rounded-r-2xl dark:bg-slate-900 dark:text-slate-200">
+    class="fixed inset-x-0 bottom-0 hidden px-6 py-4 text-3xl text-center transition-all duration-300 bg-slate-50 md:block rounded-br-2xl dark:bg-slate-900 dark:text-slate-200">
     <a data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
         <div class="flex justify-start space-x-4 cursor-pointer">
             <div class="w-10 h-10 rounded-full">

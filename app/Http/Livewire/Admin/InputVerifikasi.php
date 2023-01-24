@@ -16,8 +16,9 @@ use App\Models\Seksi;
 class InputVerifikasi extends Component
 {
 
-    public $data, $workstation, $unit, $npUser,$jenis;
+    public $workstation, $unit, $npUser,$jenis, $search;
     public $verifikasi, $obc, $keterangan, $lembur, $tglVerif, $izin;
+    protected $queryString = ['search'];
 
     // public Collection $npUser;
 
@@ -46,12 +47,16 @@ class InputVerifikasi extends Component
      */
     public function render()
     {
-        $this->data = UserDetails::where('id_workstation',$this->workstation)
-                                  ->orderBy('np_user')
-                                  ->get();
+        $data = UserDetails::whereLike(['np_user','nama'],$this->search ?? '')
+                            ->when($this->workstation,function($query,$workstation){
+                                return $query->where('id_workstation',$this->workstation);
+                            })
+                            ->orderBy('np_user')
+                            ->get();
 
         return view('livewire.admin.input-verifikasi',[
             'station' => $this->station(),
+            'data'  => $data,
         ]);
     }
 

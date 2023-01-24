@@ -30,46 +30,50 @@
             <div
                 class="px-4 py-4 border rounded-t bg-inerhit border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
                 <div class="flex flex-wrap justify-between gap-3">
-                    {{-- Filter NP --}}
-                    <div
-                        class="flex flex-row border border-blue-600 rounded-md brightness-110 dark:focus-within:shadow-lg dark:focus-within:shadow-blue-600/30 dark:focus-within:brightness-125">
-                        <div class="px-2 py-1 rounded-l-md dark:bg-slate-800 dark:bg-opacity-50">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6 text-blue-600">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                            </svg>
+                    <div class="flex gap-3 flex-col">
+                        {{-- Filter Jenis Produk --}}
+                        <div
+                            class="flex flex-row w-max border border-blue-600 rounded-md brightness-110 dark:focus-within:shadow-lg dark:focus-within:shadow-blue-600/30 dark:focus-within:brightness-125">
+                            <div class="flex gap-1 mt-0.5 px-2 py-1 rounded-l-md dark:bg-slate-800 dark:bg-opacity-50">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-blue-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
+                                  </svg>
+                                  <span class="text-blue-600 text-sm font-medium">Produk</span>
+                            </div>
+                            <select
+                                class="w-full text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
+                                wire:model="jenis">
+                                <option value="PCHT">PCHT</option>
+                                <option value="MMEA">MMEA</option>
+                            </select>
                         </div>
-                        <select
-                            class="w-full text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
-                            wire:model="npUser">
-                            <option value="0" class="text-center">-- NP/Nama --</option>
-                            @foreach ($listNp as $np)
-                            <option value="{{ $np->np_user }}">{{ $np->nama }} </option>
-                            @endforeach
-                        </select>
+                        {{-- Filter NP --}}
+                        <div
+                            class="flex flex-row border border-blue-600 rounded-md brightness-110 dark:focus-within:shadow-lg dark:focus-within:shadow-blue-600/30 dark:focus-within:brightness-125">
+                            <div class="px-2 py-1 rounded-l-md dark:bg-slate-800 dark:bg-opacity-50">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" class="w-6 h-6 text-blue-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                </svg>
+                            </div>
+                            <select
+                                class="w-full text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
+                                wire:model="npUser">
+                                <option value="0" class="text-center">-- NP/Nama --</option>
+                                @foreach ($listNp as $np)
+                                <option value="{{ $np->np_user }}">{{ $np->nama }} </option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                     {{-- Filter Date Range --}}
-                    <div
-                        class="flex flex-row border border-blue-600 rounded-md brightness-110 dark:focus-within:shadow-lg dark:focus-within:shadow-blue-600/30 dark:focus-within:brightness-125">
-                        <div class="px-2 py-1 rounded-l-md dark:bg-slate-800 dark:bg-opacity-50">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                class="w-6 h-6 text-blue-600">
-                                <path
-                                    d="M12.75 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM7.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM8.25 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM9.75 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM12.75 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM14.25 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 13.5a.75.75 0 100-1.5.75.75 0 000 1.5z" />
-                                <path fill-rule="evenodd"
-                                    d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                        <input type="text" id="dateRange" name="dateRange"
-                            class="w-full text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
-                            placeholder="Periode" />
-                    </div>
+                    <x-date-range/>
                     {{-- Search --}}
                     <div class="relative flex flex-wrap gap-3">
                         <input type="text" wire:model="search"
-                            class="py-2 pl-10 pr-4 text-xs font-medium text-gray-600 border-t rounded-lg shadow focus:border-gray-400 focus:outline-none focus:ring-0"
+                            class="py-2 h-max pl-10 pr-4 text-xs font-medium text-gray-600 border-t rounded-lg shadow focus:border-gray-400 focus:outline-none focus:ring-0"
                             placeholder="Search...">
                         <div class="absolute top-0 left-0 inline-flex items-center pt-2 pl-2 text-gray-500">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
@@ -166,7 +170,8 @@
                                     </thead>
                                     {{-- 2.2 Body Table --}}
                                     <tbody>
-                                        @foreach ($data as $datas)
+                                        <x-loading></x-loading>
+                                        @forelse ($data as $datas)
                                         <tr
                                             class="tracking-wide transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
                                             {{-- 2.2.1 Index Coloumn --}}
@@ -180,7 +185,11 @@
                                                 <div class="flex flex-col justify-center">
                                                     <span class="font-bold dark:text-slate-300">{{ $datas->np_user
                                                         }}</span>
-                                                    <span>{{ $datas->userDetails->nama }}</span>
+                                                    <span>
+                                                        @isset($datas->userDetails->nama)
+                                                            {{ $datas->userDetails->nama }}
+                                                        @endisset
+                                                    </span>
                                                 </div>
                                             </td>
                                             {{-- 2.2.4 Tanggal Verifikasi Coloumn --}}
@@ -196,19 +205,29 @@
                                             {{-- 2.2.5 Jumlah Verifikasi Coloumn --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-right border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
-                                                {{ number_format($datas->jml_verif / 500, 0) }} Rim /
-                                                {{ number_format($datas->jml_verif, 0) }} Lbr
+                                                @if ($datas->jenis == "PCHT")
+                                                    {{ number_format($datas->jml_verif / 500, 0) }} Rim /
+                                                    {{ number_format($datas->jml_verif, 0) }} Lbr
+                                                @else
+                                                    {{ number_format($datas->jml_verif / 300, 0) }} Rim /
+                                                    {{ number_format($datas->jml_verif, 0) }} Lbr
+                                                @endif
                                             </td>
                                             {{-- 2.2.6 Jumlah OBC Coloumn --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-right border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
-                                                {{ $datas->jml_obc }} OBC
+                                                {{ $datas->jml_obc > 0 ? $datas->jml_obc : 0  }} OBC
                                             </td>
                                             {{-- 2.2.7 Target Coloumn --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-center border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
+                                                @if ($datas->jenis == "PCHT")
                                                 {{ number_format($datas->target/500, 0) }} Rim /
                                                 {{ number_format($datas->target, 0) }} Lbr
+                                                @else
+                                                {{ number_format($datas->target / 300, 0) }} Rim /
+                                                {{ number_format($datas->target, 0) }} Lbr
+                                                @endif
                                             </td>
                                             {{-- 2.2.8 Lembur Coloumn --}}
                                             <td
@@ -267,7 +286,15 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        @endforeach
+                                        @empty
+                                        <tr
+                                            class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
+                                            <td colspan="11"
+                                                class="p-3 text-lg text-center font-medium whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                Tidak Ada Record
+                                            </td>
+                                        </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                                 {{-- End Table --}}

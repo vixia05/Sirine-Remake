@@ -5,6 +5,7 @@ namespace App\Http\Controllers\SuperUser;
 use App\Models\User;
 use App\Models\Unit;
 use App\Models\Seksi;
+use App\Models\Level;
 use App\Models\Workstation;
 use App\Models\Privillage;
 use App\Models\UserDetails;
@@ -39,8 +40,10 @@ class UsersController extends Controller
 
         $listWorkstation = Workstation::get()
                                       ->sortBy('workstation');
+        $listPrivillage  = Level::all()->sortBy('level');
 
         return view('superUser.create-user',[
+            'listPrivillage' => $listPrivillage,
             'listUnit'  => $listUnit,
             'listSeksi' => $listSeksi,
             'listWorkstation' => $listWorkstation
