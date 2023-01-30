@@ -93,8 +93,8 @@ class InputVerifikasi extends Component
         $this->saveJmlVerif();
         $this->saveJmlObc();
         $this->saveKeterangan();
-        $this->saveLembur();
         $this->saveIzin();
+        $this->saveLembur();
         $this->resetField();
 
         session()->flash('success', 'Data Berhasil Di Simpan');
@@ -123,7 +123,7 @@ class InputVerifikasi extends Component
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
-                            'jml_verif' => $verif,
+                            'jml_verif' => $verif == !null ? $verif : 0,
                         ]
                     );
                 }
@@ -150,7 +150,7 @@ class InputVerifikasi extends Component
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
-                            'jml_obc'   => $obc,
+                            'jml_obc'   => $obc == !null ? $obc : 0,
                         ]
                     );
                 }
@@ -178,7 +178,7 @@ class InputVerifikasi extends Component
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
-                            'keterangan'   => $keterangan,
+                            'keterangan'   => $keterangan == !null ? $keterangan : null,
                         ]
                     );
                 }
@@ -192,20 +192,38 @@ class InputVerifikasi extends Component
     // 4. Save Lembur
         private function saveLembur()
         {
+
             if($this->lembur == !null)
             {
                 foreach($this->lembur as $key => $lembur)
                 {
+                    if($this->lembur == 1)
+                    {
+                        $target = $this->jenis == "PCHT" ? 20000 : 8000;
+                    }
+                    elseif($this->lembur == 2)
+                    {
+                        $target = $this->jenis == "PCHT" ? 22500 : 9000;
+                    }
+                    elseif($this->lembur == 3)
+                    {
+                        $target = $this->jenis == "PCHT" ? 27500 : 11000;
+                    }
+                    else
+                    {
+                        $target = $this->jenis == "PCHT" ? 15000 : 6000;
+                    }
+
                     QcPikai::updateOrCreate(
                         [
                             'tgl_verif' => $this->tglVerif,
                             'np_user'   => $key,
                             'id_workstation'=> $this->workstation,
                             'jenis'     => $this->jenis,
-                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
+                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
                             'lembur'   => $lembur,
                         ]
                     );
@@ -230,11 +248,10 @@ class InputVerifikasi extends Component
                             'np_user'   => $key,
                             'id_workstation'=> $this->workstation,
                             'jenis'     => $this->jenis,
-                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
-                            'izin'      => $izin,
+                            'izin'      => $izin == "-" ? 0 : $izin,
                         ]
                     );
                 }

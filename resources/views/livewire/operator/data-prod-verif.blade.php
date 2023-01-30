@@ -169,7 +169,7 @@
                                     </thead>
                                     {{-- 2.2 Body Table --}}
                                     <tbody>
-                                        <x-loading></x-loading>
+                                            <x-loading></x-loading>
                                         @forelse ($data as $datas)
                                         <tr
                                             class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">

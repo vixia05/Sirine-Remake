@@ -14,6 +14,7 @@ use App\Http\Livewire\Performance\QuantityUnit;
 use App\Http\Livewire\Performance\QuantityIndividu;
 use App\Http\Livewire\Performance\QualityUnit;
 use App\Http\Livewire\Performance\QualityIndividu;
+use App\Http\Livewire\Performance\ReportPegawai;
 use App\Http\Controllers\Performance\ReportController;
 
 // Namespace Andon
@@ -37,9 +38,6 @@ use App\Http\Livewire\Operator\DataProdVerif;
 |
 */
 
-
-Route::view('/test', 'test');
-Route::get('test/con', [TestController::class, 'test'])->name('test/con');
 
 Route::group(['middleware' => ['auth','verified']], function() {
 
@@ -119,7 +117,7 @@ Route::group(['middleware' => ['auth','verified']], function() {
                 });
 
         // Raport Pegawai
-            Route::get('report',[ReportController::class, 'index'])
+            Route::get('report',ReportPegawai::class)
                 ->name('report');
 
 

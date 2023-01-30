@@ -31,7 +31,6 @@ class QualityUnit extends Component
                                 ->whereMonth('tgl_ck3',$i)
                                 ->sum('jml_retur');
         }
-        dump($data);
         return view('livewire.performance.quality-unit');
     }
 

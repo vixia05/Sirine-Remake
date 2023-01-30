@@ -74,33 +74,36 @@ class QuantityIndividu extends Component
     {
         $mainData  = QcPikai::where('np_user',$this->npUser)
                             ->whereBetween('tgl_verif',[$this->startDate,$this->endDate])
-                            ->orderBy('tgl_verif')
-                            ->pluck('jml_verif','tgl_verif');
+                            ->orderBy('tgl_verif');
 
-        $this->labels     = array_keys($mainData->toArray());
+        $jmlVerif    = $mainData->pluck('jml_verif','tgl_verif');
+        $targetVerif = $mainData->pluck('target','tgl_verif');
+
+        $this->labels     = array_keys($jmlVerif->toArray());
         $this->dataset    = [
+                            [
+                                'type'  => "line",
+                                'label' => "Target",
+                                'backgroundColor' => 'rgba(16,185,129,0)',
+                                'borderColor' => 'rgba(52,211,153,2)',
+                                'data' => $targetVerif->values(),
+                            ],
                             [
                                 'label' => "Hasil Verif",
                                 'backgroundColor' => 'rgba(59, 130, 246, 1)',
                                 'borderColor' => 'rgba(15,64,97,255)',
-                                'data' => $mainData->values(),
+                                'pointHoverBackgroundColor' => '#fff',
+                                'data' => $jmlVerif->values(),
                             ],
                         ];
 
-        $yearData  = [
-                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',1)->sum('jml_verif') ,
-                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',2)->sum('jml_verif') ,
-                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',3)->sum('jml_verif') ,
-                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',4)->sum('jml_verif') ,
-                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',5)->sum('jml_verif') ,
-                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',6)->sum('jml_verif') ,
-                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',7)->sum('jml_verif') ,
-                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',8)->sum('jml_verif') ,
-                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',9)->sum('jml_verif') ,
-                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',10)->sum('jml_verif'),
-                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',11)->sum('jml_verif'),
-                        QcPikai::where('np_user',$this->npUser)->whereYear('tgl_verif',carbon::now())->whereMonth('tgl_verif',12)->sum('jml_verif'),
-                     ];
+        for($i = 1 ; $i < 13 ; $i++)
+        {
+            $yearData[] = QcPikai::where('np_user',$this->npUser)
+                                 ->whereYear('tgl_verif',carbon::parse($this->startDate))
+                                 ->whereMonth('tgl_verif',$i)
+                                 ->sum('jml_verif');
+        }
 
         $yearLabels     = [
                             "Jan",
@@ -137,4 +140,6 @@ class QuantityIndividu extends Component
 
         $this->resetpage();
     }
+
+    // public function
 }

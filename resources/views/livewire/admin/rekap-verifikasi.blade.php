@@ -35,11 +35,12 @@
                         <div
                             class="flex flex-row w-max border border-blue-600 rounded-md brightness-110 dark:focus-within:shadow-lg dark:focus-within:shadow-blue-600/30 dark:focus-within:brightness-125">
                             <div class="flex gap-1 mt-0.5 px-2 py-1 rounded-l-md dark:bg-slate-800 dark:bg-opacity-50">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-blue-600">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
-                                  </svg>
-                                  <span class="text-blue-600 text-sm font-medium">Produk</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0112 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125M20.625 12c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5M12 14.625v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 14.625c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m0 1.5v-1.5m0 0c0-.621.504-1.125 1.125-1.125m0 0h7.5" />
+                                </svg>
+                                <span class="text-blue-600 text-sm font-medium">Produk</span>
                             </div>
                             <select
                                 class="w-full text-xs font-medium border-none rounded-r-md dark:bg-slate-800 dark:bg-opacity-50 dark:text-slate-100 dark:focus:bg-opacity-100 focus:border-none focus:ring-0"
@@ -52,8 +53,8 @@
                         <div
                             class="flex flex-row border border-blue-600 rounded-md brightness-110 dark:focus-within:shadow-lg dark:focus-within:shadow-blue-600/30 dark:focus-within:brightness-125">
                             <div class="px-2 py-1 rounded-l-md dark:bg-slate-800 dark:bg-opacity-50">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="w-6 h-6 text-blue-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-600">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                                 </svg>
@@ -69,7 +70,7 @@
                         </div>
                     </div>
                     {{-- Filter Date Range --}}
-                    <x-date-range/>
+                    <x-date-range />
                     {{-- Search --}}
                     <div class="relative flex flex-wrap gap-3">
                         <input type="text" wire:model="search"
@@ -187,7 +188,7 @@
                                                         }}</span>
                                                     <span>
                                                         @isset($datas->userDetails->nama)
-                                                            {{ $datas->userDetails->nama }}
+                                                        {{ $datas->userDetails->nama }}
                                                         @endisset
                                                     </span>
                                                 </div>
@@ -206,17 +207,17 @@
                                             <td
                                                 class="px-4 py-2 text-sm text-right border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
                                                 @if ($datas->jenis == "PCHT")
-                                                    {{ number_format($datas->jml_verif / 500, 0) }} Rim /
-                                                    {{ number_format($datas->jml_verif, 0) }} Lbr
+                                                {{ number_format($datas->jml_verif / 500, 0) }} Rim /
+                                                {{ number_format($datas->jml_verif, 0) }} Lbr
                                                 @else
-                                                    {{ number_format($datas->jml_verif / 300, 0) }} Rim /
-                                                    {{ number_format($datas->jml_verif, 0) }} Lbr
+                                                {{ number_format($datas->jml_verif / 300, 0) }} Rim /
+                                                {{ number_format($datas->jml_verif, 0) }} Lbr
                                                 @endif
                                             </td>
                                             {{-- 2.2.6 Jumlah OBC Coloumn --}}
                                             <td
                                                 class="px-4 py-2 text-sm text-right border whitespace-nowrap border-slate-400 text-slate-700 dark:border-slate-400 dark:text-slate-200">
-                                                {{ $datas->jml_obc > 0 ? $datas->jml_obc : 0  }} OBC
+                                                {{ $datas->jml_obc > 0 ? $datas->jml_obc : 0 }} OBC
                                             </td>
                                             {{-- 2.2.7 Target Coloumn --}}
                                             <td

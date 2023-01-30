@@ -97,7 +97,10 @@ class LaporanProduksi extends Component
                                                                         ->where('tgl_kirim',$key)->get();
 
                                         $getAkmPengiriman = PengirimanPikai::whereMonth('bulan_order',Carbon::parse($this->startDate))
-                                                                        ->whereBetween('tgl_kirim',[Carbon::parse($this->startDate),$key])
+                                                                        ->whereBetween('tgl_kirim',[
+                                                                                                    Carbon::parse($key)->firstOfMonth(),
+                                                                                                    Carbon::parse($key)
+                                                                                                ])
                                                                         ->get();
 
                                         $pengiriman = $getPengiriman->sum('np_s1')+
@@ -293,7 +296,10 @@ class LaporanProduksi extends Component
                                                                         ->where('tgl_kirim',$key)->get();
 
                                         $getAkmPengiriman = PengirimanPikai::whereMonth('bulan_order',Carbon::parse($this->startDate))
-                                                                        ->whereBetween('tgl_kirim',[Carbon::parse($this->startDate),$key])
+                                                                        ->whereBetween('tgl_kirim',[
+                                                                                        Carbon::parse($key)->firstOfMonth(),
+                                                                                        Carbon::parse($key)
+                                                                                    ])
                                                                         ->get();
 
                                         $pengiriman = $getPengiriman->sum('mmea')+

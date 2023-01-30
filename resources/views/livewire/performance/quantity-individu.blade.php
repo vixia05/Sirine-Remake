@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 gap-0 md:gap-3 space-y-3 md:grid-cols-3">
             {{-- A. Card Hasil Verifikasi Individu --}}
             <div
-                class="relative p-4 w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter md:col-span-3 lg:col-span-2">
+                class="relative p-4 w-full max-h-screen rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter md:col-span-3 lg:col-span-2">
                 {{-- 1. Header --}}
                 <div
                     class="grid grid-rows-1 gap-3 lg:gap-0 md:grid-rows-2 pb-3 mb-3 md:mb-6 border-b-2 border-slate-600/70 dark:border-slate-300">
@@ -21,7 +21,7 @@
                             class="w-full md:w-1/4 rounded-l border-blue-400 py-2 pl-2 text-sm font-bold text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
                             <option selected>Team</option>
                             @foreach ($listTeam as $teams)
-                                <option value="{{ $teams->id }}">{{ $teams->workstation }}</option>
+                            <option value="{{ $teams->id }}">{{ $teams->workstation }}</option>
                             @endforeach
                         </select>
                         {{-- Filter By NP / Nama --}}
@@ -29,7 +29,7 @@
                             class="w-full md:w-1/4 border-blue-400 py-2 pl-2 text-sm font-bold text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
                             <option selected>Nama/NP</option>
                             @forelse ($listNp as $Nps)
-                                <option value="{{ $Nps->np_user }}">{{ $Nps->nama }}</option>
+                            <option value="{{ $Nps->np_user }}">{{ $Nps->nama }}</option>
                             @empty
 
                             @endforelse
@@ -40,19 +40,25 @@
                             class="w-full md:w-fit border-blue-400 px-4 py-2 text-xs font-medium text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200"
                             placeholder="Periode" />
                         {{-- Reset Filter --}}
-                        <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light" wire:click='clearField'
+                        <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
+                            wire:click='clearField'
                             class="inline-block rounded-b md:rounded-r md:rounded-b-none w-full md:w-fit bg-blue-500 px-3 py-2 text-sm font-semibold leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-lg">Clear</button>
                     </div>
                 </div>
                 {{-- 2. Body Cancvas / Chart --}}
-                <div class="relative flex flex-col justify-center object-cover w-full h-fit md:h-5/6">
-                    <canvas wire:ignore id="qtyIndividu" name="qtyIndividu"></canvas>
+                <div class="absolute w-full top-1/2 inset-x-0 z-[300]">
+                    <x-flip-loading></x-flip-loading>
+                    <x-loading></x-loading>
+                </div>
+                <div class="relative flex flex-col justify-center object-cover w-full h-fit md:h-5/6 max-h-screen">
+                    <div class="absolute bg-slate-800/40 w-full h-full rounded" wire:loading></div>
+                    <canvas wire:ignore id="qtyIndividu" name="qtyIndividu" class="max-w-full min-w-full"></canvas>
                 </div>
             </div>
             {{-- End A. Card Hasil Verifikasi Individu --}}
 
+            {{-- B. Card Hasil Verifikasi Unit --}}
             <div class="grid md:grid-cols-2 lg:grid-cols-1 col-span-3 lg:col-span-1 gap-3">
-                {{-- B. Card Hasil Verifikasi Unit --}}
                 <div
                     class="p-4 px-6 overflow-hidden w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
                     <div class="pb-3 border-b-2 border-slate-600/70 dark:border-slate-300">
@@ -62,7 +68,7 @@
                             <span class="text-xs text-slate-500 dark:text-slate-400">2022</span>
                         </div>
                     </div>
-                    <div class="object-cover w-full pt-6 h-fit md:h-5/6">
+                    <div class="object-cover w-full  pt-6 h-fit md:h-5/6">
                         <canvas wire:ignore id="qtyIndividuYear" name="qtyIndividuYear"></canvas>
                     </div>
                 </div>
@@ -250,7 +256,7 @@
                                                     {{-- 2.1 Indexing --}}
                                                     <td
                                                         class="px-4 py-2 text-sm font-medium text-center whitespace-nowrap border-y border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                            <span>{{ $data->firstItem() + $loop->index }}</span>
+                                                        <span>{{ $data->firstItem() + $loop->index }}</span>
                                                     </td>
                                                     {{-- 2.2 Nomor Pokok --}}
                                                     <td
@@ -319,17 +325,17 @@
 </div>
 
 @section('plugin-js')
-    <link rel="stylesheet" href="{{ asset('plugins/daterangepicker.css') }}">
-    <script src="{{ asset('plugins/jquery-3.6.1.min.js') }}"></script>
-    <script src="{{ asset('plugins/moment.min.js') }}"></script>
-    <script src="{{ asset('plugins/daterangepicker.min.js') }}"></script>
-    <script src="{{ asset('chart.js/chart.min.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('plugins/daterangepicker.css') }}">
+<script src="{{ asset('plugins/jquery-3.6.1.min.js') }}"></script>
+<script src="{{ asset('plugins/moment.min.js') }}"></script>
+<script src="{{ asset('plugins/daterangepicker.min.js') }}"></script>
+<script src="{{ asset('chart.js/chart.min.js') }}"></script>
 @endsection
 
 @push('js')
-    {{-- Datepicker --}}
-        <script>
-            document.addEventListener('livewire:load', function () {
+{{-- Datepicker --}}
+<script>
+    document.addEventListener('livewire:load', function () {
             $('#dateRange').daterangepicker({
                         ranges: {
                             'Hari Ini': [moment(), moment()],
@@ -383,10 +389,10 @@
 
                     });
                 })
-        </script>
-    {{-- Main Chart --}}
-        <script>
-            document.addEventListener('livewire:load', function () {
+</script>
+{{-- Main Chart --}}
+<script>
+    document.addEventListener('livewire:load', function () {
                     const mainChart = new Chart(
                         document.getElementById('qtyIndividu'), {
                             type: 'bar',
@@ -449,9 +455,7 @@
                         yearChart.update();
                     });
             })
-        </script>
-    {{-- <script src="{{ asset('js/performance/qty-individu.js') }}"></script>
-    <script src="{{ asset('component/chart/qty-individu.js') }}"></script> --}}
+</script>
+{{-- <script src="{{ asset('js/performance/qty-individu.js') }}"></script>
+<script src="{{ asset('component/chart/qty-individu.js') }}"></script> --}}
 @endpush
-
-

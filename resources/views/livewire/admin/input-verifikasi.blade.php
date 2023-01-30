@@ -172,7 +172,7 @@
                                                 class="max-w-sm p-3 text-sm font-light border-b border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                 <select wire:model="izin.{{ $datas->np_user }}"
                                                     class="w-full leading-tight transition duration-300 ease-in-out rounded-md border-slate-400/60 text-slate-600 hover:border-blue-500 focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100">
-                                                    <option value="-" selected>-</option>
+                                                    <option value="0" selected>-</option>
                                                     <option value="1">Cuti</option>
                                                     <option value="2">CD</option>
                                                     <option value="3">Surat Merah</option>

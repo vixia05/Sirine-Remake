@@ -24,11 +24,11 @@
                                 </th>
                                 <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-l border-b"
                                     scope="col" colspan="2">
-                                    Non-Personal
+                                    MMEA
                                 </th>
                                 <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-l border-b"
                                     scope="col" colspan="2">
-                                    Personal
+                                    HPTL&REL
                                 </th>
                                 <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-l border-b"
                                     scope="col" colspan="3">

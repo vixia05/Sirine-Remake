@@ -11,7 +11,7 @@
     {{ $lable }}
     @endisset
     <input type="text" id="dateRange" name="dateRange"
-        class="-my-1 -mr-2 text-xs text-slate-700 transition duration-150 dark:border-blue-500 border-none rounded-r appearance-none focus:ring-0 dark:bg-slate-800 dark:bg-opacity-10 focus:bg-opacity-100 dark:text-slate-100"
+        class="-my-1 -mr-2 text-xs w-full text-slate-700 transition duration-150 dark:border-blue-500 border-none rounded-r appearance-none focus:ring-0 dark:bg-slate-800 dark:bg-opacity-10 focus:bg-opacity-100 dark:text-slate-100"
         placeholder="Periode" />
 </div>
 
