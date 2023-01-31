@@ -54,7 +54,7 @@
         {{-- End Medium Nav-bar --}}
         <div class="relative flex justify-start min-h-screen">
             {{-- Side Nav Bar --}}
-            <div class="absolute z-30">
+            <div class="absolute z-[500]">
                 @include('layouts.side-nav')
             </div>
             {{-- End Side Nav Bar --}}

@@ -46,29 +46,26 @@
                     </div>
                 </div>
                 {{-- 2. Body Cancvas / Chart --}}
-                <div class="absolute w-full top-1/2 inset-x-0 z-[300]">
-                    <x-flip-loading></x-flip-loading>
-                    <x-loading></x-loading>
-                </div>
                 <div class="relative flex flex-col justify-center object-cover w-full h-fit md:h-5/6 max-h-screen">
-                    <div class="absolute bg-slate-800/40 w-full h-full rounded" wire:loading></div>
+                    <x-flip-loading></x-flip-loading>
                     <canvas wire:ignore id="qtyIndividu" name="qtyIndividu" class="max-w-full min-w-full"></canvas>
                 </div>
             </div>
             {{-- End A. Card Hasil Verifikasi Individu --}}
 
             {{-- B. Card Hasil Verifikasi Unit --}}
-            <div class="grid md:grid-cols-2 lg:grid-cols-1 col-span-3 lg:col-span-1 gap-3">
+            <div class="relative grid md:grid-cols-2 lg:grid-cols-1 col-span-3 lg:col-span-1 gap-3">
                 <div
-                    class="p-4 px-6 overflow-hidden w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
+                    class=" relative p-4 px-6 overflow-hidden w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
                     <div class="pb-3 border-b-2 border-slate-600/70 dark:border-slate-300">
                         <div class="flex flex-col">
                             <h6 class="w-full text-lg font-bold text-slate-800 dark:text-slate-100">Verifikasi Pita
                                 Cukai</h6>
-                            <span class="text-xs text-slate-500 dark:text-slate-400">2022</span>
+                                <span class="text-xs text-slate-500 dark:text-slate-400">2022</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="object-cover w-full  pt-6 h-fit md:h-5/6">
+                        <div class="relative object-cover w-full  pt-6 h-fit md:h-5/6">
+                            <x-flip-loading></x-flip-loading>
                         <canvas wire:ignore id="qtyIndividuYear" name="qtyIndividuYear"></canvas>
                     </div>
                 </div>
@@ -92,21 +89,21 @@
                                         <table class="min-w-full border-slate-400 dark:border-slate-500">
                                             {{-- 2.1 Header Table --}}
                                             <thead
-                                                class="text-sm font-bold border-b border-slate-400 text-slate-600 dark:border-slate-500 dark:text-slate-400 dark:bg-slate-800">
+                                                class="text-sm font-bold border-b-2 border-slate-400 text-slate-700 dark:border-slate-500 dark:text-slate-400">
                                                 <tr>
                                                     {{-- 2.1.1 Index --}}
                                                     <th scope="col"
-                                                        class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                         Jam Kerja
                                                     </th>
                                                     {{-- 2.1.1 Index --}}
                                                     <th scope="col"
-                                                        class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-500">
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                         Standar Verifikasi PCHT
                                                     </th>
                                                     {{-- 2.1.1 Index --}}
                                                     <th scope="col"
-                                                        class="px-4 py-2 text-center border-b border-slate-400 dark:border-slate-500">
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500">
                                                         Standar Verifikasi MMEA
                                                     </th>
                                                 </tr>
@@ -114,65 +111,65 @@
                                             <tbody>
                                                 {{-- 1.0 Tidak Lembur --}}
                                                 <tr
-                                                    class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
+                                                    class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border-b border-r border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         Tidak Lembur
                                                     </td>
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         15.000 Lbr / Hari
                                                     </td>
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border-b border-l border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         6.000 Lbr / Hari
                                                     </td>
                                                 </tr>
                                                 {{-- 2.0 Lembur Awal --}}
                                                 <tr
-                                                    class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
+                                                    class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border-b border-r border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         Lembur Awal
                                                     </td>
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         20.000 Lbr / Hari
                                                     </td>
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border-b border-l border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         8.000 Lbr / Hari
                                                     </td>
                                                 </tr>
                                                 {{-- 3.0 Lembur Akhir --}}
                                                 <tr
-                                                    class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
+                                                    class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border-b border-r border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         Lembur Akhir
                                                     </td>
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         22.500 Lbr / Hari
                                                     </td>
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border-b border-l border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         9.000 Lbr / Hari
                                                     </td>
                                                 </tr>
                                                 {{-- 3.0 Lembur Awal Akhir --}}
                                                 <tr
-                                                    class="transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
+                                                    class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border-r border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         Lembur Awal Akhir
                                                     </td>
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border-r border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         27.500 Lbr / Hari
                                                     </td>
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         11.000 Lbr / Hari
                                                     </td>
                                                 </tr>
@@ -191,104 +188,159 @@
             <div class="col-span-1 md:col-span-3">
                 <div
                     class="relative p-4 w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
+
                     <div class="grid grid-rows-1 gap-3 lg:gap-0">
                         <h6 class="w-full text-lg font-bold text-slate-800 dark:text-slate-100">Rekap Verifikasi</h6>
                     </div>
                     {{-- D-1.Table --}}
                     <div
-                        class="mt-4 overflow-hidden border rounded bg-inerhit border-x border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
-                        <div class="flex flex-col">
-                            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                <div class="inline-block min-w-full sm:px-6 lg:px-8">
-                                    <div class="overflow-hidden">
-                                        <table class="min-w-full">
-                                            {{-- 1. Header Table --}}
-                                            <thead
-                                                class="text-base font-bold border-b border-slate-400 text-slate-600 dark:border-slate-400 dark:text-slate-400">
-                                                <tr>
-                                                    {{-- 1.1 Index --}}
+                    class="mt-4 overflow-hidden border rounded bg-inerhit border-x border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
+                    <div class="flex flex-col">
+                        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                            <div class="inline-block min-w-full sm:px-6 lg:px-8">
+                                <div class="overflow-hidden">
+                                    <table class="min-w-full">
+                                        {{-- 1. Header Table --}}
+                                        <thead
+                                        class="text-sm font-bold border-b-2 border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-400">
+                                        <tr>
+                                            {{-- 1.1 Index --}}
                                                     <th scope="col"
-                                                        class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-400">
+                                                    class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
                                                         No
                                                     </th>
                                                     {{-- 1.2 Nomor Pokok --}}
                                                     <th scope="col"
-                                                        class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-400">
-                                                        NP / Nama
-                                                    </th>
+                                                    class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                    NP / Nama
+                                                </th>
                                                     {{-- 1.4 Tanggal Verifikasi --}}
                                                     <th scope="col"
-                                                        class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-400">
-                                                        Tgl Verif
+                                                    class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                    Tgl Verif
                                                     </th>
                                                     {{-- 1.5 Pendapatan Lembar --}}
                                                     <th scope="col"
-                                                        class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-400">
-                                                        Jumlah Lembar
-                                                    </th>
-                                                    {{-- 1.6 Pendapatan OBC --}}
-                                                    <th scope="col"
-                                                        class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-400">
-                                                        Jumlah OBC
+                                                    class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                    Hasil Verifikasi
+                                                </th>
+                                                {{-- 1.6 Pendapatan OBC --}}
+                                                <th scope="col"
+                                                class="p-3 w-fit text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                Jumlah OBC
                                                     </th>
                                                     {{-- 1.7 Target --}}
                                                     <th scope="col"
-                                                        class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-400">
-                                                        Target
+                                                    class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                    Target Harian
+                                                </th>
+                                                {{-- 1.7 Target --}}
+                                                <th scope="col"
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        Pencapaian
                                                     </th>
                                                     {{-- 1.8 Lembur --}}
                                                     <th scope="col"
-                                                        class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-400">
-                                                        Lembur
-                                                    </th>
-                                                    {{-- 1.9 Keterangan --}}
-                                                    <th scope="col"
-                                                        class="px-4 py-2 text-center border-r border-slate-400 dark:border-slate-400">
-                                                        Keterangan
+                                                    class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                    Lembur
+                                                </th>
+                                                {{-- 1.9 Keterangan --}}
+                                                <th scope="col"
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
+                                                Keterangan
                                                     </th>
                                                 </tr>
                                             </thead>
                                             {{-- 2. Body Table --}}
-                                            <tbody>
+                                            <tbody class="relative">
+                                                <x-flip-loading></x-flip-loading>
                                                 @foreach ($data as $table)
                                                 <tr
-                                                    class="tracking-wide transition duration-300 ease-in-out hover:bg-slate-400 hover:bg-opacity-10">
+                                                    class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400/10 dark:text-slate-100">
                                                     {{-- 2.1 Indexing --}}
                                                     <td
-                                                        class="px-4 py-2 text-sm font-medium text-center whitespace-nowrap border-y border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                        <span>{{ $data->firstItem() + $loop->index }}</span>
-                                                    </td>
-                                                    {{-- 2.2 Nomor Pokok --}}
-                                                    <td
-                                                        class="px-4 py-2 text-sm border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                        <div class="flex flex-col gap-1">
+                                                    class="p-3 text-sm text-center font-medium whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                    <span>{{ $data->firstItem() + $loop->index }}</span>
+                                                </td>
+                                                {{-- 2.2 Nomor Pokok --}}
+                                                <td
+                                                class="p-3 text-sm font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                <div class="flex flex-col gap-1">
                                                             <span class="font-bold">{{ $table->np_user }}</span>
                                                             <span>{{ $table->UserDetails->nama }}</span>
                                                         </div>
                                                     </td>
                                                     {{-- 2.4 Tanggal Verifikasi --}}
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm text-center font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
                                                         {{ $table->tgl_verif }}
                                                     </td>
                                                     {{-- 2.5 Pendapatan Lembar --}}
                                                     <td
-                                                        class="px-4 py-2 text-sm text-right border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                        {{ number_format($table->jml_verif,0) }} Lbr
+                                                        class="p-3 text-sm text-right whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        <div class="flex justify-between">
+                                                            @if ($table->target <= $table->jml_verif)
+                                                                <div
+                                                                    class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
+                                                                    {{number_format(($table->jml_verif/$table->target)*100,2)}} %
+                                                                </div>
+                                                                @else
+                                                                <div
+                                                                    class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
+                                                                    {{number_format(($table->jml_verif/$table->target)*100,2)}} %
+                                                                </div>
+                                                                @endif
+                                                            <div class="flex flex-col gap-1">
+                                                                <span class="font-medium">{{
+                                                                    number_format($table->jml_verif/500,0) }} Rim</span>
+                                                                <span>{{ number_format($table->jml_verif,0) }} Lbr</span>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                     {{-- 2.6 Pendapatan OBC --}}
                                                     <td
-                                                        class="px-4 py-2 text-sm text-right border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
                                                         {{ $table->jml_obc }} OBC
                                                     </td>
                                                     {{-- 2.7 Target --}}
                                                     <td
-                                                        class="px-4 py-2 text-sm text-right border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
-                                                        {{ number_format($table->target * 500,0) }} Lbr
+                                                        class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        <div class="flex flex-col gap-1">
+                                                            <span class="font-medium">
+                                                                {{ number_format($table->target/500,0) }} Rim
+                                                            </span>
+                                                            <span>
+                                                                {{ number_format($table->target,0) }} Lbr
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                    {{-- 2.7 Target --}}
+                                                    <td
+                                                        class="p-3 text-sm text-center font-sans font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        <div class="flex justify-center gap-1 flex-nowrap">
+                                                            @if ($table->target <= $table->jml_verif)
+                                                                <div
+                                                                    class="rounded-2xl drop-shadow-2xl my-auto bg-green-500 text-green-100 px-4 text-xs py-0.5 w-1/2 min-w-fit h-fit font-medium shadow-md shadow-green-500/30 brightness-110">
+                                                                    + {{number_format(($table->jml_verif/500)-($table->target/500),0)}}
+                                                                    Rim / +
+                                                                    {{number_format(($table->jml_verif)-($table->target),0)}}
+                                                                    Lbr
+                                                                </div>
+                                                                @else
+                                                                <div
+                                                                    class="rounded-2xl drop-shadow-2xl my-auto bg-red-500 h-fit text-green-100 px-4 w-1/2 min-w-fit text-xs py-0.5 font-medium shadow-md shadow-red-500/30 brightness-110">
+                                                                    + {{
+                                                                    number_format(($table->target/500)-($table->jml_verif/500),0)
+                                                                    }} Rim / - {{
+                                                                    number_format(($table->target)-($table->jml_verif),0)
+                                                                    }} Lbr
+                                                                </div>
+                                                                @endif
+                                                        </div>
                                                     </td>
                                                     {{-- 2.8 Lembur --}}
                                                     <td
-                                                        class="px-4 py-2 text-sm text-center border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
                                                         @if($table->lembur == 0)
                                                         -
                                                         @elseif ($table->lembur == 1)
@@ -301,7 +353,7 @@
                                                     </td>
                                                     {{-- 2.9 Keterangan --}}
                                                     <td
-                                                        class="px-4 py-2 text-sm border border-slate-400 text-slate-800 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 text-sm font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         {{ $table->keterangan }}
                                                     </td>
                                                 </tr>

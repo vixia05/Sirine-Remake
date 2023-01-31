@@ -115,12 +115,12 @@
   //with loading text and shadow
   .cube-wrapper {
     position: relative;
-    // left: 50%;
-    // top: 50%;
-        // margin-top: -$size;
-        // margin-left: -$size;
-    // width: $size * 2;
-    // height: $size * 2;
+    left: 50%;
+    top: 50%;
+        margin-top: -$size;
+        margin-left: -$size;
+    width: $size * 2;
+    height: $size * 2;
     text-align: center;
     //shadow
     &:after {

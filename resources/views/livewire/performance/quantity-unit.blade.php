@@ -36,11 +36,8 @@
                     </div>
                 </div>
             </div>
-            <div class="absolute w-full top-1/2 inset-x-0 z-[300]">
-                <x-loading></x-loading>
-            </div>
             <div class="relative flex justify-center flex-1 object-cover w-full p-4 mt-4 h-fit md:h-5/6">
-                <div class="absolute bg-slate-800/40 w-full h-full rounded" wire:loading></div>
+                <x-flip-loading></x-flip-loading>
                 <canvas wire:ignore id="qtyUnit" name="qtyUnit"></canvas>
             </div>
         </div>
@@ -106,7 +103,8 @@
                     "opens": "auto"
                 }, function(start, end, label) {
                     @this.set('startDate',start.format('YYYY-MM-DD'));
-                    @this.set('endDate',end.format('YYYY-MM-DD'));;
+                    @this.set('endDate',end.format('YYYY-MM-DD'));
+                    @this.dataChart();
                 });
     </script>
     {{-- Chart Unit --}}
