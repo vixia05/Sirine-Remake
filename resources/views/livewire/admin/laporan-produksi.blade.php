@@ -8,14 +8,25 @@
         </x-slot>
         {{-- Filter --}}
         <div class="flex justify-between p-4">
+            {{-- Date Range --}}
             <x-date-range>
                 <x-slot name="lable">
                     Periode
                 </x-slot>
             </x-date-range>
+
+            {{-- Dropdown Tahun --}}
+            {{-- <x-dropdown-year>
+                <x-slot name="lable">
+                    Order
+                </x-slot>
+            </x-dropdown-year> --}}
+            {{-- Dropdown Bulan --}}
+
             <div class="flex flex-col text-center">
                 <span class="text-slate-700 font-medium text-sm">
-                    <a href="mailto:aris.hudin@peruri.co.id">Aris Hudin</a> / <a href="mailto:mafut.jahrodin@peruri.co.id">Mafut Jahrodin</a>
+                    <a href="mailto:aris.hudin@peruri.co.id">Aris Hudin</a> / <a
+                        href="mailto:mafut.jahrodin@peruri.co.id">Mafut Jahrodin</a>
                 </span>
                 <span class="text-slate-700 font-medium text-sm">
                     Ext. 3647

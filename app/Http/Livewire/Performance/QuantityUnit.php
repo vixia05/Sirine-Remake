@@ -165,8 +165,10 @@ class QuantityUnit extends Component
                                                         // }
                                                         // else
                                                         // {
-                                                            $targetPcht = $sum->sum('target');
+                                                            // $targetPcht = $sum->sum('target');
                                                         // }
+                                                        $targetPcht = $sum->sum('target');
+
 
                                                 /** End Menentukan Target Harian PCHT Berdasarkan Jumlah Lembar */
 
@@ -175,7 +177,6 @@ class QuantityUnit extends Component
                                                     //** Tambah Count Izin Disini <- */
                                                     $persenPcht = $targetPcht == 0 ? 0 : $hasilPcht / $targetPcht * 100;
                                                     $resultInd = 100;
-                                                    // dump($wip);
                                                     if($wip > 250000)
                                                     {
                                                         if ($persenPcht < 100 && $persenPcht > 50)

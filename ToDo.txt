@@ -1,5 +1,4 @@
 ----------- Main Quest -----------
-1. ||PRIORITY|| Menu Laporan Harian
 2. Andon
    2.2 Andon Cetak
    2.3 Andon Khazkhir

@@ -60,6 +60,7 @@
                         </a>
                     </li>
                     {{-- 2.0 Menu Super User --}}
+                    @include('layouts.side-menu.cms')
                     @if (Helper::getRole() === 10)
                     @include('layouts.side-menu.super-user')
                     @endif

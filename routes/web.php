@@ -9,6 +9,11 @@ use App\Http\Controllers\ProfileController;
 
 use App\Http\Controllers\SuperUser\UpdateOrderController;
 
+// Namespace CMS
+use App\Http\Livewire\Cms\ListMenu;
+use App\Http\Livewire\Cms\TemplateMenu;
+
+
 // Namespace Performance
 use App\Http\Livewire\Performance\QuantityUnit;
 use App\Http\Livewire\Performance\QuantityIndividu;
@@ -42,10 +47,18 @@ use App\Http\Livewire\Operator\DataProdVerif;
 Route::group(['middleware' => ['auth','verified']], function() {
 
         Route::get('/', [HomeController::class, 'index']);
+
     //--- Global User ---//
         Route::get('dashboard',[HomeController::class, 'index'])
              ->name('dashboard');
         Route::resource('profile',ProfileController::class);
+
+    //--- Content Management ---//
+        Route::get('listMenu',ListMenu::class)
+             ->name('listMenu');
+
+        Route::get('templateMenu',TemplateMenu::class)
+             ->name('templateMenu');
 
     //--- SuperUser ---//
         Route::group(['namespace' => 'App\Http\Controllers\SuperUser'], function() {

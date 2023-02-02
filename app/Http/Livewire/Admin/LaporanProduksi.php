@@ -186,7 +186,7 @@ class LaporanProduksi extends Component
 
 
         $totalPeriksa   = $totalBaikNP+$totalRusakNP+$totalBaikP+$totalRusakP;
-        $inschietPcht   = ($totalRusakP+$totalRusakNP)/$totalPeriksa * 100;
+        $inschietPcht   = ($totalRusakP+$totalRusakNP) > 0 ? ($totalRusakP+$totalRusakNP)/$totalPeriksa * 100 : 0;
         $sisaOrder      = $orderPcht - $totalPeriksa;
 
         $getKirim       = PengirimanPikai::whereMonth('bulan_order',Carbon::parse($this->startDate))
