@@ -11,7 +11,7 @@
                     @csrf
                     <div class="flex flex-col">
                         {{-- Table Warning --}}
-                        <x-table.warning-jt></x-table.warning-jt>
+                        @include('components.table.warning-jt')
 
                         @if(session('success'))
                         <div

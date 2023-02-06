@@ -1,13 +1,13 @@
 <div x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
     :class="expandNavbar ? 'w-64 ' : 'w-0 md:w-20'"
-    class="fixed top-0 bottom-0 min-h-full pb-24 overflow-y-auto transition-all duration-300 ease-in-out shadow-md rounded-r-2xl bg-gradient-to-r from-slate-100 to-slate-200 drop-shadow-md scrollbar-hide backdrop-blur backdrop-filter dark:from-slate-900/80 dark:to-slate-900/80"
+    class="fixed top-0 bottom-0 min-h-full pb-24 overflow-y-auto transition-all duration-300 ease-in-out shadow-md rounded-r-2xl bg-gradient-to-b from-white to-slate-200 drop-shadow-md scrollbar-hide backdrop-blur backdrop-filter dark:from-slate-900/80 dark:to-slate-900/80"
     x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0 scale-x-70 -translate-x-1/2"
     x-transition:enter-end="opacity-100 scale-x-100 -translate-x-0" x-transition:leave="transition ease-in duration-300"
     x-transition:leave-start="opacity-100 scale-x-100 -translate-x-0"
     x-transition:leave-end="opacity-0 scale-x-70 -translate-x-1/2">
     <div :class="expandNavbar ? 'justify-center' : '' "
-        class="top-0 flex items-center gap-3 p-4 duration-300 ease-in-out delay-300 sticky-top bg-slate-50 dark:bg-slate-900">
+        class="top-0 flex items-center gap-3 p-4 duration-300 ease-in-out delay-300 sticky-top bg-white dark:bg-slate-900">
         <img src="{{ asset('img/logo-only.png') }}" class="flex-shrink-0 object-cover h-16">
         <h1 :class="expandNavbar ? 'opacity-100' : 'opacity-0'"
             class="font-mono text-3xl font-extrabold duration-300 ease-in-out text-slate-800 dark:text-white">SIRINE
@@ -87,7 +87,7 @@
 <div
     x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
     :class="expandNavbar ? 'w-64' : 'w-20'"
-    class="fixed inset-x-0 bottom-0 hidden px-6 py-4 text-3xl text-center transition-all duration-300 bg-slate-50 md:block rounded-br-2xl dark:bg-slate-900 dark:text-slate-200">
+    class="fixed inset-x-0 bottom-0 hidden px-6 py-4 text-3xl text-center transition-all duration-300 bg-slate-200 md:block rounded-br-2xl dark:bg-slate-900 dark:text-slate-200">
     <a data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
         <div class="flex justify-start space-x-4 cursor-pointer">
             <div class="w-10 h-10 rounded-full">

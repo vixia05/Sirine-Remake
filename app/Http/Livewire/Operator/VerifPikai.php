@@ -18,6 +18,7 @@ class VerifPikai extends Component
     public $tanggal,$noPo,$petugas1,$petugas2;
     public $obc,$terima,$koPab,$seri,$hje,$bpb,$warna,$jht,$jenis;
     public $blobor,$holo,$miss,$noda,$plooi,$blur,$gradasi,$terpotong,$tipis,$sobek,$botak,$tercampur,$minyak,$blanko,$diecut,$keterangan,$wip;
+    public $prioPcht,$prioMmea,$diffPcht,$diffMmea;
 
     public function mount()
     {
@@ -28,6 +29,7 @@ class VerifPikai extends Component
 
     public function render()
     {
+        $this->prioritas();
         $this->listNp   = UserDetails::where('id_unit','4')->orderBy('np_user')->get();
         return view('livewire.operator.verif-pikai',[
             'listNp' => $this->listNp,
@@ -153,5 +155,28 @@ class VerifPikai extends Component
         {
 
         }
+    }
+
+    public function prioritas()
+    {
+        $this->prioPcht = OrderPcht::whereMonth('tgl_obc',today())
+                            ->where('tgl_cetak','!=','null')
+                            ->where('tgl_verif',null)
+                            ->orderBy('tgl_jt')
+                            ->orderBy('no_po','desc')
+                            ->first();
+
+        $this->diffPcht = Carbon::parse(today())
+                                ->diffInDays($this->prioPcht['tgl_cetak']);
+
+        $this->prioMmea = OrderMmea::whereMonth('tgl_obc',today())
+                            ->where('tgl_cetak','!=','null')
+                            ->where('tgl_verif',null)
+                            ->orderBy('tgl_jt')
+                            ->orderBy('no_po','desc')
+                            ->first();
+
+        $this->diffMmea = Carbon::parse(today())
+                                ->diffInDays($this->prioMmea['tgl_cetak']);
     }
 }
