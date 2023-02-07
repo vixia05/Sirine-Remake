@@ -1,4 +1,4 @@
-<div class="absolute w-full h-full inset-0 z-[300] bg-opacity-30 bg-gradient-to-br dark:from-slate-900/20 dark:to-slate-900/20 from-slate-50 via-slate-100 to-slate-50 rounded-md" wire:loading.delay>
+<div class="absolute w-full h-full inset-0 z-[300] bg-opacity-50 bg-white dark:bg-slate-900/20 rounded-md" wire:loading.delay>
     <div class="cube-wrapper">
         <div class="cube-folding">
             <span class="leaf1"></span>

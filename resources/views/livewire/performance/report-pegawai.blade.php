@@ -1,5 +1,5 @@
 <div class="container mx-auto py-10">
-    <x-card>
+    <x-card-scale>
         {{-- A. Header & Filter --}}
         <div class="border-b-2 border-slate-600 /70 dark:border-slate-300/70 pb-4 mb-4 -mt-4">
             <h3 class="text-center font-mono text-2xl font-semibold text-slate-600 dark:text-slate-300">REPORT PERFORMANCE</h3>
@@ -60,5 +60,5 @@
                 <canvas id="performancePreview"></canvas>
             </div>
         </div>
-    </x-card>
+    </x-card-scale>
 </div>

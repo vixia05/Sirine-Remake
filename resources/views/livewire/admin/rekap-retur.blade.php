@@ -1,14 +1,13 @@
-<div class="grid grid-cols-1" x-data="{editModal : false, deleteModal : false}">
+<div class="container mx-auto" x-data="{editModal : false, deleteModal : false}">
     <form>
-        <x-modal.edit-retur/>
+        <x-modal.edit-retur />
     </form>
     <form>
         <x-modal.app-delete>
             <x-slot name="title">Kelolosan</x-slot>
         </x-modal.app-delete>
     </form>
-    <div
-        class="w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
+    <x-card-scale>
         {{-- Header --}}
         <div class="px-4 py-6">
             <h4 class="my-auto font-sans text-lg font-semibold leading-tight text-slate-500 dark:text-slate-100">DATA
@@ -314,7 +313,7 @@
             </div>
             {{-- End Footer --}}
         </div>
-    </div>
+    </x-card-scale>
 </div>
 
 @push('js')

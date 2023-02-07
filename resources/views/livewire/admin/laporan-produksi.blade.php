@@ -1,5 +1,5 @@
 <div class="container mx-auto py-10">
-    <x-card>
+    <x-card-scale>
         {{-- Header --}}
         <x-slot name="title">
             <h4
@@ -39,5 +39,5 @@
         {{-- Table Order MMEA --}}
         @include('components.table.laporan-produksi-mmea')
         {{-- End Table Produksi MMEA --}}
-    </x-card>
+    </x-card-scale>
 </div>

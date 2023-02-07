@@ -21,7 +21,7 @@ class DataProdVerif extends Component
     use WithPagination;
     public $produk;
     private $join;
-    public $noPo;
+    public $noPo,$perPage;
     public $search,$npUser,$startDate,$endDate;
     public $tglVerif,$blobor,$holo,$miss,$noda,$plooi,$blur,$gradasi,$terpotong,$tipis,$sobek,$botak,$tercampur,$minyak,$blanko,$diecut,$keterangan,$wip;
     protected $queryString = ['search'];
@@ -32,6 +32,7 @@ class DataProdVerif extends Component
         $this->startDate = today();
         $this->endDate  = today();
         $this->noPo = "";
+        $this->perPage = 10;
     }
 
     public function render()
@@ -66,7 +67,7 @@ class DataProdVerif extends Component
                                 return $query->whereBetween('tgl_periksa',[$startDate,$this->endDate]);
                             })
                             ->orderBy('created_at')
-                            ->paginate(25);
+                            ->paginate($this->perPage);
         }
         elseif($this->produk == 'MMEA')
         {

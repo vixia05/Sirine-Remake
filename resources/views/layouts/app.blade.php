@@ -60,7 +60,11 @@
             {{-- End Side Nav Bar --}}
             {{-- Main Content --}}
             <div class="relative w-full md:ml-20">
-                <main>
+                <main
+                    x-data="{
+                        mainContent:false
+                    }"
+                    x-init='setTimeout(() => mainContent = true, 0)'>
                     @yield('content')
                     @isset($slot)
                     {{ $slot }}

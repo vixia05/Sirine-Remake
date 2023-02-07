@@ -13,7 +13,7 @@
         </x-modal.app-delete>
     </form>
     {{-- Content --}}
-    <x-card>
+    <x-card-scale>
         {{-- Card Title --}}
         <x-slot name="title">
             DATA PPRODUKSI VERIFIKASI
@@ -362,7 +362,7 @@
             </div>
             {{-- End Footer --}}
         </div>
-    </x-card>
+    </x-card-scale>
 </div>
 
 @section('plugin-js')

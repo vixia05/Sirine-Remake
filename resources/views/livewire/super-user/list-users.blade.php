@@ -9,8 +9,7 @@
             </x-slot>
         </x-modal.app-delete>
     </form>
-    <div
-        class="w-full rounded-md bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50  dark:bg-slate-800 dark:from-transparent dark:to-transparent dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter">
+    <x-card-scale>
         {{-- Header --}}
         <div class="px-4 py-6">
             <h4 class="my-auto font-sans text-lg font-semibold leading-tight text-slate-500 dark:text-slate-100">LIST
@@ -125,8 +124,8 @@
                                                     <button
                                                         class="inline-block px-3 py-2 text-sm font-semibold leading-tight transition duration-150 ease-in-out bg-red-500 rounded shadow-md text-slate-100 hover:bg-red-600 hover:shadow-lg focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-lg"
                                                         data-mdb-ripple="true" data-mdb-ripple-color="light"
-                                                        @click.prevent="deleteModal = true"
-                                                        type="button" wire:click="delete({{ $datas->id }})">
+                                                        @click.prevent="deleteModal = true" type="button"
+                                                        wire:click="delete({{ $datas->id }})">
                                                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                                                             viewBox="0 0 20 20" fill="currentColor">
                                                             <path fill-rule="evenodd"
@@ -151,5 +150,5 @@
             </div>
             {{-- Footer --}}
         </div>
-    </div>
+    </x-card-scale>
 </div>

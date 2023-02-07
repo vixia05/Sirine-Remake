@@ -7,7 +7,7 @@
             @csrf
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                 {{-- 1.0 Form Data Pegawai --}}
-                <x-card>
+                <x-card-scale>
                     <div class="px-4">
                         <h5
                             class=" pb-3 mb-6 text-xl font-bold border-b-2 border-slate-600 text-slate-600 dark:border-slate-100 dark:text-slate-100">
@@ -69,10 +69,10 @@
                                 class="inline-block rounded bg-blue-500 brightness-125 px-6 py-2.5 text-xs font-medium uppercase leading-tight tracking-wider text-blue-100 shadow-md transition duration-300 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg dark:text-slate-100 hover:shadow-blue-500/30">Simpan</button>
                         </div>
                     </div>
-                </x-card>
+                </x-card-scale>
                 {{-- 2.0 Form Unit Kerja --}}
                 <div class="flex flex-col gap-4">
-                    <x-card>
+                    <x-card-scale>
                         <div class="px-4">
                             <h5
                                 class="pb-3 mb-4 text-xl font-bold border-b-2 border-slate-600 text-slate-600 dark:border-slate-100 dark:text-slate-100">
@@ -124,9 +124,9 @@
                                 </select>
                             </div>
                         </div>
-                    </x-card>
+                    </x-card-scale>
                     {{-- 3.0 Form Privillage --}}
-                    <x-card>
+                    <x-card-scale>
                         <div class="px-4">
                             <h5
                                 class="pb-3 mb-6 text-xl font-bold border-b-2 border-slate-600 text-slate-600 dark:border-slate-100 dark:text-slate-100">
@@ -160,7 +160,7 @@
                                     id="passwordConfirmation" name="passwordConfirmation" required>
                             </div>
                         </div>
-                    </x-card>
+                    </x-card-scale>
                 </div>
             </div>
         </form>

@@ -6,9 +6,16 @@
     x-cloak>
     <div class="py-6">
         <div class="px-4 mx-auto lg:px-8">
-            <div class="grid grid-cols-1">
+            <div class="grid grid-cols-1"
+            x-show='mainContent'
+            x-transition:enter="transition ease-out duration-1000"
+            x-transition:enter-start="opacity-0 scale-90"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-1000"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-90">
                 <x-card>
-                        <div class="grid grid-flow-row grid-cols-3 gap-4">
+                        <div class="grid grid-flow-row grid-cols-3 gap-4 dura">
                             {{-- 1.0 Foto Profile --}}
                             <div class="flex justify-start col-span-3 md:col-span-1">
                                 <div class="max-w-sm mx-auto border rounded-lg drop-shadow shadow-sm  border-slate-50 dark:border-slate-600 bg-white dark:bg-slate-700">

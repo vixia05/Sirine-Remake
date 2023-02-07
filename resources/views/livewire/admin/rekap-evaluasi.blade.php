@@ -35,7 +35,7 @@
         </x-modal.app-delete>
     </form>
     {{-- Content --}}
-    <x-card>
+    <x-card-scale>
         <x-slot name="title">
             Evaluasi Pegawai
         </x-slot>
@@ -287,7 +287,7 @@
             </div>
             {{-- End Footer --}}
         </div>
-    </x-card>
+    </x-card-scale>
 </div>
 
 @push('js')
