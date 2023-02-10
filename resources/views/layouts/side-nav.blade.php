@@ -1,23 +1,24 @@
-<div x-on:mouseenter="expandNavbar = true"
-     x-on:mouseleave="expandNavbar = false"
-    :class="expandNavbar ? 'justify-center w-64' : 'w-0 md:w-20' "
-    class="top-0 fixed flex items-center gap-3 p-4 duration-300 ease-in-out rounded-tr-2xl sticky-top bg-white dark:bg-slate-900"
-    x-transition:enter="transition ease-out duration-300"
-    x-transition:enter-start="opacity-0 scale-x-70 -translate-x-1/2"
-    x-transition:enter-end="opacity-100 scale-x-100 -translate-x-0" x-transition:leave="transition ease-in duration-300"
+{{-- Logo Sirine --}}
+<div x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
+    :class="expandNavbar ? 'w-64' : 'w-0 md:w-20' "
+    class="top-0 fixed flex items-center gap-5 p-4 duration-200 ease-in-out rounded-tr-2xl sticky-top bg-white dark:bg-slate-900 overflow-x-hidden"
+    x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-x-70"
+    x-transition:enter-end="opacity-100 scale-x-100" x-transition:leave="transition ease-in duration-200"
     x-transition:leave-start="opacity-100 scale-x-100 -translate-x-0"
     x-transition:leave-end="opacity-0 scale-x-70 -translate-x-1/2">
-    <img src="{{ asset('img/logo-only.png') }}" class="flex-shrink-0 object-cover h-16">
+    <img src="{{ asset('img/logo-only.png') }}" class="flex-shrink-0 object-cover h-14 ml-1">
     <h1 :class="expandNavbar ? 'opacity-100' : 'opacity-0'"
-        class="font-mono text-3xl font-extrabold duration-300 ease-in-out text-slate-800 dark:text-white">SIRINE
+        class="font-mono text-4xl font-extrabold duration-200 ease-in-out text-slate-800 dark:text-white">SIRINE
     </h1>
 </div>
+
+{{-- Sidebar Sirine --}}
 <div x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
     :class="expandNavbar ? 'w-64 scrollbar' : 'w-0 md:w-20 scrollbar-hide'"
-    class="fixed scroll-smooth top-0 bottom-0 min-h-full py-24 overflow-y-auto transition-all duration-300 ease-in-out shadow-md rounded-r-2xl bg-gradient-to-b from-white to-slate-200 drop-shadow-md backdrop-blur backdrop-filter dark:from-slate-900/80 dark:to-slate-900/80"
-    x-transition:enter="transition ease-out duration-300"
+    class="fixed scroll-smooth top-0 bottom-0 min-h-full py-24 overflow-y-auto transition-all duration-200 ease-in-out shadow-md rounded-r-2xl bg-gradient-to-b from-white to-slate-200 drop-shadow-md backdrop-blur backdrop-filter dark:from-slate-900/80 dark:to-slate-900/80"
+    x-transition:enter="transition ease-out duration-200"
     x-transition:enter-start="opacity-0 scale-x-70 -translate-x-1/2"
-    x-transition:enter-end="opacity-100 scale-x-100 -translate-x-0" x-transition:leave="transition ease-in duration-300"
+    x-transition:enter-end="opacity-100 scale-x-100 -translate-x-0" x-transition:leave="transition ease-in duration-200"
     x-transition:leave-start="opacity-100 scale-x-100 -translate-x-0"
     x-transition:leave-end="opacity-0 scale-x-70 -translate-x-1/2">
     {{-- <button type="button" x-data="{
@@ -42,47 +43,53 @@
             <div id="sideNav">
                 <ul class="relative">
                     {{-- 1. Global Menu --}}
+
                     {{-- 1.1 Dashboard --}}
                     <li class="relative my-1.5">
-                        <a class="{{ Route::is('dashboard') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-semibold' }} flex gap-3 items-center overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
+                        <a class="{{ Route::is('dashboard') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-semibold' }} flex gap-3 items-center overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-xs transition duration-200 ease-in-out"
                             href="{{ route('dashboard') }}" data-mdb-ripple="true" data-mdb-ripple-color="light">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                             </svg>
-                            <span class="font-medium tracking-wide duration-300 ease-in-out"
+                            <span class="font-medium tracking-wide duration-200 ease-in-out"
                                 :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Dashboard</span>
                         </a>
                     </li>
+
                     {{-- 1.2 Profile --}}
                     <li class="relative my-1.5">
-                        <a class="{{ Route::is('profile.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-semibold' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-semibold' }} flex gap-3 items-center overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
+                        <a class="{{ Route::is('profile.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-semibold' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-semibold' }} flex gap-3 items-center overflow-hidden whitespace-nowrap rounded-lg py-1.5 px-2.5 mx-1 text-xs transition duration-200 ease-in-out"
                             href="{{ route('profile.index') }}" data-mdb-ripple="true" data-mdb-ripple-color="light">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                 stroke="currentColor" class="h-[19px] w-[19px] flex-shrink-0">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
                             </svg>
-                            <span class="font-medium tracking-wide duration-300 ease-in-out"
+                            <span class="font-medium tracking-wide duration-200 ease-in-out"
                                 :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Biodata</span>
                         </a>
                     </li>
+
                     {{-- 2.0 Menu Super User --}}
                     @include('layouts.side-menu.cms')
                     @if (Helper::getRole() === 10)
                     @include('layouts.side-menu.super-user')
                     @endif
+
                     {{-- 3.0 Menu Admin --}}
                     @if (Helper::getRole() > 1)
                     @include('layouts.side-menu.admin-pikai')
                     @endif
+
                     {{-- 4.0 Menu Verifikasi Pita Cukai --}}
                     @if (Helper::getUnit() === 4)
                     @include('layouts.side-menu.verifikasi-pikai')
                     @endif
                     {{-- 5.0 Menu Cetak Pita Cukai --}}
                     {{-- @include('layouts.side-menu.cetak-pikai') --}}
+
                     {{-- 6.0 Andon --}}
                     @include('layouts.side-menu.andon')
                     {{-- ***************** --}}
@@ -91,17 +98,20 @@
         </nav>
     </div>
 </div>
-{{-- 3. Footer Side Bar --}}
 
+{{-- 3. Footer Side Bar --}}
 <div x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
-    :class="expandNavbar ? 'w-64' : 'w-20'"
-    class="fixed inset-x-0 bottom-0 hidden px-6 py-4 text-3xl text-center transition-all duration-300 bg-slate-200 md:block rounded-br-2xl dark:bg-slate-900 dark:text-slate-200">
+    :class="expandNavbar ? 'w-64' : 'w-0 md:w-20' "
+    class="fixed inset-x-0 bottom-0 px-6 py-4 text-3xl text-center ease-in-out duration-200 bg-slate-200 md:block rounded-br-2xl dark:bg-slate-900 dark:text-slate-200"
+    x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-x-70"
+    x-transition:enter-end="opacity-100 scale-x-100" x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 scale-x-100 -translate-x-0"
+    x-transition:leave-end="opacity-0 scale-x-70 -translate-x-1/2"
+    >
     <a data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
-        <div class="flex justify-start space-x-4 cursor-pointer">
-            <div class="w-10 h-10 rounded-full">
-                <img class="transition duration-150 ease-in-out rounded-full hover:ring-2 hover:ring-slate-300"
-                    src="{{ asset('img/Avatar/default.jpg') }}" alt="" />
-            </div>
+        <div class="flex justify-start gap-4 cursor-pointer">
+            <img class="h-10 object-cover rounded-full hover:ring-2 hover:ring-slate-300"
+                src="{{ asset('img/Avatar/default.jpg') }}" alt="" />
             <div x-show="expandNavbar" class="flex justify-between w-3/4 my-auto">
                 <h6 class="text-xs font-semibold">{{ Auth::user()->np }}</h6>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -111,6 +121,7 @@
             </div>
         </div>
         <ul id="collapseUser" class="relative collapse accordion-collapse">
+
             {{-- 1. Logout --}}
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
@@ -129,6 +140,7 @@
                     </a>
                 </li>
             </form>
+
             {{-- 2. Biodata --}}
             <li class="relative my-1.5 py-1.5 rounded-md hover:bg-slate-800 hover:bg-opacity-80 hover:text-slate-50">
                 <a href="{{ route('profile.index') }}">

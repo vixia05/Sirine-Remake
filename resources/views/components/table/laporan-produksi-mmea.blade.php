@@ -18,7 +18,7 @@
                                     rowspan="3">
                                     Tanggal
                                 </th>
-                                <th class="px-3 py-1 text-center border-slate-400 dark:border-slate-500 border-l" scope="col"
+                                <th class="px-3 py-1 max-w-[8rem] text-center border-slate-400 dark:border-slate-500 border-l" scope="col"
                                     rowspan="3">
                                     Terima Dari Khazwal
                                 </th>
@@ -164,12 +164,17 @@
                                 </td>
                             </tr>
                             @endforeach
+
                             {{-- Row Total MMEA --}}
                             <tr
                                 class="px-3 py-1 bg-yellow-300 text-center border-slate-600 dark:border-slate-500 border-b border-t-2 border-l border-x hover:bg-yellow-100/80 transition ease-in-out duration-150">
-                                <td colspan="2"
+                                <td
                                     class="px-3 py-1 text-xs font-semibold text-center whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
                                     Akumulasi
+                                </td>
+                                <td
+                                    class="px-3 py-1 text-xs font-semibold text-center whitespace-nowrap border-slate-600 text-slate-900 dark:border-slate-500 dark:text-slate-100 border-r">
+                                    {{ number_format($akmMmea['akmCetak'],0) }}
                                 </td>
                                 {{-- Akm Baik MMEA --}}
                                 <td
@@ -230,6 +235,7 @@
                                     {{ number_format($akmMmea['siapKirim'],0) }}
                                 </td>
                             </tr>
+
                             {{-- Row Total PCHT --}}
                             <tr
                                 class="px-3 py-1 bg-blue-200 drop-shadow-lg text-center border-slate-600 dark:border-slate-500 border-b border-x  transition ease-in-out duration-150">

@@ -223,7 +223,7 @@ class InputVerifikasi extends Component
                         ],
                         [
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
-                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
+                            'target'    => $target,
                             'lembur'   => $lembur,
                         ]
                     );

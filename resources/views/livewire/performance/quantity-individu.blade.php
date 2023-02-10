@@ -2,11 +2,8 @@
     <div class="mx-auto px-4 lg:px-8">
         <div class="grid grid-cols-1 gap-0 md:gap-3 space-y-3 md:grid-cols-3">
             {{-- A. Card Hasil Verifikasi Individu --}}
-            <div
-                class="relative p-4 max-h-screen px-4 py-4 md:py-6 w-full bg-white drop-shadow-sm rounded-2xl dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter md:col-span-3 lg:col-span-2"
-                x-show='mainContent'
-                x-transition.scale.origin.top
-                x-transition:enter.duration.700ms
+            <div class="relative p-4 max-h-screen px-4 py-4 md:py-6 w-full bg-white drop-shadow-sm rounded-2xl dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter md:col-span-3 lg:col-span-2"
+                x-show='mainContent' x-transition.scale.origin.top x-transition:enter.duration.700ms
                 x-transition:leave.duration.700ms>
                 {{-- 1. Header --}}
                 <div
@@ -59,31 +56,25 @@
 
             {{-- B. Card Hasil Verifikasi Unit --}}
             <div class="relative grid md:grid-cols-2 lg:grid-cols-1 col-span-3 lg:col-span-1 gap-3">
-                <div
-                    class=" relative p-4 px-6 overflow-hidden  w-full bg-white drop-shadow-sm rounded-2xl dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter"
-                    x-show='mainContent'
-                    x-transition:enter.duration.700ms
-                    x-transition:leave.duration.700ms>
+                <div class=" relative p-4 px-6 overflow-hidden  w-full bg-white drop-shadow-sm rounded-2xl dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter"
+                    x-show='mainContent' x-transition:enter.duration.700ms x-transition:leave.duration.700ms>
                     <div class="pb-3 border-b-2 border-slate-600/70 dark:border-slate-300">
                         <div class="flex flex-col">
                             <h6 class="w-full text-lg font-bold text-slate-800 dark:text-slate-100">Verifikasi Pita
                                 Cukai</h6>
-                                <span class="text-xs text-slate-500 dark:text-slate-400">2022</span>
-                            </div>
+                            <span class="text-xs text-slate-500 dark:text-slate-400">2022</span>
                         </div>
-                        <div class="relative object-cover w-full  pt-6 h-fit md:h-5/6">
-                            <x-flip-loading></x-flip-loading>
+                    </div>
+                    <div class="relative object-cover w-full  pt-6 h-fit md:h-5/6">
+                        <x-flip-loading></x-flip-loading>
                         <canvas wire:ignore id="qtyIndividuYear" name="qtyIndividuYear"></canvas>
                     </div>
                 </div>
                 {{-- End B. Card Hasil Verifikasi Unit --}}
 
                 {{-- C. Card Standar Verifikasi Individu --}}
-                <div
-                    class="px-6 py-4 overflow-hidden  w-full bg-white drop-shadow-sm rounded-2xl dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter"
-                    x-show='mainContent'
-                    x-transition:enter.duration.700ms
-                    x-transition:leave.duration.700ms>
+                <div class="px-6 py-4 overflow-hidden  w-full bg-white drop-shadow-sm rounded-2xl dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter"
+                    x-show='mainContent' x-transition:enter.duration.700ms x-transition:leave.duration.700ms>
                     <h6 class="py-2 mb-1 font-bold text-md text-slate-800 dark:text-slate-100">Standar Verifikasi Pita
                         Cukai (Dalam
                         Keadaan
@@ -202,60 +193,78 @@
                     </div>
                     {{-- D-1.Table --}}
                     <div
-                    class="mt-4 overflow-hidden border rounded bg-inerhit border-x border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
-                    <div class="flex flex-col">
-                        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                            <div class="inline-block min-w-full sm:px-6 lg:px-8">
-                                <div class="overflow-hidden">
-                                    <table class="min-w-full">
-                                        {{-- 1. Header Table --}}
-                                        <thead
-                                        class="text-sm font-bold border-b-2 border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-400">
-                                        <tr>
-                                            {{-- 1.1 Index --}}
-                                                    <th scope="col"
-                                                    class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                        class="mt-4 overflow-hidden border rounded bg-inerhit border-x border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
+                        <div class="flex flex-col">
+                            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="inline-block min-w-full sm:px-6 lg:px-8">
+                                    <div class="overflow-hidden">
+                                        <table class="min-w-full">
+                                            {{-- 1. Header Table --}}
+                                            <thead
+                                                class="text-sm font-bold border-b-2 border-slate-300 text-slate-700 dark:border-slate-500 dark:text-slate-400">
+                                                <tr>
+                                                    {{-- 1.1 Index --}}
+                                                    <th scope="col" rowspan="2"
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
                                                         No
                                                     </th>
                                                     {{-- 1.2 Nomor Pokok --}}
-                                                    <th scope="col"
-                                                    class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
-                                                    NP / Nama
-                                                </th>
+                                                    <th scope="col" rowspan="2"
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        NP / Nama
+                                                    </th>
                                                     {{-- 1.4 Tanggal Verifikasi --}}
-                                                    <th scope="col"
-                                                    class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
-                                                    Tgl Verif
+                                                    <th scope="col" rowspan="2"
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        Tgl Verif
                                                     </th>
                                                     {{-- 1.5 Pendapatan Lembar --}}
-                                                    <th scope="col"
-                                                    class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
-                                                    Hasil Verifikasi
-                                                </th>
-                                                {{-- 1.6 Pendapatan OBC --}}
-                                                <th scope="col"
-                                                class="p-3 w-fit text-center border-slate-300 dark:border-slate-500 border-r-2">
-                                                Jumlah OBC
+                                                    <th scope="col" colspan="2"
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        Hasil Verifikasi
+                                                    </th>
+                                                    {{-- 1.6 Pendapatan OBC --}}
+                                                    <th scope="col" colspan="2"
+                                                        class="p-3 w-fit text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        Jumlah OBC
                                                     </th>
                                                     {{-- 1.7 Target --}}
-                                                    <th scope="col"
-                                                    class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
-                                                    Target Harian
-                                                </th>
-                                                {{-- 1.7 Target --}}
-                                                <th scope="col"
+                                                    <th scope="col" rowspan="2"
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        Target Harian
+                                                    </th>
+                                                    {{-- 1.7 Target --}}
+                                                    <th scope="col" rowspan="2"
                                                         class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
                                                         Pencapaian
                                                     </th>
                                                     {{-- 1.8 Lembur --}}
+                                                    <th scope="col" rowspan="2"
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        Lembur
+                                                    </th>
+                                                    {{-- 1.9 Keterangan --}}
+                                                    <th scope="col" rowspan="2"
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500">
+                                                        Keterangan
+                                                    </th>
+                                                </tr>
+                                                <tr>
                                                     <th scope="col"
-                                                    class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
-                                                    Lembur
-                                                </th>
-                                                {{-- 1.9 Keterangan --}}
-                                                <th scope="col"
-                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
-                                                Keterangan
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2 border-t-2">
+                                                        PCHT
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2 border-t-2">
+                                                        MMEA
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2 border-t-2">
+                                                        PCHT
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2 border-t-2">
+                                                        MMEA
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -267,49 +276,99 @@
                                                     class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400/10 dark:text-slate-100">
                                                     {{-- 2.1 Indexing --}}
                                                     <td
-                                                    class="p-3 text-sm text-center font-medium whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
-                                                    <span>{{ $data->firstItem() + $loop->index }}</span>
-                                                </td>
-                                                {{-- 2.2 Nomor Pokok --}}
-                                                <td
-                                                class="p-3 text-sm font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
-                                                <div class="flex flex-col gap-1">
+                                                        class="p-3 text-sm text-center font-medium whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        <span>{{ $data->firstItem() + $loop->index }}</span>
+                                                    </td>
+
+                                                    {{-- 2.2 Nomor Pokok --}}
+                                                    <td
+                                                        class="p-3 text-sm font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        <div class="flex flex-col gap-1">
                                                             <span class="font-bold">{{ $table->np_user }}</span>
                                                             <span>{{ $table->UserDetails->nama }}</span>
                                                         </div>
                                                     </td>
+
                                                     {{-- 2.4 Tanggal Verifikasi --}}
                                                     <td
                                                         class="p-3 text-sm text-center font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
                                                         {{ $table->tgl_verif }}
                                                     </td>
-                                                    {{-- 2.5 Pendapatan Lembar --}}
+
+                                                    {{-- 2.5 Pendapatan Lembar PCHT --}}
                                                     <td
                                                         class="p-3 text-sm text-right whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
                                                         <div class="flex justify-between">
-                                                            @if ($table->target <= $table->jml_verif)
-                                                                <div
-                                                                    class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
-                                                                    {{number_format(($table->jml_verif/$table->target)*100,2)}} %
-                                                                </div>
-                                                                @else
-                                                                <div
-                                                                    class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
-                                                                    {{number_format(($table->jml_verif/$table->target)*100,2)}} %
-                                                                </div>
-                                                                @endif
-                                                            <div class="flex flex-col gap-1">
-                                                                <span class="font-medium">{{
-                                                                    number_format($table->jml_verif/500,0) }} Rim</span>
-                                                                <span>{{ number_format($table->jml_verif,0) }} Lbr</span>
-                                                            </div>
+                                                            @if ($table->jenis == "PCHT")
+                                                                @if ($table->target <= $table->jml_verif)
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
+                                                                        {{number_format(($table->jml_verif/$table->target)*100,2)}}
+                                                                        %
+                                                                    </div>
+                                                                    @else
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
+                                                                        {{number_format(($table->jml_verif/$table->target)*100,2)}}
+                                                                        %
+                                                                    </div>
+                                                                    @endif
+                                                                    <div class="flex flex-col gap-1">
+                                                                        <span class="font-medium">{{
+                                                                            number_format($table->jml_verif/500,0) }}
+                                                                            Rim</span>
+                                                                        <span>{{ number_format($table->jml_verif,0) }}
+                                                                            Lbr</span>
+                                                                    </div>
+                                                            @else
+                                                            -
+                                                            @endif
                                                         </div>
                                                     </td>
-                                                    {{-- 2.6 Pendapatan OBC --}}
+
+                                                    {{-- 2.5 Pendapatan Lembar MMEA --}}
+                                                    <td
+                                                        class="p-3 text-sm text-right whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        <div class="flex justify-between">
+                                                            @if ($table->jenis == "MMEA")
+                                                                @if ($table->target <= $table->jml_verif)
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
+                                                                        {{number_format(($table->jml_verif/$table->target)*100,2)}}
+                                                                        %
+                                                                    </div>
+                                                                    @else
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
+                                                                        {{number_format(($table->jml_verif/$table->target)*100,2)}}
+                                                                        %
+                                                                    </div>
+                                                                    @endif
+                                                                    <div class="flex flex-col gap-1">
+                                                                        <span class="font-medium">{{
+                                                                            number_format($table->jml_verif/500,0) }}
+                                                                            Rim</span>
+                                                                        <span>{{ number_format($table->jml_verif,0) }}
+                                                                            Lbr</span>
+                                                                    </div>
+                                                            @else
+                                                            -
+                                                            @endif
+                                                        </div>
+                                                    </td>
+
+                                                    {{-- 2.6 Pendapatan OBC PCHT --}}
                                                     <td
                                                         class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
                                                         {{ $table->jml_obc }} OBC
                                                     </td>
+
+                                                    {{-- 2.6 Pendapatan OBC MMEA     --}}
+                                                    <td
+                                                        class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        {{ $table->jml_obc }} OBC
+                                                    </td>
+
                                                     {{-- 2.7 Target --}}
                                                     <td
                                                         class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
@@ -322,19 +381,41 @@
                                                             </span>
                                                         </div>
                                                     </td>
+
                                                     {{-- 2.7 Target --}}
                                                     <td
                                                         class="p-3 text-sm text-center font-sans font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
-                                                        <div class="flex justify-center gap-1 flex-nowrap">
+                                                        <div class="flex flex-col items-center justify-center gap-1 flex-nowrap">
                                                             @if ($table->target <= $table->jml_verif)
                                                                 <div
                                                                     class="rounded-2xl drop-shadow-2xl my-auto bg-green-500 text-green-100 px-4 text-xs py-0.5 w-1/2 min-w-fit h-fit font-medium shadow-md shadow-green-500/30 brightness-110">
-                                                                    + {{number_format(($table->jml_verif/500)-($table->target/500),0)}}
+                                                                    +
+                                                                    {{number_format(($table->jml_verif/500)-($table->target/500),0)}}
                                                                     Rim / +
                                                                     {{number_format(($table->jml_verif)-($table->target),0)}}
                                                                     Lbr
                                                                 </div>
+
+                                                                <div
+                                                                    class="rounded-2xl drop-shadow-2xl my-auto bg-green-500 text-green-100 px-4 text-xs py-0.5 w-1/2 min-w-fit h-fit font-medium shadow-md shadow-green-500/30 brightness-110">
+                                                                    +
+                                                                    {{number_format(($table->jml_verif/500)-($table->target/500),0)}}
+                                                                    Rim / +
+                                                                    {{number_format(($table->jml_verif)-($table->target),0)}}
+                                                                    Lbr
+                                                                </div>
+
+                                                                <div
+                                                                    class="rounded-2xl drop-shadow-2xl my-auto bg-green-500 text-green-100 px-4 text-xs py-0.5 w-1/2 min-w-fit h-fit font-medium shadow-md shadow-green-500/30 brightness-110">
+                                                                    +
+                                                                    {{number_format(($table->jml_verif/500)-($table->target/500),0)}}
+                                                                    Rim / +
+                                                                    {{number_format(($table->jml_verif)-($table->target),0)}}
+                                                                    Lbr
+                                                                </div>
+
                                                                 @else
+
                                                                 <div
                                                                     class="rounded-2xl drop-shadow-2xl my-auto bg-red-500 h-fit text-green-100 px-4 w-1/2 min-w-fit text-xs py-0.5 font-medium shadow-md shadow-red-500/30 brightness-110">
                                                                     + {{
@@ -343,9 +424,29 @@
                                                                     number_format(($table->target)-($table->jml_verif),0)
                                                                     }} Lbr
                                                                 </div>
+
+                                                                <div
+                                                                    class="rounded-2xl drop-shadow-2xl my-auto bg-red-500 h-fit text-green-100 px-4 w-1/2 min-w-fit text-xs py-0.5 font-medium shadow-md shadow-red-500/30 brightness-110">
+                                                                    + {{
+                                                                    number_format(($table->target/500)-($table->jml_verif/500),0)
+                                                                    }} Rim / - {{
+                                                                    number_format(($table->target)-($table->jml_verif),0)
+                                                                    }} Lbr
+                                                                </div>
+
+                                                                <div
+                                                                    class="rounded-2xl drop-shadow-2xl my-auto bg-red-500 h-fit text-green-100 px-4 w-1/2 min-w-fit text-xs py-0.5 font-medium shadow-md shadow-red-500/30 brightness-110">
+                                                                    + {{
+                                                                    number_format(($table->target/500)-($table->jml_verif/500),0)
+                                                                    }} Rim / - {{
+                                                                    number_format(($table->target)-($table->jml_verif),0)
+                                                                    }} Lbr
+                                                                </div>
+
                                                                 @endif
                                                         </div>
                                                     </td>
+
                                                     {{-- 2.8 Lembur --}}
                                                     <td
                                                         class="p-3 text-sm font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
@@ -359,6 +460,7 @@
                                                         Awal Akhir
                                                         @endif
                                                     </td>
+
                                                     {{-- 2.9 Keterangan --}}
                                                     <td
                                                         class="p-3 text-sm font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">

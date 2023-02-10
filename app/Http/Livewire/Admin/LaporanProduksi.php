@@ -184,6 +184,8 @@ class LaporanProduksi extends Component
                                     ->whereYear('tgl_obc',Carbon::parse($this->startDate))
                                     ->sum('kemas');
 
+        $totalCetak     = OrderPcht::whereBetween('tgl_obc',[Carbon::parse($this->startDate),today()])
+                                     ->sum('jml_cetak');
 
         $totalPeriksa   = $totalBaikNP+$totalRusakNP+$totalBaikP+$totalRusakP;
         $inschietPcht   = ($totalRusakP+$totalRusakNP) > 0 ? ($totalRusakP+$totalRusakNP)/$totalPeriksa * 100 : 0;
@@ -214,6 +216,7 @@ class LaporanProduksi extends Component
 
         // Akumulasi/Total Bulanan Pcht
         $this->akmPcht = [
+            'akmCetak' =>$totalCetak,
             'tglJt'    => $jtPcht,
             'jmlJtPcht'=> $jmlJt,
             'sisaObcPcht'=> $sisaObcPcht,
@@ -372,6 +375,9 @@ class LaporanProduksi extends Component
                                     ->whereYear('tgl_obc',Carbon::parse($this->startDate))
                                     ->sum('kemas');
 
+        $totalCetak       = OrderMmea::whereBetween('tgl_obc',[Carbon::parse($this->startDate),today()])
+                                     ->sum('jml_cetak');
+
 
         $totalPeriksa   = $totalBaikMmea+$totalRusakMmea+$totalBaikHptl+$totalRusakHptl;
 
@@ -408,6 +414,7 @@ class LaporanProduksi extends Component
 
         // Akumulasi/Total Bulanan Pcht
         $this->akmMmea = [
+            'akmCetak' =>$totalCetak,
             'tglJt'    => $jtMmea,
             'jmlJtMmea'=> $jmlJt,
             'sisaObcMmea'=> $sisaObcMmea,

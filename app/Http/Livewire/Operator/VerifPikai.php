@@ -91,11 +91,11 @@ class VerifPikai extends Component
 
         // ]);
 
-        if($this->jenis === "PCHT")
+        if($this->jenis === "PCHT" && $this->noPo !== null)
         {
             HctsPcht::updateOrCreate(
                 [
-                    'po_hcts' => $this->noPo == null ? 0 : $this->noPo,
+                    'po_hcts' => $this->noPo == null ? 1 : $this->noPo,
                 ],
                 [
                     'blobor'  => $this->blobor  == null ? 0 : $this->blobor,
@@ -121,11 +121,11 @@ class VerifPikai extends Component
             );
             $this->resetInputField();
         }
-        elseif($this->jenis === "MMEA")
+        elseif($this->jenis === "MMEA" && $this->noPo !== null)
         {
             HctsMmea::updateOrCreate(
                 [
-                    'po_hcts' => $this->noPo == null ? 0 : $this->noPo,
+                    'po_hcts' => $this->noPo == null ? 1 : $this->noPo,
                 ],
                 [
                     'blobor'  => $this->blobor  == null ? 0 : $this->blobor,

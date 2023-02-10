@@ -44,9 +44,7 @@ class QuantityIndividu extends Component
 
     public function render()
     {
-        $data = QcPikai::where('np_user',$this->npUser)
-                       ->whereBetween('tgl_verif',[$this->startDate,$this->endDate])
-                       ->paginate(10);
+        $data = $this->tableData();
 
         return view('livewire.performance.quantity-individu',
                     [
@@ -141,5 +139,12 @@ class QuantityIndividu extends Component
         $this->resetpage();
     }
 
-    // public function
+    public function tableData()
+    {
+        $data = QcPikai::where('np_user',$this->npUser)
+                    ->whereBetween('tgl_verif',[$this->startDate,$this->endDate])
+                    ->paginate(10);
+
+        return $data;
+    }
 }
