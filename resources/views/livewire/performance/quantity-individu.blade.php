@@ -229,7 +229,7 @@
                                                         Jumlah OBC
                                                     </th>
                                                     {{-- 1.7 Target --}}
-                                                    <th scope="col" rowspan="2"
+                                                    <th scope="col" colspan="2"
                                                         class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
                                                         Target Harian
                                                     </th>
@@ -266,12 +266,20 @@
                                                         class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2 border-t-2">
                                                         MMEA
                                                     </th>
+                                                    <th scope="col"
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2 border-t-2">
+                                                        PCHT
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2 border-t-2">
+                                                        MMEA
+                                                    </th>
                                                 </tr>
                                             </thead>
                                             {{-- 2. Body Table --}}
                                             <tbody class="relative">
                                                 <x-flip-loading></x-flip-loading>
-                                                @foreach ($data as $table)
+                                                @foreach ($data->unique('tgl_verif') as $table)
                                                 <tr
                                                     class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400/10 dark:text-slate-100">
                                                     {{-- 2.1 Indexing --}}
@@ -299,29 +307,29 @@
                                                     <td
                                                         class="p-3 text-sm text-right whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
                                                         <div class="flex justify-between">
-                                                            @if ($table->jenis == "PCHT")
+                                                            @if ($table->jml_verif > 0 && $table->jenis == "PCHT")
                                                                 @if ($table->target <= $table->jml_verif)
                                                                     <div
                                                                         class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
                                                                         {{number_format(($table->jml_verif/$table->target)*100,2)}}
                                                                         %
                                                                     </div>
-                                                                    @else
+                                                                @else
                                                                     <div
                                                                         class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
                                                                         {{number_format(($table->jml_verif/$table->target)*100,2)}}
                                                                         %
                                                                     </div>
-                                                                    @endif
-                                                                    <div class="flex flex-col gap-1">
-                                                                        <span class="font-medium">{{
-                                                                            number_format($table->jml_verif/500,0) }}
-                                                                            Rim</span>
-                                                                        <span>{{ number_format($table->jml_verif,0) }}
-                                                                            Lbr</span>
-                                                                    </div>
+                                                                @endif
+                                                                <div class="flex flex-col gap-1">
+                                                                    <span class="font-medium">{{
+                                                                        number_format($table->jml_verif/500,0) }}
+                                                                        Rim</span>
+                                                                    <span>{{ number_format($table->jml_verif,0) }}
+                                                                        Lbr</span>
+                                                                </div>
                                                             @else
-                                                            -
+                                                                -
                                                             @endif
                                                         </div>
                                                     </td>
@@ -330,29 +338,29 @@
                                                     <td
                                                         class="p-3 text-sm text-right whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
                                                         <div class="flex justify-between">
-                                                            @if ($table->jenis == "MMEA")
-                                                                @if ($table->target <= $table->jml_verif)
+                                                            @if ($this->dataMmea($table->tgl_verif)->value('jml_verif') > 0 )
+                                                                @if ($this->dataMmea($table->tgl_verif)->value('target') <= $this->dataMmea($table->tgl_verif)->value('jml_verif'))
                                                                     <div
                                                                         class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
-                                                                        {{number_format(($table->jml_verif/$table->target)*100,2)}}
+                                                                        {{number_format(($this->dataMmea($table->tgl_verif)->value('jml_verif')/$this->dataMmea($table->tgl_verif)->value('target'))*100,2)}}
                                                                         %
                                                                     </div>
-                                                                    @else
+                                                                @else
                                                                     <div
                                                                         class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
-                                                                        {{number_format(($table->jml_verif/$table->target)*100,2)}}
+                                                                        {{number_format(($this->dataMmea($table->tgl_verif)->value('jml_verif')/$this->dataMmea($table->tgl_verif)->value('target'))*100,2)}}
                                                                         %
                                                                     </div>
-                                                                    @endif
-                                                                    <div class="flex flex-col gap-1">
-                                                                        <span class="font-medium">{{
-                                                                            number_format($table->jml_verif/500,0) }}
-                                                                            Rim</span>
-                                                                        <span>{{ number_format($table->jml_verif,0) }}
-                                                                            Lbr</span>
-                                                                    </div>
+                                                                @endif
+                                                                <div class="flex flex-col gap-1">
+                                                                    <span class="font-medium">{{
+                                                                        number_format($this->dataMmea($table->tgl_verif)->value('jml_verif')/500,0) }}
+                                                                        Rim</span>
+                                                                    <span>{{ number_format($this->dataMmea($table->tgl_verif)->value('jml_verif'),0) }}
+                                                                        Lbr</span>
+                                                                </div>
                                                             @else
-                                                            -
+                                                                -
                                                             @endif
                                                         </div>
                                                     </td>
@@ -360,29 +368,58 @@
                                                     {{-- 2.6 Pendapatan OBC PCHT --}}
                                                     <td
                                                         class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
-                                                        {{ $table->jml_obc }} OBC
+                                                        @if ($table->jml_verif > 0 && $table->jenis == "PCHT")
+                                                            {{ $table->jml_obc }} OBC
+                                                        @else
+                                                            -
+                                                        @endif
                                                     </td>
 
                                                     {{-- 2.6 Pendapatan OBC MMEA     --}}
                                                     <td
                                                         class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
-                                                        {{ $table->jml_obc }} OBC
+                                                        @if ($this->dataMmea($table->tgl_verif)->value('jml_obc') > 0)
+                                                            {{ number_format($this->dataMmea($table->tgl_verif)->value('jml_obc'),0) }} OBC
+                                                        @else
+                                                            -
+                                                        @endif
                                                     </td>
 
-                                                    {{-- 2.7 Target --}}
+                                                    {{-- 2.7 Target PCHT --}}
                                                     <td
                                                         class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
                                                         <div class="flex flex-col gap-1">
-                                                            <span class="font-medium">
-                                                                {{ number_format($table->target/500,0) }} Rim
-                                                            </span>
-                                                            <span>
-                                                                {{ number_format($table->target,0) }} Lbr
-                                                            </span>
+                                                            @if ($table->jml_verif > 0 && $table->jenis == "PCHT")
+                                                                <span class="font-medium">
+                                                                    {{ number_format($table->target/500,0) }} Rim
+                                                                </span>
+                                                                <span>
+                                                                    {{ number_format($table->target,0) }} Lbr
+                                                                </span>
+                                                            @else
+                                                                -
+                                                            @endif
                                                         </div>
                                                     </td>
 
-                                                    {{-- 2.7 Target --}}
+                                                    {{-- 2.7 Target MMEA --}}
+                                                    <td
+                                                        class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        <div class="flex flex-col gap-1">
+                                                            @if ($this->dataMmea($table->tgl_verif)->value('jml_obc') > 0)
+                                                                <span class="font-medium">
+                                                                    {{ number_format($this->dataMmea($table->tgl_verif)->value('target')/500,0) }} Rim
+                                                                </span>
+                                                                <span>
+                                                                    {{ number_format($this->dataMmea($table->tgl_verif)->value('target'),0) }} Lbr
+                                                                </span>
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        </div>
+                                                    </td>
+
+                                                    {{-- 2.7 Pencapaian --}}
                                                     <td
                                                         class="p-3 text-sm text-center font-sans font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
                                                         <div class="flex flex-col items-center justify-center gap-1 flex-nowrap">
@@ -395,27 +432,7 @@
                                                                     {{number_format(($table->jml_verif)-($table->target),0)}}
                                                                     Lbr
                                                                 </div>
-
-                                                                <div
-                                                                    class="rounded-2xl drop-shadow-2xl my-auto bg-green-500 text-green-100 px-4 text-xs py-0.5 w-1/2 min-w-fit h-fit font-medium shadow-md shadow-green-500/30 brightness-110">
-                                                                    +
-                                                                    {{number_format(($table->jml_verif/500)-($table->target/500),0)}}
-                                                                    Rim / +
-                                                                    {{number_format(($table->jml_verif)-($table->target),0)}}
-                                                                    Lbr
-                                                                </div>
-
-                                                                <div
-                                                                    class="rounded-2xl drop-shadow-2xl my-auto bg-green-500 text-green-100 px-4 text-xs py-0.5 w-1/2 min-w-fit h-fit font-medium shadow-md shadow-green-500/30 brightness-110">
-                                                                    +
-                                                                    {{number_format(($table->jml_verif/500)-($table->target/500),0)}}
-                                                                    Rim / +
-                                                                    {{number_format(($table->jml_verif)-($table->target),0)}}
-                                                                    Lbr
-                                                                </div>
-
                                                                 @else
-
                                                                 <div
                                                                     class="rounded-2xl drop-shadow-2xl my-auto bg-red-500 h-fit text-green-100 px-4 w-1/2 min-w-fit text-xs py-0.5 font-medium shadow-md shadow-red-500/30 brightness-110">
                                                                     + {{
@@ -424,25 +441,6 @@
                                                                     number_format(($table->target)-($table->jml_verif),0)
                                                                     }} Lbr
                                                                 </div>
-
-                                                                <div
-                                                                    class="rounded-2xl drop-shadow-2xl my-auto bg-red-500 h-fit text-green-100 px-4 w-1/2 min-w-fit text-xs py-0.5 font-medium shadow-md shadow-red-500/30 brightness-110">
-                                                                    + {{
-                                                                    number_format(($table->target/500)-($table->jml_verif/500),0)
-                                                                    }} Rim / - {{
-                                                                    number_format(($table->target)-($table->jml_verif),0)
-                                                                    }} Lbr
-                                                                </div>
-
-                                                                <div
-                                                                    class="rounded-2xl drop-shadow-2xl my-auto bg-red-500 h-fit text-green-100 px-4 w-1/2 min-w-fit text-xs py-0.5 font-medium shadow-md shadow-red-500/30 brightness-110">
-                                                                    + {{
-                                                                    number_format(($table->target/500)-($table->jml_verif/500),0)
-                                                                    }} Rim / - {{
-                                                                    number_format(($table->target)-($table->jml_verif),0)
-                                                                    }} Lbr
-                                                                </div>
-
                                                                 @endif
                                                         </div>
                                                     </td>

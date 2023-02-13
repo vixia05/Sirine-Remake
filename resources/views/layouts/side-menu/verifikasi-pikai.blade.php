@@ -24,7 +24,7 @@
                         d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
                 <span class="tracking-wide font-medium duration-300 ease-in-out"
-                    :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Input Data</span>
+                    :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Entry Data Produksi</span>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-auto h-[19px] w-[19px] flex-shrink-0" fill="none"
                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -49,7 +49,7 @@
                             d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
                     </svg>
                     <span class="tracking-wide font-medium duration-300 ease-in-out"
-                        :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Checklist Verifikasi</span></a>
+                        :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Produksi Unit</span></a>
             </li>
             {{-- 1.2 Input Data Verifikasi --}}
             <li class="relative my-1.5">
@@ -62,7 +62,7 @@
                             d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
                     </svg>
                     <span class="tracking-wide font-medium duration-300 ease-in-out"
-                        :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Pendapatan Harian</span></a>
+                        :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Produksi Pegawai</span></a>
             </li>
             @if (Helper::getRole() > 1)
             {{-- 1.3 Input Data Retur --}}
@@ -75,7 +75,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
                     </svg>
-                    <span class="">Input Kelolosan</span>
+                    <span class="">Kelolosan Pegawai</span>
                 </a>
             </li>
             {{-- 1.4 Input Data Evaluasi --}}
@@ -89,8 +89,7 @@
                             d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
                     </svg>
                     <span class="tracking-wide font-medium duration-300 ease-in-out"
-                        :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Pesan
-                        Evaluasi
+                        :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Evalusi Pegawai
                     </span>
                 </a>
             </li>
@@ -113,14 +112,14 @@
                         d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                 </svg>
                 <span class="tracking-wide font-medium duration-300 ease-in-out"
-                    :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Rekap Data</span>
+                    :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Rekap Data Produksi</span>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-auto h-[19px] w-[19px] flex-shrink-0" fill="none"
                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
         </a>
-        <ul class="{{ Route::is('rekapVerif.index') || Route::is('rekapRetur.index') || Route::is('rekapEvaluasi.index') ? 'show' : '' }} collapse accordion-collapse relative py-1"
+        <ul class="{{Route::is('operator.data-prod-verif') || Route::is('rekapVerif.index') || Route::is('rekapRetur.index') || Route::is('rekapEvaluasi.index') ? 'show' : '' }} collapse accordion-collapse relative py-1"
             id="collapseRekapData" aria-labelledby="rekapData" data-bs-parent="#sideNav">
             {{-- 2.1 Laporan Produksi --}}
             <li class="relative my-1.5">
@@ -134,10 +133,29 @@
                                 d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
                         <span class="tracking-wide font-medium duration-300 ease-in-out"
-                            :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Produksi Verifikasi</span>
+                            :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Produksi Unit</span>
                     </div>
                 </a>
             </li>
+            @if (Helper::getRole() > 0)
+            {{-- 2.1 Rekap Verifikasi --}}
+            <li class="relative my-1.5">
+                <a href="{{ route('rekapVerif.index') }}"
+                    class="{{ Route::is('rekapVerif.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-semibold ' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-semibold' }} flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
+                    data-mdb-ripple="true" data-mdb-ripple-color="light">
+                    <div class="flex items-center gap-3" :class="expandNavbar ? 'ml-2' : ''">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        <span class="tracking-wide font-medium duration-300 ease-in-out"
+                            :class="expandNavbar ? 'opacity-100' : 'opacity-0'">
+                            Produksi Pegawai</span>
+                    </div>
+                </a>
+            </li>
+            @endif
             @if (Helper::getRole() > 1)
             {{-- 2.2 Rekap Retur --}}
             <li class="relative my-1.5">
@@ -151,7 +169,7 @@
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                         </svg>
                         <span class="tracking-wide font-medium duration-300 ease-in-out"
-                            :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Data Retur</span>
+                            :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Kelolosan Pegawai</span>
                     </div>
                 </a>
             </li>
@@ -167,27 +185,7 @@
                                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                         </svg>
                         <span class="tracking-wide font-medium duration-300 ease-in-out"
-                            :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Rekap
-                            Evaluasi</span>
-                    </div>
-                </a>
-            </li>
-            @endif
-            @if (Helper::getRole() > 0)
-            {{-- 2.1 Rekap Verifikasi --}}
-            <li class="relative my-1.5">
-                <a href="{{ route('rekapVerif.index') }}"
-                    class="{{ Route::is('rekapVerif.index') ? ' bg-blue-600 shadow-blue-600/50 dark:bg-blue-500 dark:shadow-blue-500/50 rounded-md shadow-lg brightness-125 text-slate-50 font-semibold ' : 'text-slate-600 dark:text-slate-300 dark:hover:text-slate-50 hover:text-slate-900 dark:hover:bg-slate-400/10 hover:bg-slate-500 hover:bg-opacity-10 hover:font-semibold' }} flex items-center overflow-hidden text-ellipsis whitespace-nowrap rounded-lg py-1 px-2.5 mx-1 text-xs transition duration-300 ease-in-out"
-                    data-mdb-ripple="true" data-mdb-ripple-color="light">
-                    <div class="flex items-center gap-3" :class="expandNavbar ? 'ml-2' : ''">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
-                        <span class="tracking-wide font-medium duration-300 ease-in-out"
-                            :class="expandNavbar ? 'opacity-100' : 'opacity-0'">
-                            Pendapatan Harian</span>
+                            :class="expandNavbar ? 'opacity-100' : 'opacity-0'">Evaluasi Pegawai</span>
                     </div>
                 </a>
             </li>

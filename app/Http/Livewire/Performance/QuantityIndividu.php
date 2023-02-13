@@ -143,8 +143,17 @@ class QuantityIndividu extends Component
     {
         $data = QcPikai::where('np_user',$this->npUser)
                     ->whereBetween('tgl_verif',[$this->startDate,$this->endDate])
+                    ->orderBy('jenis','desc')
+                    ->orderBy('tgl_verif')
                     ->paginate(10);
 
         return $data;
+    }
+
+    public function dataMmea($tglVerif)
+    {
+        return QcPikai::where('np_user',$this->npUser)
+                      ->where('jenis',"MMEA")
+                      ->where('tgl_verif',$tglVerif);
     }
 }
