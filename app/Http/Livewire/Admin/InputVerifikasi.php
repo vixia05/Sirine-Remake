@@ -119,9 +119,10 @@ class InputVerifikasi extends Component
                             'np_user'   => $key,
                             'id_workstation'=> $this->workstation,
                             'jenis'     => $this->jenis,
-                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
                         ],
                         [
+                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
+                            'lembur'   => 0,
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
                             'jml_verif' => $verif == !null ? $verif : 0,
                         ]
@@ -146,9 +147,10 @@ class InputVerifikasi extends Component
                             'np_user'   => $key,
                             'id_workstation'=> $this->workstation,
                             'jenis'     => $this->jenis,
-                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
                         ],
                         [
+                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
+                            'lembur'   => 0,
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
                             'jml_obc'   => $obc == !null ? $obc : 0,
                         ]
@@ -174,9 +176,10 @@ class InputVerifikasi extends Component
                             'np_user'   => $key,
                             'id_workstation'=> $this->workstation,
                             'jenis'     => $this->jenis,
-                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
                         ],
                         [
+                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
+                            'lembur'   => 0,
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
                             'keterangan'   => $keterangan == !null ? $keterangan : null,
                         ]
@@ -197,15 +200,15 @@ class InputVerifikasi extends Component
             {
                 foreach($this->lembur as $key => $lembur)
                 {
-                    if($this->lembur == 1)
+                    if($lembur == 1)
                     {
                         $target = $this->jenis == "PCHT" ? 20000 : 8000;
                     }
-                    elseif($this->lembur == 2)
+                    elseif($lembur == 2)
                     {
                         $target = $this->jenis == "PCHT" ? 22500 : 9000;
                     }
-                    elseif($this->lembur == 3)
+                    elseif($lembur == 3)
                     {
                         $target = $this->jenis == "PCHT" ? 27500 : 11000;
                     }

@@ -184,7 +184,7 @@ class LaporanProduksi extends Component
                                     ->whereYear('tgl_obc',Carbon::parse($this->startDate))
                                     ->sum('kemas');
 
-        $totalCetak     = OrderPcht::whereBetween('tgl_obc',[Carbon::parse($this->startDate),today()])
+        $totalCetak     = OrderPcht::whereBetween('tgl_obc',[Carbon::parse($this->startDate)->firstOfMonth(),today()])
                                      ->sum('jml_cetak');
 
         $totalPeriksa   = $totalBaikNP+$totalRusakNP+$totalBaikP+$totalRusakP;
@@ -375,7 +375,7 @@ class LaporanProduksi extends Component
                                     ->whereYear('tgl_obc',Carbon::parse($this->startDate))
                                     ->sum('kemas');
 
-        $totalCetak       = OrderMmea::whereBetween('tgl_obc',[Carbon::parse($this->startDate),today()])
+        $totalCetak       = OrderMmea::whereBetween('tgl_obc',[Carbon::parse($this->startDate)->firstOfMonth(),today()])
                                      ->sum('jml_cetak');
 
 

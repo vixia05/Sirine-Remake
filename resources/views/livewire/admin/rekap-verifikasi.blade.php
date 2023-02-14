@@ -210,7 +210,7 @@
                                                 {{ number_format($datas->jml_verif / 500, 0) }} Rim /
                                                 {{ number_format($datas->jml_verif, 0) }} Lbr
                                                 @else
-                                                {{ number_format($datas->jml_verif / 300, 0) }} Rim /
+                                                {{ number_format($datas->jml_verif / 500, 0) }} Rim /
                                                 {{ number_format($datas->jml_verif, 0) }} Lbr
                                                 @endif
                                             </td>
@@ -226,7 +226,7 @@
                                                 {{ number_format($datas->target/500, 0) }} Rim /
                                                 {{ number_format($datas->target, 0) }} Lbr
                                                 @else
-                                                {{ number_format($datas->target / 300, 0) }} Rim /
+                                                {{ number_format($datas->target / 500, 0) }} Rim /
                                                 {{ number_format($datas->target, 0) }} Lbr
                                                 @endif
                                             </td>

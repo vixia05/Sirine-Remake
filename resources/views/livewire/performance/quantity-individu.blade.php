@@ -435,7 +435,7 @@
                                                                 @else
                                                                 <div
                                                                     class="rounded-2xl drop-shadow-2xl my-auto bg-red-500 h-fit text-green-100 px-4 w-1/2 min-w-fit text-xs py-0.5 font-medium shadow-md shadow-red-500/30 brightness-110">
-                                                                    + {{
+                                                                    - {{
                                                                     number_format(($table->target/500)-($table->jml_verif/500),0)
                                                                     }} Rim / - {{
                                                                     number_format(($table->target)-($table->jml_verif),0)
