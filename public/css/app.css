@@ -4732,6 +4732,9 @@ textarea.form-control.is-invalid {
 .flex-nowrap {
   flex-wrap: nowrap;
 }
+.items-end {
+  align-items: flex-end;
+}
 .items-center {
   align-items: center;
 }

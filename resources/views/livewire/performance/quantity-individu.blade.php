@@ -1,13 +1,13 @@
 <div class="py-6">
-    <div class="mx-auto px-4 lg:px-8">
-        <div class="grid grid-cols-1 gap-0 md:gap-3 space-y-3 md:grid-cols-3">
+    <div class="px-4 mx-auto lg:px-8">
+        <div class="grid grid-cols-1 gap-0 space-y-3 md:gap-3 md:grid-cols-3">
             {{-- A. Card Hasil Verifikasi Individu --}}
-            <div class="relative p-4 max-h-screen px-4 py-4 md:py-6 w-full bg-white drop-shadow-sm rounded-2xl dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter md:col-span-3 lg:col-span-2"
+            <div class="relative w-full max-h-screen min-h-full p-4 px-4 py-4 bg-white md:py-6 drop-shadow-sm rounded-2xl dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter md:col-span-3 lg:col-span-2"
                 x-show='mainContent' x-transition.scale.origin.top x-transition:enter.duration.700ms
                 x-transition:leave.duration.700ms>
                 {{-- 1. Header --}}
                 <div
-                    class="grid grid-rows-1 gap-3 lg:gap-0 md:grid-rows-2 pb-3 mb-3 md:mb-6 border-b-2 border-slate-600/70 dark:border-slate-300">
+                    class="grid grid-rows-1 gap-3 pb-3 mb-3 border-b-2 lg:gap-0 md:grid-rows-2 md:mb-6 border-slate-600/70 dark:border-slate-300">
                     {{-- 1.1 Header Title --}}
                     <div class="flex flex-col">
                         <h5 class="w-full text-xl font-bold text-slate-800 dark:text-slate-100">Hasil Produksi Individu
@@ -15,11 +15,11 @@
                         <span class="text-sm text-slate-500 dark:text-slate-400">Periode September 2022</span>
                     </div>
                     {{-- 1.2 Filter Chart --}}
-                    <div class="my-auto flex justify-end flex-wrap">
+                    <div class="flex flex-wrap justify-end my-auto">
                         @if (Helper::getRole() > 1)
                         {{-- Filter By Team --}}
                         <select id="team" name="team" wire:model='team' wire:change='listsNp()'
-                            class="w-full md:w-1/4 rounded-l border-blue-400 py-2 pl-2 text-sm font-bold text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
+                            class="w-full py-2 pl-2 text-sm font-bold border-blue-400 rounded-l md:w-1/4 text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
                             <option selected>Team</option>
                             @foreach ($listTeam as $teams)
                             <option value="{{ $teams->id }}">{{ $teams->workstation }}</option>
@@ -27,7 +27,7 @@
                         </select>
                         {{-- Filter By NP / Nama --}}
                         <select id="selectNp" name="selectNp" wire:model='npUser' wire:change='mainChart'
-                            class="w-full md:w-1/4 border-blue-400 py-2 pl-2 text-sm font-bold text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
+                            class="w-full py-2 pl-2 text-sm font-bold border-blue-400 md:w-1/4 text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200">
                             <option selected>Nama/NP</option>
                             @forelse ($listNp as $Nps)
                             <option value="{{ $Nps->np_user }}">{{ $Nps->nama }}</option>
@@ -38,16 +38,16 @@
                         @endif
                         {{-- Filter Date Range --}}
                         <input type="text" id="dateRange" name="dateRange"
-                            class="w-full md:w-fit border-blue-400 px-4 py-2 text-xs font-medium text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200"
+                            class="w-full px-4 py-2 text-xs font-medium border-blue-400 md:w-fit text-slate-700 focus:bg-opacity-100 dark:bg-slate-700 dark:bg-opacity-30 dark:text-slate-200"
                             placeholder="Periode" />
                         {{-- Reset Filter --}}
                         <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
                             wire:click='clearField'
-                            class="inline-block rounded-b md:rounded-r md:rounded-b-none w-full md:w-fit bg-blue-500 px-3 py-2 text-sm font-semibold leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-lg">Clear</button>
+                            class="inline-block w-full px-3 py-2 text-sm font-semibold leading-tight text-white transition duration-150 ease-in-out bg-blue-500 rounded-b shadow-md md:rounded-r md:rounded-b-none md:w-fit hover:bg-blue-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-700 active:shadow-lg">Clear</button>
                     </div>
                 </div>
                 {{-- 2. Body Cancvas / Chart --}}
-                <div class="relative flex flex-col justify-center object-cover w-full h-fit md:h-5/6 max-h-screen">
+                <div class="relative flex flex-col justify-center object-cover w-full max-h-screen h-fit md:h-5/6">
                     <x-flip-loading></x-flip-loading>
                     <canvas wire:ignore id="qtyIndividu" name="qtyIndividu" class="max-w-full min-w-full"></canvas>
                 </div>
@@ -55,8 +55,8 @@
             {{-- End A. Card Hasil Verifikasi Individu --}}
 
             {{-- B. Card Hasil Verifikasi Unit --}}
-            <div class="relative grid md:grid-cols-2 lg:grid-cols-1 col-span-3 lg:col-span-1 gap-3">
-                <div class=" relative p-4 px-6 overflow-hidden  w-full bg-white drop-shadow-sm rounded-2xl dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter"
+            <div class="relative grid col-span-3 gap-3 md:grid-cols-2 lg:grid-cols-1 lg:col-span-1">
+                <div class="relative w-full p-4 px-6 overflow-hidden bg-white drop-shadow-sm rounded-2xl dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter"
                     x-show='mainContent' x-transition:enter.duration.700ms x-transition:leave.duration.700ms>
                     <div class="pb-3 border-b-2 border-slate-600/70 dark:border-slate-300">
                         <div class="flex flex-col">
@@ -65,7 +65,7 @@
                             <span class="text-xs text-slate-500 dark:text-slate-400">2022</span>
                         </div>
                     </div>
-                    <div class="relative object-cover w-full  pt-6 h-fit md:h-5/6">
+                    <div class="relative object-cover w-full pt-6 h-fit md:h-5/6">
                         <x-flip-loading></x-flip-loading>
                         <canvas wire:ignore id="qtyIndividuYear" name="qtyIndividuYear"></canvas>
                     </div>
@@ -73,7 +73,7 @@
                 {{-- End B. Card Hasil Verifikasi Unit --}}
 
                 {{-- C. Card Standar Verifikasi Individu --}}
-                <div class="px-6 py-4 overflow-hidden  w-full bg-white drop-shadow-sm rounded-2xl dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter"
+                <div class="w-full px-6 py-4 overflow-hidden bg-white drop-shadow-sm rounded-2xl dark:bg-slate-800 dark:bg-opacity-60 dark:backdrop-blur-sm dark:backdrop-filter"
                     x-show='mainContent' x-transition:enter.duration.700ms x-transition:leave.duration.700ms>
                     <h6 class="py-2 mb-1 font-bold text-md text-slate-800 dark:text-slate-100">Standar Verifikasi Pita
                         Cukai (Dalam
@@ -112,7 +112,7 @@
                                             <tbody>
                                                 {{-- 1.0 Tidak Lembur --}}
                                                 <tr
-                                                    class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
+                                                    class="transition duration-300 ease-in-out border-b border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
                                                     <td
                                                         class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         Tidak Lembur
@@ -128,7 +128,7 @@
                                                 </tr>
                                                 {{-- 2.0 Lembur Awal --}}
                                                 <tr
-                                                    class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
+                                                    class="transition duration-300 ease-in-out border-b border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
                                                     <td
                                                         class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         Lembur Awal
@@ -144,7 +144,7 @@
                                                 </tr>
                                                 {{-- 3.0 Lembur Akhir --}}
                                                 <tr
-                                                    class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
+                                                    class="transition duration-300 ease-in-out border-b border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
                                                     <td
                                                         class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         Lembur Akhir
@@ -160,7 +160,7 @@
                                                 </tr>
                                                 {{-- 3.0 Lembur Awal Akhir --}}
                                                 <tr
-                                                    class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
+                                                    class="transition duration-300 ease-in-out border-b border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
                                                     <td
                                                         class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         Lembur Awal Akhir
@@ -205,42 +205,42 @@
                                                 <tr>
                                                     {{-- 1.1 Index --}}
                                                     <th scope="col" rowspan="2"
-                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        class="p-3 text-center border-r-2 border-slate-300 dark:border-slate-500">
                                                         No
                                                     </th>
                                                     {{-- 1.2 Nomor Pokok --}}
                                                     <th scope="col" rowspan="2"
-                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        class="p-3 text-center border-r-2 border-slate-300 dark:border-slate-500">
                                                         NP / Nama
                                                     </th>
                                                     {{-- 1.4 Tanggal Verifikasi --}}
                                                     <th scope="col" rowspan="2"
-                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        class="p-3 text-center border-r-2 border-slate-300 dark:border-slate-500">
                                                         Tgl Verif
                                                     </th>
                                                     {{-- 1.5 Pendapatan Lembar --}}
                                                     <th scope="col" colspan="2"
-                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        class="p-3 text-center border-r-2 border-slate-300 dark:border-slate-500">
                                                         Hasil Verifikasi
                                                     </th>
                                                     {{-- 1.6 Pendapatan OBC --}}
                                                     <th scope="col" colspan="2"
-                                                        class="p-3 w-fit text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        class="p-3 text-center border-r-2 w-fit border-slate-300 dark:border-slate-500">
                                                         Jumlah OBC
                                                     </th>
                                                     {{-- 1.7 Target --}}
                                                     <th scope="col" colspan="2"
-                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        class="p-3 text-center border-r-2 border-slate-300 dark:border-slate-500">
                                                         Target Harian
                                                     </th>
                                                     {{-- 1.7 Target --}}
                                                     <th scope="col" rowspan="2"
-                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        class="p-3 text-center border-r-2 border-slate-300 dark:border-slate-500">
                                                         Pencapaian
                                                     </th>
                                                     {{-- 1.8 Lembur --}}
                                                     <th scope="col" rowspan="2"
-                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2">
+                                                        class="p-3 text-center border-r-2 border-slate-300 dark:border-slate-500">
                                                         Lembur
                                                     </th>
                                                     {{-- 1.9 Keterangan --}}
@@ -251,27 +251,27 @@
                                                 </tr>
                                                 <tr>
                                                     <th scope="col"
-                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2 border-t-2">
+                                                        class="p-3 text-center border-t-2 border-r-2 border-slate-300 dark:border-slate-500">
                                                         PCHT
                                                     </th>
                                                     <th scope="col"
-                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2 border-t-2">
+                                                        class="p-3 text-center border-t-2 border-r-2 border-slate-300 dark:border-slate-500">
                                                         MMEA
                                                     </th>
                                                     <th scope="col"
-                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2 border-t-2">
+                                                        class="p-3 text-center border-t-2 border-r-2 border-slate-300 dark:border-slate-500">
                                                         PCHT
                                                     </th>
                                                     <th scope="col"
-                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2 border-t-2">
+                                                        class="p-3 text-center border-t-2 border-r-2 border-slate-300 dark:border-slate-500">
                                                         MMEA
                                                     </th>
                                                     <th scope="col"
-                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2 border-t-2">
+                                                        class="p-3 text-center border-t-2 border-r-2 border-slate-300 dark:border-slate-500">
                                                         PCHT
                                                     </th>
                                                     <th scope="col"
-                                                        class="p-3 text-center border-slate-300 dark:border-slate-500 border-r-2 border-t-2">
+                                                        class="p-3 text-center border-t-2 border-r-2 border-slate-300 dark:border-slate-500">
                                                         MMEA
                                                     </th>
                                                 </tr>
@@ -281,16 +281,16 @@
                                                 <x-flip-loading></x-flip-loading>
                                                 @foreach ($data->unique('tgl_verif') as $table)
                                                 <tr
-                                                    class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400/10 dark:text-slate-100">
+                                                    class="transition duration-300 ease-in-out border-b border-slate-300 text-slate-800 hover:bg-slate-400/10 dark:text-slate-100">
                                                     {{-- 2.1 Indexing --}}
                                                     <td
-                                                        class="p-3 text-sm text-center font-medium whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        class="p-3 text-sm font-medium text-center border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <span>{{ $data->firstItem() + $loop->index }}</span>
                                                     </td>
 
                                                     {{-- 2.2 Nomor Pokok --}}
                                                     <td
-                                                        class="p-3 text-sm font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        class="p-3 text-sm font-light border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex flex-col gap-1">
                                                             <span class="font-bold">{{ $table->np_user }}</span>
                                                             <span>{{ $table->UserDetails->nama }}</span>
@@ -299,13 +299,13 @@
 
                                                     {{-- 2.4 Tanggal Verifikasi --}}
                                                     <td
-                                                        class="p-3 text-sm text-center font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        class="p-3 text-sm font-light text-center border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         {{ $table->tgl_verif }}
                                                     </td>
 
                                                     {{-- 2.5 Pendapatan Lembar PCHT --}}
                                                     <td
-                                                        class="p-3 text-sm text-right whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        class="p-3 text-sm text-right border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex justify-between">
                                                             @if ($table->jml_verif > 0 && $table->jenis == "PCHT")
                                                                 @if ($table->target <= $table->jml_verif)
@@ -336,7 +336,7 @@
 
                                                     {{-- 2.5 Pendapatan Lembar MMEA --}}
                                                     <td
-                                                        class="p-3 text-sm text-right whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        class="p-3 text-sm text-right border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex justify-between">
                                                             @if ($this->dataMmea($table->tgl_verif)->value('jml_verif') > 0 )
                                                                 @if ($this->dataMmea($table->tgl_verif)->value('target') <= $this->dataMmea($table->tgl_verif)->value('jml_verif'))
@@ -367,27 +367,64 @@
 
                                                     {{-- 2.6 Pendapatan OBC PCHT --}}
                                                     <td
-                                                        class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
-                                                        @if ($table->jml_verif > 0 && $table->jenis == "PCHT")
-                                                            {{ $table->jml_obc }} OBC
-                                                        @else
-                                                            -
-                                                        @endif
+                                                        class="p-3 text-sm font-medium text-right border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                        <div class="flex flex-col items-end justify-center gap-1">
+
+                                                            @if ($table->jml_verif > 0 && $table->jenis == "PCHT")
+                                                                {{ $table->jml_obc }} OBC
+                                                            @else
+                                                                -
+                                                            @endif
+
+                                                            {{-- By Jumlah OBC PCHT--}}
+                                                            @if ($table->jenis == "PCHT" && $table->jml_obc > 0)
+                                                                @if ($table->jml_obc >= 18)
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
+                                                                        +{{number_format((($table->jml_obc)/18)*100,2)}} %
+                                                                    </div>
+                                                                @elseif ($table->jml_obc !== 0)
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
+                                                                        {{ number_format((($table->jml_obc)/18)*100,2)}} %
+                                                                    </div>
+                                                                @endif
+                                                            @endif
+                                                        </div>
                                                     </td>
 
                                                     {{-- 2.6 Pendapatan OBC MMEA     --}}
                                                     <td
-                                                        class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
-                                                        @if ($this->dataMmea($table->tgl_verif)->value('jml_obc') > 0)
-                                                            {{ number_format($this->dataMmea($table->tgl_verif)->value('jml_obc'),0) }} OBC
-                                                        @else
-                                                            -
-                                                        @endif
+                                                        class="p-3 text-sm font-medium text-right border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                        <div class="flex flex-col items-end justify-center gap-1">
+                                                            @if ($this->dataMmea($table->tgl_verif)->value('jml_obc') > 0)
+                                                                {{ number_format($this->dataMmea($table->tgl_verif)->value('jml_obc'),0) }} OBC
+                                                            @else
+                                                                -
+                                                            @endif
+
+                                                            {{-- By Jumlah OBC MMEA--}}
+                                                            @if ($this->dataMmea($table->tgl_verif)->value('jml_obc') > 0)
+                                                                @if ($this->dataMmea($table->tgl_verif)->value('jml_obc') >= 10)
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
+                                                                        +{{number_format((($this->dataMmea($table->tgl_verif)->value('jml_obc'))/10)*100,2)}} %
+                                                                    </div>
+                                                                @else
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
+                                                                        {{ number_format((($this->dataMmea($table->tgl_verif)->value('jml_obc'))/10)*100,2)}} %
+                                                                    </div>
+                                                                @endif
+                                                            @else
+
+                                                            @endif
+                                                        </div>
                                                     </td>
 
                                                     {{-- 2.7 Target PCHT --}}
                                                     <td
-                                                        class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        class="p-3 text-sm font-light text-right border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex flex-col gap-1">
                                                             @if ($table->jml_verif > 0 && $table->jenis == "PCHT")
                                                                 <span class="font-medium">
@@ -404,7 +441,7 @@
 
                                                     {{-- 2.7 Target MMEA --}}
                                                     <td
-                                                        class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        class="p-3 text-sm font-light text-right border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex flex-col gap-1">
                                                             @if ($this->dataMmea($table->tgl_verif)->value('jml_obc') > 0)
                                                                 <span class="font-medium">
@@ -421,33 +458,28 @@
 
                                                     {{-- 2.7 Pencapaian --}}
                                                     <td
-                                                        class="p-3 text-sm text-center font-sans font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        class="p-3 font-sans text-sm font-light text-center border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex flex-col items-center justify-center gap-1 flex-nowrap">
+                                                            {{-- By Jumlah Verif PCHT --}}
                                                             @if ($table->target <= $table->jml_verif)
                                                                 <div
                                                                     class="rounded-2xl drop-shadow-2xl my-auto bg-green-500 text-green-100 px-4 text-xs py-0.5 w-1/2 min-w-fit h-fit font-medium shadow-md shadow-green-500/30 brightness-110">
-                                                                    +
-                                                                    {{number_format(($table->jml_verif/500)-($table->target/500),0)}}
-                                                                    Rim / +
-                                                                    {{number_format(($table->jml_verif)-($table->target),0)}}
-                                                                    Lbr
+                                                                    + {{number_format(($table->jml_verif/500)-($table->target/500),0)}} Rim /
+                                                                    + {{number_format(($table->jml_verif)-($table->target),0)}} Lbr
                                                                 </div>
-                                                                @else
+                                                            @else
                                                                 <div
                                                                     class="rounded-2xl drop-shadow-2xl my-auto bg-red-500 h-fit text-green-100 px-4 w-1/2 min-w-fit text-xs py-0.5 font-medium shadow-md shadow-red-500/30 brightness-110">
-                                                                    - {{
-                                                                    number_format(($table->target/500)-($table->jml_verif/500),0)
-                                                                    }} Rim / - {{
-                                                                    number_format(($table->target)-($table->jml_verif),0)
-                                                                    }} Lbr
+                                                                    - {{ number_format(($table->target/500)-($table->jml_verif/500),0)}} Rim /
+                                                                    - {{number_format(($table->target)-($table->jml_verif),0)}} Lbr
                                                                 </div>
-                                                                @endif
+                                                            @endif
                                                         </div>
                                                     </td>
 
                                                     {{-- 2.8 Lembur --}}
                                                     <td
-                                                        class="p-3 text-sm font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100 border-r-2">
+                                                        class="p-3 text-sm font-light border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         @if($table->lembur == 0)
                                                         -
                                                         @elseif ($table->lembur == 1)
