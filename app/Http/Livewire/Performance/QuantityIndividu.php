@@ -148,12 +148,80 @@ class QuantityIndividu extends Component
                     ->paginate(10);
 
         return $data;
+
+        // $data = QcPikai::where('np_user',"I444")
+        //                ->whereBetween('tgl_verif',[$this->startDate,$this->endDate])
+        //                ->orderBy('jenis','desc')
+        //                ->orderBy('tgl_verif')
+        //                ->paginate(10)
+        //                ->groupBy('tgl_verif')
+        //                ->getCollection()
+        //                ->through(function($dataTable,$key){
+
+        //                     // Tgl Verifikasi
+        //                     $tglVerif    = $dataTable->unique('tgl_verif')[0]['tgl_verif'];
+
+        //                     // Np Pegawai
+        //                     $npPegawai   = $this->npUser;
+
+        //                     // Nama Pegawai
+        //                     $namaPegawai = UserDetails::where('np_user',$this->npUser)
+        //                                               ->value('nama');
+
+        //                     // Jumlah Verifikasi Pcht
+        //                     $verifPcht   = $dataTable->where('jenis',"PCHT")
+        //                                              ->sum('jml_verif');
+
+        //                     // Jumlah Verifikasi MMEA
+        //                     $verifMmea   = $dataTable->where('jenis',"MMEA")
+        //                                              ->sum('jml_verif');
+
+        //                     // Jumlah OBC PCHT
+        //                     $obcPcht     = $dataTable->where('jenis',"PCHT")
+        //                                              ->sum('jml_obc');
+
+        //                     // Jumlah OBC MMEA
+        //                     $obcMmea     = $dataTable->where('jenis',"MMEA")
+        //                                              ->sum('jml_obc');
+
+        //                     // Target Harian PCHT
+        //                     $targetPcht  = $dataTable->where('jenis',"PCHT")
+        //                                              ->sum('target');
+
+        //                     // Target Harian MMEA
+        //                     $targetMmea  = $dataTable->where('jenis',"Mmea")
+        //                                              ->sum('target');
+
+        //                     // Lembur
+        //                     $lembur = $dataTable->unique('tgl_verif')[0]['lembur'];
+
+        //                     // Keterangan
+        //                     $keterangan = $dataTable->unique('tgl_verif')[0]['keterangan'];
+
+        //                     return [
+        //                         'tglVerif'  => $tglVerif,
+        //                         'npPegawai' => $npPegawai,
+        //                         'namaPegawai' => $namaPegawai,
+        //                         'verifPcht' => $verifPcht,
+        //                         'verifMmea' => $verifMmea,
+        //                         'obcPcht'   => $obcPcht,
+        //                         'obcMmea'   => $obcMmea,
+        //                         'targetPcht'=> $targetPcht,
+        //                         'targetMmea'=> $targetMmea,
+        //                         'lembur'    => $lembur,
+        //                         'keterangan'=> $keterangan,
+        //                     ];
+        //                });
+
+        //             //    dd($data);
+        // return $data;
     }
 
     public function dataMmea($tglVerif)
     {
         return QcPikai::where('np_user',$this->npUser)
                       ->where('jenis',"MMEA")
-                      ->where('tgl_verif',$tglVerif);
+                      ->where('tgl_verif',$tglVerif)
+                      ;
     }
 }
