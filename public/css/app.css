@@ -4485,6 +4485,9 @@ textarea.form-control.is-invalid {
 .max-h-96 {
   max-height: 24rem;
 }
+.min-h-full {
+  min-height: 100%;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -4492,9 +4495,6 @@ textarea.form-control.is-invalid {
   min-height: -webkit-fit-content;
   min-height: -moz-fit-content;
   min-height: fit-content;
-}
-.min-h-full {
-  min-height: 100%;
 }
 .w-5 {
   width: 1.25rem;
@@ -4516,11 +4516,11 @@ textarea.form-control.is-invalid {
 .w-1\/4 {
   width: 25%;
 }
-.w-1\/2 {
-  width: 50%;
-}
 .w-6 {
   width: 1.5rem;
+}
+.w-1\/2 {
+  width: 50%;
 }
 .w-auto {
   width: auto;
@@ -5276,14 +5276,6 @@ textarea.form-control.is-invalid {
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
 }
-.py-0\.5 {
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
-}
-.py-0 {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -5303,6 +5295,14 @@ textarea.form-control.is-invalid {
 .py-\[6px\] {
   padding-top: 6px;
   padding-bottom: 6px;
+}
+.py-0\.5 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .py-3 {
   padding-top: 0.75rem;

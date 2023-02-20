@@ -274,22 +274,22 @@
                                             {{-- 2. Body Table --}}
                                             <tbody class="relative">
                                                 <x-flip-loading></x-flip-loading>
-                                                @foreach ($this->data as $data)
+                                                @foreach ($this->data->unique('tgl_verif') as $data)
                                                 <tr
                                                     class="transition duration-300 ease-in-out border-b border-slate-300 text-slate-800 hover:bg-slate-400/10 dark:text-slate-100">
 
                                                     {{-- 2.4 Tanggal Verifikasi --}}
                                                     <td
                                                         class="p-3 text-sm font-light text-center border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
-                                                        {{ $data['tglVerif'] }}
+                                                        {{ $data->tgl_verif }}
                                                     </td>
 
                                                     {{-- 2.2 Nomor Pokok --}}
                                                     <td
                                                         class="p-3 text-sm font-light border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex flex-col gap-1">
-                                                            <span class="font-bold">{{ $data['npPegawai'] }}</span>
-                                                            <span>{{ $data['namaPegawai'] }}</span>
+                                                            <span class="font-bold">{{ $data->np_user }}</span>
+                                                            <span>{{ $data->userDetails->nama }}</span>
                                                         </div>
                                                     </td>
 
@@ -297,20 +297,21 @@
                                                     <td
                                                         class="p-3 text-sm text-right border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex justify-between">
-                                                            {{-- @if ($data->jml_verif > 0 && $data->jenis == "PCHT")
-                                                            @if ($data->target <= $data->jml_verif)
-                                                                <div
-                                                                    class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
-                                                                    {{number_format(($data->jml_verif/$data->target)*100,2)}}
-                                                                    %
-                                                                </div>
+                                                            @if ($data->jml_verif > 0 && $data->jenis == "PCHT")
+                                                                @if ($data->target <= $data->jml_verif)
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
+                                                                        {{number_format(($data->jml_verif/$data->target)*100,2)}}
+                                                                        %
+                                                                    </div>
                                                                 @else
-                                                                <div
-                                                                    class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
-                                                                    {{number_format(($data->jml_verif/$data->target)*100,2)}}
-                                                                    %
-                                                                </div>
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
+                                                                        {{number_format(($data->jml_verif/$data->target)*100,2)}}
+                                                                        %
+                                                                    </div>
                                                                 @endif
+
                                                                 <div class="flex flex-col gap-1">
                                                                     <span class="font-medium">{{
                                                                         number_format($data->jml_verif/500,0) }}
@@ -318,9 +319,9 @@
                                                                     <span>{{ number_format($data->jml_verif,0) }}
                                                                         Lbr</span>
                                                                 </div>
-                                                                @else
+                                                            @else
                                                                 -
-                                                                @endif --}}
+                                                            @endif
                                                         </div>
                                                     </td>
 
@@ -328,35 +329,28 @@
                                                     <td
                                                         class="p-3 text-sm text-right border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex justify-between">
-                                                            {{-- @if ($this->dataMmea($data->tgl_verif)->value('jml_verif')
-                                                            > 0 )
-                                                            @if ($this->dataMmea($data->tgl_verif)->value('target') <=
-                                                                $this->dataMmea($data->tgl_verif)->value('jml_verif'))
-                                                                <div
-                                                                    class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
-                                                                    {{number_format(($this->dataMmea($data->tgl_verif)->value('jml_verif')/$this->dataMmea($data->tgl_verif)->value('target'))*100,2)}}
-                                                                    %
-                                                                </div>
+                                                            @if($this->dataMmea($data->tgl_verif)['jml_verif'] > 0)
+                                                                @if ($this->dataMmea($data->tgl_verif)['target'] <= $this->dataMmea($data->tgl_verif)['jml_verif'])
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
+                                                                        {{number_format(($this->dataMmea($data->tgl_verif)['jml_verif']/$this->dataMmea($data->tgl_verif)['target'])*100,2)}}
+                                                                        %
+                                                                    </div>
                                                                 @else
-                                                                <div
-                                                                    class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
-                                                                    {{number_format(($this->dataMmea($data->tgl_verif)->value('jml_verif')/$this->dataMmea($data->tgl_verif)->value('target'))*100,2)}}
-                                                                    %
-                                                                </div>
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
+                                                                        {{number_format(($this->dataMmea($data->tgl_verif)['jml_verif']/$this->dataMmea($data->tgl_verif)['target'])*100,2)}}
+                                                                        %
+                                                                    </div>
                                                                 @endif
                                                                 <div class="flex flex-col gap-1">
-                                                                    <span class="font-medium">{{
-                                                                        number_format($this->dataMmea($data->tgl_verif)->value('jml_verif')/500,0)
-                                                                        }}
-                                                                        Rim</span>
-                                                                    <span>{{
-                                                                        number_format($this->dataMmea($data->tgl_verif)->value('jml_verif'),0)
-                                                                        }}
+                                                                    <span class="font-medium">{{ number_format($this->dataMmea($data->tgl_verif)['jml_verif']/500,0) }} Rim</span>
+                                                                    <span>{{ number_format($this->dataMmea($data->tgl_verif)['jml_verif'],0) }}
                                                                         Lbr</span>
                                                                 </div>
-                                                                @else
+                                                            @else
                                                                 -
-                                                                @endif --}}
+                                                            @endif
                                                         </div>
                                                     </td>
 
@@ -364,26 +358,26 @@
                                                     <td
                                                         class="p-3 text-sm font-medium text-right border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex flex-col items-end justify-center gap-1">
-                                                            {{-- @if ($data->jml_verif > 0 && $data->jenis == "PCHT")
-                                                            {{ $data->jml_obc }} OBC
+                                                            @if ($data->jml_verif > 0 && $data->jenis == "PCHT")
+                                                                {{ $data->jml_obc }} OBC
                                                             @else
                                                             -
-                                                            @endif --}}
+                                                            @endif
 
                                                             {{-- By Jumlah OBC PCHT--}}
-                                                            {{-- @if ($data->jenis == "PCHT" && $data->jml_obc > 0)
-                                                            @if ($data->jml_obc >= 18)
-                                                            <div
-                                                                class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
-                                                                +{{number_format((($data->jml_obc)/18)*100,2)}} %
-                                                            </div>
-                                                            @elseif ($data->jml_obc !== 0)
-                                                            <div
-                                                                class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
-                                                                {{ number_format((($data->jml_obc)/18)*100,2)}} %
-                                                            </div>
+                                                            @if ($data->jenis == "PCHT" && $data->jml_obc > 0)
+                                                                @if ($data->jml_obc >= 18)
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
+                                                                        +{{number_format((($data->jml_obc)/18)*100,2)}} %
+                                                                    </div>
+                                                                @elseif ($data->jml_obc !== 0)
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
+                                                                        {{ number_format((($data->jml_obc)/18)*100,2)}} %
+                                                                    </div>
                                                             @endif
-                                                            @endif --}}
+                                                            @endif
                                                         </div>
                                                     </td>
 
@@ -391,36 +385,30 @@
                                                     <td
                                                         class="p-3 text-sm font-medium text-right border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex flex-col items-end justify-center gap-1">
-                                                            {{-- @if ($this->dataMmea($data->tgl_verif)->value('jml_obc') >
-                                                            0)
-                                                            {{
-                                                            number_format($this->dataMmea($data->tgl_verif)->value('jml_obc'),0)
-                                                            }} OBC
+                                                            @if ($this->dataMmea($data->tgl_verif)['jml_obc'] > 0)
+                                                                {{ number_format($this->dataMmea($data->tgl_verif)['jml_obc'],0) }} OBC
                                                             @else
                                                             -
-                                                            @endif --}}
+                                                            @endif
 
                                                             {{-- By Jumlah OBC MMEA--}}
-                                                            {{-- @if ($this->dataMmea($data->tgl_verif)->value('jml_obc') >
-                                                            0)
-                                                            @if ($this->dataMmea($data->tgl_verif)->value('jml_obc') >=
-                                                            10)
-                                                            <div
-                                                                class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
-                                                                +{{number_format((($this->dataMmea($data->tgl_verif)->value('jml_obc'))/10)*100,2)}}
-                                                                %
-                                                            </div>
-                                                            @else
-                                                            <div
-                                                                class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
-                                                                {{
-                                                                number_format((($this->dataMmea($data->tgl_verif)->value('jml_obc'))/10)*100,2)}}
-                                                                %
-                                                            </div>
-                                                            @endif
+                                                            @if ($this->dataMmea($data->tgl_verif)['jml_obc'] > 0)
+                                                                @if ($this->dataMmea($data->tgl_verif)['jml_obc'] >= 10)
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
+                                                                        +{{ number_format((($this->dataMmea($data->tgl_verif)['jml_obc'])/10)*100,2) }}
+                                                                        %
+                                                                    </div>
+                                                                @else
+                                                                    <div
+                                                                        class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
+                                                                        {{ number_format((($this->dataMmea($data->tgl_verif)['jml_obc'])/10)*100,2) }}
+                                                                        %
+                                                                    </div>
+                                                                @endif
                                                             @else
 
-                                                            @endif --}}
+                                                            @endif
                                                         </div>
                                                     </td>
 
@@ -428,7 +416,7 @@
                                                     <td
                                                         class="p-3 text-sm font-light text-right border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex flex-col gap-1">
-                                                            {{-- @if ($data->jml_verif > 0 && $data->jenis == "PCHT")
+                                                            @if ($data->jml_verif > 0 && $data->jenis == "PCHT")
                                                             <span class="font-medium">
                                                                 {{ number_format($data->target/500,0) }} Rim
                                                             </span>
@@ -437,7 +425,7 @@
                                                             </span>
                                                             @else
                                                             -
-                                                            @endif --}}
+                                                            @endif
                                                         </div>
                                                     </td>
 
@@ -445,21 +433,16 @@
                                                     <td
                                                         class="p-3 text-sm font-light text-right border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex flex-col gap-1">
-                                                            {{-- @if ($this->dataMmea($data->tgl_verif)->value('jml_obc') >
-                                                            0)
-                                                            <span class="font-medium">
-                                                                {{
-                                                                number_format($this->dataMmea($data->tgl_verif)->value('target')/500,0)
-                                                                }} Rim
-                                                            </span>
-                                                            <span>
-                                                                {{
-                                                                number_format($this->dataMmea($data->tgl_verif)->value('target'),0)
-                                                                }} Lbr
-                                                            </span>
+                                                            @if ($this->dataMmea($data->tgl_verif)['jml_obc'] > 0)
+                                                                <span class="font-medium">
+                                                                    {{ number_format($this->dataMmea($data->tgl_verif)['target']/500,0) }} Rim
+                                                                </span>
+                                                                <span>
+                                                                    {{ number_format($this->dataMmea($data->tgl_verif)['target'],0) }} Lbr
+                                                                </span>
                                                             @else
                                                             -
-                                                            @endif --}}
+                                                            @endif
                                                         </div>
                                                     </td>
 
@@ -469,27 +452,17 @@
                                                         <div
                                                             class="flex flex-col items-center justify-center gap-1 flex-nowrap">
                                                             {{-- By Jumlah Verif PCHT --}}
-                                                            {{-- @if ($data->target <= $data->jml_verif)
+                                                            @if ($this->pencapaian($data->tgl_verif) >= 100)
                                                                 <div
                                                                     class="rounded-2xl drop-shadow-2xl my-auto bg-green-500 text-green-100 px-4 text-xs py-0.5 w-1/2 min-w-fit h-fit font-medium shadow-md shadow-green-500/30 brightness-110">
-                                                                    +
-                                                                    {{number_format(($data->jml_verif/500)-($data->target/500),0)}}
-                                                                    Rim /
-                                                                    +
-                                                                    {{number_format(($data->jml_verif)-($data->target),0)}}
-                                                                    Lbr
+                                                                    {{ number_format($this->pencapaian($data->tgl_verif),2) }} %
                                                                 </div>
-                                                                @else
+                                                            @else
                                                                 <div
                                                                     class="rounded-2xl drop-shadow-2xl my-auto bg-red-500 h-fit text-green-100 px-4 w-1/2 min-w-fit text-xs py-0.5 font-medium shadow-md shadow-red-500/30 brightness-110">
-                                                                    - {{
-                                                                    number_format(($data->target/500)-($data->jml_verif/500),0)}}
-                                                                    Rim /
-                                                                    -
-                                                                    {{number_format(($data->target)-($data->jml_verif),0)}}
-                                                                    Lbr
+                                                                    {{ number_format($this->pencapaian($data->tgl_verif),2) }} %
                                                                 </div>
-                                                                @endif --}}
+                                                            @endif
                                                         </div>
                                                     </td>
 
@@ -510,7 +483,7 @@
                                                     {{-- 2.9 Keterangan --}}
                                                     <td
                                                         class="p-3 text-sm font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
-                                                        {{ $data['keterangan'] }}
+                                                        {{ $data->keterangan }}
                                                     </td>
                                                 </tr>
                                                 @endforeach

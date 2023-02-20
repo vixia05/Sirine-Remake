@@ -17,6 +17,7 @@ class QuantityIndividu extends Component
 {
     use WithPagination;
 
+    private $data;
     public $npUser;
     public $listTeam,$team,$listNp;
     public $startDate,$endDate;
@@ -44,11 +45,11 @@ class QuantityIndividu extends Component
 
     public function render()
     {
-        $data = $this->tableData();
+        $this->tableData();
 
         return view('livewire.performance.quantity-individu',
                     [
-                        'data'  => $data,
+                        'data'  => $this->data,
                         'listNp'    => $this->listNp,
                         'listTeam'  => $this->listTeam,
                     ]);
@@ -141,87 +142,50 @@ class QuantityIndividu extends Component
 
     public function tableData()
     {
-        $data = QcPikai::where('np_user',$this->npUser)
-                    ->whereBetween('tgl_verif',[$this->startDate,$this->endDate])
-                    ->orderBy('jenis','desc')
-                    ->orderBy('tgl_verif')
-                    ->paginate(10);
-
-        return $data;
-
-        // $data = QcPikai::where('np_user',"I444")
-        //                ->whereBetween('tgl_verif',[$this->startDate,$this->endDate])
-        //                ->orderBy('jenis','desc')
-        //                ->orderBy('tgl_verif')
-        //                ->paginate(10)
-        //                ->groupBy('tgl_verif')
-        //                ->getCollection()
-        //                ->through(function($dataTable,$key){
-
-        //                     // Tgl Verifikasi
-        //                     $tglVerif    = $dataTable->unique('tgl_verif')[0]['tgl_verif'];
-
-        //                     // Np Pegawai
-        //                     $npPegawai   = $this->npUser;
-
-        //                     // Nama Pegawai
-        //                     $namaPegawai = UserDetails::where('np_user',$this->npUser)
-        //                                               ->value('nama');
-
-        //                     // Jumlah Verifikasi Pcht
-        //                     $verifPcht   = $dataTable->where('jenis',"PCHT")
-        //                                              ->sum('jml_verif');
-
-        //                     // Jumlah Verifikasi MMEA
-        //                     $verifMmea   = $dataTable->where('jenis',"MMEA")
-        //                                              ->sum('jml_verif');
-
-        //                     // Jumlah OBC PCHT
-        //                     $obcPcht     = $dataTable->where('jenis',"PCHT")
-        //                                              ->sum('jml_obc');
-
-        //                     // Jumlah OBC MMEA
-        //                     $obcMmea     = $dataTable->where('jenis',"MMEA")
-        //                                              ->sum('jml_obc');
-
-        //                     // Target Harian PCHT
-        //                     $targetPcht  = $dataTable->where('jenis',"PCHT")
-        //                                              ->sum('target');
-
-        //                     // Target Harian MMEA
-        //                     $targetMmea  = $dataTable->where('jenis',"Mmea")
-        //                                              ->sum('target');
-
-        //                     // Lembur
-        //                     $lembur = $dataTable->unique('tgl_verif')[0]['lembur'];
-
-        //                     // Keterangan
-        //                     $keterangan = $dataTable->unique('tgl_verif')[0]['keterangan'];
-
-        //                     return [
-        //                         'tglVerif'  => $tglVerif,
-        //                         'npPegawai' => $npPegawai,
-        //                         'namaPegawai' => $namaPegawai,
-        //                         'verifPcht' => $verifPcht,
-        //                         'verifMmea' => $verifMmea,
-        //                         'obcPcht'   => $obcPcht,
-        //                         'obcMmea'   => $obcMmea,
-        //                         'targetPcht'=> $targetPcht,
-        //                         'targetMmea'=> $targetMmea,
-        //                         'lembur'    => $lembur,
-        //                         'keterangan'=> $keterangan,
-        //                     ];
-        //                });
-
-        //             //    dd($data);
-        // return $data;
+        $this->data = QcPikai::where('np_user',$this->npUser)
+                            ->whereBetween('tgl_verif',[$this->startDate,$this->endDate])
+                            ->orderBy('jenis','desc')
+                            ->orderBy('tgl_verif')
+                            ->paginate(10);
     }
 
     public function dataMmea($tglVerif)
     {
-        return QcPikai::where('np_user',$this->npUser)
-                      ->where('jenis',"MMEA")
-                      ->where('tgl_verif',$tglVerif)
-                      ;
+        $data = QcPikai::where('np_user',$this->npUser)
+                    ->where('jenis',"MMEA")
+                    ->where('tgl_verif',$tglVerif);
+
+        return [
+            'izin'      => $data->value('izin'),
+            'lembur'    => $data->value('lembur'),
+            'target'    => $data->value('target'),
+            'jml_obc'   => $data->value('jml_obc'),
+            'jml_verif' => $data->value('jml_verif'),
+            'jml_verif' => $data->value('jml_verif'),
+            'keterangan'=> $data->value('keterangan'),
+        ];
+    }
+
+    public function pencapaian($tglVerif)
+    {
+        $getPcht = QcPikai::where('np_user',$this->npUser)
+                          ->where('tgl_verif',$tglVerif)
+                          ->where('jenis',"PCHT");
+
+        $getMmea = QcPikai::where('np_user',$this->npUser)
+                          ->where('tgl_verif',$tglVerif)
+                          ->where('jenis',"MMEA");
+
+        $targetVerifPcht    = $getPcht->sum('jml_verif') == 0 ? 0 : ($getPcht->sum('jml_verif') / $getPcht->sum('target')) * 100;
+        $targetVerifMmea    = $getMmea->sum('jml_verif') == 0 ? 0 : ($getMmea->sum('jml_verif') / $getMmea->sum('target')) * 100;
+        $targetVerifHarian  = $targetVerifPcht + $targetVerifMmea;
+
+        $targetObcPcht  = $getPcht->sum('jml_obc') == 0 ? 0 : ($getPcht->sum('jml_obc') < 8 ? 0 : (($getPcht->sum('jml_obc') - 6) / 18) * 100);
+
+        $endTarget  = $targetVerifHarian >= 100 ? $targetVerifHarian : $targetVerifHarian + $targetObcPcht;
+
+
+        // dd($targetVerifHarian);
+        return $endTarget;
     }
 }
