@@ -21,6 +21,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+
+        // Privillage Access
     ];
 
     /**
@@ -63,5 +65,11 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'level1Access'  => \App\Http\Middleware\PrivillageAccess\Level1Access::class,
+        'level2Access'  => \App\Http\Middleware\PrivillageAccess\Level2Access::class,
+        'level3Access'  => \App\Http\Middleware\PrivillageAccess\Level3Access::class,
+        'level4Access'  => \App\Http\Middleware\PrivillageAccess\Level4Access::class,
+        'level5Access'  => \App\Http\Middleware\PrivillageAccess\Level5Access::class,
+        'level10Access' => \App\Http\Middleware\PrivillageAccess\Level10Access::class,
     ];
 }

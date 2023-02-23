@@ -184,8 +184,18 @@ class QuantityIndividu extends Component
 
         $endTarget  = $targetVerifHarian >= 100 ? $targetVerifHarian : $targetVerifHarian + $targetObcPcht;
 
+        $exceedLbrPcht  = $getPcht->sum('jml_verif') - $getPcht->sum('target');
+        $exceedObcPcht  = $getPcht->sum('jml_obc')   - 18;
+
+        $exceedLbrMmea  = $getMmea->sum('jml_verif') - $getMmea->sum('target');
+        // $exceedObcMmea  = $getMmea->sum('jml_obc')   - 18;
 
         // dd($targetVerifHarian);
-        return $endTarget;
+        return [
+            'endTarget' => $endTarget,
+            'exceedLbrPcht' => $exceedLbrPcht,
+            'exceedObcPcht' => $exceedObcPcht,
+            'exceedLbrMmea' => $exceedLbrMmea,
+        ];
     }
 }

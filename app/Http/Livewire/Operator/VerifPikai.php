@@ -176,7 +176,7 @@ class VerifPikai extends Component
                             ->orderBy('no_po','desc')
                             ->first();
 
-        $this->diffMmea = Carbon::parse(today())
-                                ->diffInDays($this->prioMmea['tgl_cetak']);
+        // $this->diffMmea = Carbon::parse(today())
+        //                         ->diffInDays($this->prioMmea['tgl_cetak']);
     }
 }

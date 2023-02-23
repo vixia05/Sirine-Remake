@@ -448,19 +448,29 @@
 
                                                     {{-- 2.7 Pencapaian --}}
                                                     <td
-                                                        class="p-3 font-sans text-sm font-light text-center border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 font-sans text-sm font-light text-end border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div
                                                             class="flex flex-col items-center justify-center gap-1 flex-nowrap">
                                                             {{-- By Jumlah Verif PCHT --}}
-                                                            @if ($this->pencapaian($data->tgl_verif) >= 100)
+                                                            @if ($this->pencapaian($data->tgl_verif)['endTarget'] >= 100)
                                                                 <div
-                                                                    class="rounded-2xl drop-shadow-2xl my-auto bg-green-500 text-green-100 px-4 text-xs py-0.5 w-1/2 min-w-fit h-fit font-medium shadow-md shadow-green-500/30 brightness-110">
-                                                                    {{ number_format($this->pencapaian($data->tgl_verif),2) }} %
+                                                                    class="flex flex-col gap-2 rounded-lg drop-shadow-2xl my-auto bg-green-500 text-green-100 px-4 text-xs py-0.5 w-1/2 min-w-fit h-fit font-medium shadow-md shadow-green-500/30 brightness-110">
+                                                                    <span>{{ number_format($this->pencapaian($data->tgl_verif)['exceedLbrPcht']) }} Lbr / {{ number_format($this->pencapaian($data->tgl_verif)['exceedObcPcht']) }} OBC (PCHT)</span>
+                                                                    @if ($this->pencapaian($data->tgl_verif)['exceedLbrMmea'] >= 0)
+                                                                    @else
+                                                                        <span>{{ number_format($this->pencapaian($data->tgl_verif)['exceedLbrMmea']) }} Lbr (MMEA)</span>
+                                                                    @endif
+                                                                    <span>{{ number_format($this->pencapaian($data->tgl_verif)['endTarget'],2) }} %</span>
                                                                 </div>
                                                             @else
                                                                 <div
-                                                                    class="rounded-2xl drop-shadow-2xl my-auto bg-red-500 h-fit text-green-100 px-4 w-1/2 min-w-fit text-xs py-0.5 font-medium shadow-md shadow-red-500/30 brightness-110">
-                                                                    {{ number_format($this->pencapaian($data->tgl_verif),2) }} %
+                                                                    class="flex flex-col gap-2 rounded-lg drop-shadow-2xl my-auto bg-red-500 h-fit text-green-100 px-4 w-1/2 min-w-fit text-xs py-0.5 font-medium shadow-md shadow-red-500/30 brightness-110">
+                                                                    <span>{{ number_format($this->pencapaian($data->tgl_verif)['exceedLbrPcht']) }} Lbr / {{ number_format($this->pencapaian($data->tgl_verif)['exceedObcPcht']) }} OBC (PCHT)</span>
+                                                                    @if ($this->pencapaian($data->tgl_verif)['exceedLbrMmea'] <= 0)
+                                                                    @else
+                                                                        <span>{{ number_format($this->pencapaian($data->tgl_verif)['exceedLbrMmea']) }} Lbr (MMEA)</span>
+                                                                    @endif
+                                                                    <span>{{ number_format($this->pencapaian($data->tgl_verif)['endTarget'],2) }} %</span>
                                                                 </div>
                                                             @endif
                                                         </div>

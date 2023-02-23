@@ -54,14 +54,17 @@ Route::group(['middleware' => ['auth','verified']], function() {
         Route::resource('profile',ProfileController::class);
 
     //--- Content Management ---//
-        Route::get('listMenu',ListMenu::class)
-             ->name('listMenu');
+        Route::group(['middleware' => 'level10Access'], function(){
 
-        Route::get('templateMenu',TemplateMenu::class)
-             ->name('templateMenu');
+            Route::get('listMenu',ListMenu::class)
+                 ->name('listMenu');
 
+            Route::get('templateMenu',TemplateMenu::class)
+                 ->name('templateMenu');
+
+        });
     //--- SuperUser ---//
-        Route::group(['namespace' => 'App\Http\Controllers\SuperUser'], function() {
+        Route::group(['namespace' => 'App\Http\Controllers\SuperUser', 'middleware' => 'level2Access'], function() {
 
             Route::get('updateOrder',[UpdateOrderController::class, 'index'])
                 ->name('updateOrder.index');
@@ -81,30 +84,34 @@ Route::group(['middleware' => ['auth','verified']], function() {
         });
 
     //--- Admin ---//
-        Route::group(['namespace' => 'App\Http\Controllers\Admin'], function() {
+        Route::group(['namespace' => 'App\Http\Controllers\Admin', 'middleware' => 'level2Access'], function() {
 
             // Data Pegawai
-                Route::resource('dataPegawai', DataPegawaiController::class);
-                Route::get('dataPegawai/export', 'DataPegawaiController@export')
-                    ->name('dataPegawai.export');
+                Route::group(['middleware' => 'level3Access'], function(){
+                    Route::resource('dataPegawai', DataPegawaiController::class);
+                    Route::get('dataPegawai/export', 'DataPegawaiController@export')
+                        ->name('dataPegawai.export');
+                });
 
             // Input Data
                 Route::resources([
                     'inputVerifikasi' => InputVerifikasiController::class,
                     'inputRetur'      => InputReturController::class,
-                    'inputEvaluasi'   => InputEvaluasiController::class,
                 ]);
+                Route::resource('inputEvaluasi', InputEvaluasiController::class)
+                     ->middleware('level4Access');
 
             // Rekap Data
                 Route::resources([
                     'rekapVerif'    => RekapVerifikasiController::class,
                     'rekapRetur'    => RekapReturController::class,
-                    'rekapEvaluasi' => RekapEvaluasiController::class,
                 ]);
+                Route::resource('rekapEvaluasi', RekapEvaluasiController::class)
+                     ->middleware('level4Access');
             });
 
         Route::get('laporanProduksi',LaporanProduksi::class)
-            ->name('laporanProduksi');
+             ->name('laporanProduksi');
 
 
     //--- Performance Pegawai ---//
@@ -114,7 +121,8 @@ Route::group(['middleware' => ['auth','verified']], function() {
                ->prefix('quantity')
                ->group(function () {
                     Route::get('unit',QuantityUnit::class)
-                        ->name('unit');
+                        ->name('unit')
+                        ->middleware('level4Access');
                     Route::get('individu', QuantityIndividu::class)
                         ->name('individu');
                });
@@ -124,24 +132,30 @@ Route::group(['middleware' => ['auth','verified']], function() {
                 ->prefix('quality')
                 ->group(function () {
                     Route::get('unit',QualityUnit::class)
-                        ->name('unit');
+                        ->name('unit')
+                        ->middleware('level4Access');
                     Route::get('individu',QualityIndividu::class)
                         ->name('individu');
                 });
 
         // Raport Pegawai
             Route::get('report',ReportPegawai::class)
-                ->name('report');
+                ->name('report')
+                ->middleware('level4Access');
 
 
 
     //--- Input Operator ---//
 
         // Pita Cukai
+        Route::group(['middleware' => ['level1Access']], function(){
+
             Route::view('operator.verif-pikai', 'operator.verif-pikai')
-                ->name('operator.verif-pikai');
+                 ->name('operator.verif-pikai');
+
             Route::get('operator.data-prod-verif', DataProdVerif::class)
-                ->name('operator.data-prod-verif');
+                 ->name('operator.data-prod-verif');
+        });
 
     //--- Other Utilities ---//
 
