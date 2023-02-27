@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 
 use App\Http\Controllers\SuperUser\UpdateOrderController;
+use App\Http\Livewire\SuperUser\JamEfektifs;
 
 // Namespace CMS
 use App\Http\Livewire\Cms\ListMenu;
@@ -78,10 +79,12 @@ Route::group(['middleware' => ['auth','verified']], function() {
             Route::resources([
                 'users'      => UsersController::class,
                 'privillage' => PrivillageController::class,
-                'jamEfektif' => JamEfektifController::class,
             ]);
 
         });
+
+        Route::get('jamEfektifs',JamEfektifs::class)
+             ->name('jamEfektif');
 
     //--- Admin ---//
         Route::group(['namespace' => 'App\Http\Controllers\Admin', 'middleware' => 'level2Access'], function() {
@@ -99,7 +102,7 @@ Route::group(['middleware' => ['auth','verified']], function() {
                     'inputRetur'      => InputReturController::class,
                 ]);
                 Route::resource('inputEvaluasi', InputEvaluasiController::class)
-                     ->middleware('level4Access');
+                     ->middleware('level3Access');
 
             // Rekap Data
                 Route::resources([
@@ -107,7 +110,7 @@ Route::group(['middleware' => ['auth','verified']], function() {
                     'rekapRetur'    => RekapReturController::class,
                 ]);
                 Route::resource('rekapEvaluasi', RekapEvaluasiController::class)
-                     ->middleware('level4Access');
+                     ->middleware('level3Access');
             });
 
         Route::get('laporanProduksi',LaporanProduksi::class)
@@ -122,7 +125,7 @@ Route::group(['middleware' => ['auth','verified']], function() {
                ->group(function () {
                     Route::get('unit',QuantityUnit::class)
                         ->name('unit')
-                        ->middleware('level4Access');
+                        ->middleware('level3Access');
                     Route::get('individu', QuantityIndividu::class)
                         ->name('individu');
                });
@@ -133,7 +136,7 @@ Route::group(['middleware' => ['auth','verified']], function() {
                 ->group(function () {
                     Route::get('unit',QualityUnit::class)
                         ->name('unit')
-                        ->middleware('level4Access');
+                        ->middleware('level3Access');
                     Route::get('individu',QualityIndividu::class)
                         ->name('individu');
                 });

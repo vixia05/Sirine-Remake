@@ -1,12 +1,12 @@
 {{-- Logo Sirine --}}
 <div x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
     :class="expandNavbar ? 'w-64' : 'w-0 md:w-20' "
-    class="top-0 fixed flex items-center gap-5 p-4 duration-200 ease-in-out rounded-tr-2xl sticky-top bg-white dark:bg-slate-900 overflow-x-hidden"
+    class="fixed top-0 flex items-center gap-5 p-4 overflow-x-hidden duration-200 ease-in-out bg-white rounded-tr-2xl sticky-top dark:bg-slate-900"
     x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-x-70"
     x-transition:enter-end="opacity-100 scale-x-100" x-transition:leave="transition ease-in duration-200"
     x-transition:leave-start="opacity-100 scale-x-100 -translate-x-0"
     x-transition:leave-end="opacity-0 scale-x-70 -translate-x-1/2">
-    <img src="{{ asset('img/logo-only.png') }}" class="flex-shrink-0 object-cover h-14 ml-1">
+    <img src="{{ asset('img/logo-only.png') }}" class="flex-shrink-0 object-cover ml-1 h-14">
     <h1 :class="expandNavbar ? 'opacity-100' : 'opacity-0'"
         class="font-mono text-4xl font-extrabold duration-200 ease-in-out text-slate-800 dark:text-white">SIRINE
     </h1>
@@ -15,7 +15,7 @@
 {{-- Sidebar Sirine --}}
 <div x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
     :class="expandNavbar ? 'w-64 scrollbar' : 'w-0 md:w-20 scrollbar-hide'"
-    class="fixed scroll-smooth top-0 bottom-0 min-h-full py-24 overflow-y-auto transition-all duration-200 ease-in-out shadow-md rounded-r-2xl bg-gradient-to-b from-white to-slate-200 drop-shadow-md backdrop-blur backdrop-filter dark:from-slate-900/80 dark:to-slate-900/80"
+    class="fixed top-0 bottom-0 min-h-full py-24 overflow-y-auto transition-all duration-200 ease-in-out shadow-md scroll-smooth rounded-r-2xl bg-gradient-to-b from-white to-slate-200 drop-shadow-md backdrop-blur backdrop-filter dark:from-slate-900/80 dark:to-slate-900/80"
     x-transition:enter="transition ease-out duration-200"
     x-transition:enter-start="opacity-0 scale-x-70 -translate-x-1/2"
     x-transition:enter-end="opacity-100 scale-x-100 -translate-x-0" x-transition:leave="transition ease-in duration-200"
@@ -73,8 +73,8 @@
                     </li>
 
                     {{-- 2.0 Menu Super User --}}
-                    @include('layouts.side-menu.cms')
                     @if (Helper::getRole() === 10)
+                    @include('layouts.side-menu.cms')
                     @include('layouts.side-menu.super-user')
                     @endif
 
@@ -102,7 +102,7 @@
 {{-- 3. Footer Side Bar --}}
 <div x-on:mouseenter="expandNavbar = true" x-on:mouseleave="expandNavbar = false"
     :class="expandNavbar ? 'w-64' : 'w-0 md:w-20' "
-    class="fixed inset-x-0 bottom-0 px-6 py-4 text-3xl text-center ease-in-out duration-200 bg-slate-200 md:block rounded-br-2xl dark:bg-slate-900 dark:text-slate-200"
+    class="fixed inset-x-0 bottom-0 px-6 py-4 text-3xl text-center duration-200 ease-in-out bg-slate-200 md:block rounded-br-2xl dark:bg-slate-900 dark:text-slate-200"
     x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-x-70"
     x-transition:enter-end="opacity-100 scale-x-100" x-transition:leave="transition ease-in duration-200"
     x-transition:leave-start="opacity-100 scale-x-100 -translate-x-0"
@@ -110,7 +110,7 @@
     >
     <a data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
         <div class="flex justify-start gap-4 cursor-pointer">
-            <img class="h-10 object-cover rounded-full hover:ring-2 hover:ring-slate-300"
+            <img class="object-cover h-10 rounded-full hover:ring-2 hover:ring-slate-300"
                 src="{{ asset('img/Avatar/default.jpg') }}" alt="" />
             <div x-show="expandNavbar" class="flex justify-between w-3/4 my-auto">
                 <h6 class="text-xs font-semibold">{{ Auth::user()->np }}</h6>

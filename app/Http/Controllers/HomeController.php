@@ -50,8 +50,8 @@ class HomeController extends Controller
         return [
             'orderPcht' => $orderPcht,
             'orderMmea' => $orderMmea,
-            'sisaOrderPcht' => $sisaOrderPcht,
-            'sisaOrderMmea' => $sisaOrderMmea,
+            'sisaOrderPcht' => $sisaOrderPcht < 0 ? 0 : $sisaOrderPcht ,
+            'sisaOrderMmea' => $sisaOrderMmea < 0 ? 0 : $sisaOrderMmea,
         ];
     }
 

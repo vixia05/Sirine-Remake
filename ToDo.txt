@@ -5,11 +5,17 @@
    2.4 Overview
 3. Quantity Unit
    3.1 Rumus Performa MMEA
+   3.2 Table Di Bawah Chart
    ** Cari Algoritma Yang Lebih Efisien **
+4. Quantity Individu
+   4.1 Tampilan Pencapaian di Table
+   4.2 Rata Rata Team Dalam Chart
 5. Quality Unit
 7. Report Pegawai
-8. Privillage Sistem
-    - verifikasi user
+8. Form Pengiriman PC
+9. Input verifikasi
+   9.1 Modal Konfirmasi Untuk Save
+10.Form Input Kelolosan
 
 ----------- Sub Quest -----------
 
