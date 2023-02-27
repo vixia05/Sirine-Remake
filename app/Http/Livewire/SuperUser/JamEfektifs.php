@@ -3,18 +3,22 @@
 namespace App\Http\Livewire\SuperUser;
 
 use Livewire\Component;
+use App\Models\Seksi;
 use App\Models\Workstation;
 use App\Models\JamEfektif;
 use App\Models\Unit;
 
 class JamEfektifs extends Component
 {
-    public $data, $gilir, $unit, $group, $jamEfektif, $targetJam, $data_id;
+    public $data, $gilir, $unit, $group, $jamEfektif, $targetJam, $data_id,$seksi;
+    public $satuan;
 
     public function render()
     {
         $this->data = JamEfektif::all();
-        return view('livewire.super-user.jam-efektif');
+        return view('livewire.super-user.jam-efektif',[
+            'listSeksi' => Seksi::all(),
+        ]);
     }
 
     public function edit($id)
