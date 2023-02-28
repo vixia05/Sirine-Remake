@@ -1,4 +1,4 @@
-<div class="container mx-auto py-10"
+<div class="container py-10 mx-auto"
      x-data="{deleteModal: false, editModal: false, addTarget: false}"
      @keydown.escape="{deleteModal = false; editModal = false; addTarget = false}">
      {{-- Modalt --}}
@@ -35,7 +35,7 @@
                     <div class="relative flex flex-wrap gap-3">
                         <div class="relative">
                             <input type="text" wire:model="search"
-                                class="py-2 pl-10 pr-4 text-xs font-medium text-gray-600 border-t rounded border border-slate-400 shadow focus:shadow-md focus:shadow-blue-500/30 focus:border-blue-500 focus:ring-blue-600 focus:outline-none focus:ring-1 hover:border-blue-500 transition ease-out duration-150"
+                                class="py-2 pl-10 pr-4 text-xs font-medium text-gray-600 transition duration-150 ease-out border border-t rounded shadow border-slate-400 focus:shadow-md focus:shadow-blue-500/30 focus:border-blue-500 focus:ring-blue-600 focus:outline-none focus:ring-1 hover:border-blue-500"
                                 placeholder="Search...">
                             <div class="absolute top-0 left-0 inline-flex items-center pt-2 pl-2 text-gray-500">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
@@ -50,7 +50,7 @@
                     {{-- Tambah Target --}}
                     <div>
                         <button @click.prevent='addTarget = true'
-                            class="flex gap-2 px-2 py-1 text-white border-2 border-green-500/30 bg-green-400 rounded-md brightness-110 hover:shadow-lg hover:shadow-green-400/30 hover:brightness-125">
+                            class="flex gap-2 px-2 py-1 text-white bg-green-400 border-2 rounded-md border-green-500/30 brightness-110 hover:shadow-lg hover:shadow-green-400/30 hover:brightness-125">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -91,23 +91,18 @@
                                             </th>
                                             {{-- 2.1.3 Jam Efektif --}}
                                             <th scope="col"
-                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
+                                                class="p-3 text-end border-slate-300 dark:border-slate-500">
                                                 Jam Efektif
                                             </th>
                                             {{-- 2.1.4 Target / Jam --}}
                                             <th scope="col"
-                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
+                                                class="p-3 text-end border-slate-300 dark:border-slate-500">
                                                 Target / Jam
                                             </th>
                                             {{-- 2.1.5 Target / Hari --}}
                                             <th scope="col"
-                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
+                                                class="p-3 text-end border-slate-300 dark:border-slate-500">
                                                 Target / Hari
-                                            </th>
-                                            {{-- 2.1.7 Satuan --}}
-                                            <th scope="col"
-                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
-                                                Satuan
                                             </th>
                                             {{-- 2.1.8 Seksi --}}
                                             <th scope="col"
@@ -126,50 +121,45 @@
                                             <x-loading></x-loading>
                                         @forelse ($data as $datas)
                                         <tr
-                                            class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
+                                            class="transition duration-300 ease-in-out border-b border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
                                             {{-- Nomor --}}
                                             <td
-                                                class="p-3 text-sm text-center font-medium whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                class="p-3 text-sm font-medium text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
 
                                             </td>
                                             {{-- Workstation --}}
                                             <td
                                                 class="p-3 text-sm text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
-
+                                                {{ $datas->workstation->workstation }}
                                             </td>
                                             {{-- Gilir --}}
                                             <td
-                                                class="p-3 text-sm text-center font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
-
+                                                class="p-3 text-sm font-light text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                {{ $datas->gilir }}
                                             </td>
                                             {{-- Jam Efektif --}}
                                             <td
-                                                class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
-
+                                                class="p-3 text-sm font-light text-right whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                {{ $datas->jam_efektif }} Jam
                                             </td>
                                             {{-- Target / Jam --}}
                                             <td
-                                                class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
-
+                                                class="p-3 text-sm font-light text-right whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                {{ number_format($datas->target,0) }} / {{ $datas->satuan }}
                                             </td>
                                             {{-- Target / Hari --}}
                                             <td
-                                                class="p-3 text-sm text-right font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
-
-                                            </td>
-                                            {{-- Satuan --}}
-                                            <td
-                                                class="flex flex-wrap justify-start gap-2 px-4 py-2 text-sm text-center dark:border-slate-500 text-slate-800 dark:text-slate-100">
-
+                                                class="p-3 text-sm font-light text-right whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                {{ number_format($datas->target * $datas->jam_efektif,0) }} / {{ $datas->satuan }}
                                             </td>
                                             {{-- Seksi --}}
                                             <td
-                                                class="p-3 text-sm text-center font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
-
+                                                class="p-3 text-sm font-light text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                {{ $datas->seksi->seksi }}
                                             </td>
                                             {{-- Action--}}
                                             <td
-                                                class="p-3 text-sm text-center font-light whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                class="p-3 text-sm font-light text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                 <div class="flex justify-center gap-2">
                                                     <button type="button" data-mdb-ripple="true"
                                                         @click.prevent="editModal = true"
@@ -202,9 +192,9 @@
                                         </tr>
                                         @empty
                                         <tr
-                                            class="transition border-b duration-300 ease-in-out  border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
+                                            class="transition duration-300 ease-in-out border-b border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
                                             <td colspan="11"
-                                                class="p-3 text-lg text-center font-medium whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                class="p-3 text-lg font-medium text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                 Tidak Ada Record
                                             </td>
                                         </tr>

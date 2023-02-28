@@ -14,4 +14,14 @@ class JamEfektif extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function workstation()
+    {
+        return $this->hasOne(Workstation::class,'id','id_workstation');
+    }
+
+    public function seksi()
+    {
+        return $this->hasOne(Seksi::class,'id','id_seksi');
+    }
 }

@@ -11,11 +11,12 @@ use App\Models\Unit;
 class JamEfektifs extends Component
 {
     public $data, $gilir, $unit, $group, $jamEfektif, $targetJam, $data_id,$seksi;
-    public $satuan;
+    public $satuan,$station;
+
 
     public function render()
     {
-        $this->data = JamEfektif::all();
+        $this->data = JamEfektif::orderBy('id_workstation')->get();
         return view('livewire.super-user.jam-efektif',[
             'listSeksi' => Seksi::all(),
         ]);
@@ -49,5 +50,23 @@ class JamEfektifs extends Component
 
         session()->flash('messageUpdate', 'Target Berhasil Di Update');
 
+    }
+
+    public function addTarget()
+    {
+        JamEfektif::updateOrCreate(
+            [
+                'gilir' => $this->gilir == null ? 1 : $this->gilir,
+                'id_seksi' => $this->seksi == null ? 999 : $this->seksi,
+                'id_workstation' => $this->station == null ? 999 : $this->station,
+                'satuan' => $this->satuan  == null ? "-" : $this->satuan,
+            ],
+            [
+                'jam_efektif' => $this->jamEfektif == null ? 1 : $this->jamEfektif,
+                'target' => $this->targetJam  == null ? 0 : $this->targetJam,
+            ]
+        );
+
+        session()->flash('messageUpdate', 'Target Berhasil Di Tambahkan');
     }
 }

@@ -159,22 +159,22 @@ class VerifPikai extends Component
 
     public function prioritas()
     {
-        $this->prioPcht = OrderPcht::whereMonth('tgl_obc',today())
-                            ->where('tgl_cetak','!=','null')
-                            ->where('tgl_verif',null)
-                            ->orderBy('tgl_jt')
-                            ->orderBy('no_po','desc')
-                            ->first();
+        // $this->prioPcht = OrderPcht::whereMonth('tgl_obc',today())
+        //                     ->where('tgl_cetak','!=','null')
+        //                     ->where('tgl_verif',null)
+        //                     ->orderBy('tgl_jt')
+        //                     ->orderBy('no_po','desc')
+        //                     ->first();
 
-        $this->diffPcht = Carbon::parse(today())
-                                ->diffInDays($this->prioPcht['tgl_cetak']);
+        // $this->diffPcht = Carbon::parse(today())
+        //                         ->diffInDays($this->prioPcht['tgl_cetak']);
 
-        $this->prioMmea = OrderMmea::whereMonth('tgl_obc',today())
-                            ->where('tgl_cetak','!=','null')
-                            ->where('tgl_verif',null)
-                            ->orderBy('tgl_jt')
-                            ->orderBy('no_po','desc')
-                            ->first();
+        // $this->prioMmea = OrderMmea::whereMonth('tgl_obc',today())
+        //                     ->where('tgl_cetak','!=','null')
+        //                     ->where('tgl_verif',null)
+        //                     ->orderBy('tgl_jt')
+        //                     ->orderBy('no_po','desc')
+        //                     ->first();
 
         // $this->diffMmea = Carbon::parse(today())
         //                         ->diffInDays($this->prioMmea['tgl_cetak']);
