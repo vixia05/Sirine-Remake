@@ -78,8 +78,16 @@
                     {{-- 2.6 Satuan --}}
                     <div class="flex flex-col w-full gap-1">
                         <label class="inline-block py-1 text-sm font-medium text-slate-600 dark:text-slate-200"
-                            for="satuan">satuan</label>
+                            for="satuan">Satuan</label>
                         <input type="text" wire:model='satuan' id="satuan"
+                            class="w-full text-sm leading-tight transition duration-300 ease-in-out rounded-md border-slate-400/60 text-slate-600 hover:border-blue-500 focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100">
+                    </div>
+
+                    {{-- 2.7 Produk --}}
+                    <div class="flex flex-col w-full gap-1">
+                        <label class="inline-block py-1 text-sm font-medium text-slate-600 dark:text-slate-200"
+                            for="produk">Produk</label>
+                        <input type="text" wire:model='produk' id="produk"
                             class="w-full text-sm leading-tight transition duration-300 ease-in-out rounded-md border-slate-400/60 text-slate-600 hover:border-blue-500 focus:ring-blue-500/80 dark:bg-slate-600 dark:bg-opacity-60 dark:text-slate-100">
                     </div>
 

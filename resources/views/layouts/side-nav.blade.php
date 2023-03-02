@@ -90,7 +90,9 @@
                     {{-- 5.0 Menu Cetak Pita Cukai --}}
                     {{-- @include('layouts.side-menu.cetak-pikai') --}}
 
-                    {{-- 6.0 Andon --}}
+                    {{-- 6.0 Pengiriman Pita Cukai--}}
+                    {{-- @include() --}}
+                    {{-- 7.0 Andon --}}
                     @include('layouts.side-menu.andon')
                     {{-- ***************** --}}
                 </ul>

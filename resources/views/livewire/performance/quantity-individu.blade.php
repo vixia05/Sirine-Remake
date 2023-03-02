@@ -191,6 +191,20 @@
                     <div class="grid grid-rows-1 gap-3 lg:gap-0">
                         <h6 class="w-full text-lg font-bold text-slate-800 dark:text-slate-100">Rekap Verifikasi</h6>
                     </div>
+                    <div class="flex gap-3 my-3">
+                        <div class="flex flex-col gap-1 text-sm font-medium text-slate-500 ">
+                            <span class="text-center">Average</span>
+                            <span class="bg-emerald-400 text-emerald-50 px-4 py-1.5 w-fit rounded-md brightness-110 drop-shadow-2xl">
+                                17.500 Lbr
+                            </span>
+                        </div>
+                        <div class="flex flex-col gap-1 text-sm font-medium text-slate-500 ">
+                            <span class="text-center">Total Verif</span>
+                            <span class="bg-emerald-400 text-emerald-50 px-4 py-1.5 w-fit rounded-md brightness-110 drop-shadow-2xl">
+                                17.500 Lbr
+                            </span>
+                        </div>
+                    </div>
                     {{-- D-1.Table --}}
                     <div
                         class="mt-4 overflow-hidden border rounded bg-inerhit border-x border-slate-400 bg-opacity-30 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50">
@@ -448,7 +462,7 @@
 
                                                     {{-- 2.7 Pencapaian --}}
                                                     <td
-                                                        class="p-3 font-sans text-sm font-light text-end border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                        class="p-3 font-sans text-sm font-light border-r-2 text-end whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div
                                                             class="flex flex-col items-center justify-center gap-1 flex-nowrap">
                                                             {{-- By Jumlah Verif PCHT --}}

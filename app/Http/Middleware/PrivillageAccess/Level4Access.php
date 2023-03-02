@@ -24,7 +24,7 @@ class Level4Access
         }
         else
         {
-            return abort(404);
+            return response()->view('layouts.403');
         }
     }
 }

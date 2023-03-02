@@ -15,7 +15,6 @@
 8. Form Pengiriman PC
 9. Input verifikasi
    9.1 Modal Konfirmasi Untuk Save
-10.Form Input Kelolosan
 
 ----------- Sub Quest -----------
 

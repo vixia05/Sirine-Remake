@@ -18,13 +18,13 @@
             @if(session('saved'))
             <div
                 class="p-2 my-3 text-center text-green-100 bg-green-500 rounded shadow-lg brightness-110 shadow-green-500/50">
-                <h5 class="text-2xl">Jenis Kerusakan {{ session('saved') }} Berhasil Di Ubah</h5>
+                <h5 class="text-2xl">Target {{ session('saved') }} Berhasil Di Ubah</h5>
             </div>
             @endif
             @if(session('deleted'))
             <div
                 class="p-2 my-3 text-center text-red-100 bg-red-500 rounded shadow-lg brightness-110 shadow-red-500/50">
-                <h5 class="text-2xl">Data Produksi {{ session('deleted') }} Berhasil Di Hapus</h5>
+                <h5 class="text-2xl">Target Harian Berhasil Di Hapus</h5>
             </div>
             @endif
             {{-- 1.0 Filter & Search Section --}}
@@ -76,7 +76,7 @@
                                         <tr>
                                             {{-- 2.1.1 Index --}}
                                             <th scope="col"
-                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500 w-fit">
                                                 No
                                             </th>
                                             {{-- 2.1.2 Workstation --}}
@@ -104,6 +104,11 @@
                                                 class="p-3 text-end border-slate-300 dark:border-slate-500">
                                                 Target / Hari
                                             </th>
+                                            {{-- 2.1.6 Produk --}}
+                                            <th scope="col"
+                                                class="p-3 text-center border-slate-300 dark:border-slate-500">
+                                                Produk
+                                            </th>
                                             {{-- 2.1.8 Seksi --}}
                                             <th scope="col"
                                                 class="p-3 text-center border-slate-300 dark:border-slate-500">
@@ -118,14 +123,14 @@
                                     </thead>
                                     {{-- 2.2 Body Table --}}
                                     <tbody>
-                                            <x-loading></x-loading>
+                                        <x-loading></x-loading>
                                         @forelse ($data as $datas)
                                         <tr
                                             class="transition duration-300 ease-in-out border-b border-slate-300 text-slate-800 hover:bg-slate-400 hover:bg-opacity-10 dark:text-slate-100">
                                             {{-- Nomor --}}
                                             <td
                                                 class="p-3 text-sm font-medium text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
-
+                                                {{ $data->firstItem() + $loop->index }}
                                             </td>
                                             {{-- Workstation --}}
                                             <td
@@ -152,6 +157,11 @@
                                                 class="p-3 text-sm font-light text-right whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                 {{ number_format($datas->target * $datas->jam_efektif,0) }} / {{ $datas->satuan }}
                                             </td>
+                                            {{-- Produk --}}
+                                            <td
+                                                class="p-3 text-sm font-light text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                {{ $datas->produk }}
+                                            </td>
                                             {{-- Seksi --}}
                                             <td
                                                 class="p-3 text-sm font-light text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
@@ -159,14 +169,14 @@
                                             </td>
                                             {{-- Action--}}
                                             <td
-                                                class="p-3 text-sm font-light text-center whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
+                                                class="p-3 text-sm font-light text-center whitespace-nowrap">
                                                 <div class="flex justify-center gap-2">
                                                     <button type="button" data-mdb-ripple="true"
                                                         @click.prevent="editModal = true"
-                                                        wire:click='edit({{ $datas->po_hcts }})'
+                                                        wire:click='edit({{ $datas->id }})'
                                                         data-mdb-ripple-color="light"
                                                         class="inline-block px-2 py-1.5 text-sm font-semibold transition duration-150 drop-shadow-md  brightness-150 shadow-green-500/50 ease-in-out bg-green-600 rounded shadow-md leading-tighttext-slate-200 hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg">
-                                                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        <svg class="w-5 h-5 text-green-100" xmlns="http://www.w3.org/2000/svg"
                                                             viewBox="0 0 20 20" fill="currentColor">
                                                             <path
                                                                 d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
@@ -177,10 +187,10 @@
                                                     </button>
                                                     <button type="button" data-mdb-ripple="true"
                                                         @click.prevent="deleteModal = true"
-                                                        wire:click='delete({{ $datas->po_hcts }})'
+                                                        wire:click='delete({{ $datas->id }})'
                                                         data-mdb-ripple-color="light"
                                                         class="inline-block px-2 py-1.5 text-sm font-semibold transition duration-150 drop-shadow-md  brightness-150 shadow-red-500/50 ease-in-out bg-red-600 rounded shadow-md leading-tighttext-slate-200 hover:bg-red-600 hover:shadow-lg focus:bg-red-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-700 active:shadow-lg">
-                                                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                                                        <svg class="w-5 h-5 text-red-100" xmlns="http://www.w3.org/2000/svg"
                                                             viewBox="0 0 20 20" fill="currentColor">
                                                             <path fill-rule="evenodd"
                                                                 d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
@@ -210,7 +220,7 @@
             {{-- 3.0 Footer --}}
             <div
                 class="px-10 pt-2 pb-3 overflow-hidden border-b rounded-b bg-inerhit border-slate-300 text-slate-700 dark:border-slate-500 dark:bg-slate-700 dark:bg-opacity-50 dark:text-slate-100">
-                {{-- {{ $data->links('vendor.livewire.tailwind') }} --}}
+                {{ $data->links('vendor.livewire.tailwind') }}
             </div>
             {{-- End Footer --}}
         </div>

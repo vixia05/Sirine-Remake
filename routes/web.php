@@ -33,6 +33,9 @@ use App\Http\Controllers\Andon\PitaCukai\KhazkhirController;
 use App\Http\Livewire\Admin\LaporanProduksi;
 use App\Http\Livewire\Operator\DataProdVerif;
 
+// Namespace Pengiriman
+use App\Http\Livewire\Pengiriman\PengirimanPikai;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,7 +68,7 @@ Route::group(['middleware' => ['auth','verified']], function() {
 
         });
     //--- SuperUser ---//
-        Route::group(['namespace' => 'App\Http\Controllers\SuperUser', 'middleware' => 'level2Access'], function() {
+        Route::group(['namespace' => 'App\Http\Controllers\SuperUser', 'middleware' => 'level10Access'], function() {
 
             Route::get('updateOrder',[UpdateOrderController::class, 'index'])
                 ->name('updateOrder.index');
@@ -87,7 +90,7 @@ Route::group(['middleware' => ['auth','verified']], function() {
              ->name('jamEfektif');
 
     //--- Admin ---//
-        Route::group(['namespace' => 'App\Http\Controllers\Admin', 'middleware' => 'level2Access'], function() {
+        Route::group(['namespace' => 'App\Http\Controllers\Admin', 'middleware' => 'level1Access'], function() {
 
             // Data Pegawai
                 Route::group(['middleware' => 'level3Access'], function(){
@@ -144,7 +147,7 @@ Route::group(['middleware' => ['auth','verified']], function() {
         // Raport Pegawai
             Route::get('report',ReportPegawai::class)
                 ->name('report')
-                ->middleware('level4Access');
+                ->middleware('level3Access');
 
 
 
@@ -159,6 +162,12 @@ Route::group(['middleware' => ['auth','verified']], function() {
             Route::get('operator.data-prod-verif', DataProdVerif::class)
                  ->name('operator.data-prod-verif');
         });
+
+    //--- Pengiriman ---//
+
+        // Pita Cukai
+        Route::get('pengiriman.pikai',PengirimanPikai::class)
+             ->name('pengiriman.pikai');
 
     //--- Other Utilities ---//
 

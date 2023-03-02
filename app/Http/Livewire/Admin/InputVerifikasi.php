@@ -9,8 +9,11 @@ use Livewire\WithPagination;
 use Illuminate\Support\Collection;
 
 use App\Models\QcPikai;
+use App\Models\OrderPcht;
+use App\Models\OrderMmea;
 use App\Models\UserDetails;
 use App\Models\Workstation;
+use App\Models\JamEfektif;
 use App\Models\Seksi;
 
 class InputVerifikasi extends Component
@@ -58,6 +61,78 @@ class InputVerifikasi extends Component
             'station' => $this->station(),
             'data'  => $data,
         ]);
+    }
+
+    /**
+     * Get Target By WIP Untuk Menentukan target minimal
+     */
+    public function getTarget($station)
+    {
+        $efektifPcht = JamEfektif::where('id_workstation',$station)
+                                ->where('gilir',1)
+                                ->where('produk',"PCHT")
+                                ->where('satuan',"Lbr");
+
+        $normalPcht = $efektifPcht->sum('target') * $efektifPcht->sum('jam_efektif');
+
+        $efektifMmea = JamEfektif::where('id_workstation',$station)
+                                ->where('gilir',1)
+                                ->where('produk',"MMEA")
+                                ->where('satuan',"Lbr");
+
+        $normalMmea = $efektifMmea->sum('target') * $efektifMmea->sum('jam_efektif');
+
+        if($this->jenis == "PCHT")
+        {
+            $get = OrderPcht::whereBetween('tgl_obc',[
+                                                        Carbon::parse($this->tglVerif)->subdays(60),
+                                                        Carbon::parse($this->tglVerif)->subday()
+                                                    ]);
+
+            $getCetak = $get->whereBetween('tgl_cetak',[
+                                                        Carbon::parse($this->tglVerif)->subdays(60),
+                                                        Carbon::parse($this->tglVerif)
+                                                       ])->sum('rencet');
+
+            $getVerif = $get->whereBetween('tgl_verif',[
+                                                        Carbon::parse($this->tglVerif)->subdays(60),
+                                                        Carbon::parse($this->tglVerif)->subday()
+                                                       ])->sum('rencet');
+
+            $getWip = $getCetak - $getVerif;
+
+            $target = $getWip < 805600 ? round(($getWip / 805600) * $normalPcht) : $normalPcht;
+
+        }
+        elseif($this->jenis == "MMEA")
+        {
+            $get = OrderMmea::whereBetween('tgl_obc',[
+                                                        Carbon::parse($this->tglVerif)->subdays(60),
+                                                        Carbon::parse($this->tglVerif)->subday()
+                                                    ]);
+
+            $getCetak = $get->whereBetween('tgl_cetak',[
+                                                        Carbon::parse($this->tglVerif)->subdays(60),
+                                                        Carbon::parse($this->tglVerif)
+                                                       ])->sum('rencet');
+
+            $getVerif = $get->whereBetween('tgl_verif',[
+                                                        Carbon::parse($this->tglVerif)->subdays(60),
+                                                        Carbon::parse($this->tglVerif)->subday()
+                                                       ])->sum('rencet');
+
+            $getWip = $getCetak - $getVerif;
+
+            $target = $getWip < 24000 ? round(($getWip / 24000) * $normalMmea) : $normalMmea;
+        }
+        else
+        {
+            $getWIp = 0;
+            $target = 0;
+        }
+        // dd($target);
+        return $target;
+
     }
 
     /**
@@ -121,7 +196,7 @@ class InputVerifikasi extends Component
                             'jenis'     => $this->jenis,
                         ],
                         [
-                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
+                            'target'    => $this->getTarget($this->workstation),
                             'lembur'   => 0,
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
                             'jml_verif' => $verif == !null ? $verif : 0,
@@ -149,7 +224,7 @@ class InputVerifikasi extends Component
                             'jenis'     => $this->jenis,
                         ],
                         [
-                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
+                                                        'target'    => $this->getTarget($this->workstation),
                             'lembur'   => 0,
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
                             'jml_obc'   => $obc == !null ? $obc : 0,
@@ -178,7 +253,7 @@ class InputVerifikasi extends Component
                             'jenis'     => $this->jenis,
                         ],
                         [
-                            'target'    => $this->jenis == "PCHT" ? 15000 : 6000,
+                            'target'    => $this->getTarget($this->workstation),
                             'lembur'   => 0,
                             'nama_user' => UserDetails::where('np_user',$key)->value('nama'),
                             'keterangan'   => $keterangan == !null ? $keterangan : null,
@@ -214,7 +289,7 @@ class InputVerifikasi extends Component
                     }
                     else
                     {
-                        $target = $this->jenis == "PCHT" ? 15000 : 6000;
+                        $target = $this->getTarget($this->workstation);
                     }
 
                     QcPikai::updateOrCreate(

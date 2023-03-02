@@ -51,7 +51,7 @@
 </li>
 
 {{-- 3 Menu Access --}}
-<x-side-nav-link :route="'updateOrder.index'">
+{{-- <x-side-nav-link :route="'updateOrder.index'">
     <x-slot name="svg">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-[19px] w-[19px] flex-shrink-0" fill="none" viewBox="0 0 24 24"
         stroke="currentColor" stroke-width="2">
@@ -60,7 +60,7 @@
         </svg>
     </x-slot>
     Menu Privillage
-</x-side-nav-link>
+</x-side-nav-link> --}}
 
 {{-- 2.5 Jam Efektif & Target --}}
 <li class="relative my-1.5">
