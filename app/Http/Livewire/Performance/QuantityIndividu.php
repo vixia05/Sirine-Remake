@@ -30,11 +30,11 @@ class QuantityIndividu extends Component
         $this->startDate = Carbon::today()->startOfMonth();
         $this->endDate   = Carbon::today();
         $this->listTeam  = Workstation::orderBy('workstation')->get();
+        $this->npUser    = Auth::user()->np;
         $this->listNp    = [];
         if(Helper::getRole() < 2)
         {
             $this->team = Helper::getWorkstation();
-            $this->npUser = Auth::user()->np;
             $this->mainChart();
         }
         else
@@ -188,14 +188,36 @@ class QuantityIndividu extends Component
         $exceedObcPcht  = $getPcht->sum('jml_obc')   - 18;
 
         $exceedLbrMmea  = $getMmea->sum('jml_verif') - $getMmea->sum('target');
-        // $exceedObcMmea  = $getMmea->sum('jml_obc')   - 18;
 
-        // dd($targetVerifHarian);
         return [
             'endTarget' => $endTarget,
             'exceedLbrPcht' => $exceedLbrPcht,
             'exceedObcPcht' => $exceedObcPcht,
             'exceedLbrMmea' => $exceedLbrMmea,
+        ];
+    }
+
+    public function subTotal()
+    {
+
+        $getPchtBetw    = QcPikai::where('np_user',$this->npUser)
+                                 ->where('jenis',"PCHT")
+                                 ->whereBetween('tgl_verif',[$this->startDate,$this->endDate]);
+
+        $getMmeaBetw    = QcPikai::where('np_user',$this->npUser)
+                                 ->where('jenis',"MMEA")
+                                 ->whereBetween('tgl_verif',[$this->startDate,$this->endDate]);
+
+        $avgPcht    = number_format($getPchtBetw->avg('jml_verif'),0);
+        $avgMmea    = number_format($getMmeaBetw->avg('jml_verif'),0);
+        $sumVerifPcht   = number_format($getPchtBetw->sum('jml_verif'),0);
+        $sumVerifMmea   = number_format($getMmeaBetw->sum('jml_verif'),0);
+
+        return [
+            'avgPcht'   => $avgPcht,
+            'avgMmea'   => $avgMmea,
+            'sumVerifPcht'  => $sumVerifPcht,
+            'sumVerifMmea'  => $sumVerifMmea,
         ];
     }
 }

@@ -191,17 +191,30 @@
                     <div class="grid grid-rows-1 gap-3 lg:gap-0">
                         <h6 class="w-full text-lg font-bold text-slate-800 dark:text-slate-100">Rekap Verifikasi</h6>
                     </div>
-                    <div class="flex gap-3 my-3">
-                        <div class="flex flex-col gap-1 text-sm font-medium text-slate-500 ">
-                            <span class="text-center">Average</span>
-                            <span class="bg-emerald-400 text-emerald-50 px-4 py-1.5 w-fit rounded-md brightness-110 drop-shadow-2xl">
-                                17.500 Lbr
+                    {{-- Sub Total --}}
+                    <div class="flex flex-wrap gap-3 my-3">
+                        <div class="flex flex-col items-center gap-1 text-sm font-medium text-slate-500">
+                            <span class="text-center">Rata - Rata PCHT</span>
+                            <span class="bg-emerald-400 text-emerald-50 px-8 py-1.5 w-fit rounded-md brightness-110 drop-shadow">
+                                {{ $this->subTotal()['avgPcht'] }} Lbr
                             </span>
                         </div>
-                        <div class="flex flex-col gap-1 text-sm font-medium text-slate-500 ">
-                            <span class="text-center">Total Verif</span>
-                            <span class="bg-emerald-400 text-emerald-50 px-4 py-1.5 w-fit rounded-md brightness-110 drop-shadow-2xl">
-                                17.500 Lbr
+                        <div class="flex flex-col items-center gap-1 text-sm font-medium text-slate-500 ">
+                            <span class="text-center">Total Verif PCHT</span>
+                            <span class="bg-cyan-400 text-emerald-50 px-8 py-1.5 w-fit rounded-md brightness-110 drop-shadow">
+                                {{ $this->subTotal()['sumVerifPcht'] }} Lbr
+                            </span>
+                        </div>
+                        <div class="flex flex-col items-center gap-1 text-sm font-medium text-slate-500 ">
+                            <span class="text-center">Total Verif MMEA</span>
+                            <span class="bg-amber-400 text-emerald-50 px-8 py-1.5 w-fit rounded-md brightness-110 drop-shadow">
+                                {{ $this->subTotal()['sumVerifMmea'] }} Lbr
+                            </span>
+                        </div>
+                        <div class="flex flex-col items-center gap-1 text-sm font-medium text-slate-500 ">
+                            <span class="text-center">Pencapaian (Total)</span>
+                            <span class="bg-emerald-400 text-emerald-50 px-8 py-1.5 w-fit rounded-md brightness-110 drop-shadow">
+                                -
                             </span>
                         </div>
                     </div>
@@ -469,6 +482,16 @@
                                                             @if ($this->pencapaian($data->tgl_verif)['endTarget'] >= 100)
                                                                 <div
                                                                     class="flex flex-col gap-2 rounded-lg drop-shadow-2xl my-auto bg-green-500 text-green-100 px-4 text-xs py-0.5 w-1/2 min-w-fit h-fit font-medium shadow-md shadow-green-500/30 brightness-110">
+                                                                    <span>{{ number_format($this->pencapaian($data->tgl_verif)['exceedLbrPcht']) }} Lbr / {{ number_format($this->pencapaian($data->tgl_verif)['exceedObcPcht']) }} OBC (PCHT)</span>
+                                                                    @if ($this->pencapaian($data->tgl_verif)['exceedLbrMmea'] >= 0)
+                                                                    @else
+                                                                        <span>{{ number_format($this->pencapaian($data->tgl_verif)['exceedLbrMmea']) }} Lbr (MMEA)</span>
+                                                                    @endif
+                                                                    <span>{{ number_format($this->pencapaian($data->tgl_verif)['endTarget'],2) }} %</span>
+                                                                </div>
+                                                            @elseif ($this->pencapaian($data->tgl_verif)['endTarget'] > 80 && $this->pencapaian($data->tgl_verif)['endTarget'] < 100)
+                                                                <div
+                                                                    class="flex flex-col gap-2 rounded-lg drop-shadow-2xl my-auto bg-yellow-300 text-yellow-700 px-4 text-xs py-0.5 w-1/2 min-w-fit h-fit font-medium shadow-md shadow-green-yellow/30 brightness-105">
                                                                     <span>{{ number_format($this->pencapaian($data->tgl_verif)['exceedLbrPcht']) }} Lbr / {{ number_format($this->pencapaian($data->tgl_verif)['exceedObcPcht']) }} OBC (PCHT)</span>
                                                                     @if ($this->pencapaian($data->tgl_verif)['exceedLbrMmea'] >= 0)
                                                                     @else
