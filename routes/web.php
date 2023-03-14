@@ -14,7 +14,6 @@ use App\Http\Livewire\SuperUser\JamEfektifs;
 use App\Http\Livewire\Cms\ListMenu;
 use App\Http\Livewire\Cms\TemplateMenu;
 
-
 // Namespace Performance
 use App\Http\Livewire\Performance\QuantityUnit;
 use App\Http\Livewire\Performance\QuantityIndividu;
@@ -30,6 +29,7 @@ use App\Http\Controllers\Andon\PitaCukai\KhazwalController;
 use App\Http\Controllers\Andon\PitaCukai\KhazkhirController;
 
 // Namespace Data Produksi
+use App\Http\Livewire\Admin\RekapRetur;
 use App\Http\Livewire\Admin\LaporanProduksi;
 use App\Http\Livewire\Operator\DataProdVerif;
 
@@ -110,11 +110,14 @@ Route::group(['middleware' => ['auth','verified']], function() {
             // Rekap Data
                 Route::resources([
                     'rekapVerif'    => RekapVerifikasiController::class,
-                    'rekapRetur'    => RekapReturController::class,
                 ]);
                 Route::resource('rekapEvaluasi', RekapEvaluasiController::class)
                      ->middleware('level3Access');
             });
+
+        Route::get('rekapRetur',RekapRetur::class)
+             ->name('rekapRetur')
+             ->middleware('level1Access');
 
         Route::get('laporanProduksi',LaporanProduksi::class)
              ->name('laporanProduksi');

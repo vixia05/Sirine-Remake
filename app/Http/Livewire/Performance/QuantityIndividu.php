@@ -155,12 +155,14 @@ class QuantityIndividu extends Component
                     ->where('jenis',"MMEA")
                     ->where('tgl_verif',$tglVerif);
 
+        $percVerif = divnum($data->value('jml_verif'),$data->value('target')) * 100;
+
         return [
             'izin'      => $data->value('izin'),
             'lembur'    => $data->value('lembur'),
             'target'    => $data->value('target'),
             'jml_obc'   => $data->value('jml_obc'),
-            'jml_verif' => $data->value('jml_verif'),
+            'perc_verif'=> $percVerif,
             'jml_verif' => $data->value('jml_verif'),
             'keterangan'=> $data->value('keterangan'),
         ];
@@ -176,8 +178,8 @@ class QuantityIndividu extends Component
                           ->where('tgl_verif',$tglVerif)
                           ->where('jenis',"MMEA");
 
-        $targetVerifPcht    = $getPcht->sum('jml_verif') == 0 ? 0 : ($getPcht->sum('jml_verif') / $getPcht->sum('target')) * 100;
-        $targetVerifMmea    = $getMmea->sum('jml_verif') == 0 ? 0 : ($getMmea->sum('jml_verif') / $getMmea->sum('target')) * 100;
+        $targetVerifPcht    = divnum($getPcht->sum('jml_verif'), $getPcht->sum('target')) * 100;
+        $targetVerifMmea    = divnum($getMmea->sum('jml_verif'), $getMmea->sum('target')) * 100;
         $targetVerifHarian  = $targetVerifPcht + $targetVerifMmea;
 
         $targetObcPcht  = $getPcht->sum('jml_obc') == 0 ? 0 : ($getPcht->sum('jml_obc') < 8 ? 0 : (($getPcht->sum('jml_obc') - 6) / 18) * 100);
@@ -191,6 +193,7 @@ class QuantityIndividu extends Component
 
         return [
             'endTarget' => $endTarget,
+            'dailyTarget'   => $getPcht->sum('target') + $getMmea->sum('target'),
             'exceedLbrPcht' => $exceedLbrPcht,
             'exceedObcPcht' => $exceedObcPcht,
             'exceedLbrMmea' => $exceedLbrMmea,

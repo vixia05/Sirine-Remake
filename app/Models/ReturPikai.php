@@ -14,4 +14,9 @@ class ReturPikai extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function userDetails()
+    {
+        return $this->belongsTo(UserDetails::class,'np_user','np_user');
+    }
 }

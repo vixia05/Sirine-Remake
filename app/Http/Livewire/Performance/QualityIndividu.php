@@ -25,7 +25,7 @@ class QualityIndividu extends Component
 
     public function render()
     {
-        return view('livewire.performance.quality-individu',
+        return view('livewire.performance.quality-individu.show',
                     [
                         'listNp'    => $this->listNp,
                         'listTeam'  => $this->listTeam,

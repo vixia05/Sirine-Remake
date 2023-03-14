@@ -201,13 +201,13 @@
                         </div>
                         <div class="flex flex-col items-center gap-1 text-sm font-medium text-slate-500 ">
                             <span class="text-center">Total Verif PCHT</span>
-                            <span class="bg-cyan-400 text-emerald-50 px-8 py-1.5 w-fit rounded-md brightness-110 drop-shadow">
+                            <span class="bg-emerald-400 text-emerald-50 px-8 py-1.5 w-fit rounded-md brightness-110 drop-shadow">
                                 {{ $this->subTotal()['sumVerifPcht'] }} Lbr
                             </span>
                         </div>
                         <div class="flex flex-col items-center gap-1 text-sm font-medium text-slate-500 ">
                             <span class="text-center">Total Verif MMEA</span>
-                            <span class="bg-amber-400 text-emerald-50 px-8 py-1.5 w-fit rounded-md brightness-110 drop-shadow">
+                            <span class="bg-emerald-400 text-emerald-50 px-8 py-1.5 w-fit rounded-md brightness-110 drop-shadow">
                                 {{ $this->subTotal()['sumVerifMmea'] }} Lbr
                             </span>
                         </div>
@@ -357,19 +357,36 @@
                                                         class="p-3 text-sm text-right border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex justify-between">
                                                             @if($this->dataMmea($data->tgl_verif)['jml_verif'] > 0)
-                                                                @if ($this->dataMmea($data->tgl_verif)['target'] <= $this->dataMmea($data->tgl_verif)['jml_verif'])
-                                                                    <div
-                                                                        class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
-                                                                        {{number_format(($this->dataMmea($data->tgl_verif)['jml_verif']/$this->dataMmea($data->tgl_verif)['target'])*100,2)}}
-                                                                        %
-                                                                    </div>
-                                                                @else
-                                                                    <div
-                                                                        class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
-                                                                        {{number_format(($this->dataMmea($data->tgl_verif)['jml_verif']/$this->dataMmea($data->tgl_verif)['target'])*100,2)}}
-                                                                        %
-                                                                    </div>
+
+                                                                {{-- Badge Hijau Jika JMl Verif > Target Verif --}}
+                                                                    @if ($this->dataMmea($data->tgl_verif)['target'] <= $this->dataMmea($data->tgl_verif)['jml_verif'])
+
+                                                                        <div
+                                                                            class="rounded-md font-sans my-auto bg-green-500 text-green-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-green-500/30 brightness-110">
+                                                                            {{number_format(($this->dataMmea($data->tgl_verif)['perc_verif'])*100,2)}}
+                                                                            %
+                                                                        </div>
+
+                                                                {{-- Badge Kuning Jika JMl Verif > 80% Target Verif  & Kurang dari 100%--}}
+                                                                    @elseif ($this->dataMmea($data->tgl_verif)['target'] <= $this->dataMmea($data->tgl_verif)['jml_verif'])
+
+                                                                        <div
+                                                                            class="rounded-md font-sans my-auto bg-yellow-500 text-yellow-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-yellow-500/30 brightness-110">
+                                                                            {{number_format(($this->dataMmea($data->tgl_verif)['perc_verif'])*100,2)}}
+                                                                            %
+                                                                        </div>
+
+                                                                {{-- Badge Merah Jika JMl Verif < 80% Target Verif --}}
+                                                                    @else
+
+                                                                        <div
+                                                                            class="rounded-md font-sans my-auto bg-red-500 text-red-100 px-2 text-xs py-1.5 w-1/4 drop-shadow-2xl min-w-fit h-fit font-bold shadow-md shadow-red-500/30 brightness-110">
+                                                                            {{number_format(($this->dataMmea($data->tgl_verif)['perc_verif'])*100,2)}}
+                                                                            %
+                                                                        </div>
+
                                                                 @endif
+
                                                                 <div class="flex flex-col gap-1">
                                                                     <span class="font-medium">{{ number_format($this->dataMmea($data->tgl_verif)['jml_verif']/500,0) }} Rim</span>
                                                                     <span>{{ number_format($this->dataMmea($data->tgl_verif)['jml_verif'],0) }}
@@ -461,12 +478,15 @@
                                                         class="p-3 text-sm font-light text-right border-r-2 whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div class="flex flex-col gap-1">
                                                             @if ($this->dataMmea($data->tgl_verif)['jml_obc'] > 0)
+
                                                                 <span class="font-medium">
-                                                                    {{ number_format($this->dataMmea($data->tgl_verif)['target']/500,0) }} Rim
+                                                                    {{ number_format($this->dataMmea($data->tgl_verif)['target'] > 0 ? $this->dataMmea($data->tgl_verif)['target']/500 : 0,0) }} Rim
                                                                 </span>
+
                                                                 <span>
                                                                     {{ number_format($this->dataMmea($data->tgl_verif)['target'],0) }} Lbr
                                                                 </span>
+
                                                             @else
                                                             -
                                                             @endif
@@ -478,38 +498,66 @@
                                                         class="p-3 font-sans text-sm font-light border-r-2 text-end whitespace-nowrap text-slate-700 dark:border-slate-500 dark:text-slate-100">
                                                         <div
                                                             class="flex flex-col items-center justify-center gap-1 flex-nowrap">
+
                                                             {{-- By Jumlah Verif PCHT --}}
                                                             @if ($this->pencapaian($data->tgl_verif)['endTarget'] >= 100)
+
                                                                 <div
                                                                     class="flex flex-col gap-2 rounded-lg drop-shadow-2xl my-auto bg-green-500 text-green-100 px-4 text-xs py-0.5 w-1/2 min-w-fit h-fit font-medium shadow-md shadow-green-500/30 brightness-110">
                                                                     <span>{{ number_format($this->pencapaian($data->tgl_verif)['exceedLbrPcht']) }} Lbr / {{ number_format($this->pencapaian($data->tgl_verif)['exceedObcPcht']) }} OBC (PCHT)</span>
+
                                                                     @if ($this->pencapaian($data->tgl_verif)['exceedLbrMmea'] >= 0)
+
                                                                     @else
                                                                         <span>{{ number_format($this->pencapaian($data->tgl_verif)['exceedLbrMmea']) }} Lbr (MMEA)</span>
                                                                     @endif
-                                                                    <span>{{ number_format($this->pencapaian($data->tgl_verif)['endTarget'],2) }} %</span>
+
+                                                                    {{-- Persentase Pencapaian Berdasarkan Persentase Target --}}
+                                                                        @if (divnum($this->pencapaian($data->tgl_verif)['dailyTarget'],15000)*100 < 75)
+
+                                                                            <span>100 %</span>
+
+                                                                        @else
+
+                                                                            <span>{{ number_format($this->pencapaian($data->tgl_verif)['endTarget'],2) }} %</span>
+
+                                                                        @endif
                                                                 </div>
+
                                                             @elseif ($this->pencapaian($data->tgl_verif)['endTarget'] > 80 && $this->pencapaian($data->tgl_verif)['endTarget'] < 100)
+
                                                                 <div
                                                                     class="flex flex-col gap-2 rounded-lg drop-shadow-2xl my-auto bg-yellow-300 text-yellow-700 px-4 text-xs py-0.5 w-1/2 min-w-fit h-fit font-medium shadow-md shadow-green-yellow/30 brightness-105">
                                                                     <span>{{ number_format($this->pencapaian($data->tgl_verif)['exceedLbrPcht']) }} Lbr / {{ number_format($this->pencapaian($data->tgl_verif)['exceedObcPcht']) }} OBC (PCHT)</span>
+
                                                                     @if ($this->pencapaian($data->tgl_verif)['exceedLbrMmea'] >= 0)
+
                                                                     @else
+
                                                                         <span>{{ number_format($this->pencapaian($data->tgl_verif)['exceedLbrMmea']) }} Lbr (MMEA)</span>
+
                                                                     @endif
+
                                                                     <span>{{ number_format($this->pencapaian($data->tgl_verif)['endTarget'],2) }} %</span>
                                                                 </div>
+
                                                             @else
+
                                                                 <div
                                                                     class="flex flex-col gap-2 rounded-lg drop-shadow-2xl my-auto bg-red-500 h-fit text-green-100 px-4 w-1/2 min-w-fit text-xs py-0.5 font-medium shadow-md shadow-red-500/30 brightness-110">
                                                                     <span>{{ number_format($this->pencapaian($data->tgl_verif)['exceedLbrPcht']) }} Lbr / {{ number_format($this->pencapaian($data->tgl_verif)['exceedObcPcht']) }} OBC (PCHT)</span>
+
                                                                     @if ($this->pencapaian($data->tgl_verif)['exceedLbrMmea'] <= 0)
+
                                                                     @else
                                                                         <span>{{ number_format($this->pencapaian($data->tgl_verif)['exceedLbrMmea']) }} Lbr (MMEA)</span>
                                                                     @endif
+
                                                                     <span>{{ number_format($this->pencapaian($data->tgl_verif)['endTarget'],2) }} %</span>
                                                                 </div>
+
                                                             @endif
+
                                                         </div>
                                                     </td>
 

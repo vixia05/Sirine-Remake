@@ -45,6 +45,10 @@ class InputReturController extends Controller
         $namaUser = UserDetails::where('np_user',$request->npUser)->value('nama');
         $jmlRetur = $request->blobor
                     + $request->plooi
+                    + $request->blanko
+                    + $request->minyak
+                    + $request->terlipat
+                    + $request->diecut
                     + $request->blur
                     + $request->hologram
                     + $request->noda
@@ -61,6 +65,10 @@ class InputReturController extends Controller
             'jProduk'=> 'required|max:4|alpha',
             'blobor' => 'nullable|numeric',
             'plooi'  => 'nullable|numeric',
+            'blanko'  => 'nullable|numeric',
+            'minyak'  => 'nullable|numeric',
+            'terlipat'  => 'nullable|numeric',
+            'diecut'  => 'nullable|numeric',
             'blur'   => 'nullable|numeric',
             'hologram'  => 'nullable|numeric',
             'noda'   => 'nullable|numeric',
@@ -75,7 +83,11 @@ class InputReturController extends Controller
         // dd($namaUser);
 
         ReturPikai::updateOrCreate(
-            ['tgl_ck3' => $request->tglCek, 'np_user' => $request->npUser],
+            [
+                'tgl_ck3' => $request->tglCek,
+                'np_user' => $request->npUser,
+                'waktu' => $request->waktu,
+            ],
             [
             'nama_user' => $namaUser,
             'terpotong' => $request->terpotong == null ? 0 : $request->terpotong,
@@ -91,6 +103,10 @@ class InputReturController extends Controller
             'tipis' => $request->tipis == null ? 0 : $request->tipis,
             'sobek' => $request->sobek == null ? 0 : $request->sobek,
             'botak' => $request->botak == null ? 0 : $request->botak,
+            'blanko' => $request->blanko == null ? 0 : $request->blanko,
+            'minyak' => $request->minyak == null ? 0 : $request->minyak,
+            'terlipat' => $request->terlipat == null ? 0 : $request->terlipat,
+            'diecut' => $request->diecut == null ? 0 : $request->diecut,
             'jml_retur' => $jmlRetur,
             ]
             );
