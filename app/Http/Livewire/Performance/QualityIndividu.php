@@ -29,6 +29,8 @@ class QualityIndividu extends Component
                     [
                         'listNp'    => $this->listNp,
                         'listTeam'  => $this->listTeam,
+                        'dataTable' => $this->dataTable(),
+                        'jenisRetur'=> $this->jenisRetur(),
                     ]);
     }
 
@@ -39,7 +41,6 @@ class QualityIndividu extends Component
 
     public function mount()
     {
-
 
         if(Helper::getRole() < 2)
         {
@@ -330,5 +331,37 @@ class QualityIndividu extends Component
             'datasets' => $jenisUniDataset,
         ]);
 
+    }
+
+    private function dataTable()
+    {
+        $get = ReturPikai::whereYear('tgl_ck3',$this->year)
+                         ->where('np_user',$this->npUser)
+                         ->orderBy('tgl_ck3')
+                         ->paginate(15);
+
+        return $get;
+    }
+
+    private function jenisRetur()
+    {
+        return [
+            "blobor",
+            "blanko",
+            "blur",
+            "botak",
+            "diecut",
+            "gradasi",
+            "hologram",
+            "miss_reg",
+            "minyak",
+            "noda",
+            "plooi",
+            "sobek",
+            "tercampur",
+            "terpotong",
+            "tipis",
+            "terlipat"
+        ];
     }
 }
