@@ -47,7 +47,7 @@ class QuantityIndividu extends Component
     {
         $this->tableData();
 
-        return view('livewire.performance.quantity-individu',
+        return view('livewire.performance.quantity-individu.view',
                     [
                         'data'  => $this->data,
                         'listNp'    => $this->listNp,

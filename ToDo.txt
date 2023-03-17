@@ -8,7 +8,6 @@
    3.2 Table Di Bawah Chart
    ** Cari Algoritma Yang Lebih Efisien **
 4. Quantity Individu
-   4.1 Tampilan Pencapaian di Table
    4.2 Rata Rata Team Dalam Chart
 5. Quality Unit
 7. Report Pegawai
